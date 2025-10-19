@@ -109,6 +109,7 @@ set(UI_SOURCES
     src/ui/LibraryWidget.cpp       # Task 5.4
     src/ui/PlaylistWidget.cpp      # Task 5.4
     src/ui/AudioEqualizerWidget.cpp # Task 6.1
+    src/ui/AudioVisualizerWidget.cpp # Task 6.2
     # src/ui/VideoWidget.cpp         # Task 3.3
     # src/ui/SettingsDialog.cpp      # Task 10.1
 )
@@ -123,6 +124,7 @@ set(MEDIA_SOURCES
 
 set(AUDIO_SOURCES
     src/audio/AudioEqualizer.cpp
+    src/audio/AudioVisualizer.cpp
 )
 
 # Add VLC stub for Windows builds
@@ -170,7 +172,9 @@ set(HEADER_FILES
     include/ui/LibraryWidget.h
     include/ui/PlaylistWidget.h
     include/ui/AudioEqualizerWidget.h
+    include/ui/AudioVisualizerWidget.h
     include/audio/AudioEqualizer.h
+    include/audio/AudioVisualizer.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h
