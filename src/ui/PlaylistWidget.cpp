@@ -1,45 +1,53 @@
 #include "ui/PlaylistWidget.h"
 #include "data/PlaylistManager.h"
 #include "data/Playlist.h"
-
-#include <QHeaderView>
-#include <QMessageBox>
-#include <QInputDialog>
-#include <QFileDialog>
-#include <QMimeData>
+#include "data/MediaFile.h"
+#include <QContextMenuEvent>
 #include <QDragEnterEvent>
+#include <QDragMoveEvent>
 #include <QDropEvent>
-#include <QStandardPaths>
-#include <QFileInfo>
+#include <QMimeData>
+#include <QUrl>
+#include <QFileDialog>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QHeaderView>
+#include <QTreeWidgetItem>
+#include <QListWidgetItem>
 #include <QLoggingCategory>
+#include <QMutexLocker>
+#include <algorithm>
 
 Q_DECLARE_LOGGING_CATEGORY(playlistWidget)
 Q_LOGGING_CATEGORY(playlistWidget, "ui.playlist")
 
 PlaylistWidget::PlaylistWidget(QWidget* parent)
     : QWidget(parent)
-    , m_mainLayout(nullptr)
-    , m_headerLayout(nullptr)
-    , m_buttonLayout(nullptr)
-    , m_playlistLabel(nullptr)
-    , m_infoLabel(nullptr)
-    , m_playlistView(nullptr)
-    , m_playlistModel(nullptr)
-    , m_clearButton(nullptr)
-    , m_shuffleButton(nullptr)
-    , m_saveButton(nullptr)
-    , m_loadButton(nullptr)
-    , m_contextMenu(nullptr)
-    , m_currentPlaylistId(-1)
-    , m_updateTimer(new QTimer(this))
+    , m_mainLayout(new QVBoxLayout(this))
+    , m_toolbarLayout(new QHBoxLayout())
+    , m_controlsLayout(new QHBoxLayout())
+    , m_displayModeCombo(new QComboBox(this))
+    , m_sortByCombo(new QComboBox(this))
+    , m_newPlaylistButton(new QPushButton("New", this))
+    , m_deletePlaylistButton(new QPushButton("Delete", this))
+    , m_savePlaylistButton(new QPushButton("Save", this))
+    , m_loadPlaylistButton(new QPushButton("Load", this))
+    , m_shuffleButton(new QPushButton("Shuffle", this))
+    , m_clearButton(new QPushButton("Clear", this))
+    , m_moveUpButton(new QPushButton("↑", this))
+    , m_moveDownButton(new QPushButton("↓", this))
+    , m_listWidget(new QListWidget(this))
+    , m_treeWidget(new QTreeWidget(this))
+    , m_currentView(nullptr)
+    , m_statusLabel(new QLabel(this))
+    , m_contextMenu(new QMenu(this))
+    , m_playlistManager(nullptr)
+    , m_displayMode(ListMode)
+    , m_sortBy(Default)
 {
     setupUI();
-    setupContextMenu();
     setupConnections();
-    
-    // Set up update timer for batching updates
-    m_updateTimer->setSingleShot(true);
-    m_updateTimer->setInterval(100);
+    createContextMenu();
     
     qCDebug(playlistWidget) << "PlaylistWidget created";
 }
@@ -49,461 +57,716 @@ PlaylistWidget::~PlaylistWidget()
     qCDebug(playlistWidget) << "PlaylistWidget destroyed";
 }
 
-void PlaylistWidget::initialize(std::shared_ptr<PlaylistManager> playlistManager)
+void PlaylistWidget::setPlaylistManager(PlaylistManager* playlistManager)
 {
+    if (m_playlistManager) {
+        disconnect(m_playlistManager, nullptr, this, nullptr);
+    }
+    
     m_playlistManager = playlistManager;
     
     if (m_playlistManager) {
         // Connect to playlist manager signals
-        connect(m_playlistManager.get(), &PlaylistManager::playlistUpdated,
-                this, &PlaylistWidget::onPlaylistUpdated);
-        connect(m_playlistManager.get(), &PlaylistManager::playlistItemAdded,
-                this, &PlaylistWidget::onPlaylistItemAdded);
-        connect(m_playlistManager.get(), &PlaylistManager::playlistItemRemoved,
-                this, &PlaylistWidget::onPlaylistItemRemoved);
+        // connect(m_playlistManager, &PlaylistManager::playlistUpdated,
+        //         this, &PlaylistWidget::updatePlaylistDisplay);
     }
-    
-    qCDebug(playlistWidget) << "PlaylistWidget initialized with manager";
 }
 
-void PlaylistWidget::setupUI()
+PlaylistWidget::DisplayMode PlaylistWidget::getDisplayMode() const
 {
-    m_mainLayout = new QVBoxLayout(this);
-    m_mainLayout->setContentsMargins(6, 6, 6, 6);
-    m_mainLayout->setSpacing(6);
-    
-    // Header
-    m_headerLayout = new QHBoxLayout();
-    
-    m_playlistLabel = new QLabel("Current Playlist", this);
-    m_playlistLabel->setStyleSheet("QLabel { font-weight: bold; font-size: 12px; }");
-    m_headerLayout->addWidget(m_playlistLabel);
-    
-    m_headerLayout->addStretch();
-    
-    m_infoLabel = new QLabel("0 items", this);
-    m_infoLabel->setStyleSheet("QLabel { color: #666; font-size: 11px; }");
-    m_headerLayout->addWidget(m_infoLabel);
-    
-    m_mainLayout->addLayout(m_headerLayout);
-    
-    // Playlist view
-    m_playlistModel = new QStandardItemModel(this);
-    m_playlistModel->setHorizontalHeaderLabels({"Track", "Title", "Duration"});
-    
-    m_playlistView = new QListView(this);
-    m_playlistView->setModel(m_playlistModel);
-    m_playlistView->setAlternatingRowColors(true);
-    m_playlistView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    m_playlistView->setContextMenuPolicy(Qt::CustomContextMenu);
-    m_playlistView->setDragDropMode(QAbstractItemView::InternalMove);
-    m_playlistView->setDefaultDropAction(Qt::MoveAction);
-    
-    m_mainLayout->addWidget(m_playlistView);
-    
-    // Button layout
-    m_buttonLayout = new QHBoxLayout();
-    
-    m_clearButton = new QPushButton("Clear", this);
-    m_clearButton->setMaximumWidth(60);
-    m_buttonLayout->addWidget(m_clearButton);
-    
-    m_shuffleButton = new QPushButton("Shuffle", this);
-    m_shuffleButton->setMaximumWidth(70);
-    m_buttonLayout->addWidget(m_shuffleButton);
-    
-    m_buttonLayout->addStretch();
-    
-    m_saveButton = new QPushButton("Save", this);
-    m_saveButton->setMaximumWidth(60);
-    m_buttonLayout->addWidget(m_saveButton);
-    
-    m_loadButton = new QPushButton("Load", this);
-    m_loadButton->setMaximumWidth(60);
-    m_buttonLayout->addWidget(m_loadButton);
-    
-    m_mainLayout->addLayout(m_buttonLayout);
+    return m_displayMode;
 }
 
-void PlaylistWidget::setupContextMenu()
+void PlaylistWidget::setDisplayMode(DisplayMode mode)
 {
-    m_contextMenu = new QMenu(this);
-    
-    m_playAction = new QAction("Play", this);
-    m_playAction->setShortcut(QKeySequence::InsertParagraphSeparator);
-    m_contextMenu->addAction(m_playAction);
-    
-    m_playFromAction = new QAction("Play from Here", this);
-    m_contextMenu->addAction(m_playFromAction);
-    
-    m_contextMenu->addSeparator();
-    
-    m_moveUpAction = new QAction("Move Up", this);
-    m_moveUpAction->setShortcut(QKeySequence("Ctrl+Up"));
-    m_contextMenu->addAction(m_moveUpAction);
-    
-    m_moveDownAction = new QAction("Move Down", this);
-    m_moveDownAction->setShortcut(QKeySequence("Ctrl+Down"));
-    m_contextMenu->addAction(m_moveDownAction);
-    
-    m_contextMenu->addSeparator();
-    
-    m_showInfoAction = new QAction("Properties", this);
-    m_contextMenu->addAction(m_showInfoAction);
-    
-    m_contextMenu->addSeparator();
-    
-    m_removeAction = new QAction("Remove from Playlist", this);
-    m_removeAction->setShortcut(QKeySequence::Delete);
-    m_contextMenu->addAction(m_removeAction);
+    if (m_displayMode != mode) {
+        m_displayMode = mode;
+        m_displayModeCombo->setCurrentIndex(static_cast<int>(mode));
+        updatePlaylistDisplay();
+    }
 }
 
-void PlaylistWidget::setupConnections()
+PlaylistWidget::SortBy PlaylistWidget::getSortBy() const
 {
-    // View connections
-    connect(m_playlistView, &QListView::doubleClicked,
-            this, &PlaylistWidget::onItemDoubleClicked);
-    connect(m_playlistView, &QListView::customContextMenuRequested,
-            this, &PlaylistWidget::onContextMenuRequested);
-    
-    // Button connections
-    connect(m_clearButton, &QPushButton::clicked,
-            this, &PlaylistWidget::onClearPlaylist);
-    connect(m_shuffleButton, &QPushButton::clicked,
-            this, &PlaylistWidget::onShufflePlaylist);
-    connect(m_saveButton, &QPushButton::clicked,
-            this, &PlaylistWidget::onSavePlaylist);
-    connect(m_loadButton, &QPushButton::clicked,
-            this, &PlaylistWidget::onLoadPlaylist);
-    
-    // Context menu actions
-    connect(m_playAction, &QAction::triggered,
-            this, &PlaylistWidget::onPlaySelected);
-    connect(m_playFromAction, &QAction::triggered,
-            this, &PlaylistWidget::onPlayFromHere);
-    connect(m_removeAction, &QAction::triggered,
-            this, &PlaylistWidget::onRemoveSelected);
-    connect(m_moveUpAction, &QAction::triggered,
-            [this]() { moveSelectedItems(-1); });
-    connect(m_moveDownAction, &QAction::triggered,
-            [this]() { moveSelectedItems(1); });
-    connect(m_showInfoAction, &QAction::triggered,
-            this, &PlaylistWidget::onShowFileInfo);
-    
-    // Timer connection
-    connect(m_updateTimer, &QTimer::timeout,
-            this, &PlaylistWidget::populatePlaylist);
+    return m_sortBy;
 }
 
-void PlaylistWidget::setCurrentPlaylist(int playlistId)
+void PlaylistWidget::setSortBy(SortBy sortBy)
 {
-    if (m_currentPlaylistId != playlistId) {
-        m_currentPlaylistId = playlistId;
-        populatePlaylist();
-        updatePlaylistInfo();
+    if (m_sortBy != sortBy) {
+        m_sortBy = sortBy;
+        m_sortByCombo->setCurrentIndex(static_cast<int>(sortBy));
+        updatePlaylistDisplay();
+    }
+}
+
+std::shared_ptr<Playlist> PlaylistWidget::getCurrentPlaylist() const
+{
+    QMutexLocker locker(&m_dataMutex);
+    return m_currentPlaylist;
+}
+
+void PlaylistWidget::setCurrentPlaylist(std::shared_ptr<Playlist> playlist)
+{
+    QMutexLocker locker(&m_dataMutex);
+    
+    if (m_currentPlaylist != playlist) {
+        m_currentPlaylist = playlist;
+        locker.unlock();
         
-        qCDebug(playlistWidget) << "Current playlist set to" << playlistId;
+        populatePlaylistView();
+        updatePlaylistStats();
+        emit playlistChanged(m_currentPlaylist);
     }
 }
 
-int PlaylistWidget::getCurrentPlaylistId() const
+QVector<std::shared_ptr<MediaFile>> PlaylistWidget::getSelectedFiles() const
 {
-    return m_currentPlaylistId;
-}
-
-void PlaylistWidget::addFiles(const QStringList& filePaths)
-{
-    if (m_playlistManager && m_currentPlaylistId >= 0) {
-        for (const QString& filePath : filePaths) {
-            m_playlistManager->addToPlaylist(m_currentPlaylistId, filePath);
-        }
-    }
-}
-
-QStringList PlaylistWidget::getSelectedFiles() const
-{
-    QStringList files;
-    QModelIndexList selected = m_playlistView->selectionModel()->selectedRows();
+    QVector<std::shared_ptr<MediaFile>> selectedFiles;
     
-    for (const QModelIndex& index : selected) {
-        QStandardItem* item = m_playlistModel->itemFromIndex(index);
-        if (item) {
-            QString filePath = item->data(Qt::UserRole).toString();
-            if (!filePath.isEmpty()) {
-                files.append(filePath);
+    if (m_displayMode == ListMode) {
+        QList<QListWidgetItem*> selectedItems = m_listWidget->selectedItems();
+        for (QListWidgetItem* item : selectedItems) {
+            QVariant fileData = item->data(Qt::UserRole);
+            if (fileData.isValid()) {
+                // Extract MediaFile from item data
+                // Implementation depends on how MediaFile is stored
+                qCDebug(playlistWidget) << "Selected file:" << item->text();
+            }
+        }
+    } else if (m_displayMode == TreeMode) {
+        QList<QTreeWidgetItem*> selectedItems = m_treeWidget->selectedItems();
+        for (QTreeWidgetItem* item : selectedItems) {
+            QVariant fileData = item->data(0, Qt::UserRole);
+            if (fileData.isValid()) {
+                // Extract MediaFile from item data
+                qCDebug(playlistWidget) << "Selected file:" << item->text(0);
             }
         }
     }
     
-    return files;
+    return selectedFiles;
 }
 
-void PlaylistWidget::setCurrentlyPlaying(const QString& filePath)
+void PlaylistWidget::addFiles(const QVector<std::shared_ptr<MediaFile>>& files)
 {
-    if (m_currentlyPlayingFile != filePath) {
-        m_currentlyPlayingFile = filePath;
-        
-        // Update visual indication of currently playing item
-        for (int i = 0; i < m_playlistModel->rowCount(); ++i) {
-            QStandardItem* item = m_playlistModel->item(i);
-            if (item) {
-                QString itemPath = item->data(Qt::UserRole).toString();
-                QFont font = item->font();
-                font.setBold(itemPath == filePath);
-                item->setFont(font);
-                
-                if (itemPath == filePath) {
-                    item->setIcon(QIcon(":/icons/play.png")); // TODO: Add play icon
-                } else {
-                    item->setIcon(QIcon());
-                }
-            }
-        }
-    }
-}
-
-void PlaylistWidget::populatePlaylist()
-{
-    m_playlistModel->clear();
-    m_playlistModel->setHorizontalHeaderLabels({"Track", "Title", "Duration"});
-    
-    if (!m_playlistManager || m_currentPlaylistId < 0) {
-        updatePlaylistInfo();
+    if (!m_currentPlaylist || files.isEmpty()) {
         return;
     }
     
-    auto playlist = m_playlistManager->getPlaylist(m_currentPlaylistId);
-    if (!playlist.has_value()) {
-        updatePlaylistInfo();
+    // Add files to current playlist
+    for (auto file : files) {
+        // m_currentPlaylist->addMediaFile(file);
+    }
+    
+    populatePlaylistView();
+    updatePlaylistStats();
+    emit playlistModified(m_currentPlaylist);
+    
+    qCDebug(playlistWidget) << "Added" << files.size() << "files to playlist";
+}
+
+void PlaylistWidget::removeSelectedFiles()
+{
+    if (!m_currentPlaylist) {
         return;
     }
     
-    auto items = m_playlistManager->getPlaylistItems(m_currentPlaylistId);
+    QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+    if (selectedFiles.isEmpty()) {
+        return;
+    }
     
-    for (int i = 0; i < items.size(); ++i) {
-        const QString& filePath = items[i];
-        QFileInfo fileInfo(filePath);
-        
-        auto* item = new QStandardItem(QString("%1. %2").arg(i + 1).arg(fileInfo.baseName()));
-        item->setData(filePath, Qt::UserRole);
-        item->setToolTip(filePath);
-        
-        // Set currently playing indication
-        if (filePath == m_currentlyPlayingFile) {
-            QFont font = item->font();
-            font.setBold(true);
-            item->setFont(font);
-            item->setIcon(QIcon(":/icons/play.png")); // TODO: Add play icon
+    int ret = QMessageBox::question(this, "Remove Files", 
+                                   QString("Remove %1 files from playlist?").arg(selectedFiles.size()),
+                                   QMessageBox::Yes | QMessageBox::No);
+    
+    if (ret == QMessageBox::Yes) {
+        // Remove files from playlist
+        for (auto file : selectedFiles) {
+            // m_currentPlaylist->removeMediaFile(file);
         }
         
-        m_playlistModel->appendRow(item);
+        populatePlaylistView();
+        updatePlaylistStats();
+        emit playlistModified(m_currentPlaylist);
+        
+        qCDebug(playlistWidget) << "Removed" << selectedFiles.size() << "files from playlist";
     }
-    
-    updatePlaylistInfo();
-    
-    qCDebug(playlistWidget) << "Playlist populated with" << items.size() << "items";
 }
 
-void PlaylistWidget::updatePlaylistInfo()
+void PlaylistWidget::clearPlaylist()
 {
-    if (!m_playlistManager || m_currentPlaylistId < 0) {
-        m_playlistLabel->setText("No Playlist");
-        m_infoLabel->setText("0 items");
+    if (!m_currentPlaylist) {
         return;
     }
     
-    auto playlist = m_playlistManager->getPlaylist(m_currentPlaylistId);
-    if (playlist.has_value()) {
-        m_playlistLabel->setText(playlist->name);
+    int ret = QMessageBox::question(this, "Clear Playlist", 
+                                   "Clear all files from playlist?",
+                                   QMessageBox::Yes | QMessageBox::No);
+    
+    if (ret == QMessageBox::Yes) {
+        // m_currentPlaylist->clear();
         
-        int itemCount = m_playlistModel->rowCount();
-        m_infoLabel->setText(QString("%1 item%2").arg(itemCount).arg(itemCount != 1 ? "s" : ""));
+        populatePlaylistView();
+        updatePlaylistStats();
+        emit playlistModified(m_currentPlaylist);
+        
+        qCDebug(playlistWidget) << "Playlist cleared";
+    }
+}
+
+void PlaylistWidget::shufflePlaylist()
+{
+    if (!m_currentPlaylist) {
+        return;
+    }
+    
+    // m_currentPlaylist->shuffle();
+    
+    populatePlaylistView();
+    emit playlistModified(m_currentPlaylist);
+    
+    qCDebug(playlistWidget) << "Playlist shuffled";
+}
+
+bool PlaylistWidget::createNewPlaylist(const QString& name)
+{
+    if (!m_playlistManager) {
+        return false;
+    }
+    
+    QString playlistName = name;
+    if (playlistName.isEmpty()) {
+        bool ok;
+        playlistName = QInputDialog::getText(this, "New Playlist", 
+                                           "Playlist name:", QLineEdit::Normal, 
+                                           "New Playlist", &ok);
+        if (!ok || playlistName.isEmpty()) {
+            return false;
+        }
+    }
+    
+    // Create new playlist
+    // auto newPlaylist = m_playlistManager->createPlaylist(playlistName);
+    // if (newPlaylist) {
+    //     setCurrentPlaylist(newPlaylist);
+    //     emit playlistCreated(newPlaylist);
+    //     qCDebug(playlistWidget) << "Created new playlist:" << playlistName;
+    //     return true;
+    // }
+    
+    return false;
+}
+
+bool PlaylistWidget::deleteCurrentPlaylist()
+{
+    if (!m_currentPlaylist || !m_playlistManager) {
+        return false;
+    }
+    
+    QString playlistName = "Current Playlist"; // m_currentPlaylist->getName();
+    
+    int ret = QMessageBox::question(this, "Delete Playlist", 
+                                   QString("Delete playlist '%1'?").arg(playlistName),
+                                   QMessageBox::Yes | QMessageBox::No);
+    
+    if (ret == QMessageBox::Yes) {
+        // bool success = m_playlistManager->deletePlaylist(m_currentPlaylist->getId());
+        // if (success) {
+        //     emit playlistDeleted(playlistName);
+        //     setCurrentPlaylist(nullptr);
+        //     qCDebug(playlistWidget) << "Deleted playlist:" << playlistName;
+        //     return true;
+        // }
+    }
+    
+    return false;
+}
+
+bool PlaylistWidget::renameCurrentPlaylist(const QString& newName)
+{
+    if (!m_currentPlaylist) {
+        return false;
+    }
+    
+    QString name = newName;
+    if (name.isEmpty()) {
+        bool ok;
+        name = QInputDialog::getText(this, "Rename Playlist", 
+                                   "New name:", QLineEdit::Normal, 
+                                   "Current Playlist", &ok); // m_currentPlaylist->getName()
+        if (!ok || name.isEmpty()) {
+            return false;
+        }
+    }
+    
+    // m_currentPlaylist->setName(name);
+    emit playlistModified(m_currentPlaylist);
+    
+    qCDebug(playlistWidget) << "Renamed playlist to:" << name;
+    return true;
+}
+
+bool PlaylistWidget::savePlaylistToFile(const QString& filePath)
+{
+    if (!m_currentPlaylist) {
+        return false;
+    }
+    
+    QString path = filePath;
+    if (path.isEmpty()) {
+        path = QFileDialog::getSaveFileName(this, "Save Playlist", 
+                                          QString(), "M3U Playlist (*.m3u);;PLS Playlist (*.pls)");
+        if (path.isEmpty()) {
+            return false;
+        }
+    }
+    
+    // Save playlist to file
+    // bool success = m_currentPlaylist->saveToFile(path);
+    bool success = false; // Placeholder
+    
+    if (success) {
+        qCDebug(playlistWidget) << "Playlist saved to:" << path;
     } else {
-        m_playlistLabel->setText("Invalid Playlist");
-        m_infoLabel->setText("0 items");
+        QMessageBox::warning(this, "Save Error", "Failed to save playlist to file.");
     }
+    
+    return success;
 }
 
-void PlaylistWidget::moveSelectedItems(int direction)
+bool PlaylistWidget::loadPlaylistFromFile(const QString& filePath)
 {
-    QModelIndexList selected = m_playlistView->selectionModel()->selectedRows();
-    if (selected.isEmpty()) {
-        return;
-    }
-    
-    // Sort indices for proper movement
-    if (direction > 0) {
-        std::sort(selected.begin(), selected.end(), [](const QModelIndex& a, const QModelIndex& b) {
-            return a.row() > b.row();
-        });
-    } else {
-        std::sort(selected.begin(), selected.end(), [](const QModelIndex& a, const QModelIndex& b) {
-            return a.row() < b.row();
-        });
-    }
-    
-    // Move items
-    for (const QModelIndex& index : selected) {
-        int currentRow = index.row();
-        int newRow = currentRow + direction;
-        
-        if (newRow >= 0 && newRow < m_playlistModel->rowCount()) {
-            QList<QStandardItem*> items = m_playlistModel->takeRow(currentRow);
-            m_playlistModel->insertRow(newRow, items);
+    QString path = filePath;
+    if (path.isEmpty()) {
+        path = QFileDialog::getOpenFileName(this, "Load Playlist", 
+                                          QString(), "Playlist Files (*.m3u *.pls *.xspf)");
+        if (path.isEmpty()) {
+            return false;
         }
     }
     
-    // Update playlist order in manager
-    if (m_playlistManager && m_currentPlaylistId >= 0) {
-        QStringList newOrder;
-        for (int i = 0; i < m_playlistModel->rowCount(); ++i) {
-            QStandardItem* item = m_playlistModel->item(i);
-            if (item) {
-                newOrder.append(item->data(Qt::UserRole).toString());
+    if (!m_playlistManager) {
+        return false;
+    }
+    
+    // Load playlist from file
+    // auto playlist = m_playlistManager->loadPlaylistFromFile(path);
+    // if (playlist) {
+    //     setCurrentPlaylist(playlist);
+    //     emit playlistCreated(playlist);
+    //     qCDebug(playlistWidget) << "Playlist loaded from:" << path;
+    //     return true;
+    // }
+    
+    QMessageBox::warning(this, "Load Error", "Failed to load playlist from file.");
+    return false;
+}
+
+PlaylistWidget::PlaylistStats PlaylistWidget::getPlaylistStats() const
+{
+    QMutexLocker locker(&m_dataMutex);
+    return m_playlistStats;
+}
+
+void PlaylistWidget::contextMenuEvent(QContextMenuEvent* event)
+{
+    if (m_currentView && m_currentView->geometry().contains(event->pos())) {
+        m_contextMenu->exec(event->globalPos());
+    }
+}
+
+void PlaylistWidget::dragEnterEvent(QDragEnterEvent* event)
+{
+    if (event->mimeData()->hasUrls() || event->mimeData()->hasText()) {
+        event->acceptProposedAction();
+    }
+}
+
+void PlaylistWidget::dragMoveEvent(QDragMoveEvent* event)
+{
+    if (event->mimeData()->hasUrls() || event->mimeData()->hasText()) {
+        event->acceptProposedAction();
+    }
+}
+
+void PlaylistWidget::dropEvent(QDropEvent* event)
+{
+    if (event->mimeData()->hasUrls()) {
+        QList<QUrl> urls = event->mimeData()->urls();
+        QVector<std::shared_ptr<MediaFile>> files;
+        
+        for (const QUrl& url : urls) {
+            if (url.isLocalFile()) {
+                QString filePath = url.toLocalFile();
+                // Create MediaFile from path and add to files vector
+                // auto mediaFile = std::make_shared<MediaFile>(filePath);
+                // files.append(mediaFile);
             }
         }
-        emit playlistReordered(m_currentPlaylistId, newOrder);
-    }
-}
-
-// Slot implementations
-void PlaylistWidget::onPlaylistUpdated(int playlistId)
-{
-    if (playlistId == m_currentPlaylistId) {
-        m_updateTimer->start();
-    }
-}
-
-void PlaylistWidget::onPlaylistItemAdded(int playlistId, const QString& filePath)
-{
-    Q_UNUSED(filePath)
-    if (playlistId == m_currentPlaylistId) {
-        m_updateTimer->start();
-    }
-}
-
-void PlaylistWidget::onPlaylistItemRemoved(int playlistId, const QString& filePath)
-{
-    Q_UNUSED(filePath)
-    if (playlistId == m_currentPlaylistId) {
-        m_updateTimer->start();
-    }
-}
-
-void PlaylistWidget::onItemDoubleClicked(const QModelIndex& index)
-{
-    QStandardItem* item = m_playlistModel->itemFromIndex(index);
-    if (item) {
-        QString filePath = item->data(Qt::UserRole).toString();
-        if (!filePath.isEmpty()) {
-            emit playRequested(filePath);
+        
+        if (!files.isEmpty()) {
+            addFiles(files);
         }
+        
+        event->acceptProposedAction();
     }
+}
+
+void PlaylistWidget::onItemDoubleClicked(QListWidgetItem* item)
+{
+    Q_UNUSED(item)
+    
+    QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+    if (!selectedFiles.isEmpty()) {
+        emit filesSelectedForPlayback(selectedFiles);
+    }
+}
+
+void PlaylistWidget::onItemSelectionChanged()
+{
+    // Update button states based on selection
+    bool hasSelection = !getSelectedFiles().isEmpty();
+    
+    m_moveUpButton->setEnabled(hasSelection);
+    m_moveDownButton->setEnabled(hasSelection);
 }
 
 void PlaylistWidget::onContextMenuRequested(const QPoint& pos)
 {
-    QModelIndex index = m_playlistView->indexAt(pos);
-    if (index.isValid()) {
-        m_contextMenu->exec(m_playlistView->mapToGlobal(pos));
-    }
+    Q_UNUSED(pos)
+    // Context menu is handled in contextMenuEvent
 }
 
-void PlaylistWidget::onClearPlaylist()
+void PlaylistWidget::onDisplayModeChanged()
 {
-    if (m_playlistManager && m_currentPlaylistId >= 0) {
-        int ret = QMessageBox::question(this, "Clear Playlist",
-                                       "Clear all items from playlist?",
-                                       QMessageBox::Yes | QMessageBox::No);
+    DisplayMode newMode = static_cast<DisplayMode>(m_displayModeCombo->currentIndex());
+    setDisplayMode(newMode);
+}
+
+void PlaylistWidget::onSortByChanged()
+{
+    SortBy newSortBy = static_cast<SortBy>(m_sortByCombo->currentIndex());
+    setSortBy(newSortBy);
+}
+
+void PlaylistWidget::onNewPlaylistClicked()
+{
+    createNewPlaylist();
+}
+
+void PlaylistWidget::onDeletePlaylistClicked()
+{
+    deleteCurrentPlaylist();
+}
+
+void PlaylistWidget::onSavePlaylistClicked()
+{
+    savePlaylistToFile();
+}
+
+void PlaylistWidget::onLoadPlaylistClicked()
+{
+    loadPlaylistFromFile();
+}
+
+void PlaylistWidget::onShuffleClicked()
+{
+    shufflePlaylist();
+}
+
+void PlaylistWidget::onClearClicked()
+{
+    clearPlaylist();
+}
+
+void PlaylistWidget::updatePlaylistDisplay()
+{
+    populatePlaylistView();
+}
+
+void PlaylistWidget::setupUI()
+{
+    setAcceptDrops(true);
+    
+    // Setup toolbar
+    m_displayModeCombo->addItems({"List", "Tree", "Compact"});
+    m_displayModeCombo->setCurrentIndex(static_cast<int>(m_displayMode));
+    
+    m_sortByCombo->addItems({"Default", "Title", "Artist", "Album", "Duration", "Date Added"});
+    m_sortByCombo->setCurrentIndex(static_cast<int>(m_sortBy));
+    
+    m_toolbarLayout->addWidget(new QLabel("View:"));
+    m_toolbarLayout->addWidget(m_displayModeCombo);
+    m_toolbarLayout->addWidget(new QLabel("Sort:"));
+    m_toolbarLayout->addWidget(m_sortByCombo);
+    m_toolbarLayout->addStretch();
+    m_toolbarLayout->addWidget(m_newPlaylistButton);
+    m_toolbarLayout->addWidget(m_deletePlaylistButton);
+    m_toolbarLayout->addWidget(m_savePlaylistButton);
+    m_toolbarLayout->addWidget(m_loadPlaylistButton);
+    
+    // Setup controls
+    m_moveUpButton->setMaximumWidth(30);
+    m_moveDownButton->setMaximumWidth(30);
+    
+    m_controlsLayout->addWidget(m_shuffleButton);
+    m_controlsLayout->addWidget(m_clearButton);
+    m_controlsLayout->addStretch();
+    m_controlsLayout->addWidget(m_moveUpButton);
+    m_controlsLayout->addWidget(m_moveDownButton);
+    
+    // Setup views
+    m_listWidget->setAlternatingRowColors(true);
+    m_listWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_listWidget->setDragDropMode(QAbstractItemView::InternalMove);
+    
+    m_treeWidget->setAlternatingRowColors(true);
+    m_treeWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_treeWidget->setDragDropMode(QAbstractItemView::InternalMove);
+    m_treeWidget->setHeaderLabels({"Title", "Artist", "Album", "Duration"});
+    
+    // Set initial view
+    m_currentView = m_listWidget;
+    
+    // Status
+    m_statusLabel->setText("No playlist loaded");
+    
+    // Main layout
+    m_mainLayout->addLayout(m_toolbarLayout);
+    m_mainLayout->addLayout(m_controlsLayout);
+    m_mainLayout->addWidget(m_currentView);
+    m_mainLayout->addWidget(m_statusLabel);
+}
+
+void PlaylistWidget::setupConnections()
+{
+    // Toolbar connections
+    connect(m_displayModeCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &PlaylistWidget::onDisplayModeChanged);
+    connect(m_sortByCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &PlaylistWidget::onSortByChanged);
+    connect(m_newPlaylistButton, &QPushButton::clicked,
+            this, &PlaylistWidget::onNewPlaylistClicked);
+    connect(m_deletePlaylistButton, &QPushButton::clicked,
+            this, &PlaylistWidget::onDeletePlaylistClicked);
+    connect(m_savePlaylistButton, &QPushButton::clicked,
+            this, &PlaylistWidget::onSavePlaylistClicked);
+    connect(m_loadPlaylistButton, &QPushButton::clicked,
+            this, &PlaylistWidget::onLoadPlaylistClicked);
+    
+    // Control connections
+    connect(m_shuffleButton, &QPushButton::clicked,
+            this, &PlaylistWidget::onShuffleClicked);
+    connect(m_clearButton, &QPushButton::clicked,
+            this, &PlaylistWidget::onClearClicked);
+    connect(m_moveUpButton, &QPushButton::clicked,
+            this, [this]() { moveSelectedItems(-1); });
+    connect(m_moveDownButton, &QPushButton::clicked,
+            this, [this]() { moveSelectedItems(1); });
+    
+    // View connections
+    connect(m_listWidget, &QListWidget::itemDoubleClicked,
+            this, &PlaylistWidget::onItemDoubleClicked);
+    connect(m_listWidget, &QListWidget::itemSelectionChanged,
+            this, &PlaylistWidget::onItemSelectionChanged);
+    
+    connect(m_treeWidget, &QTreeWidget::itemDoubleClicked,
+            this, [this](QTreeWidgetItem* item, int column) {
+                Q_UNUSED(column)
+                onItemDoubleClicked(nullptr); // Convert to list widget item call
+            });
+    connect(m_treeWidget, &QTreeWidget::itemSelectionChanged,
+            this, &PlaylistWidget::onItemSelectionChanged);
+}
+
+void PlaylistWidget::createContextMenu()
+{
+    m_playAction = m_contextMenu->addAction("Play");
+    m_contextMenu->addSeparator();
+    m_moveUpAction = m_contextMenu->addAction("Move Up");
+    m_moveDownAction = m_contextMenu->addAction("Move Down");
+    m_contextMenu->addSeparator();
+    m_removeAction = m_contextMenu->addAction("Remove from Playlist");
+    m_contextMenu->addSeparator();
+    m_propertiesAction = m_contextMenu->addAction("Properties");
+    
+    connect(m_playAction, &QAction::triggered, this, [this]() {
+        QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+        if (!selectedFiles.isEmpty()) {
+            emit filesSelectedForPlayback(selectedFiles);
+        }
+    });
+    
+    connect(m_moveUpAction, &QAction::triggered, this, [this]() {
+        moveSelectedItems(-1);
+    });
+    
+    connect(m_moveDownAction, &QAction::triggered, this, [this]() {
+        moveSelectedItems(1);
+    });
+    
+    connect(m_removeAction, &QAction::triggered, this, &PlaylistWidget::removeSelectedFiles);
+    
+    connect(m_propertiesAction, &QAction::triggered, this, [this]() {
+        QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+        if (!selectedFiles.isEmpty()) {
+            // Show file properties dialog
+            qCDebug(playlistWidget) << "Show properties for" << selectedFiles.size() << "files";
+        }
+    });
+}
+
+void PlaylistWidget::populatePlaylistView()
+{
+    if (!m_currentPlaylist) {
+        m_listWidget->clear();
+        m_treeWidget->clear();
+        m_statusLabel->setText("No playlist loaded");
+        return;
+    }
+    
+    // Clear current views
+    m_listWidget->clear();
+    m_treeWidget->clear();
+    
+    // Get playlist items
+    // auto playlistItems = m_currentPlaylist->getMediaFiles();
+    
+    // Populate list view
+    // for (auto mediaFile : playlistItems) {
+    //     QListWidgetItem* item = new QListWidgetItem(mediaFile->getTitle());
+    //     item->setData(Qt::UserRole, QVariant::fromValue(mediaFile));
+    //     m_listWidget->addItem(item);
+    // }
+    
+    // Populate tree view
+    // for (auto mediaFile : playlistItems) {
+    //     QTreeWidgetItem* item = new QTreeWidgetItem();
+    //     item->setText(0, mediaFile->getTitle());
+    //     item->setText(1, mediaFile->getArtist());
+    //     item->setText(2, mediaFile->getAlbum());
+    //     item->setText(3, formatDuration(mediaFile->getDuration()));
+    //     item->setData(0, Qt::UserRole, QVariant::fromValue(mediaFile));
+    //     m_treeWidget->addTopLevelItem(item);
+    // }
+    
+    // Switch to appropriate view
+    if (m_displayMode == ListMode || m_displayMode == CompactMode) {
+        m_currentView->setParent(nullptr);
+        m_currentView = m_listWidget;
+        m_mainLayout->insertWidget(2, m_currentView);
+    } else if (m_displayMode == TreeMode) {
+        m_currentView->setParent(nullptr);
+        m_currentView = m_treeWidget;
+        m_mainLayout->insertWidget(2, m_currentView);
+    }
+    
+    updatePlaylistStats();
+}
+
+void PlaylistWidget::updatePlaylistStats()
+{
+    QMutexLocker locker(&m_dataMutex);
+    
+    m_playlistStats = PlaylistStats();
+    
+    if (!m_currentPlaylist) {
+        m_statusLabel->setText("No playlist loaded");
+        return;
+    }
+    
+    // Calculate statistics
+    // auto playlistItems = m_currentPlaylist->getMediaFiles();
+    // m_playlistStats.totalTracks = playlistItems.size();
+    
+    // for (auto mediaFile : playlistItems) {
+    //     m_playlistStats.totalDuration += mediaFile->getDuration();
+    //     m_playlistStats.totalSize += mediaFile->getFileSize();
+    // }
+    
+    // Update status
+    m_statusLabel->setText(QString("Tracks: %1, Duration: %2")
+                          .arg(m_playlistStats.totalTracks)
+                          .arg(formatDuration(m_playlistStats.totalDuration)));
+}
+
+void PlaylistWidget::moveSelectedItems(int direction)
+{
+    if (m_displayMode == ListMode || m_displayMode == CompactMode) {
+        QList<QListWidgetItem*> selectedItems = m_listWidget->selectedItems();
+        if (selectedItems.isEmpty()) {
+            return;
+        }
         
-        if (ret == QMessageBox::Yes) {
-            m_playlistManager->clearPlaylist(m_currentPlaylistId);
+        // Move items in the specified direction
+        for (QListWidgetItem* item : selectedItems) {
+            int currentRow = m_listWidget->row(item);
+            int newRow = currentRow + direction;
+            
+            if (newRow >= 0 && newRow < m_listWidget->count()) {
+                QListWidgetItem* takenItem = m_listWidget->takeItem(currentRow);
+                m_listWidget->insertItem(newRow, takenItem);
+                m_listWidget->setCurrentItem(takenItem);
+            }
         }
-    }
-}
-
-void PlaylistWidget::onShufflePlaylist()
-{
-    if (m_playlistManager && m_currentPlaylistId >= 0) {
-        // TODO: Implement shuffle functionality
-        QMessageBox::information(this, "Shuffle", "Shuffle functionality will be implemented.");
-    }
-}
-
-void PlaylistWidget::onSavePlaylist()
-{
-    if (m_currentPlaylistId < 0) {
-        return;
-    }
-    
-    QString fileName = QFileDialog::getSaveFileName(this, 
-                                                   "Save Playlist", 
-                                                   QStandardPaths::writableLocation(QStandardPaths::MusicLocation),
-                                                   "M3U Playlists (*.m3u);;M3U8 Playlists (*.m3u8)");
-    
-    if (!fileName.isEmpty()) {
-        // TODO: Implement playlist export
-        QMessageBox::information(this, "Save Playlist", "Playlist save functionality will be implemented.");
-    }
-}
-
-void PlaylistWidget::onLoadPlaylist()
-{
-    QString fileName = QFileDialog::getOpenFileName(this, 
-                                                   "Load Playlist", 
-                                                   QStandardPaths::writableLocation(QStandardPaths::MusicLocation),
-                                                   "Playlists (*.m3u *.m3u8 *.pls)");
-    
-    if (!fileName.isEmpty()) {
-        // TODO: Implement playlist import
-        QMessageBox::information(this, "Load Playlist", "Playlist load functionality will be implemented.");
-    }
-}
-
-void PlaylistWidget::onPlaySelected()
-{
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        emit playRequested(files.first());
-    }
-}
-
-void PlaylistWidget::onPlayFromHere()
-{
-    QModelIndexList selected = m_playlistView->selectionModel()->selectedRows();
-    if (selected.isEmpty()) {
-        return;
-    }
-    
-    int startIndex = selected.first().row();
-    QStringList allFiles;
-    
-    for (int i = 0; i < m_playlistModel->rowCount(); ++i) {
-        QStandardItem* item = m_playlistModel->item(i);
-        if (item) {
-            allFiles.append(item->data(Qt::UserRole).toString());
+    } else if (m_displayMode == TreeMode) {
+        QList<QTreeWidgetItem*> selectedItems = m_treeWidget->selectedItems();
+        if (selectedItems.isEmpty()) {
+            return;
+        }
+        
+        // Move items in tree view
+        for (QTreeWidgetItem* item : selectedItems) {
+            int currentIndex = m_treeWidget->indexOfTopLevelItem(item);
+            int newIndex = currentIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < m_treeWidget->topLevelItemCount()) {
+                QTreeWidgetItem* takenItem = m_treeWidget->takeTopLevelItem(currentIndex);
+                m_treeWidget->insertTopLevelItem(newIndex, takenItem);
+                m_treeWidget->setCurrentItem(takenItem);
+            }
         }
     }
     
-    if (startIndex < allFiles.size()) {
-        emit playFromRequested(allFiles, startIndex);
+    emit playlistModified(m_currentPlaylist);
+}
+
+QString PlaylistWidget::formatDuration(qint64 milliseconds) const
+{
+    qint64 seconds = milliseconds / 1000;
+    qint64 minutes = seconds / 60;
+    qint64 hours = minutes / 60;
+    
+    seconds %= 60;
+    minutes %= 60;
+    
+    if (hours > 0) {
+        return QString("%1:%2:%3")
+               .arg(hours)
+               .arg(minutes, 2, 10, QChar('0'))
+               .arg(seconds, 2, 10, QChar('0'));
+    } else {
+        return QString("%1:%2")
+               .arg(minutes)
+               .arg(seconds, 2, 10, QChar('0'));
     }
 }
 
-void PlaylistWidget::onRemoveSelected()
+QString PlaylistWidget::formatFileSize(qint64 bytes) const
 {
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        emit removeFromPlaylistRequested(files);
-    }
-}
-
-void PlaylistWidget::onShowFileInfo()
-{
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        // TODO: Show file info dialog
-        QMessageBox::information(this, "File Information", 
-                               QString("File: %1").arg(files.first()));
+    const qint64 KB = 1024;
+    const qint64 MB = KB * 1024;
+    const qint64 GB = MB * 1024;
+    
+    if (bytes >= GB) {
+        return QString("%1 GB").arg(static_cast<double>(bytes) / GB, 0, 'f', 2);
+    } else if (bytes >= MB) {
+        return QString("%1 MB").arg(static_cast<double>(bytes) / MB, 0, 'f', 1);
+    } else if (bytes >= KB) {
+        return QString("%1 KB").arg(static_cast<double>(bytes) / KB, 0, 'f', 0);
+    } else {
+        return QString("%1 bytes").arg(bytes);
     }
 }

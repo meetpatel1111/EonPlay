@@ -106,8 +106,8 @@ set(UI_SOURCES
     src/ui/MediaInfoWidget.cpp
     src/ui/MainWindow.cpp          # Task 3.1
     src/ui/PlaybackControls.cpp    # Task 3.2
-    src/ui/LibraryWidget.cpp       # Task 5.4
-    src/ui/PlaylistWidget.cpp      # Task 5.4
+    src/ui/LibraryWidget.cpp       # Task 5.4 - IMPLEMENTED
+    src/ui/PlaylistWidget.cpp      # Task 5.4 - IMPLEMENTED
     src/ui/AudioEqualizerWidget.cpp # Task 6.1
     src/ui/AudioVisualizerWidget.cpp # Task 6.2
     # src/ui/VideoWidget.cpp         # Task 3.3

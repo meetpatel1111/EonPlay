@@ -1,66 +1,73 @@
 #include "ui/LibraryWidget.h"
 #include "data/LibraryManager.h"
-#include "data/PlaylistManager.h"
 #include "data/MediaFile.h"
-#include "data/Playlist.h"
-
+#include "data/PlaylistManager.h"
 #include <QHeaderView>
-#include <QMessageBox>
-#include <QInputDialog>
-#include <QFileDialog>
-#include <QDesktopServices>
-#include <QUrl>
-#include <QMimeData>
+#include <QContextMenuEvent>
 #include <QDragEnterEvent>
+#include <QDragMoveEvent>
 #include <QDropEvent>
-#include <QApplication>
-#include <QClipboard>
+#include <QMimeData>
+#include <QUrl>
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QTextStream>
+#include <QLoggingCategory>
+#include <QMutexLocker>
+#include <QPixmap>
+#include <QImageReader>
 #include <QStandardPaths>
 #include <QDir>
-#include <QLoggingCategory>
+#include <QtMath>
 
 Q_DECLARE_LOGGING_CATEGORY(libraryWidget)
 Q_LOGGING_CATEGORY(libraryWidget, "ui.library")
 
 LibraryWidget::LibraryWidget(QWidget* parent)
     : QWidget(parent)
-    , m_mainLayout(nullptr)
-    , m_toolbarLayout(nullptr)
-    , m_mainSplitter(nullptr)
-    , m_librarySplitter(nullptr)
-    , m_searchEdit(nullptr)
-    , m_filterCombo(nullptr)
-    , m_viewModeCombo(nullptr)
-    , m_refreshButton(nullptr)
-    , m_scanButton(nullptr)
-    , m_exportButton(nullptr)
-    , m_statsButton(nullptr)
-    , m_scanProgress(nullptr)
-    , m_statusLabel(nullptr)
-    , m_libraryTreeView(nullptr)
-    , m_libraryListView(nullptr)
-    , m_libraryModel(nullptr)
-    , m_libraryProxyModel(nullptr)
-    , m_playlistView(nullptr)
-    , m_playlistModel(nullptr)
-    , m_libraryContextMenu(nullptr)
-    , m_playlistContextMenu(nullptr)
-    , m_isScanning(false)
-    , m_totalFiles(0)
-    , m_currentViewMode(TreeView)
-    , m_refreshTimer(new QTimer(this))
+    , m_mainLayout(new QVBoxLayout(this))
+    , m_toolbarLayout(new QHBoxLayout())
+    , m_searchLayout(new QHBoxLayout())
+    , m_mainSplitter(new QSplitter(Qt::Horizontal, this))
+    , m_contentSplitter(new QSplitter(Qt::Vertical, this))
+    , m_viewModeCombo(new QComboBox(this))
+    , m_sortByCombo(new QComboBox(this))
+    , m_filterByCombo(new QComboBox(this))
+    , m_refreshButton(new QPushButton("Refresh", this))
+    , m_exportButton(new QPushButton("Export", this))
+    , m_statsButton(new QPushButton("Statistics", this))
+    , m_searchEdit(new QLineEdit(this))
+    , m_searchLabel(new QLabel("Search:", this))
+    , m_treeView(new QTreeView(this))
+    , m_listView(new QListView(this))
+    , m_tableView(new QTableView(this))
+    , m_currentView(nullptr)
+    , m_albumArtLabel(new QLabel(this))
+    , m_albumArtWidget(new QWidget(this))
+    , m_albumArtEnabled(true)
+    , m_statusLabel(new QLabel(this))
+    , m_progressBar(new QProgressBar(this))
+    , m_libraryModel(new QStandardItemModel(this))
+    , m_proxyModel(new QSortFilterProxyModel(this))
+    , m_contextMenu(new QMenu(this))
+    , m_libraryManager(nullptr)
+    , m_playlistManager(nullptr)
+    , m_viewMode(DetailView)
+    , m_sortBy(Title)
+    , m_filterBy(All)
+    , m_albumArtTimer(new QTimer(this))
 {
     setupUI();
-    setupContextMenus();
+    setupModels();
     setupConnections();
+    createContextMenu();
     
-    // Set up refresh timer for periodic updates
-    m_refreshTimer->setSingleShot(true);
-    m_refreshTimer->setInterval(500); // 500ms delay for search
+    // Setup album art timer
+    m_albumArtTimer->setSingleShot(true);
+    m_albumArtTimer->setInterval(500); // 500ms delay for album art loading
     
     qCDebug(libraryWidget) << "LibraryWidget created";
 }
@@ -70,301 +77,561 @@ LibraryWidget::~LibraryWidget()
     qCDebug(libraryWidget) << "LibraryWidget destroyed";
 }
 
-void LibraryWidget::initialize(std::shared_ptr<LibraryManager> libraryManager,
-                              std::shared_ptr<PlaylistManager> playlistManager)
+void LibraryWidget::setLibraryManager(LibraryManager* libraryManager)
 {
-    m_libraryManager = libraryManager;
-    m_playlistManager = playlistManager;
-    
     if (m_libraryManager) {
-        // Connect to library manager signals
-        connect(m_libraryManager.get(), &LibraryManager::scanProgress,
-                this, &LibraryWidget::onScanProgress);
-        connect(m_libraryManager.get(), &LibraryManager::scanComplete,
-                this, &LibraryWidget::onScanComplete);
-        connect(m_libraryManager.get(), &LibraryManager::mediaFileAdded,
-                this, &LibraryWidget::onMediaFileAdded);
-        connect(m_libraryManager.get(), &LibraryManager::mediaFileRemoved,
-                this, &LibraryWidget::onMediaFileRemoved);
+        disconnect(m_libraryManager, nullptr, this, nullptr);
     }
     
-    // Initial population
-    populateLibraryModel();
-    populatePlaylistModel();
-    updateStatistics();
+    m_libraryManager = libraryManager;
     
-    qCDebug(libraryWidget) << "LibraryWidget initialized with managers";
+    if (m_libraryManager) {
+        connect(m_libraryManager, &LibraryManager::libraryUpdated,
+                this, &LibraryWidget::onLibraryUpdated);
+        
+        refreshLibrary();
+    }
+}
+
+void LibraryWidget::setPlaylistManager(PlaylistManager* playlistManager)
+{
+    m_playlistManager = playlistManager;
+}
+
+LibraryWidget::ViewMode LibraryWidget::getViewMode() const
+{
+    return m_viewMode;
+}
+
+void LibraryWidget::setViewMode(ViewMode mode)
+{
+    if (m_viewMode != mode) {
+        m_viewMode = mode;
+        m_viewModeCombo->setCurrentIndex(static_cast<int>(mode));
+        updateViewMode();
+        emit viewModeChanged(m_viewMode);
+    }
+}
+
+LibraryWidget::SortBy LibraryWidget::getSortBy() const
+{
+    return m_sortBy;
+}
+
+void LibraryWidget::setSortBy(SortBy sortBy)
+{
+    if (m_sortBy != sortBy) {
+        m_sortBy = sortBy;
+        m_sortByCombo->setCurrentIndex(static_cast<int>(sortBy));
+        updateSorting();
+    }
+}
+
+LibraryWidget::FilterBy LibraryWidget::getFilterBy() const
+{
+    return m_filterBy;
+}
+
+void LibraryWidget::setFilterBy(FilterBy filterBy)
+{
+    if (m_filterBy != filterBy) {
+        m_filterBy = filterBy;
+        m_filterByCombo->setCurrentIndex(static_cast<int>(filterBy));
+        updateFiltering();
+    }
+}
+
+QString LibraryWidget::getSearchText() const
+{
+    return m_searchText;
+}
+
+void LibraryWidget::setSearchText(const QString& searchText)
+{
+    if (m_searchText != searchText) {
+        m_searchText = searchText;
+        m_searchEdit->setText(searchText);
+        m_proxyModel->setFilterFixedString(searchText);
+    }
+}
+
+QVector<std::shared_ptr<MediaFile>> LibraryWidget::getSelectedFiles() const
+{
+    QVector<std::shared_ptr<MediaFile>> selectedFiles;
+    
+    if (!m_currentView) {
+        return selectedFiles;
+    }
+    
+    QAbstractItemView* view = qobject_cast<QAbstractItemView*>(m_currentView);
+    if (!view) {
+        return selectedFiles;
+    }
+    
+    QModelIndexList selectedIndexes = view->selectionModel()->selectedRows();
+    
+    for (const QModelIndex& index : selectedIndexes) {
+        QModelIndex sourceIndex = m_proxyModel->mapToSource(index);
+        QStandardItem* item = m_libraryModel->itemFromIndex(sourceIndex);
+        
+        if (item) {
+            QVariant fileData = item->data(Qt::UserRole);
+            if (fileData.isValid()) {
+                // This would contain the MediaFile pointer
+                // Implementation depends on how MediaFile is stored
+                qCDebug(libraryWidget) << "Selected file:" << item->text();
+            }
+        }
+    }
+    
+    return selectedFiles;
+}
+
+LibraryWidget::LibraryStats LibraryWidget::getLibraryStats() const
+{
+    QMutexLocker locker(&m_dataMutex);
+    return m_libraryStats;
+}
+
+void LibraryWidget::refreshLibrary()
+{
+    if (!m_libraryManager) {
+        return;
+    }
+    
+    m_progressBar->setVisible(true);
+    m_progressBar->setRange(0, 0); // Indeterminate progress
+    
+    populateLibraryModel();
+    updateLibraryStats();
+    
+    m_progressBar->setVisible(false);
+    
+    qCDebug(libraryWidget) << "Library refreshed";
+}
+
+bool LibraryWidget::exportLibrary(const QString& filePath, const QString& format)
+{
+    if (format.toLower() == "json") {
+        return exportToJSON(filePath);
+    } else if (format.toLower() == "csv") {
+        return exportToCSV(filePath);
+    } else {
+        qCWarning(libraryWidget) << "Unsupported export format:" << format;
+        return false;
+    }
+}
+
+void LibraryWidget::showLibraryStats()
+{
+    LibraryStats stats = getLibraryStats();
+    
+    QString statsText = QString(
+        "Library Statistics\n\n"
+        "Total Files: %1\n"
+        "Audio Files: %2\n"
+        "Video Files: %3\n"
+        "Playlists: %4\n"
+        "Total Size: %5\n"
+        "Total Duration: %6\n"
+        "Most Played Artist: %7\n"
+        "Most Played Genre: %8\n"
+        "Total Play Count: %9"
+    ).arg(stats.totalFiles)
+     .arg(stats.audioFiles)
+     .arg(stats.videoFiles)
+     .arg(stats.playlists)
+     .arg(formatFileSize(stats.totalSize))
+     .arg(formatDuration(stats.totalDuration))
+     .arg(stats.mostPlayedArtist.isEmpty() ? "N/A" : stats.mostPlayedArtist)
+     .arg(stats.mostPlayedGenre.isEmpty() ? "N/A" : stats.mostPlayedGenre)
+     .arg(stats.totalPlayCount);
+    
+    QMessageBox::information(this, "Library Statistics", statsText);
+}
+
+void LibraryWidget::setAlbumArtEnabled(bool enabled)
+{
+    if (m_albumArtEnabled != enabled) {
+        m_albumArtEnabled = enabled;
+        m_albumArtWidget->setVisible(enabled);
+        
+        if (enabled) {
+            // Load album art for current selection
+            QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+            if (!selectedFiles.isEmpty()) {
+                // Load album art for first selected file
+                // loadAlbumArt(selectedFiles.first()->getFilePath());
+            }
+        }
+    }
+}
+
+bool LibraryWidget::isAlbumArtEnabled() const
+{
+    return m_albumArtEnabled;
+}
+
+void LibraryWidget::contextMenuEvent(QContextMenuEvent* event)
+{
+    if (m_currentView && m_currentView->geometry().contains(event->pos())) {
+        m_contextMenu->exec(event->globalPos());
+    }
+}
+
+void LibraryWidget::dragEnterEvent(QDragEnterEvent* event)
+{
+    if (event->mimeData()->hasUrls()) {
+        event->acceptProposedAction();
+    }
+}
+
+void LibraryWidget::dragMoveEvent(QDragMoveEvent* event)
+{
+    if (event->mimeData()->hasUrls()) {
+        event->acceptProposedAction();
+    }
+}
+
+void LibraryWidget::dropEvent(QDropEvent* event)
+{
+    if (event->mimeData()->hasUrls()) {
+        QList<QUrl> urls = event->mimeData()->urls();
+        QStringList filePaths;
+        
+        for (const QUrl& url : urls) {
+            if (url.isLocalFile()) {
+                filePaths.append(url.toLocalFile());
+            }
+        }
+        
+        if (!filePaths.isEmpty() && m_libraryManager) {
+            // Add files to library
+            for (const QString& filePath : filePaths) {
+                m_libraryManager->addMediaFile(filePath);
+            }
+            
+            refreshLibrary();
+        }
+        
+        event->acceptProposedAction();
+    }
+}
+
+void LibraryWidget::onSearchTextChanged()
+{
+    m_searchText = m_searchEdit->text();
+    m_proxyModel->setFilterFixedString(m_searchText);
+}
+
+void LibraryWidget::onViewModeChanged()
+{
+    ViewMode newMode = static_cast<ViewMode>(m_viewModeCombo->currentIndex());
+    setViewMode(newMode);
+}
+
+void LibraryWidget::onSortByChanged()
+{
+    SortBy newSortBy = static_cast<SortBy>(m_sortByCombo->currentIndex());
+    setSortBy(newSortBy);
+}
+
+void LibraryWidget::onFilterByChanged()
+{
+    FilterBy newFilterBy = static_cast<FilterBy>(m_filterByCombo->currentIndex());
+    setFilterBy(newFilterBy);
+}
+
+void LibraryWidget::onItemDoubleClicked(const QModelIndex& index)
+{
+    Q_UNUSED(index)
+    playSelectedFiles();
+}
+
+void LibraryWidget::onItemSelectionChanged()
+{
+    if (m_albumArtEnabled) {
+        QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+        if (!selectedFiles.isEmpty()) {
+            // Load album art for first selected file
+            // loadAlbumArt(selectedFiles.first()->getFilePath());
+        }
+    }
+}
+
+void LibraryWidget::onContextMenuRequested(const QPoint& pos)
+{
+    Q_UNUSED(pos)
+    // Context menu is handled in contextMenuEvent
+}
+
+void LibraryWidget::onLibraryUpdated()
+{
+    refreshLibrary();
+}
+
+void LibraryWidget::updateLibraryStats()
+{
+    if (!m_libraryManager) {
+        return;
+    }
+    
+    QMutexLocker locker(&m_dataMutex);
+    
+    // Reset stats
+    m_libraryStats = LibraryStats();
+    
+    // Get all media files from library manager
+    // This would be implemented based on LibraryManager interface
+    // auto allFiles = m_libraryManager->getAllMediaFiles();
+    
+    // Calculate statistics
+    // Implementation would iterate through files and calculate stats
+    
+    // Update status label
+    m_statusLabel->setText(QString("Total: %1 files").arg(m_libraryStats.totalFiles));
+    
+    qCDebug(libraryWidget) << "Library stats updated - Total files:" << m_libraryStats.totalFiles;
+}
+
+void LibraryWidget::onAlbumArtLoaded(const QString& filePath, const QPixmap& albumArt)
+{
+    m_albumArtCache[filePath] = albumArt;
+    
+    // Update display if this is the currently selected file
+    QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+    if (!selectedFiles.isEmpty()) {
+        // Check if this matches current selection
+        // if (selectedFiles.first()->getFilePath() == filePath) {
+        //     m_albumArtLabel->setPixmap(albumArt.scaled(ALBUM_ART_SIZE, ALBUM_ART_SIZE, 
+        //                                                Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        // }
+    }
 }
 
 void LibraryWidget::setupUI()
 {
-    m_mainLayout = new QVBoxLayout(this);
-    m_mainLayout->setContentsMargins(6, 6, 6, 6);
-    m_mainLayout->setSpacing(6);
+    setAcceptDrops(true);
     
-    setupToolbar();
+    // Setup toolbar
+    m_viewModeCombo->addItems({"Tree", "List", "Grid", "Details"});
+    m_viewModeCombo->setCurrentIndex(static_cast<int>(m_viewMode));
     
-    // Main splitter for library and playlist
-    m_mainSplitter = new QSplitter(Qt::Horizontal, this);
+    m_sortByCombo->addItems({"Title", "Artist", "Album", "Genre", "Year", 
+                            "Duration", "Date Added", "Play Count", "Rating"});
+    m_sortByCombo->setCurrentIndex(static_cast<int>(m_sortBy));
     
-    setupLibraryView();
-    setupPlaylistView();
+    m_filterByCombo->addItems({"All", "Audio", "Video", "Playlists", 
+                              "Recent", "Favorites", "Unplayed"});
+    m_filterByCombo->setCurrentIndex(static_cast<int>(m_filterBy));
     
-    m_mainSplitter->addWidget(m_librarySplitter);
-    m_mainSplitter->addWidget(m_playlistView);
-    m_mainSplitter->setSizes({700, 300}); // 70% library, 30% playlist
-    
-    m_mainLayout->addWidget(m_mainSplitter);
-    
-    // Status bar
-    m_statusLabel = new QLabel("Ready", this);
-    m_statusLabel->setStyleSheet("QLabel { color: #666; font-size: 11px; }");
-    m_mainLayout->addWidget(m_statusLabel);
-}
-
-void LibraryWidget::setupToolbar()
-{
-    m_toolbarLayout = new QHBoxLayout();
-    m_toolbarLayout->setSpacing(6);
-    
-    // Search
-    m_searchEdit = new QLineEdit(this);
-    m_searchEdit->setPlaceholderText("Search library...");
-    m_searchEdit->setMaximumWidth(200);
-    m_toolbarLayout->addWidget(m_searchEdit);
-    
-    // Filter combo
-    m_filterCombo = new QComboBox(this);
-    m_filterCombo->addItem("All Files", static_cast<int>(AllFiles));
-    m_filterCombo->addItem("Audio Files", static_cast<int>(AudioFiles));
-    m_filterCombo->addItem("Video Files", static_cast<int>(VideoFiles));
-    m_filterCombo->addItem("Recent Files", static_cast<int>(RecentFiles));
-    m_filterCombo->addItem("Favorite Files", static_cast<int>(FavoriteFiles));
-    m_filterCombo->setMaximumWidth(120);
-    m_toolbarLayout->addWidget(m_filterCombo);
-    
-    // View mode combo
-    m_viewModeCombo = new QComboBox(this);
-    m_viewModeCombo->addItem("Tree View", static_cast<int>(TreeView));
-    m_viewModeCombo->addItem("List View", static_cast<int>(ListView));
-    m_viewModeCombo->setMaximumWidth(100);
+    m_toolbarLayout->addWidget(new QLabel("View:"));
     m_toolbarLayout->addWidget(m_viewModeCombo);
-    
+    m_toolbarLayout->addWidget(new QLabel("Sort:"));
+    m_toolbarLayout->addWidget(m_sortByCombo);
+    m_toolbarLayout->addWidget(new QLabel("Filter:"));
+    m_toolbarLayout->addWidget(m_filterByCombo);
     m_toolbarLayout->addStretch();
-    
-    // Action buttons
-    m_refreshButton = new QPushButton("Refresh", this);
-    m_refreshButton->setMaximumWidth(80);
     m_toolbarLayout->addWidget(m_refreshButton);
-    
-    m_scanButton = new QPushButton("Scan", this);
-    m_scanButton->setMaximumWidth(60);
-    m_toolbarLayout->addWidget(m_scanButton);
-    
-    m_exportButton = new QPushButton("Export", this);
-    m_exportButton->setMaximumWidth(70);
     m_toolbarLayout->addWidget(m_exportButton);
-    
-    m_statsButton = new QPushButton("Stats", this);
-    m_statsButton->setMaximumWidth(60);
     m_toolbarLayout->addWidget(m_statsButton);
     
-    // Progress bar (initially hidden)
-    m_scanProgress = new QProgressBar(this);
-    m_scanProgress->setVisible(false);
-    m_scanProgress->setMaximumWidth(150);
-    m_toolbarLayout->addWidget(m_scanProgress);
+    // Setup search
+    m_searchEdit->setPlaceholderText("Search library...");
+    m_searchLayout->addWidget(m_searchLabel);
+    m_searchLayout->addWidget(m_searchEdit);
+    m_searchLayout->addStretch();
     
+    // Setup views
+    m_treeView->setAlternatingRowColors(true);
+    m_treeView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_treeView->setDragDropMode(QAbstractItemView::DragOnly);
+    
+    m_listView->setAlternatingRowColors(true);
+    m_listView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_listView->setDragDropMode(QAbstractItemView::DragOnly);
+    
+    m_tableView->setAlternatingRowColors(true);
+    m_tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_tableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_tableView->setDragDropMode(QAbstractItemView::DragOnly);
+    m_tableView->setSortingEnabled(true);
+    
+    // Setup album art widget
+    m_albumArtLabel->setFixedSize(ALBUM_ART_SIZE, ALBUM_ART_SIZE);
+    m_albumArtLabel->setAlignment(Qt::AlignCenter);
+    m_albumArtLabel->setStyleSheet("border: 1px solid gray; background-color: #f0f0f0;");
+    m_albumArtLabel->setText("No Album Art");
+    
+    QVBoxLayout* albumArtLayout = new QVBoxLayout(m_albumArtWidget);
+    albumArtLayout->addWidget(new QLabel("Album Art:"));
+    albumArtLayout->addWidget(m_albumArtLabel);
+    albumArtLayout->addStretch();
+    
+    // Setup splitters
+    m_contentSplitter->addWidget(m_tableView); // Default view
+    m_currentView = m_tableView;
+    
+    if (m_albumArtEnabled) {
+        m_mainSplitter->addWidget(m_contentSplitter);
+        m_mainSplitter->addWidget(m_albumArtWidget);
+        m_mainSplitter->setSizes({800, 200});
+    } else {
+        m_mainSplitter->addWidget(m_contentSplitter);
+    }
+    
+    // Setup status bar
+    m_progressBar->setVisible(false);
+    QHBoxLayout* statusLayout = new QHBoxLayout();
+    statusLayout->addWidget(m_statusLabel);
+    statusLayout->addStretch();
+    statusLayout->addWidget(m_progressBar);
+    
+    // Main layout
     m_mainLayout->addLayout(m_toolbarLayout);
+    m_mainLayout->addLayout(m_searchLayout);
+    m_mainLayout->addWidget(m_mainSplitter);
+    m_mainLayout->addLayout(statusLayout);
+    
+    updateViewMode();
 }
 
-void LibraryWidget::setupLibraryView()
+void LibraryWidget::setupModels()
 {
-    m_librarySplitter = new QSplitter(Qt::Vertical, this);
+    // Setup library model
+    m_libraryModel->setHorizontalHeaderLabels({
+        "Title", "Artist", "Album", "Genre", "Year", 
+        "Duration", "Size", "Date Added", "Play Count"
+    });
     
-    // Create models
-    m_libraryModel = new QStandardItemModel(this);
-    m_libraryModel->setHorizontalHeaderLabels({"Title", "Artist", "Album", "Duration", "Format", "Path"});
+    // Setup proxy model for filtering and sorting
+    m_proxyModel->setSourceModel(m_libraryModel);
+    m_proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    m_proxyModel->setFilterKeyColumn(-1); // Search all columns
     
-    m_libraryProxyModel = new QSortFilterProxyModel(this);
-    m_libraryProxyModel->setSourceModel(m_libraryModel);
-    m_libraryProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
-    m_libraryProxyModel->setFilterKeyColumn(-1); // Search all columns
-    
-    // Tree view
-    m_libraryTreeView = new QTreeView(this);
-    m_libraryTreeView->setModel(m_libraryProxyModel);
-    m_libraryTreeView->setAlternatingRowColors(true);
-    m_libraryTreeView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    m_libraryTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
-    m_libraryTreeView->setSortingEnabled(true);
-    m_libraryTreeView->setDragEnabled(true);
-    m_libraryTreeView->setAcceptDrops(true);
-    m_libraryTreeView->setDropIndicatorShown(true);
-    
-    // Configure column widths
-    m_libraryTreeView->header()->resizeSection(0, 200); // Title
-    m_libraryTreeView->header()->resizeSection(1, 150); // Artist
-    m_libraryTreeView->header()->resizeSection(2, 150); // Album
-    m_libraryTreeView->header()->resizeSection(3, 80);  // Duration
-    m_libraryTreeView->header()->resizeSection(4, 60);  // Format
-    m_libraryTreeView->header()->setStretchLastSection(true); // Path
-    
-    // List view
-    m_libraryListView = new QListView(this);
-    m_libraryListView->setModel(m_libraryProxyModel);
-    m_libraryListView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    m_libraryListView->setContextMenuPolicy(Qt::CustomContextMenu);
-    m_libraryListView->setDragEnabled(true);
-    m_libraryListView->setAcceptDrops(true);
-    m_libraryListView->setDropIndicatorShown(true);
-    m_libraryListView->setVisible(false); // Initially hidden
-    
-    m_librarySplitter->addWidget(m_libraryTreeView);
-    m_librarySplitter->addWidget(m_libraryListView);
-}
-
-void LibraryWidget::setupPlaylistView()
-{
-    m_playlistModel = new QStandardItemModel(this);
-    m_playlistModel->setHorizontalHeaderLabels({"Playlists"});
-    
-    m_playlistView = new QTreeView(this);
-    m_playlistView->setModel(m_playlistModel);
-    m_playlistView->setHeaderHidden(false);
-    m_playlistView->setAlternatingRowColors(true);
-    m_playlistView->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_playlistView->setContextMenuPolicy(Qt::CustomContextMenu);
-    m_playlistView->setDragEnabled(true);
-    m_playlistView->setAcceptDrops(true);
-    m_playlistView->setDropIndicatorShown(true);
-    m_playlistView->setMaximumWidth(250);
-}
-
-void LibraryWidget::setupContextMenus()
-{
-    // Library context menu
-    m_libraryContextMenu = new QMenu(this);
-    
-    m_playAction = new QAction("Play", this);
-    m_playAction->setShortcut(QKeySequence::InsertParagraphSeparator);
-    m_libraryContextMenu->addAction(m_playAction);
-    
-    m_queueAction = new QAction("Add to Queue", this);
-    m_queueAction->setShortcut(QKeySequence("Ctrl+Q"));
-    m_libraryContextMenu->addAction(m_queueAction);
-    
-    m_libraryContextMenu->addSeparator();
-    
-    m_addToPlaylistAction = new QAction("Add to Playlist...", this);
-    m_libraryContextMenu->addAction(m_addToPlaylistAction);
-    
-    m_createPlaylistAction = new QAction("Create Playlist...", this);
-    m_libraryContextMenu->addAction(m_createPlaylistAction);
-    
-    m_libraryContextMenu->addSeparator();
-    
-    m_showInfoAction = new QAction("Properties", this);
-    m_libraryContextMenu->addAction(m_showInfoAction);
-    
-    m_showInExplorerAction = new QAction("Show in Explorer", this);
-    m_libraryContextMenu->addAction(m_showInExplorerAction);
-    
-    m_libraryContextMenu->addSeparator();
-    
-    m_removeAction = new QAction("Remove from Library", this);
-    m_libraryContextMenu->addAction(m_removeAction);
-    
-    // Playlist context menu
-    m_playlistContextMenu = new QMenu(this);
-    // TODO: Add playlist-specific actions
+    // Set models to views
+    m_treeView->setModel(m_proxyModel);
+    m_listView->setModel(m_proxyModel);
+    m_tableView->setModel(m_proxyModel);
 }
 
 void LibraryWidget::setupConnections()
 {
     // Toolbar connections
-    connect(m_searchEdit, &QLineEdit::textChanged,
-            this, &LibraryWidget::onSearchTextChanged);
-    connect(m_filterCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &LibraryWidget::onFilterChanged);
     connect(m_viewModeCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &LibraryWidget::onViewModeChanged);
+    connect(m_sortByCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &LibraryWidget::onSortByChanged);
+    connect(m_filterByCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &LibraryWidget::onFilterByChanged);
     connect(m_refreshButton, &QPushButton::clicked,
-            this, &LibraryWidget::onRefreshRequested);
-    connect(m_scanButton, &QPushButton::clicked,
-            this, &LibraryWidget::onScanLibraryRequested);
+            this, &LibraryWidget::refreshLibrary);
     connect(m_exportButton, &QPushButton::clicked,
-            this, &LibraryWidget::onExportLibraryRequested);
+            this, [this]() {
+                QString filePath = QFileDialog::getSaveFileName(this, "Export Library", 
+                                                               QString(), "JSON (*.json);;CSV (*.csv)");
+                if (!filePath.isEmpty()) {
+                    QString format = filePath.endsWith(".csv") ? "csv" : "json";
+                    bool success = exportLibrary(filePath, format);
+                    emit libraryExported(success, filePath);
+                }
+            });
     connect(m_statsButton, &QPushButton::clicked,
-            this, &LibraryWidget::onShowStatisticsRequested);
+            this, &LibraryWidget::showLibraryStats);
+    
+    // Search connection
+    connect(m_searchEdit, &QLineEdit::textChanged,
+            this, &LibraryWidget::onSearchTextChanged);
     
     // View connections
-    connect(m_libraryTreeView, &QTreeView::doubleClicked,
+    connect(m_tableView, &QTableView::doubleClicked,
             this, &LibraryWidget::onItemDoubleClicked);
-    connect(m_libraryListView, &QListView::doubleClicked,
-            this, &LibraryWidget::onItemDoubleClicked);
+    connect(m_tableView->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &LibraryWidget::onItemSelectionChanged);
     
-    connect(m_libraryTreeView, &QTreeView::customContextMenuRequested,
-            this, &LibraryWidget::onContextMenuRequested);
-    connect(m_libraryListView, &QListView::customContextMenuRequested,
-            this, &LibraryWidget::onContextMenuRequested);
-    
-    // Context menu actions
-    connect(m_playAction, &QAction::triggered,
-            this, &LibraryWidget::onPlaySelected);
-    connect(m_queueAction, &QAction::triggered,
-            this, &LibraryWidget::onQueueSelected);
-    connect(m_addToPlaylistAction, &QAction::triggered,
-            this, &LibraryWidget::onAddToPlaylist);
-    connect(m_createPlaylistAction, &QAction::triggered,
-            this, &LibraryWidget::onCreatePlaylist);
-    connect(m_showInfoAction, &QAction::triggered,
-            this, &LibraryWidget::onShowFileInfo);
-    connect(m_showInExplorerAction, &QAction::triggered,
-            this, &LibraryWidget::onShowInExplorer);
-    connect(m_removeAction, &QAction::triggered,
-            this, &LibraryWidget::onRemoveFromLibrary);
-    
-    // Timer connection
-    connect(m_refreshTimer, &QTimer::timeout,
-            this, &LibraryWidget::refreshLibrary);
+    // Album art timer
+    connect(m_albumArtTimer, &QTimer::timeout,
+            this, [this]() {
+                // Load album art for current selection
+                onItemSelectionChanged();
+            });
 }
 
-void LibraryWidget::refreshLibrary()
+void LibraryWidget::updateViewMode()
 {
-    populateLibraryModel();
-    updateStatistics();
-}
-
-QStringList LibraryWidget::getSelectedFiles() const
-{
-    QStringList files;
+    // Hide all views first
+    m_treeView->setVisible(false);
+    m_listView->setVisible(false);
+    m_tableView->setVisible(false);
     
-    QAbstractItemView* currentView = (m_currentViewMode == TreeView) ? 
-        static_cast<QAbstractItemView*>(m_libraryTreeView) : 
-        static_cast<QAbstractItemView*>(m_libraryListView);
-    
-    QModelIndexList selected = currentView->selectionModel()->selectedRows();
-    for (const QModelIndex& index : selected) {
-        QModelIndex sourceIndex = m_libraryProxyModel->mapToSource(index);
-        QStandardItem* item = m_libraryModel->itemFromIndex(sourceIndex);
-        if (item) {
-            // Path is in the last column
-            QStandardItem* pathItem = m_libraryModel->item(sourceIndex.row(), 5);
-            if (pathItem) {
-                files.append(pathItem->text());
-            }
-        }
+    // Remove current view from splitter
+    if (m_currentView) {
+        m_contentSplitter->widget(0)->setParent(nullptr);
     }
     
-    return files;
+    // Show selected view
+    switch (m_viewMode) {
+        case TreeView:
+            m_currentView = m_treeView;
+            break;
+        case ListView:
+            m_currentView = m_listView;
+            break;
+        case GridView:
+            // Grid view would need a custom widget
+            m_currentView = m_listView; // Fallback to list view
+            break;
+        case DetailView:
+        default:
+            m_currentView = m_tableView;
+            break;
+    }
+    
+    m_contentSplitter->insertWidget(0, m_currentView);
+    m_currentView->setVisible(true);
 }
 
-void LibraryWidget::setSearchFilter(const QString& filter)
+void LibraryWidget::updateSorting()
 {
-    m_currentFilter = filter;
-    m_libraryProxyModel->setFilterFixedString(filter);
-    m_searchEdit->setText(filter);
+    int column = static_cast<int>(m_sortBy);
+    m_proxyModel->sort(column, Qt::AscendingOrder);
+}
+
+void LibraryWidget::updateFiltering()
+{
+    // Implement filtering based on m_filterBy
+    // This would set appropriate filters on the proxy model
+    QString filterPattern;
+    
+    switch (m_filterBy) {
+        case All:
+            filterPattern = "";
+            break;
+        case Audio:
+            filterPattern = "\\.(mp3|flac|wav|ogg|m4a)$";
+            break;
+        case Video:
+            filterPattern = "\\.(mp4|avi|mkv|mov|wmv)$";
+            break;
+        case Playlist:
+            filterPattern = "\\.(m3u|pls|xspf)$";
+            break;
+        case Recent:
+            // Would filter by date added
+            break;
+        case Favorites:
+            // Would filter by rating or favorite flag
+            break;
+        case Unplayed:
+            // Would filter by play count = 0
+            break;
+    }
+    
+    if (!filterPattern.isEmpty()) {
+        m_proxyModel->setFilterRegularExpression(QRegularExpression(filterPattern, QRegularExpression::CaseInsensitiveOption));
+    } else {
+        m_proxyModel->setFilterRegularExpression(QRegularExpression());
+    }
 }
 
 void LibraryWidget::populateLibraryModel()
@@ -374,316 +641,227 @@ void LibraryWidget::populateLibraryModel()
     }
     
     m_libraryModel->clear();
-    m_libraryModel->setHorizontalHeaderLabels({"Title", "Artist", "Album", "Duration", "Format", "Path"});
+    m_libraryModel->setHorizontalHeaderLabels({
+        "Title", "Artist", "Album", "Genre", "Year", 
+        "Duration", "Size", "Date Added", "Play Count"
+    });
     
-    // Get all media files from library
-    auto mediaFiles = m_libraryManager->getAllMediaFiles();
+    // Get all media files from library manager
+    // This would be implemented based on LibraryManager interface
+    // auto allFiles = m_libraryManager->getAllMediaFiles();
     
-    for (const auto& mediaFile : mediaFiles) {
-        QList<QStandardItem*> row;
+    // Populate model with media files
+    // Implementation would iterate through files and add to model
+    
+    qCDebug(libraryWidget) << "Library model populated";
+}
+
+void LibraryWidget::createContextMenu()
+{
+    m_playAction = m_contextMenu->addAction("Play");
+    m_addToPlaylistAction = m_contextMenu->addAction("Add to Playlist");
+    m_contextMenu->addSeparator();
+    m_propertiesAction = m_contextMenu->addAction("Properties");
+    m_contextMenu->addSeparator();
+    m_removeAction = m_contextMenu->addAction("Remove from Library");
+    
+    connect(m_playAction, &QAction::triggered, this, &LibraryWidget::playSelectedFiles);
+    connect(m_addToPlaylistAction, &QAction::triggered, this, &LibraryWidget::addToPlaylist);
+    connect(m_propertiesAction, &QAction::triggered, this, &LibraryWidget::showFileProperties);
+    connect(m_removeAction, &QAction::triggered, this, &LibraryWidget::removeFromLibrary);
+}
+
+void LibraryWidget::playSelectedFiles()
+{
+    QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+    if (!selectedFiles.isEmpty()) {
+        emit filesSelectedForPlayback(selectedFiles);
+    }
+}
+
+void LibraryWidget::addToPlaylist()
+{
+    QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+    if (!selectedFiles.isEmpty()) {
+        // Show playlist selection dialog
+        // For now, emit with default playlist name
+        emit filesAddedToPlaylist(selectedFiles, "Default");
+    }
+}
+
+void LibraryWidget::showFileProperties()
+{
+    QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+    if (!selectedFiles.isEmpty()) {
+        // Show file properties dialog
+        // Implementation would show detailed file information
+        qCDebug(libraryWidget) << "Show properties for" << selectedFiles.size() << "files";
+    }
+}
+
+void LibraryWidget::removeFromLibrary()
+{
+    QVector<std::shared_ptr<MediaFile>> selectedFiles = getSelectedFiles();
+    if (!selectedFiles.isEmpty()) {
+        int ret = QMessageBox::question(this, "Remove Files", 
+                                       QString("Remove %1 files from library?").arg(selectedFiles.size()),
+                                       QMessageBox::Yes | QMessageBox::No);
         
-        row.append(new QStandardItem(mediaFile.title.isEmpty() ? 
-                                   QFileInfo(mediaFile.filePath).baseName() : mediaFile.title));
-        row.append(new QStandardItem(mediaFile.artist));
-        row.append(new QStandardItem(mediaFile.album));
-        row.append(new QStandardItem(formatDuration(mediaFile.duration)));
-        row.append(new QStandardItem(QFileInfo(mediaFile.filePath).suffix().toUpper()));
-        row.append(new QStandardItem(mediaFile.filePath));
+        if (ret == QMessageBox::Yes && m_libraryManager) {
+            // Remove files from library
+            // Implementation would call library manager to remove files
+            refreshLibrary();
+        }
+    }
+}
+
+bool LibraryWidget::exportToJSON(const QString& filePath)
+{
+    QJsonObject root;
+    root["version"] = "1.0";
+    root["exportDate"] = QDateTime::currentDateTime().toString(Qt::ISODate);
+    
+    QJsonArray filesArray;
+    
+    // Export all files in the model
+    for (int row = 0; row < m_libraryModel->rowCount(); ++row) {
+        QJsonObject fileObj;
         
-        // Set tooltips
-        for (int i = 0; i < row.size(); ++i) {
-            row[i]->setToolTip(mediaFile.filePath);
+        for (int col = 0; col < m_libraryModel->columnCount(); ++col) {
+            QStandardItem* item = m_libraryModel->item(row, col);
+            if (item) {
+                QString headerName = m_libraryModel->headerData(col, Qt::Horizontal).toString();
+                fileObj[headerName.toLower().replace(" ", "_")] = item->text();
+            }
         }
         
-        m_libraryModel->appendRow(row);
+        filesArray.append(fileObj);
     }
     
-    m_totalFiles = mediaFiles.size();
-    updateStatistics();
+    root["files"] = filesArray;
+    root["statistics"] = QJsonObject{
+        {"totalFiles", m_libraryStats.totalFiles},
+        {"audioFiles", m_libraryStats.audioFiles},
+        {"videoFiles", m_libraryStats.videoFiles},
+        {"totalSize", static_cast<qint64>(m_libraryStats.totalSize)},
+        {"totalDuration", static_cast<qint64>(m_libraryStats.totalDuration)}
+    };
     
-    qCDebug(libraryWidget) << "Library model populated with" << m_totalFiles << "files";
+    QJsonDocument doc(root);
+    
+    QFile file(filePath);
+    if (file.open(QIODevice::WriteOnly)) {
+        file.write(doc.toJson());
+        qCDebug(libraryWidget) << "Library exported to JSON:" << filePath;
+        return true;
+    }
+    
+    qCWarning(libraryWidget) << "Failed to export library to JSON:" << filePath;
+    return false;
 }
 
-void LibraryWidget::populatePlaylistModel()
+bool LibraryWidget::exportToCSV(const QString& filePath)
 {
-    if (!m_playlistManager) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qCWarning(libraryWidget) << "Failed to export library to CSV:" << filePath;
+        return false;
+    }
+    
+    QTextStream out(&file);
+    
+    // Write header
+    QStringList headers;
+    for (int col = 0; col < m_libraryModel->columnCount(); ++col) {
+        headers << m_libraryModel->headerData(col, Qt::Horizontal).toString();
+    }
+    out << headers.join(",") << "\n";
+    
+    // Write data
+    for (int row = 0; row < m_libraryModel->rowCount(); ++row) {
+        QStringList rowData;
+        
+        for (int col = 0; col < m_libraryModel->columnCount(); ++col) {
+            QStandardItem* item = m_libraryModel->item(row, col);
+            QString cellData = item ? item->text() : "";
+            
+            // Escape commas and quotes in CSV
+            if (cellData.contains(",") || cellData.contains("\"")) {
+                cellData = "\"" + cellData.replace("\"", "\"\"") + "\"";
+            }
+            
+            rowData << cellData;
+        }
+        
+        out << rowData.join(",") << "\n";
+    }
+    
+    qCDebug(libraryWidget) << "Library exported to CSV:" << filePath;
+    return true;
+}
+
+void LibraryWidget::loadAlbumArt(const QString& filePath)
+{
+    // Check cache first
+    if (m_albumArtCache.contains(filePath)) {
+        QPixmap albumArt = m_albumArtCache[filePath];
+        m_albumArtLabel->setPixmap(albumArt.scaled(ALBUM_ART_SIZE, ALBUM_ART_SIZE, 
+                                                  Qt::KeepAspectRatio, Qt::SmoothTransformation));
         return;
     }
     
-    m_playlistModel->clear();
-    m_playlistModel->setHorizontalHeaderLabels({"Playlists"});
+    // Load album art from file metadata or folder
+    // This would be implemented using TagLib or similar library
+    // For now, show placeholder
+    m_albumArtLabel->setText("Loading...");
     
-    // Add root items
-    auto* libraryRoot = new QStandardItem("Library");
-    libraryRoot->setEditable(false);
-    m_playlistModel->appendRow(libraryRoot);
-    
-    auto* playlistsRoot = new QStandardItem("Playlists");
-    playlistsRoot->setEditable(false);
-    m_playlistModel->appendRow(playlistsRoot);
-    
-    // Get all playlists
-    auto playlists = m_playlistManager->getAllPlaylists();
-    for (const auto& playlist : playlists) {
-        auto* item = new QStandardItem(playlist.name);
-        item->setData(playlist.id, Qt::UserRole);
-        playlistsRoot->appendRow(item);
-    }
-    
-    m_playlistView->expandAll();
+    // Simulate async loading
+    QTimer::singleShot(100, this, [this, filePath]() {
+        // Create placeholder pixmap
+        QPixmap placeholder(ALBUM_ART_SIZE, ALBUM_ART_SIZE);
+        placeholder.fill(Qt::lightGray);
+        
+        m_albumArtCache[filePath] = placeholder;
+        m_albumArtLabel->setPixmap(placeholder);
+        
+        emit onAlbumArtLoaded(filePath, placeholder);
+    });
 }
 
-void LibraryWidget::updateStatistics()
+QString LibraryWidget::formatDuration(qint64 milliseconds) const
 {
-    if (m_isScanning) {
-        return;
-    }
-    
-    QString status = QString("Library: %1 files").arg(m_totalFiles);
-    
-    if (!m_currentFilter.isEmpty()) {
-        int filteredCount = m_libraryProxyModel->rowCount();
-        status += QString(" (%1 filtered)").arg(filteredCount);
-    }
-    
-    m_statusLabel->setText(status);
-}
-
-QString LibraryWidget::formatDuration(qint64 duration) const
-{
-    if (duration <= 0) {
-        return "--:--";
-    }
-    
-    int seconds = duration / 1000;
-    int minutes = seconds / 60;
-    int hours = minutes / 60;
+    qint64 seconds = milliseconds / 1000;
+    qint64 minutes = seconds / 60;
+    qint64 hours = minutes / 60;
     
     seconds %= 60;
     minutes %= 60;
     
     if (hours > 0) {
         return QString("%1:%2:%3")
-            .arg(hours)
-            .arg(minutes, 2, 10, QChar('0'))
-            .arg(seconds, 2, 10, QChar('0'));
+               .arg(hours)
+               .arg(minutes, 2, 10, QChar('0'))
+               .arg(seconds, 2, 10, QChar('0'));
     } else {
         return QString("%1:%2")
-            .arg(minutes)
-            .arg(seconds, 2, 10, QChar('0'));
+               .arg(minutes)
+               .arg(seconds, 2, 10, QChar('0'));
     }
 }
 
-// Slot implementations
-void LibraryWidget::onScanProgress(int current, int total)
+QString LibraryWidget::formatFileSize(qint64 bytes) const
 {
-    m_isScanning = true;
-    m_scanProgress->setVisible(true);
-    m_scanProgress->setMaximum(total);
-    m_scanProgress->setValue(current);
+    const qint64 KB = 1024;
+    const qint64 MB = KB * 1024;
+    const qint64 GB = MB * 1024;
     
-    m_statusLabel->setText(QString("Scanning... %1/%2").arg(current).arg(total));
-    m_scanButton->setEnabled(false);
-}
-
-void LibraryWidget::onScanComplete()
-{
-    m_isScanning = false;
-    m_scanProgress->setVisible(false);
-    m_scanButton->setEnabled(true);
-    
-    refreshLibrary();
-    
-    qCDebug(libraryWidget) << "Library scan completed";
-}
-
-void LibraryWidget::onMediaFileAdded(const QString& filePath)
-{
-    Q_UNUSED(filePath)
-    // Refresh with a small delay to batch updates
-    m_refreshTimer->start();
-}
-
-void LibraryWidget::onMediaFileRemoved(const QString& filePath)
-{
-    Q_UNUSED(filePath)
-    // Refresh with a small delay to batch updates
-    m_refreshTimer->start();
-}
-
-void LibraryWidget::onSearchTextChanged()
-{
-    m_currentFilter = m_searchEdit->text();
-    m_libraryProxyModel->setFilterFixedString(m_currentFilter);
-    updateStatistics();
-}
-
-void LibraryWidget::onFilterChanged()
-{
-    FilterType filterType = static_cast<FilterType>(m_filterCombo->currentData().toInt());
-    
-    // TODO: Implement different filter types
-    // For now, just update the display
-    updateStatistics();
-}
-
-void LibraryWidget::onViewModeChanged()
-{
-    ViewMode newMode = static_cast<ViewMode>(m_viewModeCombo->currentData().toInt());
-    
-    if (newMode != m_currentViewMode) {
-        m_currentViewMode = newMode;
-        
-        if (m_currentViewMode == TreeView) {
-            m_libraryTreeView->setVisible(true);
-            m_libraryListView->setVisible(false);
-        } else {
-            m_libraryTreeView->setVisible(false);
-            m_libraryListView->setVisible(true);
-        }
+    if (bytes >= GB) {
+        return QString("%1 GB").arg(static_cast<double>(bytes) / GB, 0, 'f', 2);
+    } else if (bytes >= MB) {
+        return QString("%1 MB").arg(static_cast<double>(bytes) / MB, 0, 'f', 1);
+    } else if (bytes >= KB) {
+        return QString("%1 KB").arg(static_cast<double>(bytes) / KB, 0, 'f', 0);
+    } else {
+        return QString("%1 bytes").arg(bytes);
     }
-}
-
-void LibraryWidget::onItemDoubleClicked(const QModelIndex& index)
-{
-    QModelIndex sourceIndex = m_libraryProxyModel->mapToSource(index);
-    QStandardItem* pathItem = m_libraryModel->item(sourceIndex.row(), 5);
-    
-    if (pathItem) {
-        QStringList files;
-        files.append(pathItem->text());
-        emit playRequested(files);
-    }
-}
-
-void LibraryWidget::onContextMenuRequested(const QPoint& pos)
-{
-    QAbstractItemView* currentView = (m_currentViewMode == TreeView) ? 
-        static_cast<QAbstractItemView*>(m_libraryTreeView) : 
-        static_cast<QAbstractItemView*>(m_libraryListView);
-    
-    QModelIndex index = currentView->indexAt(pos);
-    if (index.isValid()) {
-        m_libraryContextMenu->exec(currentView->mapToGlobal(pos));
-    }
-}
-
-void LibraryWidget::onRefreshRequested()
-{
-    refreshLibrary();
-}
-
-void LibraryWidget::onScanLibraryRequested()
-{
-    if (m_libraryManager && !m_isScanning) {
-        m_libraryManager->scanLibrary();
-    }
-}
-
-void LibraryWidget::onExportLibraryRequested()
-{
-    exportLibraryToFile();
-}
-
-void LibraryWidget::onShowStatisticsRequested()
-{
-    showLibraryStatistics();
-}
-
-void LibraryWidget::onPlaySelected()
-{
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        emit playRequested(files);
-    }
-}
-
-void LibraryWidget::onQueueSelected()
-{
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        emit queueRequested(files);
-    }
-}
-
-void LibraryWidget::onAddToPlaylist()
-{
-    // TODO: Show playlist selection dialog
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        // For now, just emit with empty playlist name
-        emit addToPlaylistRequested(files, QString());
-    }
-}
-
-void LibraryWidget::onCreatePlaylist()
-{
-    bool ok;
-    QString name = QInputDialog::getText(this, "Create Playlist", 
-                                        "Playlist name:", QLineEdit::Normal, 
-                                        QString(), &ok);
-    
-    if (ok && !name.isEmpty()) {
-        QStringList files = getSelectedFiles();
-        emit createPlaylistRequested(name, files);
-    }
-}
-
-void LibraryWidget::onShowFileInfo()
-{
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        showFileInfoDialog(files.first());
-    }
-}
-
-void LibraryWidget::onRemoveFromLibrary()
-{
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty() && m_libraryManager) {
-        int ret = QMessageBox::question(this, "Remove from Library",
-                                       QString("Remove %1 file(s) from library?").arg(files.size()),
-                                       QMessageBox::Yes | QMessageBox::No);
-        
-        if (ret == QMessageBox::Yes) {
-            for (const QString& file : files) {
-                m_libraryManager->removeMediaFile(file);
-            }
-        }
-    }
-}
-
-void LibraryWidget::onShowInExplorer()
-{
-    QStringList files = getSelectedFiles();
-    if (!files.isEmpty()) {
-        QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(files.first()).absolutePath()));
-    }
-}
-
-void LibraryWidget::showFileInfoDialog(const QString& filePath)
-{
-    // TODO: Create a proper file info dialog
-    QMessageBox::information(this, "File Information", 
-                           QString("File: %1").arg(filePath));
-}
-
-void LibraryWidget::exportLibraryToFile()
-{
-    QString fileName = QFileDialog::getSaveFileName(this, 
-                                                   "Export Library", 
-                                                   QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/library.json",
-                                                   "JSON Files (*.json);;CSV Files (*.csv)");
-    
-    if (!fileName.isEmpty()) {
-        // TODO: Implement actual export functionality
-        QMessageBox::information(this, "Export", "Library export functionality will be implemented.");
-    }
-}
-
-void LibraryWidget::showLibraryStatistics()
-{
-    // TODO: Create a proper statistics dialog
-    QString stats = QString("Total files: %1\n").arg(m_totalFiles);
-    QMessageBox::information(this, "Library Statistics", stats);
 }

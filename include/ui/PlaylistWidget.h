@@ -2,176 +2,289 @@
 #define PLAYLISTWIDGET_H
 
 #include <QWidget>
-#include <QListView>
+#include <QListWidget>
+#include <QTreeWidget>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
-#include <QStandardItemModel>
-#include <QSortFilterProxyModel>
+#include <QComboBox>
+#include <QLabel>
 #include <QMenu>
-#include <QAction>
 #include <QTimer>
+#include <QMutex>
 #include <memory>
 
+// Forward declarations
 class PlaylistManager;
 class Playlist;
+class MediaFile;
 
 /**
- * @brief Widget for displaying and managing playlist contents
+ * @brief Comprehensive playlist management widget
  * 
- * Shows the current playlist with drag-and-drop support for reordering
- * and provides controls for playlist management.
+ * Provides a complete playlist interface with drag-and-drop support,
+ * playlist creation, editing, and advanced playlist features.
  */
 class PlaylistWidget : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Playlist display modes
+     */
+    enum DisplayMode {
+        ListMode = 0,
+        TreeMode,
+        CompactMode
+    };
+
+    /**
+     * @brief Playlist sort options
+     */
+    enum SortBy {
+        Default = 0,
+        Title,
+        Artist,
+        Album,
+        Duration,
+        DateAdded
+    };
+
     explicit PlaylistWidget(QWidget* parent = nullptr);
     ~PlaylistWidget() override;
 
     /**
-     * @brief Initialize the playlist widget with manager
+     * @brief Set playlist manager
      * @param playlistManager Playlist manager instance
      */
-    void initialize(std::shared_ptr<PlaylistManager> playlistManager);
+    void setPlaylistManager(PlaylistManager* playlistManager);
 
     /**
-     * @brief Set the current playlist to display
-     * @param playlistId ID of playlist to display
+     * @brief Get current display mode
+     * @return Current display mode
      */
-    void setCurrentPlaylist(int playlistId);
+    DisplayMode getDisplayMode() const;
 
     /**
-     * @brief Get the current playlist ID
-     * @return Current playlist ID, -1 if none
+     * @brief Set display mode
+     * @param mode Display mode
      */
-    int getCurrentPlaylistId() const;
+    void setDisplayMode(DisplayMode mode);
 
     /**
-     * @brief Add files to the current playlist
-     * @param filePaths List of file paths to add
+     * @brief Get current sort option
+     * @return Current sort option
      */
-    void addFiles(const QStringList& filePaths);
+    SortBy getSortBy() const;
 
     /**
-     * @brief Get currently selected files
-     * @return List of selected file paths
+     * @brief Set sort option
+     * @param sortBy Sort option
      */
-    QStringList getSelectedFiles() const;
+    void setSortBy(SortBy sortBy);
 
     /**
-     * @brief Set the currently playing item
-     * @param filePath Path of currently playing file
+     * @brief Get current playlist
+     * @return Current playlist
      */
-    void setCurrentlyPlaying(const QString& filePath);
-
-public slots:
-    /**
-     * @brief Handle playlist updated
-     * @param playlistId ID of updated playlist
-     */
-    void onPlaylistUpdated(int playlistId);
+    std::shared_ptr<Playlist> getCurrentPlaylist() const;
 
     /**
-     * @brief Handle playlist item added
-     * @param playlistId Playlist ID
-     * @param filePath Added file path
+     * @brief Set current playlist
+     * @param playlist Playlist to display
      */
-    void onPlaylistItemAdded(int playlistId, const QString& filePath);
+    void setCurrentPlaylist(std::shared_ptr<Playlist> playlist);
 
     /**
-     * @brief Handle playlist item removed
-     * @param playlistId Playlist ID
-     * @param filePath Removed file path
+     * @brief Get selected media files
+     * @return List of selected media files
      */
-    void onPlaylistItemRemoved(int playlistId, const QString& filePath);
+    QVector<std::shared_ptr<MediaFile>> getSelectedFiles() const;
+
+    /**
+     * @brief Add files to current playlist
+     * @param files Media files to add
+     */
+    void addFiles(const QVector<std::shared_ptr<MediaFile>>& files);
+
+    /**
+     * @brief Remove selected files from playlist
+     */
+    void removeSelectedFiles();
+
+    /**
+     * @brief Clear current playlist
+     */
+    void clearPlaylist();
+
+    /**
+     * @brief Shuffle current playlist
+     */
+    void shufflePlaylist();
+
+    /**
+     * @brief Create new playlist
+     * @param name Playlist name
+     * @return true if successful
+     */
+    bool createNewPlaylist(const QString& name);
+
+    /**
+     * @brief Delete current playlist
+     * @return true if successful
+     */
+    bool deleteCurrentPlaylist();
+
+    /**
+     * @brief Rename current playlist
+     * @param newName New playlist name
+     * @return true if successful
+     */
+    bool renameCurrentPlaylist(const QString& newName);
+
+    /**
+     * @brief Save current playlist to file
+     * @param filePath File path to save to
+     * @return true if successful
+     */
+    bool savePlaylistToFile(const QString& filePath);
+
+    /**
+     * @brief Load playlist from file
+     * @param filePath File path to load from
+     * @return true if successful
+     */
+    bool loadPlaylistFromFile(const QString& filePath);
+
+    /**
+     * @brief Get playlist statistics
+     * @return Playlist statistics
+     */
+    struct PlaylistStats {
+        int totalTracks;
+        qint64 totalDuration;
+        qint64 totalSize;
+        QString longestTrack;
+        QString shortestTrack;
+        
+        PlaylistStats() : totalTracks(0), totalDuration(0), totalSize(0) {}
+    };
+
+    /**
+     * @brief Get current playlist statistics
+     * @return Playlist statistics
+     */
+    PlaylistStats getPlaylistStats() const;
 
 signals:
     /**
-     * @brief Emitted when user wants to play selected item
-     * @param filePath File path to play
+     * @brief Emitted when files are selected for playback
+     * @param files Selected media files
      */
-    void playRequested(const QString& filePath);
+    void filesSelectedForPlayback(const QVector<std::shared_ptr<MediaFile>>& files);
 
     /**
-     * @brief Emitted when user wants to play from specific position
-     * @param filePaths List of files from position onwards
-     * @param startIndex Index to start playing from
+     * @brief Emitted when playlist changes
+     * @param playlist New current playlist
      */
-    void playFromRequested(const QStringList& filePaths, int startIndex);
+    void playlistChanged(std::shared_ptr<Playlist> playlist);
 
     /**
-     * @brief Emitted when user removes items from playlist
-     * @param filePaths List of file paths to remove
+     * @brief Emitted when playlist is modified
+     * @param playlist Modified playlist
      */
-    void removeFromPlaylistRequested(const QStringList& filePaths);
+    void playlistModified(std::shared_ptr<Playlist> playlist);
 
     /**
-     * @brief Emitted when playlist order changes
-     * @param playlistId Playlist ID
-     * @param newOrder New order of file paths
+     * @brief Emitted when new playlist is created
+     * @param playlist New playlist
      */
-    void playlistReordered(int playlistId, const QStringList& newOrder);
+    void playlistCreated(std::shared_ptr<Playlist> playlist);
+
+    /**
+     * @brief Emitted when playlist is deleted
+     * @param playlistName Deleted playlist name
+     */
+    void playlistDeleted(const QString& playlistName);
+
+protected:
+    void contextMenuEvent(QContextMenuEvent* event) override;
+    void dragEnterEvent(QDragEnterEvent* event) override;
+    void dragMoveEvent(QDragMoveEvent* event) override;
+    void dropEvent(QDropEvent* event) override;
 
 private slots:
-    void onItemDoubleClicked(const QModelIndex& index);
+    void onItemDoubleClicked(QListWidgetItem* item);
     void onItemSelectionChanged();
     void onContextMenuRequested(const QPoint& pos);
-    void onClearPlaylist();
-    void onShufflePlaylist();
-    void onSavePlaylist();
-    void onLoadPlaylist();
-
-    // Context menu actions
-    void onPlaySelected();
-    void onPlayFromHere();
-    void onRemoveSelected();
-    void onMoveUp();
-    void onMoveDown();
-    void onShowFileInfo();
+    void onDisplayModeChanged();
+    void onSortByChanged();
+    void onNewPlaylistClicked();
+    void onDeletePlaylistClicked();
+    void onSavePlaylistClicked();
+    void onLoadPlaylistClicked();
+    void onShuffleClicked();
+    void onClearClicked();
+    void updatePlaylistDisplay();
 
 private:
     void setupUI();
-    void setupContextMenu();
     void setupConnections();
-    void populatePlaylist();
-    void updatePlaylistInfo();
+    void createContextMenu();
+    void populatePlaylistView();
+    void updatePlaylistStats();
     void moveSelectedItems(int direction);
+    QString formatDuration(qint64 milliseconds) const;
+    QString formatFileSize(qint64 bytes) const;
 
-    // UI Components
+    // UI components
     QVBoxLayout* m_mainLayout;
-    QHBoxLayout* m_headerLayout;
-    QHBoxLayout* m_buttonLayout;
+    QHBoxLayout* m_toolbarLayout;
+    QHBoxLayout* m_controlsLayout;
 
-    QLabel* m_playlistLabel;
-    QLabel* m_infoLabel;
-    QListView* m_playlistView;
-    QStandardItemModel* m_playlistModel;
+    // Toolbar
+    QComboBox* m_displayModeCombo;
+    QComboBox* m_sortByCombo;
+    QPushButton* m_newPlaylistButton;
+    QPushButton* m_deletePlaylistButton;
+    QPushButton* m_savePlaylistButton;
+    QPushButton* m_loadPlaylistButton;
 
-    // Buttons
-    QPushButton* m_clearButton;
+    // Controls
     QPushButton* m_shuffleButton;
-    QPushButton* m_saveButton;
-    QPushButton* m_loadButton;
+    QPushButton* m_clearButton;
+    QPushButton* m_moveUpButton;
+    QPushButton* m_moveDownButton;
+
+    // Views
+    QListWidget* m_listWidget;
+    QTreeWidget* m_treeWidget;
+    QWidget* m_currentView;
+
+    // Status
+    QLabel* m_statusLabel;
 
     // Context menu
     QMenu* m_contextMenu;
     QAction* m_playAction;
-    QAction* m_playFromAction;
     QAction* m_removeAction;
     QAction* m_moveUpAction;
     QAction* m_moveDownAction;
-    QAction* m_showInfoAction;
+    QAction* m_propertiesAction;
 
     // Manager
-    std::shared_ptr<PlaylistManager> m_playlistManager;
+    PlaylistManager* m_playlistManager;
 
     // State
-    int m_currentPlaylistId;
-    QString m_currentlyPlayingFile;
-    QTimer* m_updateTimer;
+    std::shared_ptr<Playlist> m_currentPlaylist;
+    DisplayMode m_displayMode;
+    SortBy m_sortBy;
+    PlaylistStats m_playlistStats;
+
+    // Thread safety
+    mutable QMutex m_dataMutex;
 };
 
 #endif // PLAYLISTWIDGET_H

@@ -4,216 +4,330 @@
 #include <QWidget>
 #include <QTreeView>
 #include <QListView>
+#include <QTableView>
 #include <QSplitter>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLineEdit>
+#include <QComboBox>
 #include <QPushButton>
 #include <QLabel>
-#include <QComboBox>
+#include <QProgressBar>
 #include <QStandardItemModel>
 #include <QSortFilterProxyModel>
 #include <QMenu>
-#include <QAction>
-#include <QProgressBar>
 #include <QTimer>
+#include <QMutex>
 #include <memory>
 
+// Forward declarations
 class LibraryManager;
-class PlaylistManager;
 class MediaFile;
-class Playlist;
+class PlaylistManager;
 
 /**
- * @brief Widget for browsing and managing the media library
+ * @brief Comprehensive media library browser widget
  * 
- * Provides a comprehensive interface for viewing, searching, and organizing
- * media files in the library with playlist management capabilities.
+ * Provides a complete media library interface with tree view, search,
+ * filtering, album art display, and library management features.
  */
 class LibraryWidget : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Library view modes
+     */
+    enum ViewMode {
+        TreeView = 0,
+        ListView,
+        GridView,
+        DetailView
+    };
+
+    /**
+     * @brief Library sort options
+     */
+    enum SortBy {
+        Title = 0,
+        Artist,
+        Album,
+        Genre,
+        Year,
+        Duration,
+        DateAdded,
+        PlayCount,
+        Rating
+    };
+
+    /**
+     * @brief Library filter options
+     */
+    enum FilterBy {
+        All = 0,
+        Audio,
+        Video,
+        Playlist,
+        Recent,
+        Favorites,
+        Unplayed
+    };
+
+    /**
+     * @brief Library statistics
+     */
+    struct LibraryStats {
+        int totalFiles;
+        int audioFiles;
+        int videoFiles;
+        int playlists;
+        qint64 totalSize;        // Total size in bytes
+        qint64 totalDuration;    // Total duration in milliseconds
+        QString mostPlayedArtist;
+        QString mostPlayedGenre;
+        int totalPlayCount;
+        
+        LibraryStats() : totalFiles(0), audioFiles(0), videoFiles(0), playlists(0),
+                        totalSize(0), totalDuration(0), totalPlayCount(0) {}
+    };
+
     explicit LibraryWidget(QWidget* parent = nullptr);
     ~LibraryWidget() override;
 
     /**
-     * @brief Initialize the library widget with managers
+     * @brief Set library manager
      * @param libraryManager Library manager instance
-     * @param playlistManager Playlist manager instance
      */
-    void initialize(std::shared_ptr<LibraryManager> libraryManager,
-                   std::shared_ptr<PlaylistManager> playlistManager);
+    void setLibraryManager(LibraryManager* libraryManager);
 
     /**
-     * @brief Refresh the library display
+     * @brief Set playlist manager
+     * @param playlistManager Playlist manager instance
+     */
+    void setPlaylistManager(PlaylistManager* playlistManager);
+
+    /**
+     * @brief Get current view mode
+     * @return Current view mode
+     */
+    ViewMode getViewMode() const;
+
+    /**
+     * @brief Set view mode
+     * @param mode View mode
+     */
+    void setViewMode(ViewMode mode);
+
+    /**
+     * @brief Get current sort option
+     * @return Current sort option
+     */
+    SortBy getSortBy() const;
+
+    /**
+     * @brief Set sort option
+     * @param sortBy Sort option
+     */
+    void setSortBy(SortBy sortBy);
+
+    /**
+     * @brief Get current filter option
+     * @return Current filter option
+     */
+    FilterBy getFilterBy() const;
+
+    /**
+     * @brief Set filter option
+     * @param filterBy Filter option
+     */
+    void setFilterBy(FilterBy filterBy);
+
+    /**
+     * @brief Get search text
+     * @return Current search text
+     */
+    QString getSearchText() const;
+
+    /**
+     * @brief Set search text
+     * @param searchText Search text
+     */
+    void setSearchText(const QString& searchText);
+
+    /**
+     * @brief Get selected media files
+     * @return List of selected media files
+     */
+    QVector<std::shared_ptr<MediaFile>> getSelectedFiles() const;
+
+    /**
+     * @brief Get library statistics
+     * @return Library statistics
+     */
+    LibraryStats getLibraryStats() const;
+
+    /**
+     * @brief Refresh library display
      */
     void refreshLibrary();
 
     /**
-     * @brief Get currently selected media files
-     * @return List of selected media file paths
+     * @brief Export library to file
+     * @param filePath Export file path
+     * @param format Export format (json, csv)
+     * @return true if successful
      */
-    QStringList getSelectedFiles() const;
+    bool exportLibrary(const QString& filePath, const QString& format);
 
     /**
-     * @brief Set the current search filter
-     * @param filter Search text to filter by
+     * @brief Show library statistics dialog
      */
-    void setSearchFilter(const QString& filter);
-
-public slots:
-    /**
-     * @brief Handle library scan progress updates
-     * @param current Current file being scanned
-     * @param total Total files to scan
-     */
-    void onScanProgress(int current, int total);
+    void showLibraryStats();
 
     /**
-     * @brief Handle library scan completion
+     * @brief Enable or disable album art display
+     * @param enabled Enable state
      */
-    void onScanComplete();
+    void setAlbumArtEnabled(bool enabled);
 
     /**
-     * @brief Handle new media file added to library
-     * @param filePath Path of the added file
+     * @brief Check if album art display is enabled
+     * @return true if enabled
      */
-    void onMediaFileAdded(const QString& filePath);
-
-    /**
-     * @brief Handle media file removed from library
-     * @param filePath Path of the removed file
-     */
-    void onMediaFileRemoved(const QString& filePath);
+    bool isAlbumArtEnabled() const;
 
 signals:
     /**
-     * @brief Emitted when user wants to play selected files
-     * @param filePaths List of file paths to play
+     * @brief Emitted when files are selected for playback
+     * @param files Selected media files
      */
-    void playRequested(const QStringList& filePaths);
+    void filesSelectedForPlayback(const QVector<std::shared_ptr<MediaFile>>& files);
 
     /**
-     * @brief Emitted when user wants to add files to queue
-     * @param filePaths List of file paths to queue
+     * @brief Emitted when files are added to playlist
+     * @param files Media files to add
+     * @param playlistName Target playlist name
      */
-    void queueRequested(const QStringList& filePaths);
+    void filesAddedToPlaylist(const QVector<std::shared_ptr<MediaFile>>& files, const QString& playlistName);
 
     /**
-     * @brief Emitted when user wants to add files to playlist
-     * @param filePaths List of file paths
-     * @param playlistName Name of target playlist
+     * @brief Emitted when library export completes
+     * @param success Export success
+     * @param filePath Export file path
      */
-    void addToPlaylistRequested(const QStringList& filePaths, const QString& playlistName);
+    void libraryExported(bool success, const QString& filePath);
 
     /**
-     * @brief Emitted when user wants to create new playlist
-     * @param name Playlist name
-     * @param filePaths Initial files for playlist
+     * @brief Emitted when view mode changes
+     * @param mode New view mode
      */
-    void createPlaylistRequested(const QString& name, const QStringList& filePaths);
+    void viewModeChanged(ViewMode mode);
+
+protected:
+    void contextMenuEvent(QContextMenuEvent* event) override;
+    void dragEnterEvent(QDragEnterEvent* event) override;
+    void dragMoveEvent(QDragMoveEvent* event) override;
+    void dropEvent(QDropEvent* event) override;
 
 private slots:
     void onSearchTextChanged();
-    void onFilterChanged();
     void onViewModeChanged();
+    void onSortByChanged();
+    void onFilterByChanged();
     void onItemDoubleClicked(const QModelIndex& index);
     void onItemSelectionChanged();
     void onContextMenuRequested(const QPoint& pos);
-    void onRefreshRequested();
-    void onScanLibraryRequested();
-    void onExportLibraryRequested();
-    void onShowStatisticsRequested();
-
-    // Context menu actions
-    void onPlaySelected();
-    void onQueueSelected();
-    void onAddToPlaylist();
-    void onCreatePlaylist();
-    void onShowFileInfo();
-    void onRemoveFromLibrary();
-    void onShowInExplorer();
+    void onLibraryUpdated();
+    void updateLibraryStats();
+    void onAlbumArtLoaded(const QString& filePath, const QPixmap& albumArt);
 
 private:
     void setupUI();
-    void setupToolbar();
-    void setupLibraryView();
-    void setupPlaylistView();
-    void setupContextMenus();
+    void setupModels();
     void setupConnections();
-    
+    void updateViewMode();
+    void updateSorting();
+    void updateFiltering();
     void populateLibraryModel();
-    void populatePlaylistModel();
-    void updateStatistics();
-    void showFileInfoDialog(const QString& filePath);
-    void exportLibraryToFile();
-    void showLibraryStatistics();
+    void createContextMenu();
+    void playSelectedFiles();
+    void addToPlaylist();
+    void showFileProperties();
+    void removeFromLibrary();
+    void exportToJSON(const QString& filePath);
+    void exportToCSV(const QString& filePath);
+    void loadAlbumArt(const QString& filePath);
+    QString formatDuration(qint64 milliseconds) const;
+    QString formatFileSize(qint64 bytes) const;
 
-    // UI Components
+    // UI components
     QVBoxLayout* m_mainLayout;
     QHBoxLayout* m_toolbarLayout;
+    QHBoxLayout* m_searchLayout;
     QSplitter* m_mainSplitter;
-    QSplitter* m_librarySplitter;
+    QSplitter* m_contentSplitter;
 
     // Toolbar
-    QLineEdit* m_searchEdit;
-    QComboBox* m_filterCombo;
     QComboBox* m_viewModeCombo;
+    QComboBox* m_sortByCombo;
+    QComboBox* m_filterByCombo;
     QPushButton* m_refreshButton;
-    QPushButton* m_scanButton;
     QPushButton* m_exportButton;
     QPushButton* m_statsButton;
-    QProgressBar* m_scanProgress;
+
+    // Search
+    QLineEdit* m_searchEdit;
+    QLabel* m_searchLabel;
+
+    // Views
+    QTreeView* m_treeView;
+    QListView* m_listView;
+    QTableView* m_tableView;
+    QWidget* m_currentView;
+
+    // Album art display
+    QLabel* m_albumArtLabel;
+    QWidget* m_albumArtWidget;
+    bool m_albumArtEnabled;
+
+    // Status
     QLabel* m_statusLabel;
+    QProgressBar* m_progressBar;
 
-    // Library view
-    QTreeView* m_libraryTreeView;
-    QListView* m_libraryListView;
+    // Models
     QStandardItemModel* m_libraryModel;
-    QSortFilterProxyModel* m_libraryProxyModel;
+    QSortFilterProxyModel* m_proxyModel;
 
-    // Playlist view
-    QTreeView* m_playlistView;
-    QStandardItemModel* m_playlistModel;
-
-    // Context menus
-    QMenu* m_libraryContextMenu;
-    QMenu* m_playlistContextMenu;
-
-    // Actions
+    // Context menu
+    QMenu* m_contextMenu;
     QAction* m_playAction;
-    QAction* m_queueAction;
     QAction* m_addToPlaylistAction;
-    QAction* m_createPlaylistAction;
-    QAction* m_showInfoAction;
+    QAction* m_propertiesAction;
     QAction* m_removeAction;
-    QAction* m_showInExplorerAction;
 
     // Managers
-    std::shared_ptr<LibraryManager> m_libraryManager;
-    std::shared_ptr<PlaylistManager> m_playlistManager;
+    LibraryManager* m_libraryManager;
+    PlaylistManager* m_playlistManager;
 
     // State
-    bool m_isScanning;
-    QString m_currentFilter;
-    int m_totalFiles;
-    QTimer* m_refreshTimer;
+    ViewMode m_viewMode;
+    SortBy m_sortBy;
+    FilterBy m_filterBy;
+    QString m_searchText;
+    LibraryStats m_libraryStats;
 
-    enum ViewMode {
-        TreeView,
-        ListView
-    };
-    ViewMode m_currentViewMode;
+    // Album art cache
+    QHash<QString, QPixmap> m_albumArtCache;
+    QTimer* m_albumArtTimer;
 
-    enum FilterType {
-        AllFiles,
-        AudioFiles,
-        VideoFiles,
-        RecentFiles,
-        FavoriteFiles
-    };
+    // Thread safety
+    mutable QMutex m_dataMutex;
+
+    // Constants
+    static constexpr int ALBUM_ART_SIZE = 200;
+    static constexpr int THUMBNAIL_SIZE = 64;
+    static constexpr int MAX_ALBUM_ART_CACHE = 100;
 };
 
 #endif // LIBRARYWIDGET_H
