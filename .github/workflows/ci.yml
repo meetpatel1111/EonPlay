@@ -158,25 +158,23 @@ jobs:
         fi
         
         # Create download instructions
-        cat > dist/README.txt << EOF
-EonPlay - Timeless Media Player - Portable Build
-===============================================
-
-Platform: ${{ matrix.os }}
-Build Date: $(date)
-Commit: ${{ github.sha }}
-
-Installation:
-1. Extract all files to a folder
-2. Run the executable directly (no installation required)
-
-System Requirements:
-- Qt 6.5.3 runtime libraries
-- VLC Media Player 3.0 or later
-- Hardware acceleration support (optional)
-
-Download URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-EOF
+        echo "EonPlay - Timeless Media Player - Portable Build" > dist/README.txt
+        echo "===============================================" >> dist/README.txt
+        echo "" >> dist/README.txt
+        echo "Platform: ${{ matrix.os }}" >> dist/README.txt
+        echo "Build Date: $(date)" >> dist/README.txt
+        echo "Commit: ${{ github.sha }}" >> dist/README.txt
+        echo "" >> dist/README.txt
+        echo "Installation:" >> dist/README.txt
+        echo "1. Extract all files to a folder" >> dist/README.txt
+        echo "2. Run the executable directly (no installation required)" >> dist/README.txt
+        echo "" >> dist/README.txt
+        echo "System Requirements:" >> dist/README.txt
+        echo "- Qt 6.5.3 runtime libraries" >> dist/README.txt
+        echo "- VLC Media Player 3.0 or later" >> dist/README.txt
+        echo "- Hardware acceleration support (optional)" >> dist/README.txt
+        echo "" >> dist/README.txt
+        echo "Download URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> dist/README.txt
         
         # List contents for verification
         echo "Distribution contents:"
@@ -420,80 +418,51 @@ EOF
     steps:
     - name: Create Artifact Summary
       run: |
-        cat > artifact_summary.md << 'EOF'
-        # 🚀 EonPlay - Timeless Media Player - Build Artifacts
-        
-        ## Build Information
-        - **Workflow**: ${{ github.workflow }}
-        - **Run ID**: ${{ github.run_id }}
-        - **Commit**: ${{ github.sha }}
-        - **Branch**: ${{ github.ref_name }}
-        - **Triggered by**: ${{ github.event_name }}
-        - **Build Date**: $(date -u)
-        
-        ## 📦 Executable Artifacts (Ready to Run)
-        
-        ### 🪟 Windows Executable
-        **Artifact Name**: `EonPlay-windows-x64-Artifacts`
-        **Contains**: CrossPlatformMediaPlayer.exe + all DLLs
-        **Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-        
-        ### 🐧 Linux Executable  
-        **Artifact Name**: `EonPlay-linux-x64-Artifacts`
-        **Contains**: CrossPlatformMediaPlayer + shared libraries
-        **Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-        
-        ### 🍎 macOS Executable
-        **Artifact Name**: `EonPlay-macos-x64-Artifacts`
-        **Contains**: CrossPlatformMediaPlayer + dylibs
-        **Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-        
-        ## 📋 Package Artifacts (Installers)
-        
-        ### Windows Packages
-        **Artifact Name**: `media-player-packages-windows-x64`
-        **Contains**: .msi installer, .zip package
-        
-        ### Linux Packages  
-        **Artifact Name**: `media-player-packages-linux-x64`
-        **Contains**: .deb, .rpm, .tar.gz packages
-        
-        ### macOS Packages
-        **Artifact Name**: `media-player-packages-macos-x64`
-        **Contains**: .dmg disk image
-        
-        ## 🔗 Quick Access
-        **Direct Actions Page**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        
-        ## 📖 Usage Instructions
-        
-        ### For Executables (Portable):
-        1. Click the executable artifact link above
-        2. Scroll to "Artifacts" section on the Actions page
-        3. Download the artifact zip for your platform
-        4. Extract all files to a folder
-        5. Run the executable directly (no installation needed)
-        
-        ### For Packages (Installers):
-        1. Click the package artifact link above
-        2. Download the appropriate installer for your platform
-        3. Run the installer following platform conventions
-        
-        ## ⚠️ Notes
-        - Artifacts are retained for 30 days
-        - Executables are portable and include dependencies
-        - Packages provide traditional installation experience
-        - All builds include advanced playback features
-        
-        ## 🛠️ Advanced Features Included
-        - Fast forward/rewind with speed control
-        - Loop/repeat and shuffle playback modes
-        - Resume from last position functionality
-        - Frame-by-frame stepping for video
-        - Crossfade between tracks
-        - Gapless playback support
-        - Thumbnail seek preview functionality
-        EOF
+        echo "# 🚀 EonPlay - Timeless Media Player - Build Artifacts" > artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "## Build Information" >> artifact_summary.md
+        echo "- **Workflow**: ${{ github.workflow }}" >> artifact_summary.md
+        echo "- **Run ID**: ${{ github.run_id }}" >> artifact_summary.md
+        echo "- **Commit**: ${{ github.sha }}" >> artifact_summary.md
+        echo "- **Branch**: ${{ github.ref_name }}" >> artifact_summary.md
+        echo "- **Triggered by**: ${{ github.event_name }}" >> artifact_summary.md
+        echo "- **Build Date**: $(date -u)" >> artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "## 📦 Executable Artifacts (Ready to Run)" >> artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "### 🪟 Windows Executable" >> artifact_summary.md
+        echo "**Artifact Name**: \`EonPlay-windows-x64-Artifacts\`" >> artifact_summary.md
+        echo "**Contains**: EonPlay.exe + all DLLs" >> artifact_summary.md
+        echo "**Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "### 🐧 Linux Executable" >> artifact_summary.md
+        echo "**Artifact Name**: \`EonPlay-linux-x64-Artifacts\`" >> artifact_summary.md
+        echo "**Contains**: EonPlay + shared libraries" >> artifact_summary.md
+        echo "**Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "### 🍎 macOS Executable" >> artifact_summary.md
+        echo "**Artifact Name**: \`EonPlay-macos-x64-Artifacts\`" >> artifact_summary.md
+        echo "**Contains**: EonPlay + dylibs" >> artifact_summary.md
+        echo "**Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "## 🔗 Quick Access" >> artifact_summary.md
+        echo "**Direct Actions Page**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "## 📖 Usage Instructions" >> artifact_summary.md
+        echo "1. Click the executable artifact link above" >> artifact_summary.md
+        echo "2. Scroll to \"Artifacts\" section on the Actions page" >> artifact_summary.md
+        echo "3. Download the artifact zip for your platform" >> artifact_summary.md
+        echo "4. Extract all files to a folder" >> artifact_summary.md
+        echo "5. Run the executable directly (no installation needed)" >> artifact_summary.md
+        echo "" >> artifact_summary.md
+        echo "## 🛠️ Advanced Features Included" >> artifact_summary.md
+        echo "- Fast forward/rewind with speed control" >> artifact_summary.md
+        echo "- Loop/repeat and shuffle playback modes" >> artifact_summary.md
+        echo "- Resume from last position functionality" >> artifact_summary.md
+        echo "- Frame-by-frame stepping for video" >> artifact_summary.md
+        echo "- Crossfade between tracks" >> artifact_summary.md
+        echo "- Gapless playback support" >> artifact_summary.md
+        echo "- Thumbnail seek preview functionality" >> artifact_summary.md
         
         echo "## 📦 Build Artifacts Summary" >> $GITHUB_STEP_SUMMARY
         cat artifact_summary.md >> $GITHUB_STEP_SUMMARY
