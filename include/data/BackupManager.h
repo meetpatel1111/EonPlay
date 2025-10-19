@@ -4,81 +4,160 @@
 #include <QString>
 #include <QDateTime>
 #include <QTimer>
-
-namespace EonPlay {
-namespace Data {
-
-class DatabaseManager;
+#include <QStringList>
+#include <QMap>
 
 /**
- * @brief Manages automatic library backups for EonPlay
+ * @brief Automatic library backup and restore system
  * 
- * Provides scheduled and manual backup functionality for the media library database.
+ * Provides automated backup of media library, playlists, settings, and user data
+ * with scheduled backups, compression, and restore capabilities for EonPlay.
  */
 class BackupManager : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit BackupManager(DatabaseManager* dbManager, QObject* parent = nullptr);
-    ~BackupManager() = default;
+    enum BackupType {
+        BACKUP_LIBRARY_DATABASE,
+        BACKUP_PLAYLISTS,
+        BACKUP_USER_SETTINGS,
+        BACKUP_THUMBNAILS,
+        BACKUP_COMPLETE
+    };
 
-    // Backup configuration
-    bool isAutoBackupEnabled() const { return m_autoBackupEnabled; }
-    void setAutoBackupEnabled(bool enabled);
+    enum BackupStatus {
+        BACKUP_IDLE,
+        BACKUP_IN_PROGRESS,
+        BACKUP_COMPLETED,
+        BACKUP_FAILED,
+        RESTORE_IN_PROGRESS,
+        RESTORE_COMPLETED,
+        RESTORE_FAILED
+    };
 
-    int backupIntervalHours() const { return m_backupIntervalHours; }
-    void setBackupIntervalHours(int hours);
+    struct BackupInfo {
+        QString backupId;
+        BackupType type;
+        QDateTime timestamp;
+        QString filePath;
+        qint64 fileSize = 0;
+        QString checksum;
+        QString description;
+        bool isCompressed = true;
+        bool isEncrypted = false;
+        QStringList includedFiles;
+        QString version;
+    };
 
-    int maxBackupCount() const { return m_maxBackupCount; }
-    void setMaxBackupCount(int count);
+    explicit BackupManager(QObject *parent = nullptr);
+    ~BackupManager();
 
-    QString backupDirectory() const { return m_backupDirectory; }
-    void setBackupDirectory(const QString& directory);
+    // Backup operations
+    QString createBackup(BackupType type, const QString& description = QString());
+    bool restoreBackup(const QString& backupId);
+    bool deleteBackup(const QString& backupId);
+    bool verifyBackup(const QString& backupId);
 
-    // Manual backup operations
-    bool createBackup(const QString& backupName = QString());
-    bool restoreFromBackup(const QString& backupPath);
-    QStringList getAvailableBackups() const;
-    bool deleteBackup(const QString& backupPath);
+    // Automatic backup scheduling
+    void enableAutomaticBackup(bool enabled);
+    bool isAutomaticBackupEnabled() const;
+    void setBackupInterval(int hours);
+    int getBackupInterval() const;
+    void setMaxBackupCount(int maxCount);
+    int getMaxBackupCount() const;
 
-    // Backup information
-    QDateTime lastBackupTime() const { return m_lastBackupTime; }
-    QString lastBackupPath() const { return m_lastBackupPath; }
-    qint64 getBackupSize(const QString& backupPath) const;
-
-    // Maintenance
+    // Backup management
+    QList<BackupInfo> getAvailableBackups() const;
+    BackupInfo getBackupInfo(const QString& backupId) const;
+    QStringList getBackupIds() const;
     void cleanupOldBackups();
     qint64 getTotalBackupSize() const;
 
+    // Configuration
+    void setBackupDirectory(const QString& directory);
+    QString getBackupDirectory() const;
+    void enableCompression(bool enabled);
+    bool isCompressionEnabled() const;
+    void enableEncryption(bool enabled);
+    bool isEncryptionEnabled() const;
+    void setEncryptionKey(const QString& key);
+
+    // Status and progress
+    BackupStatus getCurrentStatus() const;
+    int getCurrentProgress() const;
+    QString getLastError() const;
+    QDateTime getLastBackupTime() const;
+    QDateTime getNextScheduledBackup() const;
+
 signals:
-    void backupCreated(const QString& backupPath);
-    void backupFailed(const QString& error);
-    void backupRestored(const QString& backupPath);
-    void backupDeleted(const QString& backupPath);
-    void autoBackupStatusChanged(bool enabled);
+    void backupStarted(const QString& backupId, BackupType type);
+    void backupProgress(const QString& backupId, int percentage);
+    void backupCompleted(const QString& backupId);
+    void backupFailed(const QString& backupId, const QString& error);
+    void restoreStarted(const QString& backupId);
+    void restoreProgress(const QString& backupId, int percentage);
+    void restoreCompleted(const QString& backupId);
+    void restoreFailed(const QString& backupId, const QString& error);
+    void automaticBackupTriggered();
+    void backupDeleted(const QString& backupId);
 
 private slots:
-    void performAutoBackup();
+    void onAutomaticBackupTimer();
 
 private:
-    void setupAutoBackupTimer();
-    QString generateBackupFileName() const;
-    void updateLastBackupInfo(const QString& backupPath);
-
-    DatabaseManager* m_dbManager;
+    // Backup creation helpers
+    QString generateBackupId() const;
+    QString createLibraryBackup(const QString& backupId);
+    QString createPlaylistsBackup(const QString& backupId);
+    QString createSettingsBackup(const QString& backupId);
+    QString createThumbnailsBackup(const QString& backupId);
+    QString createCompleteBackup(const QString& backupId);
     
-    // Configuration
-    bool m_autoBackupEnabled;
+    // Compression and encryption
+    bool compressBackup(const QString& sourcePath, const QString& targetPath);
+    bool decompressBackup(const QString& sourcePath, const QString& targetPath);
+    bool encryptBackup(const QString& filePath);
+    bool decryptBackup(const QString& filePath);
+    
+    // Restore helpers
+    bool restoreLibraryBackup(const QString& backupPath);
+    bool restorePlaylistsBackup(const QString& backupPath);
+    bool restoreSettingsBackup(const QString& backupPath);
+    bool restoreThumbnailsBackup(const QString& backupPath);
+    bool restoreCompleteBackup(const QString& backupPath);
+    
+    // File operations
+    bool copyDirectory(const QString& source, const QString& destination);
+    bool removeDirectory(const QString& path);
+    QString calculateChecksum(const QString& filePath) const;
+    bool verifyChecksum(const QString& filePath, const QString& expectedChecksum) const;
+    
+    // Backup metadata
+    void saveBackupInfo(const BackupInfo& info);
+    void loadBackupInfo();
+    void removeBackupInfo(const QString& backupId);
+    
+    // Member variables
+    bool m_automaticBackupEnabled;
     int m_backupIntervalHours;
     int m_maxBackupCount;
-    QString m_backupDirectory;
+    bool m_compressionEnabled;
+    bool m_encryptionEnabled;
     
-    // State
+    QString m_backupDirectory;
+    QString m_encryptionKey;
+    
+    BackupStatus m_currentStatus;
+    int m_currentProgress;
+    QString m_lastError;
     QDateTime m_lastBackupTime;
-    QString m_lastBackupPath;
-    QTimer* m_autoBackupTimer;
+    
+    QMap<QString, BackupInfo> m_backupDatabase;
+    QTimer* m_automaticBackupTimer;
+    
+    // Constants
+    static const int DEFAULT_BACKUP_INTERVAL_HOURS = 24;
+    static const int DEFAULT_MAX_BACKUP_COUNT = 10;
+    static const QString BACKUP_METADATA_FILE;
 };
-
-} // namespace Data
-} // namespace EonPlay

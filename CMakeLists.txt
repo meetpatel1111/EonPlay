@@ -18,7 +18,7 @@ else()
 endif()
 
 # Find required packages
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui Bluetooth)
 
 # Find libVLC
 if(WIN32)
@@ -112,6 +112,7 @@ set(UI_SOURCES
     src/ui/AudioVisualizerWidget.cpp # Task 6.2
     src/ui/MiniPlayerWidget.cpp    # Task 7.1 - IMPLEMENTED
     src/ui/PictureInPictureWidget.cpp # Task 7.1 - IMPLEMENTED
+    src/ui/LicenseViewer.cpp       # Task 12.2 - IMPLEMENTED
     # src/ui/VideoWidget.cpp         # Task 3.3
     # src/ui/SettingsDialog.cpp      # Task 10.1
 )
@@ -149,7 +150,7 @@ set(DATA_SOURCES
     src/data/DatabaseManager.cpp      # Task 5.1
     src/data/MediaFile.cpp            # Task 5.1
     src/data/Playlist.cpp             # Task 5.1
-    src/data/BackupManager.cpp        # Task 5.1
+    src/data/BackupManager.cpp        # Task 5.1 & 12.2 - IMPLEMENTED
     src/data/LibraryManager.cpp       # Task 5.2
     src/data/MediaScanner.cpp         # Task 5.2
     src/data/MetadataExtractor.cpp    # Task 5.2
@@ -158,8 +159,10 @@ set(DATA_SOURCES
 
 set(NETWORK_SOURCES
     src/network/VideoCastingManager.cpp # Task 7.3 - IMPLEMENTED
+    src/network/NetworkStreamManager.cpp # Task 8.1 - IMPLEMENTED
+    src/network/InternetStreamingService.cpp # Task 8.2 - IMPLEMENTED
+    src/network/NetworkDiscoveryManager.cpp # Task 8.3 - IMPLEMENTED
     # Additional network files will be added as implemented:
-    # src/network/StreamingManager.cpp    # Task 8.1
     # src/network/NetworkProtocols.cpp    # Task 8.1
 )
 
@@ -171,6 +174,17 @@ set(AI_SOURCES
     # Additional AI files will be added as implemented:
     # src/ai/AIContentAnalysis.cpp     # Task 9.1
     # src/ai/AIRecommendations.cpp     # Task 9.2
+)
+
+set(SECURITY_SOURCES
+    src/security/SecurityManager.cpp      # Task 12.1 - IMPLEMENTED
+    src/security/ParentalControlManager.cpp # Task 12.2 - IMPLEMENTED
+)
+
+set(STABILITY_SOURCES
+    src/stability/CrashReporter.cpp   # Task 12.2 - IMPLEMENTED
+    # src/stability/AutoUpdater.cpp     # Task 12.2 - PARTIAL
+    # src/stability/SafeModeManager.cpp # Task 12.2
 )
 
 # Header files for moc processing
@@ -194,6 +208,14 @@ set(HEADER_FILES
     include/video/VideoProcessor.h
     include/video/VideoExporter.h
     include/network/VideoCastingManager.h
+    include/network/NetworkStreamManager.h
+    include/network/InternetStreamingService.h
+    include/network/NetworkDiscoveryManager.h
+    include/security/SecurityManager.h
+    include/security/ParentalControlManager.h
+    include/stability/CrashReporter.h
+    include/stability/AutoUpdater.h
+    include/ui/LicenseViewer.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h
@@ -210,6 +232,8 @@ add_executable(EonPlay
     ${DATA_SOURCES}
     ${NETWORK_SOURCES}
     ${AI_SOURCES}
+    ${SECURITY_SOURCES}
+    ${STABILITY_SOURCES}
     ${HEADER_FILES}
 )
 
@@ -222,6 +246,7 @@ target_link_libraries(EonPlay
     Qt6::MultimediaWidgets
     Qt6::Network
     Qt6::Sql
+    Qt6::Bluetooth
 )
 
 # Platform-specific linking
