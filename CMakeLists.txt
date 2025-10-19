@@ -120,6 +120,11 @@ set(MEDIA_SOURCES
     src/media/FileUrlSupport.cpp
 )
 
+# Add VLC stub for Windows builds
+if(WIN32)
+    list(APPEND MEDIA_SOURCES ${CMAKE_SOURCE_DIR}/third_party/vlc/lib/libvlc_stub.cpp)
+endif()
+
 set(DATA_SOURCES
     src/data/SettingsManager.cpp
     src/data/UserPreferences.cpp
@@ -173,11 +178,6 @@ target_link_libraries(EonPlay
 
 # Platform-specific linking
 if(WIN32)
-    # Add VLC stub implementation for Windows builds
-    target_sources(EonPlay PRIVATE
-        third_party/vlc/lib/libvlc_stub.cpp
-    )
-    
     # Link VLC libraries if available, otherwise use stubs
     if(LIBVLC_LIBRARY AND LIBVLCCORE_LIBRARY)
         target_link_libraries(EonPlay
