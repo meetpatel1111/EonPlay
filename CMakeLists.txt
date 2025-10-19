@@ -173,10 +173,18 @@ target_link_libraries(EonPlay
 
 # Platform-specific linking
 if(WIN32)
-    target_link_libraries(EonPlay
-        ${LIBVLC_LIBRARY}
-        ${LIBVLCCORE_LIBRARY}
+    # Add VLC stub implementation for Windows builds
+    target_sources(EonPlay PRIVATE
+        third_party/vlc/lib/libvlc_stub.cpp
     )
+    
+    # Link VLC libraries if available, otherwise use stubs
+    if(LIBVLC_LIBRARY AND LIBVLCCORE_LIBRARY)
+        target_link_libraries(EonPlay
+            ${LIBVLC_LIBRARY}
+            ${LIBVLCCORE_LIBRARY}
+        )
+    endif()
     
     # Windows-specific libraries
     target_link_libraries(EonPlay

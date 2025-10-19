@@ -21,7 +21,7 @@ struct libvlc_event_manager_t;
  * Provides media playback functionality using the libVLC library.
  * Handles initialization, cleanup, and sandboxed decoding for security.
  */
-class VLCBackend : public QObject, public IMediaEngine, public IComponent
+class VLCBackend : public IMediaEngine, public IComponent
 {
     Q_OBJECT
 
