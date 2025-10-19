@@ -127,6 +127,7 @@ set(AUDIO_SOURCES
     src/audio/AudioVisualizer.cpp
     src/audio/AudioProcessor.cpp
     src/audio/AudioOutputManager.cpp
+    src/audio/AdvancedAudioProcessor.cpp
 )
 
 # Add VLC stub for Windows builds
@@ -179,6 +180,7 @@ set(HEADER_FILES
     include/audio/AudioVisualizer.h
     include/audio/AudioProcessor.h
     include/audio/AudioOutputManager.h
+    include/audio/AdvancedAudioProcessor.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h
