@@ -245,6 +245,9 @@ set(HEADER_FILES
     include/stability/CrashReporter.h
     include/stability/AutoUpdater.h
     include/platform/InstallerManager.h
+    include/EonPlayApplication.h
+    include/ComponentManager.h
+    include/EventBus.h
 )
 
 # Add platform-specific headers
@@ -253,10 +256,6 @@ if(WIN32)
 elseif(UNIX AND NOT APPLE)
     list(APPEND HEADERS include/platform/LinuxPlatform.h)
 endif()
-    include/EonPlayApplication.h
-    include/ComponentManager.h
-    include/EventBus.h
-)
 
 # Main executable
 add_executable(EonPlay
