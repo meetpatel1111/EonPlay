@@ -59,11 +59,11 @@ jobs:
     - name: Install Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential cmake ninja-build qt6-base-dev qt6-multimedia-dev libqt6dbus6-dev libvlc-dev
+        sudo apt-get install -y build-essential cmake ninja-build qt6-base-dev qt6-multimedia-dev qt6-tools-dev libvlc-dev
 
     - name: Build
       run: |
-        cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
         cmake --build build
 
     - name: Create AppImage
