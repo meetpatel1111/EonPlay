@@ -95,7 +95,7 @@ jobs:
       with:
         version: ${{ env.QT_VERSION }}
         arch: ${{ matrix.qt_arch }}
-        modules: 'qtmultimedia qtnetwork'
+        modules: 'qtmultimedia'
 
     - name: Install Linux dependencies
       if: matrix.os == 'ubuntu-latest'

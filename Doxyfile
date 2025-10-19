@@ -1,0 +1,47 @@
+# Doxyfile for EonPlay - Timeless Media Player
+
+PROJECT_NAME           = "EonPlay"
+PROJECT_NUMBER         = "1.0.0"
+PROJECT_BRIEF          = "Timeless, futuristic media player - play for eons"
+
+OUTPUT_DIRECTORY       = docs/doxygen
+CREATE_SUBDIRS         = YES
+
+INPUT                  = include src docs
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h *.hpp *.cpp *.cc *.cxx *.c++ *.md
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+
+GENERATE_LATEX         = NO
+GENERATE_XML           = YES
+
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+
+UML_LOOK               = YES
+TEMPLATE_RELATIONS     = YES
+
+COLLABORATION_GRAPH    = YES
+GROUP_GRAPHS           = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+
+EXAMPLE_PATH           = examples
+EXAMPLE_PATTERNS       = *.cpp *.h
+EXAMPLE_RECURSIVE      = YES
+
+USE_MDFILE_AS_MAINPAGE = README.md

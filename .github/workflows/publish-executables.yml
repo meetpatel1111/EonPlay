@@ -39,7 +39,7 @@ jobs:
       with:
         version: ${{ env.QT_VERSION }}
         arch: ${{ matrix.qt_arch }}
-        modules: 'qtmultimedia qtnetwork'
+        modules: 'qtmultimedia'
 
     # Platform-specific dependencies
     - name: Install Linux dependencies
