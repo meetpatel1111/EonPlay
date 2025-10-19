@@ -1,7 +1,7 @@
 #include "ui/NotificationManager.h"
 #include <QApplication>
 #include <QScreen>
-#include <QDesktopWidget>
+// QDesktopWidget was removed in Qt6, use QScreen instead
 #include <QMouseEvent>
 #include <QPainter>
 #include <QLinearGradient>

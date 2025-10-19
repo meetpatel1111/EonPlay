@@ -20,6 +20,11 @@ endif()
 # Find required packages
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui)
 
+# Find optional Qt components
+if(NOT WIN32)
+    find_package(Qt6 COMPONENTS DBus)
+endif()
+
 # Find libVLC
 if(WIN32)
     # Windows libVLC configuration
@@ -268,8 +273,12 @@ target_link_libraries(EonPlay
     Qt6::MultimediaWidgets
     Qt6::Network
     Qt6::Sql
-
 )
+
+# Link DBus only on non-Windows platforms
+if(NOT WIN32 AND TARGET Qt6::DBus)
+    target_link_libraries(EonPlay Qt6::DBus)
+endif()
 
 # Platform-specific linking
 if(WIN32)
@@ -393,6 +402,11 @@ if(BUILD_EXAMPLES)
         ${MEDIA_SOURCES}
     )
     
+    target_include_directories(playback_controller_example PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/src
+    )
+    
     target_link_libraries(playback_controller_example
         Qt6::Core
     )
@@ -403,6 +417,11 @@ if(BUILD_EXAMPLES)
         ${CORE_SOURCES}
         ${MEDIA_SOURCES}
         ${DATA_SOURCES}
+    )
+    
+    target_include_directories(hardware_acceleration_example PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/src
     )
     
     target_link_libraries(hardware_acceleration_example
@@ -417,6 +436,11 @@ if(BUILD_EXAMPLES)
         ${DATA_SOURCES}
     )
     
+    target_include_directories(advanced_playback_example PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/src
+    )
+    
     target_link_libraries(advanced_playback_example
         Qt6::Core
     )
@@ -428,6 +452,11 @@ if(BUILD_EXAMPLES)
         ${UI_SOURCES}
         ${MEDIA_SOURCES}
         ${DATA_SOURCES}
+    )
+    
+    target_include_directories(file_url_support_example PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/src
     )
     
     target_link_libraries(file_url_support_example

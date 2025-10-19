@@ -4,7 +4,7 @@
 #include "subtitles/SubtitleRenderer.h"
 #include "subtitles/SubtitleManager.h"
 #include <QApplication>
-#include <QDesktopWidget>
+// QDesktopWidget was removed in Qt6, use QScreen instead
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QDateTime>

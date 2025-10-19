@@ -4,8 +4,11 @@
 #include <QString>
 #include <QStringList>
 #include <QMap>
+
+#ifdef Q_OS_LINUX
 #include <QDBusConnection>
 #include <QDBusInterface>
+#endif
 
 /**
  * @brief Linux-specific platform integration and system features

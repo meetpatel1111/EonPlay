@@ -86,7 +86,7 @@ public slots:
         
         // Software decoding only
         m_hwAccel->setHardwareAccelerationEnabled(true);
-        m_hwAccel->setPreferredAcceleration(HardwareAccelerationType::None);
+        m_hwAccel->setPreferredAcceleration(HardwareAccelerationType::Software);
         args = m_hwAccel->getVLCArguments();
         qDebug() << "Software decoding only:" << args;
         

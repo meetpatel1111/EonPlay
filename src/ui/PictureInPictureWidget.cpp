@@ -54,8 +54,9 @@ PictureInPictureWidget::PictureInPictureWidget(QWidget* parent)
     m_updateTimer->setInterval(100);
     
     qCDebug(pictureInPicture) << "PictureInPictureWidget created";
-}P
-ictureInPictureWidget::~PictureInPictureWidget()
+}
+
+PictureInPictureWidget::~PictureInPictureWidget()
 {
     qCDebug(pictureInPicture) << "PictureInPictureWidget destroyed";
 }

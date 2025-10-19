@@ -185,7 +185,7 @@ private:
     void setupMediaShareServer();
     void handleMediaShareRequest(QTcpSocket* socket);
     void serveMediaFile(QTcpSocket* socket, const QString& filePath);
-    void generateMediaShareResponse(const QString& shareId) const;
+    QString generateMediaShareResponse(const QString& shareId) const;
     
     // Bluetooth helpers - temporarily disabled
     // void setupBluetoothDiscovery();

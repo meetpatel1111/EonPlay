@@ -70,7 +70,7 @@ void TestHardwareAcceleration::testAccelerationDetection()
     // Should always have software decoding as fallback
     bool hasSoftware = false;
     for (const auto& accel : accelerations) {
-        if (accel.type == HardwareAccelerationType::None) {
+        if (accel.type == HardwareAccelerationType::Software) {
             hasSoftware = true;
             QVERIFY(accel.available);
             QCOMPARE(accel.name, QString("Software Decoding"));
@@ -95,7 +95,7 @@ void TestHardwareAcceleration::testAccelerationTypeConversion()
 {
     // Test string to enum conversion
     QCOMPARE(HardwareAcceleration::stringToAccelerationType("auto"), HardwareAccelerationType::Auto);
-    QCOMPARE(HardwareAcceleration::stringToAccelerationType("none"), HardwareAccelerationType::None);
+    QCOMPARE(HardwareAcceleration::stringToAccelerationType("none"), HardwareAccelerationType::Software);
     QCOMPARE(HardwareAcceleration::stringToAccelerationType("dxva"), HardwareAccelerationType::DXVA);
     QCOMPARE(HardwareAcceleration::stringToAccelerationType("vaapi"), HardwareAccelerationType::VAAPI);
     QCOMPARE(HardwareAcceleration::stringToAccelerationType("vdpau"), HardwareAccelerationType::VDPAU);
@@ -110,7 +110,7 @@ void TestHardwareAcceleration::testAccelerationTypeConversion()
     
     // Test enum to string conversion
     QCOMPARE(HardwareAcceleration::accelerationTypeToString(HardwareAccelerationType::Auto), QString("auto"));
-    QCOMPARE(HardwareAcceleration::accelerationTypeToString(HardwareAccelerationType::None), QString("none"));
+    QCOMPARE(HardwareAcceleration::accelerationTypeToString(HardwareAccelerationType::Software), QString("none"));
     QCOMPARE(HardwareAcceleration::accelerationTypeToString(HardwareAccelerationType::DXVA), QString("dxva"));
     QCOMPARE(HardwareAcceleration::accelerationTypeToString(HardwareAccelerationType::VAAPI), QString("vaapi"));
     QCOMPARE(HardwareAcceleration::accelerationTypeToString(HardwareAccelerationType::VDPAU), QString("vdpau"));
@@ -126,10 +126,10 @@ void TestHardwareAcceleration::testPreferredAcceleration()
     // Test setting preferred acceleration
     QSignalSpy preferredSpy(m_hwAccel, &HardwareAcceleration::preferredAccelerationChanged);
     
-    // Test setting to None (should always be available)
-    bool result = m_hwAccel->setPreferredAcceleration(HardwareAccelerationType::None);
+    // Test setting to Software (should always be available)
+    bool result = m_hwAccel->setPreferredAcceleration(HardwareAccelerationType::Software);
     QVERIFY(result);
-    QCOMPARE(m_hwAccel->getPreferredAcceleration(), HardwareAccelerationType::None);
+    QCOMPARE(m_hwAccel->getPreferredAcceleration(), HardwareAccelerationType::Software);
     
     // Test setting back to Auto
     result = m_hwAccel->setPreferredAcceleration(HardwareAccelerationType::Auto);
@@ -169,7 +169,7 @@ void TestHardwareAcceleration::testVLCArguments()
     
     // Test with specific acceleration type
     m_hwAccel->setHardwareAccelerationEnabled(true);
-    m_hwAccel->setPreferredAcceleration(HardwareAccelerationType::None);
+    m_hwAccel->setPreferredAcceleration(HardwareAccelerationType::Software);
     args = m_hwAccel->getVLCArguments();
     QVERIFY(args.contains("--no-hw-dec"));
     

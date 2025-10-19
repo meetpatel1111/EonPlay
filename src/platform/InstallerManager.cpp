@@ -13,6 +13,11 @@
 #include <QTextStream>
 #include <QCryptographicHash>
 
+// Static constant definitions
+const QString InstallerManager::PORTABLE_CONFIG_FILE = "portable.ini";
+const QString InstallerManager::UPDATE_BACKUP_DIR = "backup";
+const QString InstallerManager::UNINSTALLER_NAME = "uninstall";
+
 Q_LOGGING_CATEGORY(installerManager, "eonplay.platform.installer")
 
 // Constants
@@ -64,8 +69,9 @@ void InstallerManager::detectInstallationType()
         m_installationType = INSTALLATION_PORTABLE;
         m_portableDirectory = appDir;
     }
-}// Ins
-taller creation
+}
+
+// Installer creation
 bool InstallerManager::createInstaller(DeploymentTarget target, const InstallerConfig& config, const QString& outputPath)
 {
     if (!validateInstallerConfig(config)) {
@@ -213,8 +219,9 @@ bool InstallerManager::compileInstaller(const QString& scriptPath, const QString
     process.waitForFinished(60000); // 1 minute timeout
     
     return process.exitCode() == 0;
-}// 
-Portable mode management
+}
+
+// Portable mode management
 bool InstallerManager::enablePortableMode(bool enabled)
 {
     if (m_portableModeEnabled == enabled) {
@@ -326,8 +333,9 @@ if not exist "EonPlay.exe" (
 echo Starting EonPlay in portable mode...
 start "" "EonPlay.exe" %*
 )");
-}// 
-Installation detection and management
+}
+
+// Installation detection and management
 bool InstallerManager::isApplicationInstalled() const
 {
     return m_installationType == INSTALLATION_FULL;

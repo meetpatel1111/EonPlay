@@ -4,6 +4,9 @@
 #include <QString>
 #include <QStringList>
 #include <QMap>
+#include <QSystemTrayIcon>
+#include <QMenu>
+#include <QStyle>
 
 #ifdef Q_OS_WIN
 #include <windows.h>

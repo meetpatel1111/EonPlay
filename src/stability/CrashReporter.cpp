@@ -128,7 +128,8 @@ void CrashReporter::uninstallCrashHandlers()
     
     // Reset exception handlers
     std::set_terminate(nullptr);
-    std::set_unexpected(nullptr);
+    // std::set_unexpected was removed in C++17
+    // std::set_unexpected(nullptr);
     
     m_crashHandlerInstalled = false;
     qCDebug(crashReporter) << "Crash handlers uninstalled";
@@ -155,7 +156,8 @@ void CrashReporter::setupSignalHandlers()
 void CrashReporter::setupExceptionHandlers()
 {
     std::set_terminate(terminateHandler);
-    std::set_unexpected(unexpectedHandler);
+    // std::set_unexpected was removed in C++17
+    // std::set_unexpected(unexpectedHandler);
 }
 
 void CrashReporter::handleCrash(CrashType type, const QString& location, const QString& message)
@@ -957,7 +959,8 @@ void CrashReporter::checkForMemoryLeaks()
         qCWarning(crashReporter) << "Potential memory leak detected - Recent avg:" 
                                  << avgRecent << "Older avg:" << avgOlder;
         
-        reportThreat(THREAT_MEMORY_LEAK, "Memory usage consistently increasing", QString());
+        // TODO: Report memory leak threat to SecurityManager
+        // reportThreat(THREAT_MEMORY_LEAK, "Memory usage consistently increasing", QString());
     }
 }
 

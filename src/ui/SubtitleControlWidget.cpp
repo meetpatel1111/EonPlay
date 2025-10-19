@@ -434,8 +434,9 @@ void SubtitleControlWidget::onResetToDefaults()
 void SubtitleControlWidget::onToggleAdvanced()
 {
     setAdvancedControlsVisible(!m_advancedVisible);
-}vo
-id SubtitleControlWidget::initializeUI()
+}
+
+void SubtitleControlWidget::initializeUI()
 {
     m_mainLayout = new QVBoxLayout(this);
     m_mainLayout->setContentsMargins(10, 10, 10, 10);

@@ -54,8 +54,9 @@ void AudioProcessorWidget::initialize(std::shared_ptr<AudioProcessor> processor)
     }
     
     qCDebug(audioProcessorWidget) << "AudioProcessorWidget initialized";
-}vo
-id AudioProcessorWidget::setupUI()
+}
+
+void AudioProcessorWidget::setupUI()
 {
     m_mainLayout = new QVBoxLayout(this);
     m_mainLayout->setContentsMargins(6, 6, 6, 6);
@@ -146,8 +147,9 @@ void AudioProcessorWidget::setupKaraokeTab()
     m_karaokeLayout->addWidget(m_highFreqSpinBox, row, 1, 1, 2);
     
     m_tabWidget->addTab(m_karaokeTab, "Karaoke");
-}v
-oid AudioProcessorWidget::setupLyricsTab()
+}
+
+void AudioProcessorWidget::setupLyricsTab()
 {
     m_lyricsTab = new QWidget();
     m_lyricsLayout = new QVBoxLayout(m_lyricsTab);
@@ -236,8 +238,9 @@ void AudioProcessorWidget::setupConversionTab()
     m_conversionLayout->addWidget(m_conversionStatusLabel, row, 0, 1, 3);
     
     m_tabWidget->addTab(m_conversionTab, "Conversion");
-}v
-oid AudioProcessorWidget::setupEffectsTab()
+}
+
+void AudioProcessorWidget::setupEffectsTab()
 {
     m_effectsTab = new QWidget();
     m_effectsLayout = new QGridLayout(m_effectsTab);

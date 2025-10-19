@@ -7,6 +7,9 @@
 #include <QTimer>
 #include <QProcess>
 #include <QFileSystemWatcher>
+#include <QDateTime>
+#include <QMap>
+#include <QVariant>
 #include <memory>
 
 class QSettings;
@@ -157,6 +160,7 @@ private:
     bool validateSubtitleFile(const QString& filePath);
     bool detectMaliciousPatterns(const QByteArray& content);
     QStringList scanForThreats(const QString& filePath);
+    void initializeThreatDatabase();
     
     // Encryption helpers
     QByteArray encryptData(const QByteArray& data, const QByteArray& key);
@@ -215,6 +219,7 @@ private:
     // Threat detection
     QStringList m_maliciousPatterns;
     QStringList m_suspiciousExtensions;
+    QMap<QString, QString> m_knownThreats;
     QMap<QString, QString> m_knownThreats;
     
     // Constants

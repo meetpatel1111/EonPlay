@@ -640,7 +640,7 @@ QVariant WindowsPlatform::readRegistryValue(const QString& keyPath, const QStrin
         case REG_SZ:
             return QString::fromUtf8(data.constData());
         case REG_DWORD:
-            return *reinterpret_cast<const DWORD*>(data.constData());
+            return QVariant::fromValue(*reinterpret_cast<const DWORD*>(data.constData()));
         default:
             return QVariant();
     }

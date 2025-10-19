@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QRandomGenerator>
 // Bluetooth includes temporarily disabled for build compatibility
 // #include <QBluetoothDeviceDiscoveryAgent>
 // #include <QBluetoothSocket>
@@ -318,7 +319,7 @@ void NetworkDiscoveryManager::parseDeviceDescription(const QByteArray& xml, Netw
             
             if (name == "device") {
                 // Parse device information
-                while (!(reader.isEndElement() && reader.name() == "device")) {
+                while (!(reader.isEndElement() && reader.name() == QLatin1String("device"))) {
                     reader.readNext();
                     
                     if (reader.isStartElement()) {
@@ -351,10 +352,10 @@ void NetworkDiscoveryManager::parseDeviceDescription(const QByteArray& xml, Netw
             } else if (name == "service") {
                 // Parse service information
                 QString serviceType;
-                while (!(reader.isEndElement() && reader.name() == "service")) {
+                while (!(reader.isEndElement() && reader.name() == QLatin1String("service"))) {
                     reader.readNext();
                     
-                    if (reader.isStartElement() && reader.name() == "serviceType") {
+                    if (reader.isStartElement() && reader.name() == QLatin1String("serviceType")) {
                         serviceType = reader.readElementText();
                         if (!serviceType.isEmpty()) {
                             device.services.append(serviceType);
@@ -542,7 +543,7 @@ void NetworkDiscoveryManager::onBluetoothSocketDisconnected()
 // Media Sharing
 QString NetworkDiscoveryManager::createMediaShare(const QString& name, const QString& rootPath)
 {
-    QString shareId = QString("share_%1_%2").arg(QDateTime::currentMSecsSinceEpoch()).arg(qrand());
+    QString shareId = QString("share_%1_%2").arg(QDateTime::currentMSecsSinceEpoch()).arg(QRandomGenerator::global()->generate());
     
     MediaShare share;
     share.shareId = shareId;
@@ -720,9 +721,10 @@ void NetworkDiscoveryManager::onDiscoveryTimerTimeout()
     if (m_discoveryState == DISCOVERY_ACTIVE) {
         sendUPnPSearchRequest();
         
-        if (isBluetoothAvailable() && !m_bluetoothDiscovery->isActive()) {
-            startBluetoothDiscovery();
-        }
+        // Bluetooth discovery temporarily disabled for build compatibility
+        // if (isBluetoothAvailable() && !m_bluetoothDiscovery->isActive()) {
+        //     startBluetoothDiscovery();
+        // }
     }
 }
 
@@ -828,7 +830,7 @@ void NetworkDiscoveryManager::enableAutoDiscovery(bool enabled)
 // Synchronization (simplified implementation)
 QString NetworkDiscoveryManager::createSyncGroup(const QString& name)
 {
-    QString groupId = QString("group_%1_%2").arg(QDateTime::currentMSecsSinceEpoch()).arg(qrand());
+    QString groupId = QString("group_%1_%2").arg(QDateTime::currentMSecsSinceEpoch()).arg(QRandomGenerator::global()->generate());
     
     SyncGroup group;
     group.groupId = groupId;

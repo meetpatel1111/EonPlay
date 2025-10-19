@@ -56,7 +56,7 @@ libvlc_time_t libvlc_media_get_duration(libvlc_media_t* p_media) {
 char* libvlc_media_get_mrl(libvlc_media_t* p_media) {
     (void)p_media;
     char* mrl = (char*)malloc(20);
-    strcpy(mrl, "file://stub.mp4");
+    strcpy_s(mrl, 20, "file://stub.mp4");
     return mrl;
 }
 

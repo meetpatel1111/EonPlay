@@ -666,7 +666,7 @@ bool ParentalControlManager::isDayAllowed() const
     return profile.timeRestrictions.allowedDays.contains(currentDay, Qt::CaseInsensitive);
 }
 
-void ParentalControlManager::recordBlockedAttempt(const QString& content, const QString& reason) const
+void ParentalControlManager::recordBlockedAttempt(const QString& content, const QString& reason)
 {
     if (m_activeProfileId.isEmpty()) {
         return;
