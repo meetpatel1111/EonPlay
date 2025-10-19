@@ -1,6 +1,7 @@
 #include "ui/MediaKeysManager.h"
 #include "media/IMediaEngine.h"
 #include <QApplication>
+#include <QWidget>
 #include <QLoggingCategory>
 #include <QFileInfo>
 

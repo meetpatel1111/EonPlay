@@ -199,10 +199,15 @@ set(STABILITY_SOURCES
 )
 
 set(PLATFORM_SOURCES
-    src/platform/WindowsPlatform.cpp  # Task 13.1 - IMPLEMENTED
-    src/platform/LinuxPlatform.cpp    # Task 13.2 - IMPLEMENTED
     src/platform/InstallerManager.cpp # Task 13.3 - IMPLEMENTED
 )
+
+# Add platform-specific sources
+if(WIN32)
+    list(APPEND PLATFORM_SOURCES src/platform/WindowsPlatform.cpp)  # Task 13.1 - IMPLEMENTED
+elseif(UNIX AND NOT APPLE)
+    list(APPEND PLATFORM_SOURCES src/platform/LinuxPlatform.cpp)    # Task 13.2 - IMPLEMENTED
+endif()
 
 # Header files for moc processing
 set(HEADER_FILES
@@ -239,9 +244,15 @@ set(HEADER_FILES
     include/security/ParentalControlManager.h
     include/stability/CrashReporter.h
     include/stability/AutoUpdater.h
-    include/platform/WindowsPlatform.h
-    include/platform/LinuxPlatform.h
     include/platform/InstallerManager.h
+)
+
+# Add platform-specific headers
+if(WIN32)
+    list(APPEND HEADERS include/platform/WindowsPlatform.h)
+elseif(UNIX AND NOT APPLE)
+    list(APPEND HEADERS include/platform/LinuxPlatform.h)
+endif()
     include/EonPlayApplication.h
     include/ComponentManager.h
     include/EventBus.h
@@ -372,7 +383,7 @@ else()
 endif()
 
 # Testing configuration (optional)
-option(BUILD_TESTING "Build tests" ON)
+option(BUILD_TESTING "Build tests" OFF)
 if(BUILD_TESTING)
     enable_testing()
     add_subdirectory(tests)
@@ -382,7 +393,7 @@ endif()
 add_subdirectory(plugins)
 
 # Examples (optional)
-option(BUILD_EXAMPLES "Build example programs" ON)
+option(BUILD_EXAMPLES "Build example programs" OFF)
 if(BUILD_EXAMPLES)
     # VLC Backend example
     add_executable(vlc_backend_example

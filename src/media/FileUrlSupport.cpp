@@ -992,3 +992,10 @@ bool FileUrlSupport::isLocalFileUrl(const QUrl& url) const
     return url.isLocalFile() || url.scheme().toLower() == "file";
 }
 
+bool FileUrlSupport::validateFileHeader(const QString& filePath) const
+{
+    // Basic file header validation for security
+    // This is a simplified implementation - a full security implementation
+    // would have more comprehensive validation
+    return isValidMediaFile(filePath);
+}
