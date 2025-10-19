@@ -15,10 +15,10 @@
 #include <QMutex>
 #include <memory>
 
-// Forward declarations
-class PlaylistManager;
-class Playlist;
-class MediaFile;
+// Include required classes
+#include "data/PlaylistManager.h"
+#include "data/Playlist.h"
+#include "data/MediaFile.h"
 
 /**
  * @brief Comprehensive playlist management widget
@@ -54,6 +54,12 @@ public:
 
     explicit PlaylistWidget(QWidget* parent = nullptr);
     ~PlaylistWidget() override;
+
+    /**
+     * @brief Initialize the widget with playlist manager
+     * @param playlistManager Playlist manager instance
+     */
+    void initialize(PlaylistManager* playlistManager);
 
     /**
      * @brief Set playlist manager
@@ -179,6 +185,12 @@ public:
     PlaylistStats getPlaylistStats() const;
 
 signals:
+    /**
+     * @brief Emitted when play is requested for a file
+     * @param filePath Path to the media file
+     */
+    void playRequested(const QString& filePath);
+
     /**
      * @brief Emitted when files are selected for playback
      * @param files Selected media files

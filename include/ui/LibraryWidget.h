@@ -20,10 +20,10 @@
 #include <QMutex>
 #include <memory>
 
-// Forward declarations
-class LibraryManager;
-class MediaFile;
-class PlaylistManager;
+// Include required classes
+#include "data/LibraryManager.h"
+#include "data/MediaFile.h"
+#include "data/PlaylistManager.h"
 
 /**
  * @brief Comprehensive media library browser widget
@@ -94,6 +94,13 @@ public:
 
     explicit LibraryWidget(QWidget* parent = nullptr);
     ~LibraryWidget() override;
+
+    /**
+     * @brief Initialize the widget with managers
+     * @param libraryManager Library manager instance
+     * @param playlistManager Playlist manager instance
+     */
+    void initialize(LibraryManager* libraryManager, PlaylistManager* playlistManager);
 
     /**
      * @brief Set library manager
@@ -199,6 +206,18 @@ public:
 
 signals:
     /**
+     * @brief Emitted when play is requested for a file
+     * @param filePath Path to the media file
+     */
+    void playRequested(const QString& filePath);
+
+    /**
+     * @brief Emitted when queue is requested for a file
+     * @param filePath Path to the media file
+     */
+    void queueRequested(const QString& filePath);
+
+    /**
      * @brief Emitted when files are selected for playback
      * @param files Selected media files
      */
@@ -255,8 +274,8 @@ private:
     void addToPlaylist();
     void showFileProperties();
     void removeFromLibrary();
-    void exportToJSON(const QString& filePath);
-    void exportToCSV(const QString& filePath);
+    bool exportToJSON(const QString& filePath);
+    bool exportToCSV(const QString& filePath);
     void loadAlbumArt(const QString& filePath);
     QString formatDuration(qint64 milliseconds) const;
     QString formatFileSize(qint64 bytes) const;

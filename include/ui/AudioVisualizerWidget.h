@@ -3,14 +3,15 @@
 
 #include <QWidget>
 #include <QPainter>
+#include <QPainterPath>
 #include <QTimer>
 #include <QColor>
 #include <QVector>
 #include <QMutex>
 #include <memory>
 
-// Forward declarations
-class AudioVisualizer;
+// Include AudioVisualizer for SpectrumData type
+#include "audio/AudioVisualizer.h"
 
 /**
  * @brief Widget for displaying audio visualizations

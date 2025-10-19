@@ -13,6 +13,7 @@
 #include <QCloseEvent>
 #include <QContextMenuEvent>
 #include <QMenu>
+#include <QActionGroup>
 #include <memory>
 
 // Forward declarations
