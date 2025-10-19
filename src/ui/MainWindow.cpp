@@ -9,6 +9,8 @@
 #include "ui/NotificationManager.h"
 #include "ui/HotkeyManager.h"
 #include "media/FileUrlSupport.h"
+#include "data/LibraryManager.h"
+#include "data/PlaylistManager.h"
 #include "ComponentManager.h"
 #include <QApplication>
 #include <QFileDialog>
@@ -157,6 +159,39 @@ bool MainWindow::initialize(ComponentManager* componentManager)
         connect(m_playbackControls, &PlaybackControls::volumeChanged, [this](int volume) {
             updateStatusBar(tr("Volume: %1%").arg(volume));
         });
+    }
+    
+    // Initialize library and playlist widgets
+    if (m_libraryWidget && m_playlistWidget) {
+        // Get managers from component manager
+        auto libraryManager = componentManager->getComponent<LibraryManager>();
+        auto playlistManager = componentManager->getComponent<PlaylistManager>();
+        
+        if (libraryManager && playlistManager) {
+            m_libraryWidget->initialize(libraryManager, playlistManager);
+            m_playlistWidget->initialize(playlistManager);
+            
+            // Connect library widget signals
+            connect(m_libraryWidget, &LibraryWidget::playRequested,
+                    this, [this](const QStringList& filePaths) {
+                        if (!filePaths.isEmpty()) {
+                            // TODO: Connect to media engine
+                            updateStatusBar(tr("Playing: %1").arg(QFileInfo(filePaths.first()).fileName()));
+                        }
+                    });
+            
+            connect(m_libraryWidget, &LibraryWidget::queueRequested,
+                    this, [this](const QStringList& filePaths) {
+                        updateStatusBar(tr("Added %1 files to queue").arg(filePaths.size()));
+                    });
+            
+            // Connect playlist widget signals
+            connect(m_playlistWidget, &PlaylistWidget::playRequested,
+                    this, [this](const QString& filePath) {
+                        // TODO: Connect to media engine
+                        updateStatusBar(tr("Playing: %1").arg(QFileInfo(filePath).fileName()));
+                    });
+        }
     }
     
     return true;
@@ -667,13 +702,15 @@ void MainWindow::createCentralWidget()
     m_rightSplitter->addWidget(m_mediaInfoWidget);
     
     // TODO: Add playlist and library widgets in future tasks
-    // m_playlistWidget = new PlaylistWidget;
-    // m_playlistWidget->setVisible(false);
-    // m_rightSplitter->addWidget(m_playlistWidget);
+    // Create playlist widget
+    m_playlistWidget = new PlaylistWidget(this);
+    m_playlistWidget->setVisible(false);
+    m_rightSplitter->addWidget(m_playlistWidget);
     
-    // m_libraryWidget = new LibraryWidget;
-    // m_libraryWidget->setVisible(false);
-    // m_rightSplitter->addWidget(m_libraryWidget);
+    // Create library widget
+    m_libraryWidget = new LibraryWidget(this);
+    m_libraryWidget->setVisible(false);
+    m_rightSplitter->addWidget(m_libraryWidget);
     
     m_mainSplitter->addWidget(m_rightSplitter);
     

@@ -106,9 +106,9 @@ set(UI_SOURCES
     src/ui/MediaInfoWidget.cpp
     src/ui/MainWindow.cpp          # Task 3.1
     src/ui/PlaybackControls.cpp    # Task 3.2
+    src/ui/LibraryWidget.cpp       # Task 5.4
+    src/ui/PlaylistWidget.cpp      # Task 5.4
     # src/ui/VideoWidget.cpp         # Task 3.3
-    # src/ui/PlaylistWidget.cpp      # Task 5.4
-    # src/ui/LibraryWidget.cpp       # Task 5.4
     # src/ui/SettingsDialog.cpp      # Task 10.1
 )
 
@@ -162,6 +162,8 @@ set(HEADER_FILES
     include/ui/PlaybackControls.h
     include/ui/MediaInfoWidget.h
     include/ui/DragDropWidget.h
+    include/ui/LibraryWidget.h
+    include/ui/PlaylistWidget.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h
