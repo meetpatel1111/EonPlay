@@ -125,6 +125,7 @@ set(MEDIA_SOURCES
 set(AUDIO_SOURCES
     src/audio/AudioEqualizer.cpp
     src/audio/AudioVisualizer.cpp
+    src/audio/AudioProcessor.cpp
 )
 
 # Add VLC stub for Windows builds
@@ -175,6 +176,7 @@ set(HEADER_FILES
     include/ui/AudioVisualizerWidget.h
     include/audio/AudioEqualizer.h
     include/audio/AudioVisualizer.h
+    include/audio/AudioProcessor.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h

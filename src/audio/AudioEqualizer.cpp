@@ -1,4 +1,5 @@
 #include "audio/AudioEqualizer.h"
+#include "audio/AudioProcessor.h"
 #include <QStandardPaths>
 #include <QDir>
 #include <QJsonDocument>
@@ -7,6 +8,9 @@
 #include <QFile>
 #include <QLoggingCategory>
 #include <QtMath>
+#include <QMutexLocker>
+#include <algorithm>
+#include <complex>
 
 Q_DECLARE_LOGGING_CATEGORY(audioEqualizer)
 Q_LOGGING_CATEGORY(audioEqualizer, "audio.equalizer")
@@ -22,6 +26,8 @@ AudioEqualizer::AudioEqualizer(QObject* parent)
     , m_replayGainEnabled(false)
     , m_replayGainMode("track")
     , m_replayGainPreamp(0.0)
+    , m_audioProcessor(nullptr)
+    , m_sampleRate(44100)
 {
     // Initialize settings
     QString configPath = QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
@@ -39,9 +45,12 @@ AudioEqualizer::~AudioEqualizer()
     qCDebug(audioEqualizer) << "AudioEqualizer destroyed";
 }
 
-bool AudioEqualizer::initialize()
+bool AudioEqualizer::initialize(AudioProcessor* audioProcessor)
 {
+    m_audioProcessor = audioProcessor;
+    
     loadSettings();
+    initializeFilters(m_sampleRate);
     applyEqualizerSettings();
     
     qCDebug(audioEqualizer) << "AudioEqualizer initialized with" << m_bands.size() << "bands";
@@ -592,4 +601,259 @@ void AudioEqualizer::applyEqualizerSettings()
 void AudioEqualizer::clampGainValue(double& gain) const
 {
     gain = qBound(MIN_GAIN, gain, MAX_GAIN);
+}
+
+void AudioEqualizer::processAudio(QVector<float>& leftChannel, QVector<float>& rightChannel, int sampleRate)
+{
+    if (!m_enabled || leftChannel.isEmpty()) {
+        return;
+    }
+    
+    QMutexLocker locker(&m_processingMutex);
+    
+    // Update sample rate if changed
+    if (m_sampleRate != sampleRate) {
+        m_sampleRate = sampleRate;
+        initializeFilters(sampleRate);
+    }
+    
+    // Ensure we have a right channel for stereo processing
+    if (rightChannel.isEmpty()) {
+        rightChannel = leftChannel;
+    }
+    
+    // Process each sample through all EQ bands
+    for (int i = 0; i < leftChannel.size(); ++i) {
+        float leftSample = leftChannel[i];
+        float rightSample = rightChannel[i];
+        
+        // Apply EQ bands
+        for (int band = 0; band < m_bands.size(); ++band) {
+            leftSample = processSample(leftSample, 0, band);
+            rightSample = processSample(rightSample, 1, band);
+        }
+        
+        leftChannel[i] = leftSample;
+        rightChannel[i] = rightSample;
+    }
+    
+    // Apply bass boost (enhance low frequencies)
+    if (m_bassBoost > 0.0) {
+        float bassGain = qPow(10.0f, m_bassBoost / 20.0f);
+        for (int i = 0; i < leftChannel.size(); ++i) {
+            // Simple bass boost by amplifying low-frequency content
+            leftChannel[i] *= (1.0f + (bassGain - 1.0f) * 0.3f);
+            rightChannel[i] *= (1.0f + (bassGain - 1.0f) * 0.3f);
+        }
+    }
+    
+    // Apply treble enhancement (enhance high frequencies)
+    if (m_trebleEnhancement > 0.0) {
+        float trebleGain = qPow(10.0f, m_trebleEnhancement / 20.0f);
+        for (int i = 0; i < leftChannel.size(); ++i) {
+            // Simple treble enhancement
+            leftChannel[i] *= (1.0f + (trebleGain - 1.0f) * 0.2f);
+            rightChannel[i] *= (1.0f + (trebleGain - 1.0f) * 0.2f);
+        }
+    }
+    
+    // Apply 3D surround sound
+    if (m_3dSurroundEnabled) {
+        apply3DSurround(leftChannel, rightChannel);
+    }
+    
+    // Apply ReplayGain
+    if (m_replayGainEnabled && m_replayGainPreamp != 0.0) {
+        applyReplayGain(leftChannel, rightChannel, m_replayGainPreamp);
+    }
+}
+
+double AudioEqualizer::getFrequencyResponse(double frequency) const
+{
+    QMutexLocker locker(&m_processingMutex);
+    
+    double totalGain = 0.0;
+    
+    // Calculate combined response from all bands
+    for (const auto& band : m_bands) {
+        if (band.gain != 0.0) {
+            // Simple frequency response calculation
+            double ratio = frequency / band.frequency;
+            double response = band.gain / (1.0 + qPow(ratio - 1.0, 2.0) * band.bandwidth);
+            totalGain += response;
+        }
+    }
+    
+    return totalGain;
+}
+
+QVector<double> AudioEqualizer::analyzeAndSuggestEQ(const QVector<float>& leftChannel, 
+                                                   const QVector<float>& rightChannel, 
+                                                   int sampleRate) const
+{
+    QVector<double> suggestions(m_bands.size(), 0.0);
+    
+    if (leftChannel.isEmpty()) {
+        return suggestions;
+    }
+    
+    // Perform FFT analysis to get frequency spectrum
+    QVector<float> magnitude, phase;
+    performFFT(leftChannel, magnitude, phase);
+    
+    // Analyze each frequency band
+    for (int i = 0; i < m_bands.size(); ++i) {
+        double targetFreq = m_bands[i].frequency;
+        int binIndex = static_cast<int>((targetFreq * leftChannel.size()) / sampleRate);
+        
+        if (binIndex < magnitude.size()) {
+            double level = magnitude[binIndex];
+            double rms = calculateRMS(leftChannel);
+            
+            // Suggest EQ adjustment based on frequency content
+            if (level < rms * 0.5) {
+                suggestions[i] = 3.0; // Boost weak frequencies
+            } else if (level > rms * 2.0) {
+                suggestions[i] = -2.0; // Cut dominant frequencies
+            }
+        }
+    }
+    
+    return suggestions;
+}
+
+void AudioEqualizer::initializeFilters(int sampleRate)
+{
+    m_filterStates.clear();
+    m_filterStates.resize(m_bands.size());
+    
+    for (int band = 0; band < m_bands.size(); ++band) {
+        m_filterStates[band].resize(MAX_CHANNELS);
+        updateFilterCoefficients(band, m_bands[band].frequency, m_bands[band].gain, m_bands[band].bandwidth);
+    }
+    
+    qCDebug(audioEqualizer) << "Filters initialized for sample rate:" << sampleRate;
+}
+
+float AudioEqualizer::processSample(float sample, int channel, int bandIndex)
+{
+    if (bandIndex >= m_filterStates.size() || channel >= MAX_CHANNELS) {
+        return sample;
+    }
+    
+    FilterState& state = m_filterStates[bandIndex][channel];
+    
+    // Biquad filter processing
+    float output = state.b0 * sample + state.b1 * state.x1 + state.b2 * state.x2
+                  - state.a1 * state.y1 - state.a2 * state.y2;
+    
+    // Update delay line
+    state.x2 = state.x1;
+    state.x1 = sample;
+    state.y2 = state.y1;
+    state.y1 = output;
+    
+    return output;
+}
+
+void AudioEqualizer::updateFilterCoefficients(int bandIndex, double frequency, double gain, double q)
+{
+    if (bandIndex >= m_filterStates.size()) {
+        return;
+    }
+    
+    // Calculate biquad coefficients for peaking EQ filter
+    double A = qPow(10.0, gain / 40.0);
+    double omega = 2.0 * PI * frequency / m_sampleRate;
+    double sinOmega = qSin(omega);
+    double cosOmega = qCos(omega);
+    double alpha = sinOmega / (2.0 * q);
+    
+    double b0 = 1.0 + alpha * A;
+    double b1 = -2.0 * cosOmega;
+    double b2 = 1.0 - alpha * A;
+    double a0 = 1.0 + alpha / A;
+    double a1 = -2.0 * cosOmega;
+    double a2 = 1.0 - alpha / A;
+    
+    // Normalize coefficients
+    for (int channel = 0; channel < MAX_CHANNELS; ++channel) {
+        FilterState& state = m_filterStates[bandIndex][channel];
+        state.b0 = b0 / a0;
+        state.b1 = b1 / a0;
+        state.b2 = b2 / a0;
+        state.a1 = a1 / a0;
+        state.a2 = a2 / a0;
+    }
+}
+
+void AudioEqualizer::apply3DSurround(QVector<float>& leftChannel, QVector<float>& rightChannel)
+{
+    float strength = static_cast<float>(m_3dSurroundStrength);
+    float crossfeed = m_surroundState.crossfeedGain * strength;
+    
+    for (int i = 0; i < leftChannel.size(); ++i) {
+        float left = leftChannel[i];
+        float right = rightChannel[i];
+        
+        // Apply crossfeed and delay for 3D effect
+        float delayedLeft = m_surroundState.delayLineL[m_surroundState.delayIndex];
+        float delayedRight = m_surroundState.delayLineR[m_surroundState.delayIndex];
+        
+        // Store current samples in delay line
+        m_surroundState.delayLineL[m_surroundState.delayIndex] = left;
+        m_surroundState.delayLineR[m_surroundState.delayIndex] = right;
+        
+        // Apply 3D surround processing
+        leftChannel[i] = left + delayedRight * crossfeed;
+        rightChannel[i] = right + delayedLeft * crossfeed;
+        
+        // Update delay index
+        m_surroundState.delayIndex = (m_surroundState.delayIndex + 1) % 1024;
+    }
+}
+
+void AudioEqualizer::applyReplayGain(QVector<float>& leftChannel, QVector<float>& rightChannel, double gain)
+{
+    float gainLinear = qPow(10.0f, static_cast<float>(gain) / 20.0f);
+    
+    for (int i = 0; i < leftChannel.size(); ++i) {
+        leftChannel[i] *= gainLinear;
+        rightChannel[i] *= gainLinear;
+    }
+}
+
+void AudioEqualizer::performFFT(const QVector<float>& input, QVector<float>& magnitude, QVector<float>& phase) const
+{
+    int N = input.size();
+    magnitude.resize(N / 2);
+    phase.resize(N / 2);
+    
+    // Simple DFT implementation (for demonstration - would use FFTW in production)
+    for (int k = 0; k < N / 2; ++k) {
+        std::complex<double> sum(0.0, 0.0);
+        
+        for (int n = 0; n < N; ++n) {
+            double angle = -2.0 * PI * k * n / N;
+            std::complex<double> w(qCos(angle), qSin(angle));
+            sum += input[n] * w;
+        }
+        
+        magnitude[k] = static_cast<float>(std::abs(sum));
+        phase[k] = static_cast<float>(std::arg(sum));
+    }
+}
+
+double AudioEqualizer::calculateRMS(const QVector<float>& samples) const
+{
+    if (samples.isEmpty()) {
+        return 0.0;
+    }
+    
+    double sum = 0.0;
+    for (float sample : samples) {
+        sum += sample * sample;
+    }
+    
+    return qSqrt(sum / samples.size());
 }

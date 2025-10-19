@@ -5,7 +5,11 @@
 #include <QVector>
 #include <QString>
 #include <QSettings>
+#include <QMutex>
 #include <memory>
+
+// Forward declarations
+class AudioProcessor;
 
 /**
  * @brief Audio equalizer with multi-band frequency adjustment
@@ -51,9 +55,10 @@ public:
 
     /**
      * @brief Initialize the equalizer
+     * @param audioProcessor Optional audio processor for integration
      * @return true if initialization was successful
      */
-    bool initialize();
+    bool initialize(AudioProcessor* audioProcessor = nullptr);
 
     /**
      * @brief Shutdown the equalizer
@@ -242,6 +247,32 @@ public:
      */
     bool importSettings(const QString& filePath);
 
+    /**
+     * @brief Process audio buffer through equalizer
+     * @param leftChannel Left audio channel data
+     * @param rightChannel Right audio channel data
+     * @param sampleRate Sample rate in Hz
+     */
+    void processAudio(QVector<float>& leftChannel, QVector<float>& rightChannel, int sampleRate);
+
+    /**
+     * @brief Get frequency response at given frequency
+     * @param frequency Frequency in Hz
+     * @return Gain response in dB
+     */
+    double getFrequencyResponse(double frequency) const;
+
+    /**
+     * @brief Analyze audio spectrum for auto-EQ suggestions
+     * @param leftChannel Left audio channel data
+     * @param rightChannel Right audio channel data
+     * @param sampleRate Sample rate in Hz
+     * @return Suggested EQ adjustments
+     */
+    QVector<double> analyzeAndSuggestEQ(const QVector<float>& leftChannel, 
+                                       const QVector<float>& rightChannel, 
+                                       int sampleRate) const;
+
 signals:
     /**
      * @brief Emitted when equalizer is enabled/disabled
@@ -294,6 +325,17 @@ private:
     void applyEqualizerSettings();
     QVector<double> getPresetGains(PresetProfile preset) const;
     void clampGainValue(double& gain) const;
+    
+    // Audio processing methods
+    void initializeFilters(int sampleRate);
+    float processSample(float sample, int channel, int bandIndex);
+    void updateFilterCoefficients(int bandIndex, double frequency, double gain, double q);
+    void apply3DSurround(QVector<float>& leftChannel, QVector<float>& rightChannel);
+    void applyReplayGain(QVector<float>& leftChannel, QVector<float>& rightChannel, double gain);
+    
+    // Analysis methods
+    void performFFT(const QVector<float>& input, QVector<float>& magnitude, QVector<float>& phase) const;
+    double calculateRMS(const QVector<float>& samples) const;
 
     // Equalizer state
     bool m_enabled;
@@ -314,6 +356,34 @@ private:
     // Settings
     std::unique_ptr<QSettings> m_settings;
     
+    // Audio processing
+    AudioProcessor* m_audioProcessor;
+    int m_sampleRate;
+    
+    // Filter states for each band and channel
+    struct FilterState {
+        double b0, b1, b2, a1, a2;  // Biquad coefficients
+        double x1, x2, y1, y2;      // Delay line states
+        FilterState() : b0(1), b1(0), b2(0), a1(0), a2(0), x1(0), x2(0), y1(0), y2(0) {}
+    };
+    
+    QVector<QVector<FilterState>> m_filterStates; // [band][channel]
+    
+    // 3D Surround processing state
+    struct SurroundState {
+        float delayLineL[1024];
+        float delayLineR[1024];
+        int delayIndex;
+        float crossfeedGain;
+        SurroundState() : delayIndex(0), crossfeedGain(0.3f) {
+            std::fill(std::begin(delayLineL), std::end(delayLineL), 0.0f);
+            std::fill(std::begin(delayLineR), std::end(delayLineR), 0.0f);
+        }
+    } m_surroundState;
+    
+    // Thread safety
+    mutable QMutex m_processingMutex;
+    
     // Constants
     static constexpr int DEFAULT_BAND_COUNT = 10;
     static constexpr double MIN_GAIN = -20.0;
@@ -322,6 +392,8 @@ private:
     static constexpr double MAX_BASS_BOOST = 12.0;
     static constexpr double MIN_TREBLE_ENHANCEMENT = 0.0;
     static constexpr double MAX_TREBLE_ENHANCEMENT = 12.0;
+    static constexpr double PI = 3.14159265359;
+    static constexpr int MAX_CHANNELS = 2;
 };
 
 #endif // AUDIOEQUALIZER_H
