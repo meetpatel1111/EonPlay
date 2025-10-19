@@ -297,7 +297,7 @@ jobs:
           libvlc-dev \
           libvlccore-dev \
           vlc \
-          gcov \
+          gcc \
           lcov
 
     - name: Configure with coverage

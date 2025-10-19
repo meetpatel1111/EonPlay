@@ -98,7 +98,12 @@
   - Create thumbnail seek preview functionality
   - _Requirements: 3.1, 3.2, 3.4, 3.5_
 
-- [ ] 2.5 Add file and URL support
+- [x] 2.5 Add file and URL support
+
+
+
+
+
   - Implement drag-and-drop file support for direct playback
   - Create URL/stream playback capability
   - Add file format validation and error reporting

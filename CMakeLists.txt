@@ -102,6 +102,8 @@ set(CORE_SOURCES
 
 # UI files will be added as they are implemented
 set(UI_SOURCES
+    src/ui/DragDropWidget.cpp
+    src/ui/MediaInfoWidget.cpp
     # src/ui/MainWindow.cpp          # Task 3.1
     # src/ui/PlaybackControls.cpp    # Task 3.2
     # src/ui/VideoWidget.cpp         # Task 3.3
@@ -115,17 +117,18 @@ set(MEDIA_SOURCES
     src/media/PlaybackController.cpp
     src/media/MediaError.cpp
     src/media/HardwareAcceleration.cpp
+    src/media/FileUrlSupport.cpp
 )
 
 set(DATA_SOURCES
     src/data/SettingsManager.cpp
     src/data/UserPreferences.cpp
     # Additional data files will be added as implemented:
-    # src/data/DatabaseManager.cpp   # Task 5.1
-    # src/data/LibraryManager.cpp    # Task 5.2
-    # src/data/MediaScanner.cpp      # Task 5.2
-    src/data/MetadataExtractor.cpp
-    src/data/PlaylistManager.cpp
+    # src/data/DatabaseManager.cpp     # Task 5.1
+    # src/data/LibraryManager.cpp      # Task 5.2
+    # src/data/MediaScanner.cpp        # Task 5.2
+    # src/data/MetadataExtractor.cpp   # Task 5.2
+    # src/data/PlaylistManager.cpp     # Task 5.3
 )
 
 set(NETWORK_SOURCES
@@ -290,6 +293,22 @@ if(BUILD_EXAMPLES)
         Qt6::Core
     )
     
+    # File URL Support example
+    add_executable(file_url_support_example
+        examples/file_url_support_example.cpp
+        ${CORE_SOURCES}
+        ${UI_SOURCES}
+        ${MEDIA_SOURCES}
+        ${DATA_SOURCES}
+    )
+    
+    target_link_libraries(file_url_support_example
+        Qt6::Core
+        Qt6::Widgets
+        Qt6::Multimedia
+        Qt6::MultimediaWidgets
+    )
+    
     # Platform-specific linking for examples
     if(WIN32)
         target_link_libraries(vlc_backend_example
@@ -310,6 +329,10 @@ if(BUILD_EXAMPLES)
             ${LIBVLC_LIBRARY}
             ${LIBVLCCORE_LIBRARY}
         )
+        target_link_libraries(file_url_support_example
+            ${LIBVLC_LIBRARY}
+            ${LIBVLCCORE_LIBRARY}
+        )
     else()
         target_link_libraries(vlc_backend_example
             ${LIBVLC_LIBRARIES}
@@ -321,6 +344,9 @@ if(BUILD_EXAMPLES)
             ${LIBVLC_LIBRARIES}
         )
         target_link_libraries(advanced_playback_example
+            ${LIBVLC_LIBRARIES}
+        )
+        target_link_libraries(file_url_support_example
             ${LIBVLC_LIBRARIES}
         )
         

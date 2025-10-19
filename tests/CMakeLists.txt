@@ -8,6 +8,7 @@ set(TEST_SOURCES
     test_playback_controller.cpp
     test_playback_integration.cpp
     test_hardware_acceleration.cpp
+    test_file_url_support.cpp
 )
 
 # Core sources needed for tests
@@ -19,6 +20,9 @@ set(CORE_TEST_SOURCES
     ${CMAKE_SOURCE_DIR}/src/media/PlaybackController.cpp
     ${CMAKE_SOURCE_DIR}/src/media/MediaError.cpp
     ${CMAKE_SOURCE_DIR}/src/media/HardwareAcceleration.cpp
+    ${CMAKE_SOURCE_DIR}/src/media/FileUrlSupport.cpp
+    ${CMAKE_SOURCE_DIR}/src/data/SettingsManager.cpp
+    ${CMAKE_SOURCE_DIR}/src/data/UserPreferences.cpp
 )
 
 # Create test executable
