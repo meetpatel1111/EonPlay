@@ -458,7 +458,11 @@ void PlaylistWidget::onSortByChanged()
 
 void PlaylistWidget::onNewPlaylistClicked()
 {
-    createNewPlaylist();
+    bool ok;
+    QString name = QInputDialog::getText(this, "New Playlist", "Playlist name:", QLineEdit::Normal, "", &ok);
+    if (ok && !name.isEmpty()) {
+        createNewPlaylist(name);
+    }
 }
 
 void PlaylistWidget::onDeletePlaylistClicked()
@@ -468,12 +472,18 @@ void PlaylistWidget::onDeletePlaylistClicked()
 
 void PlaylistWidget::onSavePlaylistClicked()
 {
-    savePlaylistToFile();
+    QString filePath = QFileDialog::getSaveFileName(this, "Save Playlist", "", "Playlist Files (*.m3u *.pls)");
+    if (!filePath.isEmpty()) {
+        savePlaylistToFile(filePath);
+    }
 }
 
 void PlaylistWidget::onLoadPlaylistClicked()
 {
-    loadPlaylistFromFile();
+    QString filePath = QFileDialog::getOpenFileName(this, "Load Playlist", "", "Playlist Files (*.m3u *.pls)");
+    if (!filePath.isEmpty()) {
+        loadPlaylistFromFile(filePath);
+    }
 }
 
 void PlaylistWidget::onShuffleClicked()

@@ -168,21 +168,19 @@ bool MainWindow::initialize(ComponentManager* componentManager)
         auto playlistManager = componentManager->getComponent<EonPlay::Data::PlaylistManager>();
         
         if (libraryManager && playlistManager) {
-            m_libraryWidget->initialize(libraryManager, playlistManager);
-            m_playlistWidget->initialize(playlistManager);
+            m_libraryWidget->initialize(libraryManager.get(), playlistManager.get());
+            m_playlistWidget->initialize(playlistManager.get());
             
             // Connect library widget signals
             connect(m_libraryWidget, &LibraryWidget::playRequested,
-                    this, [this](const QStringList& filePaths) {
-                        if (!filePaths.isEmpty()) {
-                            // TODO: Connect to media engine
-                            updateStatusBar(tr("Playing: %1").arg(QFileInfo(filePaths.first()).fileName()));
-                        }
+                    this, [this](const QString& filePath) {
+                        // TODO: Connect to media engine
+                        updateStatusBar(tr("Playing: %1").arg(QFileInfo(filePath).fileName()));
                     });
             
             connect(m_libraryWidget, &LibraryWidget::queueRequested,
-                    this, [this](const QStringList& filePaths) {
-                        updateStatusBar(tr("Added %1 files to queue").arg(filePaths.size()));
+                    this, [this](const QString& filePath) {
+                        updateStatusBar(tr("Added file to queue: %1").arg(QFileInfo(filePath).fileName()));
                     });
             
             // Connect playlist widget signals

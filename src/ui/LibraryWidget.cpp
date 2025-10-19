@@ -92,7 +92,7 @@ void LibraryWidget::setLibraryManager(LibraryManager* libraryManager)
     m_libraryManager = libraryManager;
     
     if (m_libraryManager) {
-        connect(m_libraryManager, &LibraryManager::libraryUpdated,
+        connect(m_libraryManager, &LibraryManager::libraryChanged,
                 this, &LibraryWidget::onLibraryUpdated);
         
         refreshLibrary();
@@ -314,7 +314,7 @@ void LibraryWidget::dropEvent(QDropEvent* event)
         if (!filePaths.isEmpty() && m_libraryManager) {
             // Add files to library
             for (const QString& filePath : filePaths) {
-                m_libraryManager->addMediaFile(filePath);
+                m_libraryManager->addFile(filePath);
             }
             
             refreshLibrary();
