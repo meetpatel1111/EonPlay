@@ -45,6 +45,40 @@ if(WIN32)
         "C:/Program Files/VideoLAN/VLC/sdk/lib"
         "C:/Program Files (x86)/VideoLAN/VLC/sdk/lib"
     )
+elseif(APPLE)
+    # macOS libVLC configuration
+    find_package(PkgConfig REQUIRED)
+    
+    # Try pkg-config first
+    pkg_check_modules(LIBVLC libvlc>=3.0.0)
+    
+    if(NOT LIBVLC_FOUND)
+        # Fallback to manual search in common macOS locations
+        find_path(LIBVLC_INCLUDE_DIR vlc/vlc.h
+            PATHS
+            /Applications/VLC.app/Contents/MacOS/include
+            /opt/homebrew/include
+            /usr/local/include
+        )
+        
+        find_library(LIBVLC_LIBRARY
+            NAMES vlc libvlc
+            PATHS
+            /Applications/VLC.app/Contents/MacOS/lib
+            /opt/homebrew/lib
+            /usr/local/lib
+        )
+        
+        if(LIBVLC_INCLUDE_DIR AND LIBVLC_LIBRARY)
+            set(LIBVLC_FOUND TRUE)
+            set(LIBVLC_LIBRARIES ${LIBVLC_LIBRARY})
+            set(LIBVLC_INCLUDE_DIRS ${LIBVLC_INCLUDE_DIR})
+        endif()
+    endif()
+    
+    if(NOT LIBVLC_FOUND)
+        message(FATAL_ERROR "libVLC not found. Please install VLC: brew install vlc")
+    endif()
 else()
     # Linux libVLC configuration
     find_package(PkgConfig REQUIRED)
@@ -66,13 +100,14 @@ set(CORE_SOURCES
     src/core/IComponent.cpp
 )
 
+# UI files will be added as they are implemented
 set(UI_SOURCES
-    src/ui/MainWindow.cpp
-    src/ui/PlaybackControls.cpp
-    src/ui/VideoWidget.cpp
-    src/ui/PlaylistWidget.cpp
-    src/ui/LibraryWidget.cpp
-    src/ui/SettingsDialog.cpp
+    # src/ui/MainWindow.cpp          # Task 3.1
+    # src/ui/PlaybackControls.cpp    # Task 3.2
+    # src/ui/VideoWidget.cpp         # Task 3.3
+    # src/ui/PlaylistWidget.cpp      # Task 5.4
+    # src/ui/LibraryWidget.cpp       # Task 5.4
+    # src/ui/SettingsDialog.cpp      # Task 10.1
 )
 
 set(MEDIA_SOURCES
@@ -85,21 +120,24 @@ set(MEDIA_SOURCES
 set(DATA_SOURCES
     src/data/SettingsManager.cpp
     src/data/UserPreferences.cpp
-    src/data/DatabaseManager.cpp
-    src/data/LibraryManager.cpp
-    src/data/MediaScanner.cpp
+    # Additional data files will be added as implemented:
+    # src/data/DatabaseManager.cpp   # Task 5.1
+    # src/data/LibraryManager.cpp    # Task 5.2
+    # src/data/MediaScanner.cpp      # Task 5.2
     src/data/MetadataExtractor.cpp
     src/data/PlaylistManager.cpp
 )
 
 set(NETWORK_SOURCES
-    src/network/StreamingManager.cpp
-    src/network/NetworkProtocols.cpp
+    # Network files will be added as implemented:
+    # src/network/StreamingManager.cpp    # Task 7.1
+    # src/network/NetworkProtocols.cpp    # Task 7.1
 )
 
 set(AI_SOURCES
-    src/ai/AIContentAnalysis.cpp
-    src/ai/AIRecommendations.cpp
+    # AI files will be added as implemented:
+    # src/ai/AIContentAnalysis.cpp     # Task 9.1
+    # src/ai/AIRecommendations.cpp     # Task 9.2
 )
 
 # Main executable
@@ -193,9 +231,12 @@ qt6_add_resources(EonPlay "resources"
         resources/themes/light.qss
 )
 
-# Testing configuration
-enable_testing()
-add_subdirectory(tests)
+# Testing configuration (optional)
+option(BUILD_TESTING "Build tests" ON)
+if(BUILD_TESTING)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
 
 # Plugin system
 add_subdirectory(plugins)
