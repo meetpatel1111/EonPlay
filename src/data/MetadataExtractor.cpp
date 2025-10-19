@@ -690,12 +690,15 @@ QString MetadataExtractor::findExecutable(const QString& name)
 {
     // Try to find executable in PATH
     QProcess which;
-    which.start("where", QStringList() << name); // Windows
+    
+#ifdef Q_OS_WIN
+    which.start("where", QStringList() << name);
+#else
+    which.start("which", QStringList() << name);
+#endif
+    
     if (!which.waitForFinished(3000) || which.exitCode() != 0) {
-        which.start("which", QStringList() << name); // Unix/Linux
-        if (!which.waitForFinished(3000) || which.exitCode() != 0) {
-            return QString();
-        }
+        return QString();
     }
     
     QString path = which.readAllStandardOutput().trimmed();

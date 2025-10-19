@@ -146,6 +146,9 @@ private:
     QString detectVideoFormat(const QString& filePath);
     bool isAudioFile(const QString& filePath);
     bool isVideoFile(const QString& filePath);
+    
+    // Utility methods
+    QString findExecutable(const QString& name);
 
     // Member variables
     ExtractionOptions m_options;

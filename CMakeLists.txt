@@ -229,17 +229,34 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-# Resources
-qt6_add_resources(EonPlay "resources"
-    PREFIX "/"
-    FILES
-        resources/icons/play.png
-        resources/icons/pause.png
-        resources/icons/stop.png
-        resources/icons/app_icon.png
-        resources/themes/dark.qss
-        resources/themes/light.qss
+# Resources (optional)
+set(RESOURCE_FILES
+    resources/icons/play.png
+    resources/icons/pause.png
+    resources/icons/stop.png
+    resources/icons/app_icon.png
+    resources/themes/dark.qss
+    resources/themes/light.qss
 )
+
+# Check if all resource files exist
+set(ALL_RESOURCES_EXIST TRUE)
+foreach(RESOURCE_FILE ${RESOURCE_FILES})
+    if(NOT EXISTS "${CMAKE_SOURCE_DIR}/${RESOURCE_FILE}")
+        set(ALL_RESOURCES_EXIST FALSE)
+        message(STATUS "Resource file not found: ${RESOURCE_FILE}")
+    endif()
+endforeach()
+
+if(ALL_RESOURCES_EXIST)
+    qt6_add_resources(EonPlay "resources"
+        PREFIX "/"
+        FILES ${RESOURCE_FILES}
+    )
+    message(STATUS "Added embedded resources")
+else()
+    message(STATUS "Building without embedded resources - some resource files are missing")
+endif()
 
 # Testing configuration (optional)
 option(BUILD_TESTING "Build tests" ON)

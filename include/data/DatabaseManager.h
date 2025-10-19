@@ -110,11 +110,14 @@ private:
     bool migrateToVersion3();
     // Add more migration methods as needed
 
-    // Utility methods
+public:
+    // Utility methods (made public for PlaylistManager)
     bool executeQuery(const QString& query, const QVariantList& params = QVariantList());
     QSqlQuery prepareQuery(const QString& query);
     bool tableExists(const QString& tableName);
     QStringList getTableColumns(const QString& tableName);
+
+private:
     void logError(const QString& operation, const QSqlError& error);
 
     // Member variables
