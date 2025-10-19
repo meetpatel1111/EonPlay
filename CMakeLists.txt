@@ -112,8 +112,14 @@ set(UI_SOURCES
     src/ui/AudioVisualizerWidget.cpp # Task 6.2
     src/ui/MiniPlayerWidget.cpp    # Task 7.1 - IMPLEMENTED
     src/ui/PictureInPictureWidget.cpp # Task 7.1 - IMPLEMENTED
-    src/ui/LicenseViewer.cpp       # Task 12.2 - IMPLEMENTED
-    # src/ui/VideoWidget.cpp         # Task 3.3
+    src/ui/VideoWidget.cpp         # Task 3.3 - IMPLEMENTED
+    src/ui/AudioProcessorWidget.cpp
+    src/ui/HotkeyManager.cpp
+    src/ui/MediaKeysManager.cpp
+    src/ui/NotificationManager.cpp
+    src/ui/SubtitleControlWidget.cpp
+    src/ui/SystemTrayManager.cpp
+    # src/ui/LicenseViewer.cpp       # Task 12.2 - Missing file
     # src/ui/SettingsDialog.cpp      # Task 10.1
 )
 
@@ -206,6 +212,13 @@ set(HEADER_FILES
     include/ui/AudioVisualizerWidget.h
     include/ui/MiniPlayerWidget.h
     include/ui/PictureInPictureWidget.h
+    include/ui/VideoWidget.h
+    include/ui/AudioProcessorWidget.h
+    include/ui/HotkeyManager.h
+    include/ui/MediaKeysManager.h
+    include/ui/NotificationManager.h
+    include/ui/SubtitleControlWidget.h
+    include/ui/SystemTrayManager.h
     include/audio/AudioEqualizer.h
     include/audio/AudioVisualizer.h
     include/audio/AudioProcessor.h
@@ -221,7 +234,6 @@ set(HEADER_FILES
     include/security/ParentalControlManager.h
     include/stability/CrashReporter.h
     include/stability/AutoUpdater.h
-    include/ui/LicenseViewer.h
     include/platform/WindowsPlatform.h
     include/platform/LinuxPlatform.h
     include/platform/InstallerManager.h
