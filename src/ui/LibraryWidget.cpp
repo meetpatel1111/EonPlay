@@ -77,6 +77,12 @@ LibraryWidget::~LibraryWidget()
     qCDebug(libraryWidget) << "LibraryWidget destroyed";
 }
 
+void LibraryWidget::initialize(LibraryManager* libraryManager, PlaylistManager* playlistManager)
+{
+    setLibraryManager(libraryManager);
+    setPlaylistManager(playlistManager);
+}
+
 void LibraryWidget::setLibraryManager(LibraryManager* libraryManager)
 {
     if (m_libraryManager) {

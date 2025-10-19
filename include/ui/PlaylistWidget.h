@@ -20,6 +20,11 @@
 #include "data/Playlist.h"
 #include "data/MediaFile.h"
 
+// Bring namespaced classes into scope
+using EonPlay::Data::PlaylistManager;
+using EonPlay::Data::Playlist;
+using EonPlay::Data::MediaFile;
+
 /**
  * @brief Comprehensive playlist management widget
  * 

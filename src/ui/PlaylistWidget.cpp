@@ -57,6 +57,11 @@ PlaylistWidget::~PlaylistWidget()
     qCDebug(playlistWidget) << "PlaylistWidget destroyed";
 }
 
+void PlaylistWidget::initialize(PlaylistManager* playlistManager)
+{
+    setPlaylistManager(playlistManager);
+}
+
 void PlaylistWidget::setPlaylistManager(PlaylistManager* playlistManager)
 {
     if (m_playlistManager) {

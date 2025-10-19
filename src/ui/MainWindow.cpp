@@ -164,8 +164,8 @@ bool MainWindow::initialize(ComponentManager* componentManager)
     // Initialize library and playlist widgets
     if (m_libraryWidget && m_playlistWidget) {
         // Get managers from component manager
-        auto libraryManager = componentManager->getComponent<LibraryManager>();
-        auto playlistManager = componentManager->getComponent<PlaylistManager>();
+        auto libraryManager = componentManager->getComponent<EonPlay::Data::LibraryManager>();
+        auto playlistManager = componentManager->getComponent<EonPlay::Data::PlaylistManager>();
         
         if (libraryManager && playlistManager) {
             m_libraryWidget->initialize(libraryManager, playlistManager);
