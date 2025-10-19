@@ -122,7 +122,8 @@ set(MEDIA_SOURCES
 
 # Add VLC stub for Windows builds
 if(WIN32)
-    list(APPEND MEDIA_SOURCES ${CMAKE_SOURCE_DIR}/third_party/vlc/lib/libvlc_stub.cpp)
+    list(APPEND MEDIA_SOURCES src/media/vlc_stub_windows.cpp)
+    message(STATUS "Using VLC stub for Windows build")
 endif()
 
 set(DATA_SOURCES
