@@ -27,6 +27,8 @@ AudioVisualizer::AudioVisualizer(QObject* parent)
     , m_leftPeakTime(0)
     , m_rightPeakTime(0)
     , m_moodConfidence(0.0f)
+    , m_lastEnergy(0.0f)
+    , m_averageEnergy(0.0f)
     , m_updateTimer(new QTimer(this))
     , m_peakHoldTimer(new QTimer(this))
 {
@@ -40,6 +42,11 @@ AudioVisualizer::AudioVisualizer(QObject* parent)
     // Initialize waveform data
     m_leftWaveform.resize(WAVEFORM_SIZE);
     m_rightWaveform.resize(WAVEFORM_SIZE);
+    
+    // Initialize beat detection
+    m_beatHistory.resize(10);
+    m_beatTimes.reserve(100);
+    m_energyHistory.resize(50);
     
     // Initialize frequency bands (logarithmic distribution)
     for (int i = 0; i < m_spectrumBandCount; ++i) {
@@ -334,6 +341,10 @@ void AudioVisualizer::processAudioSample(const AudioSample& sample)
             detectMoodFromSpectrum(m_currentSpectrum);
             generateAIColorPalette(m_currentSpectrum);
         }
+        
+        // Beat detection and animation parameters
+        detectBeat(m_currentSpectrum);
+        calculateAnimationParams(m_currentSpectrum);
     }
 }
 
@@ -376,6 +387,18 @@ QVector<QColor> AudioVisualizer::getAIColorPalette() const
 {
     QMutexLocker locker(&m_dataMutex);
     return m_aiColorPalette;
+}
+
+AudioVisualizer::BeatInfo AudioVisualizer::getCurrentBeatInfo() const
+{
+    QMutexLocker locker(&m_dataMutex);
+    return m_currentBeatInfo;
+}
+
+AudioVisualizer::AnimationParams AudioVisualizer::getCurrentAnimationParams() const
+{
+    QMutexLocker locker(&m_dataMutex);
+    return m_animationParams;
 }
 
 void AudioVisualizer::updateVisualization()
@@ -623,4 +646,195 @@ float AudioVisualizer::calculatePeak(const QVector<float>& samples)
     }
     
     return peak;
+}
+
+void AudioVisualizer::detectBeat(const SpectrumData& spectrum)
+{
+    if (spectrum.magnitudes.isEmpty()) {
+        return;
+    }
+    
+    // Calculate current energy (focus on bass frequencies for beat detection)
+    float currentEnergy = 0.0f;
+    int bassRange = qMin(spectrum.magnitudes.size() / 4, 8); // First quarter or 8 bands
+    
+    for (int i = 0; i < bassRange; ++i) {
+        currentEnergy += spectrum.magnitudes[i] * spectrum.magnitudes[i];
+    }
+    currentEnergy /= bassRange;
+    
+    // Update energy history
+    m_energyHistory.append(currentEnergy);
+    if (m_energyHistory.size() > 50) {
+        m_energyHistory.removeFirst();
+    }
+    
+    // Calculate average energy
+    float totalEnergy = 0.0f;
+    for (float energy : m_energyHistory) {
+        totalEnergy += energy;
+    }
+    m_averageEnergy = totalEnergy / m_energyHistory.size();
+    
+    // Beat detection algorithm (simple energy-based)
+    float threshold = m_averageEnergy * 1.3f; // 30% above average
+    bool isBeat = (currentEnergy > threshold) && (currentEnergy > m_lastEnergy * 1.1f);
+    
+    qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+    
+    if (isBeat) {
+        // Avoid detecting beats too frequently (minimum 100ms apart)
+        if (currentTime - m_currentBeatInfo.lastBeatTime > 100) {
+            m_currentBeatInfo.isBeat = true;
+            m_currentBeatInfo.strength = qMin(currentEnergy / threshold, 2.0f);
+            m_currentBeatInfo.lastBeatTime = currentTime;
+            
+            // Store beat time for BPM calculation
+            m_beatTimes.append(currentTime);
+            if (m_beatTimes.size() > 20) {
+                m_beatTimes.removeFirst();
+            }
+            
+            updateBPMEstimation();
+            emit beatDetected(m_currentBeatInfo);
+        }
+    } else {
+        m_currentBeatInfo.isBeat = false;
+    }
+    
+    m_lastEnergy = currentEnergy;
+}
+
+void AudioVisualizer::calculateAnimationParams(const SpectrumData& spectrum)
+{
+    if (spectrum.magnitudes.isEmpty()) {
+        return;
+    }
+    
+    // Calculate overall energy
+    float totalEnergy = 0.0f;
+    for (float magnitude : spectrum.magnitudes) {
+        totalEnergy += magnitude * magnitude;
+    }
+    m_animationParams.energy = qSqrt(totalEnergy / spectrum.magnitudes.size());
+    
+    // Calculate frequency band energies
+    int bandCount = spectrum.magnitudes.size();
+    int bassEnd = bandCount / 4;
+    int midEnd = bandCount * 3 / 4;
+    
+    // Bass energy (low frequencies)
+    float bassEnergy = 0.0f;
+    for (int i = 0; i < bassEnd; ++i) {
+        bassEnergy += spectrum.magnitudes[i] * spectrum.magnitudes[i];
+    }
+    m_animationParams.bassEnergy = qSqrt(bassEnergy / bassEnd);
+    
+    // Mid energy (mid frequencies)
+    float midEnergy = 0.0f;
+    for (int i = bassEnd; i < midEnd; ++i) {
+        midEnergy += spectrum.magnitudes[i] * spectrum.magnitudes[i];
+    }
+    m_animationParams.midEnergy = qSqrt(midEnergy / (midEnd - bassEnd));
+    
+    // Treble energy (high frequencies)
+    float trebleEnergy = 0.0f;
+    for (int i = midEnd; i < bandCount; ++i) {
+        trebleEnergy += spectrum.magnitudes[i] * spectrum.magnitudes[i];
+    }
+    m_animationParams.trebleEnergy = qSqrt(trebleEnergy / (bandCount - midEnd));
+    
+    // Calculate dynamic range
+    float maxMagnitude = *std::max_element(spectrum.magnitudes.begin(), spectrum.magnitudes.end());
+    float minMagnitude = *std::min_element(spectrum.magnitudes.begin(), spectrum.magnitudes.end());
+    m_animationParams.dynamicRange = (maxMagnitude > 0.0f) ? (maxMagnitude - minMagnitude) / maxMagnitude : 0.0f;
+    
+    // Per-band energies for detailed animation control
+    m_animationParams.bandEnergies.clear();
+    for (float magnitude : spectrum.magnitudes) {
+        m_animationParams.bandEnergies.append(magnitude);
+    }
+    
+    emit animationParamsUpdated(m_animationParams);
+}
+
+void AudioVisualizer::updateBPMEstimation()
+{
+    if (m_beatTimes.size() < 4) {
+        return;
+    }
+    
+    // Calculate average time between beats
+    QVector<qint64> intervals;
+    for (int i = 1; i < m_beatTimes.size(); ++i) {
+        intervals.append(m_beatTimes[i] - m_beatTimes[i-1]);
+    }
+    
+    // Remove outliers (beats that are too close or too far apart)
+    std::sort(intervals.begin(), intervals.end());
+    int validStart = intervals.size() / 4;
+    int validEnd = intervals.size() * 3 / 4;
+    
+    qint64 totalInterval = 0;
+    int validCount = 0;
+    
+    for (int i = validStart; i < validEnd; ++i) {
+        totalInterval += intervals[i];
+        validCount++;
+    }
+    
+    if (validCount > 0) {
+        qint64 averageInterval = totalInterval / validCount;
+        m_currentBeatInfo.bpm = (averageInterval > 0) ? 60000.0f / averageInterval : 0.0f;
+        
+        // Clamp BPM to reasonable range
+        m_currentBeatInfo.bpm = qBound(60.0f, m_currentBeatInfo.bpm, 200.0f);
+    }
+}
+
+float AudioVisualizer::calculateSpectralCentroid(const SpectrumData& spectrum) const
+{
+    if (spectrum.magnitudes.isEmpty() || spectrum.frequencies.isEmpty()) {
+        return 0.0f;
+    }
+    
+    float weightedSum = 0.0f;
+    float magnitudeSum = 0.0f;
+    
+    for (int i = 0; i < spectrum.magnitudes.size(); ++i) {
+        float magnitude = spectrum.magnitudes[i];
+        float frequency = spectrum.frequencies[i];
+        
+        weightedSum += frequency * magnitude;
+        magnitudeSum += magnitude;
+    }
+    
+    return (magnitudeSum > 0.0f) ? weightedSum / magnitudeSum : 0.0f;
+}
+
+float AudioVisualizer::calculateSpectralRolloff(const SpectrumData& spectrum) const
+{
+    if (spectrum.magnitudes.isEmpty() || spectrum.frequencies.isEmpty()) {
+        return 0.0f;
+    }
+    
+    // Calculate total energy
+    float totalEnergy = 0.0f;
+    for (float magnitude : spectrum.magnitudes) {
+        totalEnergy += magnitude * magnitude;
+    }
+    
+    // Find frequency where 85% of energy is contained
+    float targetEnergy = totalEnergy * 0.85f;
+    float cumulativeEnergy = 0.0f;
+    
+    for (int i = 0; i < spectrum.magnitudes.size(); ++i) {
+        cumulativeEnergy += spectrum.magnitudes[i] * spectrum.magnitudes[i];
+        
+        if (cumulativeEnergy >= targetEnergy) {
+            return spectrum.frequencies[i];
+        }
+    }
+    
+    return spectrum.frequencies.last();
 }

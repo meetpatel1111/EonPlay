@@ -240,6 +240,47 @@ public:
      */
     QVector<QColor> getAIColorPalette() const;
 
+    /**
+     * @brief Get beat detection information
+     * @return Beat detection data
+     */
+    struct BeatInfo {
+        bool isBeat;           // Beat detected
+        float strength;        // Beat strength (0.0 to 1.0)
+        float bpm;            // Estimated BPM
+        qint64 lastBeatTime;  // Last beat timestamp
+        
+        BeatInfo() : isBeat(false), strength(0.0f), bpm(0.0f), lastBeatTime(0) {}
+    };
+
+    /**
+     * @brief Get current beat information
+     * @return Beat detection data
+     */
+    BeatInfo getCurrentBeatInfo() const;
+
+    /**
+     * @brief Get music-driven animation parameters
+     * @return Animation parameters based on audio analysis
+     */
+    struct AnimationParams {
+        float energy;          // Overall energy level (0.0 to 1.0)
+        float bassEnergy;      // Bass energy level (0.0 to 1.0)
+        float midEnergy;       // Mid-range energy level (0.0 to 1.0)
+        float trebleEnergy;    // Treble energy level (0.0 to 1.0)
+        float dynamicRange;    // Dynamic range (0.0 to 1.0)
+        QVector<float> bandEnergies; // Per-band energy levels
+        
+        AnimationParams() : energy(0.0f), bassEnergy(0.0f), midEnergy(0.0f), 
+                           trebleEnergy(0.0f), dynamicRange(0.0f) {}
+    };
+
+    /**
+     * @brief Get current animation parameters
+     * @return Animation parameters
+     */
+    AnimationParams getCurrentAnimationParams() const;
+
 signals:
     /**
      * @brief Emitted when visualizer is enabled/disabled
@@ -293,6 +334,18 @@ signals:
      */
     void colorPaletteUpdated(const QVector<QColor>& colors);
 
+    /**
+     * @brief Emitted when beat is detected
+     * @param beatInfo Beat information
+     */
+    void beatDetected(const BeatInfo& beatInfo);
+
+    /**
+     * @brief Emitted when animation parameters update
+     * @param params Animation parameters
+     */
+    void animationParamsUpdated(const AnimationParams& params);
+
 private slots:
     void updateVisualization();
     void updatePeakHold();
@@ -304,8 +357,13 @@ private:
     void applySmoothingToSpectrum(QVector<float>& magnitudes);
     void detectMoodFromSpectrum(const SpectrumData& spectrum);
     void generateAIColorPalette(const SpectrumData& spectrum);
+    void detectBeat(const SpectrumData& spectrum);
+    void calculateAnimationParams(const SpectrumData& spectrum);
+    void updateBPMEstimation();
     float calculateRMS(const QVector<float>& samples);
     float calculatePeak(const QVector<float>& samples);
+    float calculateSpectralCentroid(const SpectrumData& spectrum) const;
+    float calculateSpectralRolloff(const SpectrumData& spectrum) const;
 
     // Visualization state
     bool m_enabled;
@@ -340,6 +398,17 @@ private:
     QString m_detectedMood;
     float m_moodConfidence;
     QVector<QColor> m_aiColorPalette;
+
+    // Beat detection
+    BeatInfo m_currentBeatInfo;
+    QVector<float> m_beatHistory;
+    QVector<qint64> m_beatTimes;
+    float m_lastEnergy;
+    float m_averageEnergy;
+
+    // Animation parameters
+    AnimationParams m_animationParams;
+    QVector<float> m_energyHistory;
 
     // Timers
     QTimer* m_updateTimer;
