@@ -134,6 +134,7 @@ set(AUDIO_SOURCES
 
 set(VIDEO_SOURCES
     src/video/VideoProcessor.cpp   # Task 7.1 - IMPLEMENTED
+    src/video/VideoExporter.cpp    # Task 7.2 - IMPLEMENTED
 )
 
 # Add VLC stub for Windows builds
@@ -156,9 +157,10 @@ set(DATA_SOURCES
 )
 
 set(NETWORK_SOURCES
-    # Network files will be added as implemented:
-    # src/network/StreamingManager.cpp    # Task 7.1
-    # src/network/NetworkProtocols.cpp    # Task 7.1
+    src/network/VideoCastingManager.cpp # Task 7.3 - IMPLEMENTED
+    # Additional network files will be added as implemented:
+    # src/network/StreamingManager.cpp    # Task 8.1
+    # src/network/NetworkProtocols.cpp    # Task 8.1
 )
 
 set(AI_SOURCES
@@ -190,6 +192,8 @@ set(HEADER_FILES
     include/audio/AudioOutputManager.h
     include/audio/AdvancedAudioProcessor.h
     include/video/VideoProcessor.h
+    include/video/VideoExporter.h
+    include/network/VideoCastingManager.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h
