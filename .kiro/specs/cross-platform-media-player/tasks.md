@@ -178,7 +178,7 @@
   - Implement multi-subtitle track switching
   - _Requirements: 4.3, 4.4, 4.5_
 
-- [ ] 4.3 Add AI subtitle features
+- [x] 4.3 Add AI subtitle features
   - Implement AI subtitle generator (speech to text)
   - Add automatic subtitle detection and loading
   - Create subtitle language detection
@@ -187,8 +187,8 @@
 
 ## Phase 5: Library Management System (HIGH PRIORITY)
 
-- [ ] 5. Media library and playlist system
-- [ ] 5.1 Create database foundation
+- [-] 5. Media library and playlist system
+- [x] 5.1 Create database foundation
   - Set up SQLite database with proper schema
   - Implement DatabaseManager for SQLite operations
   - Create media_files, playlists, and playlist_items tables

@@ -18,7 +18,7 @@ else()
 endif()
 
 # Find required packages
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql)
 
 # Find libVLC
 if(WIN32)
@@ -123,8 +123,11 @@ set(MEDIA_SOURCES
 set(DATA_SOURCES
     src/data/SettingsManager.cpp
     src/data/UserPreferences.cpp
+    src/data/DatabaseManager.cpp      # Task 5.1
+    src/data/MediaFile.cpp            # Task 5.1
+    src/data/Playlist.cpp             # Task 5.1
+    src/data/BackupManager.cpp        # Task 5.1
     # Additional data files will be added as implemented:
-    # src/data/DatabaseManager.cpp     # Task 5.1
     # src/data/LibraryManager.cpp      # Task 5.2
     # src/data/MediaScanner.cpp        # Task 5.2
     # src/data/MetadataExtractor.cpp   # Task 5.2
@@ -138,7 +141,11 @@ set(NETWORK_SOURCES
 )
 
 set(AI_SOURCES
-    # AI files will be added as implemented:
+    src/ai/AISubtitleGenerator.cpp    # Task 4.3
+    src/ai/SubtitleLanguageDetector.cpp # Task 4.3
+    src/ai/SubtitleTranslator.cpp     # Task 4.3
+    src/ai/AISubtitleManager.cpp      # Task 4.3
+    # Additional AI files will be added as implemented:
     # src/ai/AIContentAnalysis.cpp     # Task 9.1
     # src/ai/AIRecommendations.cpp     # Task 9.2
 )
@@ -161,6 +168,7 @@ target_link_libraries(EonPlay
     Qt6::Multimedia
     Qt6::MultimediaWidgets
     Qt6::Network
+    Qt6::Sql
 )
 
 # Platform-specific linking
