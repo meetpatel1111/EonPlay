@@ -104,8 +104,8 @@ set(CORE_SOURCES
 set(UI_SOURCES
     src/ui/DragDropWidget.cpp
     src/ui/MediaInfoWidget.cpp
-    # src/ui/MainWindow.cpp          # Task 3.1
-    # src/ui/PlaybackControls.cpp    # Task 3.2
+    src/ui/MainWindow.cpp          # Task 3.1
+    src/ui/PlaybackControls.cpp    # Task 3.2
     # src/ui/VideoWidget.cpp         # Task 3.3
     # src/ui/PlaylistWidget.cpp      # Task 5.4
     # src/ui/LibraryWidget.cpp       # Task 5.4

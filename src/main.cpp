@@ -1,4 +1,5 @@
 #include "EonPlayApplication.h"
+#include "ui/MainWindow.h"
 #include <QLoggingCategory>
 #include <QDir>
 #include <QStandardPaths>
@@ -59,12 +60,12 @@ int main(int argc, char *argv[])
     
     // Show main window when application is ready
     QObject::connect(&app, &EonPlayApplication::applicationReady, [&app]() {
-        qDebug() << "Application ready - main window would be shown here";
-        // TODO: Show main window when UI components are implemented
-        // MainWindow* mainWindow = app.componentManager()->getComponent<MainWindow>();
-        // if (mainWindow) {
-        //     mainWindow->show();
-        // }
+        qDebug() << "Application ready - showing main window";
+        // TODO: Get MainWindow from component manager when component system is fully integrated
+        // For now, create and show MainWindow directly
+        static MainWindow* mainWindow = new MainWindow();
+        mainWindow->initialize(app.componentManager());
+        mainWindow->showWindow();
     });
     
     qDebug() << "Starting application event loop";

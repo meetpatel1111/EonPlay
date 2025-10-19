@@ -4,9 +4,6 @@
 
 - [x] 1. Project setup and build system
 
-
-
-
 - [x] 1.1 Create project structure and CMake configuration
 
 
@@ -43,7 +40,7 @@
 
 ## Phase 2: Core Playback Engine (HIGH PRIORITY)
 
-- [-] 2. Basic media engine implementation
+- [x] 2. Basic media engine implementation
 
 
 
@@ -72,10 +69,6 @@
 
 - [x] 2.3 Add hardware acceleration support
 
-
-
-
-
   - Implement HardwareAcceleration detection and configuration
   - Add DXVA support for Windows
   - Add VA-API/VDPAU support for Linux
@@ -100,10 +93,6 @@
 
 - [x] 2.5 Add file and URL support
 
-
-
-
-
   - Implement drag-and-drop file support for direct playback
   - Create URL/stream playback capability
   - Add file format validation and error reporting
@@ -114,8 +103,13 @@
 
 ## Phase 3: User Interface Foundation (HIGH PRIORITY)
 
-- [ ] 3. Main application window and controls
-- [ ] 3.1 Create MainWindow and basic layout
+- [x] 3. Main application window and controls
+
+
+
+- [x] 3.1 Create MainWindow and basic layout
+
+
   - Create MainWindow inheriting from QMainWindow for EonPlay
   - Set up basic window layout with menu bar and central widget
   - Implement window state persistence (size, position)
@@ -124,7 +118,9 @@
   - Add dark/light mode theme switcher with EonPlay branding
   - _Requirements: 7.1, 7.2, 7.5_
 
-- [ ] 3.2 Implement playback controls widget
+- [x] 3.2 Implement playback controls widget
+
+
   - Create PlaybackControls widget with play/pause/stop buttons
   - Add seek slider with position display and thumbnail preview
   - Create volume control slider
@@ -133,7 +129,8 @@
   - Add playback speed control widget
   - _Requirements: 3.1, 3.2, 3.3_
 
-- [ ] 3.3 Create video display area
+- [x] 3.3 Create video display area
+
   - Create VideoWidget for media display
   - Integrate with libVLC video output
   - Handle window resizing and aspect ratio
@@ -142,7 +139,7 @@
   - Add video rotation and mirroring controls
   - _Requirements: 1.1, 2.1, 7.1_
 
-- [ ] 3.4 Add file operations and menu system
+- [x] 3.4 Add file operations and menu system
   - Implement File menu with Open File action
   - Add drag-and-drop support for media files
   - Create file format validation
@@ -151,7 +148,7 @@
   - Create custom skins support
   - _Requirements: 1.1, 1.2, 6.4_
 
-- [ ] 3.5 Implement system integration
+- [x] 3.5 Implement system integration
   - Add system tray integration with basic controls
   - Implement system media keys support
   - Create notification pop-ups for now playing
@@ -162,8 +159,8 @@
 
 ## Phase 4: Subtitle Engine (HIGH PRIORITY)
 
-- [ ] 4. Complete subtitle support system
-- [ ] 4.1 Create subtitle parser foundation
+- [-] 4. Complete subtitle support system
+- [x] 4.1 Create subtitle parser foundation
   - Define SubtitleEntry structure for timing and text
   - Create ISubtitleParser interface
   - Implement SRTParser for SubRip format
@@ -172,7 +169,7 @@
   - Implement malicious subtitle protection
   - _Requirements: 4.1, 4.2, 8.3_
 
-- [ ] 4.2 Implement subtitle rendering and controls
+- [x] 4.2 Implement subtitle rendering and controls
   - Create SubtitleRenderer for text overlay
   - Integrate subtitle display with video widget
   - Add subtitle styling (font, color, size customization)
