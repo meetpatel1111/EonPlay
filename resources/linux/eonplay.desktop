@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=EonPlay
+Comment=Timeless, futuristic media player - play for eons
+Exec=EonPlay %F
+Icon=eonplay
+Terminal=false
+Categories=AudioVideo;Player;
+MimeType=video/mp4;video/avi;video/mkv;video/mov;video/webm;audio/mp3;audio/flac;audio/wav;audio/aac;audio/ogg;
+StartupNotify=true
+Keywords=media;player;video;audio;music;movie;eonplay;timeless;futuristic;

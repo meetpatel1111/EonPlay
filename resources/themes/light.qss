@@ -1,0 +1,51 @@
+/* Light theme stylesheet */
+QMainWindow {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+QWidget {
+    background-color: #ffffff;
+    color: #000000;
+    selection-background-color: #e0e0e0;
+}
+
+QPushButton {
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: #000000;
+}
+
+QPushButton:hover {
+    background-color: #e0e0e0;
+}
+
+QPushButton:pressed {
+    background-color: #d0d0d0;
+}
+
+QSlider::groove:horizontal {
+    border: 1px solid #cccccc;
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: #000000;
+    border: 1px solid #cccccc;
+    width: 18px;
+    margin: -2px 0;
+    border-radius: 9px;
+}
+
+QMenuBar {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+QMenuBar::item:selected {
+    background-color: #e0e0e0;
+}

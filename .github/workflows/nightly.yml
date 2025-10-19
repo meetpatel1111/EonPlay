@@ -1,0 +1,143 @@
+name: Nightly Builds
+
+on:
+  schedule:
+    # Run every night at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+env:
+  QT_VERSION: '6.5.3'
+
+jobs:
+  nightly-build:
+    name: Nightly Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            qt_arch: gcc_64
+            package_name: "linux-x64-nightly"
+          - os: windows-latest
+            qt_arch: win64_msvc2019_64
+            package_name: "windows-x64-nightly"
+          - os: macos-latest
+            qt_arch: clang_64
+            package_name: "macos-x64-nightly"
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: ${{ env.QT_VERSION }}
+        arch: ${{ matrix.qt_arch }}
+        modules: 'qtmultimedia qtnetwork'
+
+    - name: Install Linux dependencies
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libvlc-dev libvlccore-dev vlc
+
+    - name: Install macOS dependencies
+      if: matrix.os == 'macos-latest'
+      run: brew install vlc
+
+    - name: Setup Windows VLC
+      if: matrix.os == 'windows-latest'
+      run: |
+        Invoke-WebRequest -Uri "https://download.videolan.org/pub/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.zip" -OutFile "vlc.zip"
+        Expand-Archive -Path "vlc.zip" -DestinationPath "."
+        mkdir third_party
+        Move-Item "vlc-3.0.18" "third_party/vlc"
+      shell: powershell
+
+    - name: Configure and Build
+      run: |
+        cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=ON
+        cmake --build build --config Release --parallel
+
+    - name: Run Extended Tests
+      run: |
+        cd build
+        ctest --output-on-failure --parallel --build-config Release --timeout 300
+
+    - name: Package Nightly Build
+      run: |
+        cmake --build build --target package --config Release
+
+    - name: Upload Nightly Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ matrix.package_name }}-${{ github.sha }}
+        path: |
+          build/*.zip
+          build/*.tar.gz
+          build/*.dmg
+          build/*.msi
+        retention-days: 7
+
+    - name: Cleanup old nightly builds
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { data: artifacts } = await github.rest.actions.listArtifactsForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            per_page: 100
+          });
+          
+          const nightlyArtifacts = artifacts.artifacts.filter(artifact => 
+            artifact.name.includes('nightly') && 
+            new Date(artifact.created_at) < new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+          );
+          
+          for (const artifact of nightlyArtifacts) {
+            await github.rest.actions.deleteArtifact({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              artifact_id: artifact.id
+            });
+          }
+
+  memory-leak-test:
+    name: Memory Leak Detection
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Qt and Valgrind
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          qt6-base-dev \
+          qt6-multimedia-dev \
+          libvlc-dev \
+          libvlccore-dev \
+          vlc \
+          valgrind
+
+    - name: Build with debug symbols
+      run: |
+        cmake -B build -S . \
+          -DCMAKE_BUILD_TYPE=Debug \
+          -DBUILD_TESTING=ON
+        cmake --build build --parallel
+
+    - name: Run memory leak tests
+      run: |
+        cd build
+        valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all \
+          --track-origins=yes --verbose --error-exitcode=1 \
+          ./tests/test_playback_controller
+
+    - name: Upload Valgrind logs
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: valgrind-logs
+        path: build/valgrind-*.log

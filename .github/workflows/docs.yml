@@ -1,0 +1,319 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'include/**'
+      - 'src/**'
+      - '*.md'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'include/**'
+      - 'src/**'
+      - '*.md'
+
+jobs:
+  build-docs:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Doxygen and dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          doxygen \
+          graphviz \
+          plantuml \
+          python3-pip
+        pip3 install sphinx sphinx-rtd-theme breathe
+
+    - name: Create Doxyfile if not exists
+      run: |
+        if [ ! -f Doxyfile ]; then
+          cat > Doxyfile << 'EOF'
+        # Doxyfile for Cross-Platform Media Player
+        
+        PROJECT_NAME           = "EonPlay"
+        PROJECT_NUMBER         = "1.0.0"
+        PROJECT_BRIEF          = "Timeless, futuristic media player - play for eons"
+        
+        OUTPUT_DIRECTORY       = docs/doxygen
+        CREATE_SUBDIRS         = YES
+        
+        INPUT                  = include src docs
+        RECURSIVE              = YES
+        FILE_PATTERNS          = *.h *.hpp *.cpp *.cc *.cxx *.c++ *.md
+        
+        EXTRACT_ALL            = YES
+        EXTRACT_PRIVATE        = NO
+        EXTRACT_STATIC         = YES
+        EXTRACT_LOCAL_CLASSES  = YES
+        
+        GENERATE_HTML          = YES
+        HTML_OUTPUT            = html
+        HTML_THEME             = doxygen-awesome-css
+        
+        GENERATE_LATEX         = NO
+        GENERATE_XML           = YES
+        
+        HAVE_DOT               = YES
+        DOT_IMAGE_FORMAT       = svg
+        INTERACTIVE_SVG        = YES
+        
+        CALL_GRAPH             = YES
+        CALLER_GRAPH           = YES
+        
+        UML_LOOK               = YES
+        TEMPLATE_RELATIONS     = YES
+        
+        COLLABORATION_GRAPH    = YES
+        GROUP_GRAPHS           = YES
+        INCLUDE_GRAPH          = YES
+        INCLUDED_BY_GRAPH      = YES
+        
+        PLANTUML_JAR_PATH      = /usr/share/plantuml/plantuml.jar
+        
+        WARN_IF_UNDOCUMENTED   = YES
+        WARN_IF_DOC_ERROR      = YES
+        
+        EXAMPLE_PATH           = examples
+        EXAMPLE_PATTERNS       = *.cpp *.h
+        EXAMPLE_RECURSIVE      = YES
+        
+        USE_MDFILE_AS_MAINPAGE = README.md
+        EOF
+        fi
+
+    - name: Download Doxygen Awesome CSS
+      run: |
+        mkdir -p docs/doxygen-awesome-css
+        wget -O docs/doxygen-awesome-css/doxygen-awesome.css \
+          https://raw.githubusercontent.com/jothepro/doxygen-awesome-css/main/doxygen-awesome.css
+
+    - name: Generate API Documentation
+      run: |
+        doxygen Doxyfile
+
+    - name: Create Sphinx documentation
+      run: |
+        mkdir -p docs/sphinx
+        cat > docs/sphinx/conf.py << 'EOF'
+        import os
+        import sys
+        
+        project = 'EonPlay'
+        copyright = '2024, EonPlay Team'
+        author = 'EonPlay Team'
+        version = '1.0.0'
+        release = '1.0.0'
+        
+        extensions = [
+            'sphinx.ext.autodoc',
+            'sphinx.ext.viewcode',
+            'sphinx.ext.napoleon',
+            'breathe'
+        ]
+        
+        breathe_projects = {"mediaplayer": "../doxygen/xml"}
+        breathe_default_project = "mediaplayer"
+        
+        templates_path = ['_templates']
+        exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+        
+        html_theme = 'sphinx_rtd_theme'
+        html_static_path = ['_static']
+        
+        master_doc = 'index'
+        EOF
+        
+        cat > docs/sphinx/index.rst << 'EOF'
+        EonPlay Documentation
+        =====================
+        
+        Welcome to EonPlay documentation - Timeless, futuristic media player!
+        
+        .. toctree::
+           :maxdepth: 2
+           :caption: Contents:
+        
+           installation
+           user-guide
+           api-reference
+           advanced-features
+           development
+           troubleshooting
+        
+        Overview
+        --------
+        
+        EonPlay is a timeless, futuristic media playback solution
+        with advanced features including:
+        
+        * Fast forward/rewind with variable speed control
+        * Loop/repeat and shuffle playback modes
+        * Resume from last position functionality
+        * Frame-by-frame stepping for video content
+        * Crossfade between tracks for smooth transitions
+        * Gapless playback support
+        * Thumbnail seek preview functionality
+        
+        Quick Start
+        -----------
+        
+        1. Download the appropriate installer for your platform
+        2. Install the application following the platform-specific instructions
+        3. Launch the media player
+        4. Open a media file using File → Open or drag and drop
+        
+        Indices and tables
+        ==================
+        
+        * :ref:`genindex`
+        * :ref:`modindex`
+        * :ref:`search`
+        EOF
+
+    - name: Build Sphinx documentation
+      run: |
+        cd docs/sphinx
+        sphinx-build -b html . _build/html
+
+    - name: Generate coverage report for documentation
+      run: |
+        # Check documentation coverage
+        find include src -name "*.h" -o -name "*.cpp" | while read file; do
+          if ! grep -q "/**\|///" "$file"; then
+            echo "Missing documentation in: $file"
+          fi
+        done > docs/doc-coverage.txt
+
+    - name: Upload documentation artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: documentation
+        path: |
+          docs/doxygen/html/
+          docs/sphinx/_build/html/
+          docs/doc-coverage.txt
+
+  deploy-docs:
+    name: Deploy Documentation
+    runs-on: ubuntu-latest
+    needs: build-docs
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Download documentation artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: documentation
+        path: docs-build
+
+    - name: Prepare GitHub Pages content
+      run: |
+        mkdir -p gh-pages
+        
+        # Create main index page
+        cat > gh-pages/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>EonPlay Documentation</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 40px; }
+                .container { max-width: 800px; margin: 0 auto; }
+                .card { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 5px; }
+                .card h2 { margin-top: 0; }
+                .btn { display: inline-block; padding: 10px 20px; background: #007cba; color: white; text-decoration: none; border-radius: 3px; }
+                .btn:hover { background: #005a87; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>EonPlay Documentation</h1>
+                <p><em>Timeless, futuristic; play for eons</em></p>
+                
+                <div class="card">
+                    <h2>API Reference</h2>
+                    <p>Complete API documentation generated from source code comments.</p>
+                    <a href="api/" class="btn">View API Docs</a>
+                </div>
+                
+                <div class="card">
+                    <h2>User Guide</h2>
+                    <p>Comprehensive user guide and tutorials.</p>
+                    <a href="guide/" class="btn">View User Guide</a>
+                </div>
+                
+                <div class="card">
+                    <h2>Advanced Features</h2>
+                    <p>Documentation for advanced playback features and customization.</p>
+                    <a href="AdvancedPlaybackFeatures.html" class="btn">View Advanced Features</a>
+                </div>
+            </div>
+        </body>
+        </html>
+        EOF
+        
+        # Copy documentation
+        cp -r docs-build/docs/doxygen/html/* gh-pages/api/ 2>/dev/null || mkdir -p gh-pages/api
+        cp -r docs-build/docs/sphinx/_build/html/* gh-pages/guide/ 2>/dev/null || mkdir -p gh-pages/guide
+        cp docs/AdvancedPlaybackFeatures.md gh-pages/AdvancedPlaybackFeatures.html 2>/dev/null || true
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./gh-pages
+        cname: docs.mediaplayer.example.com  # Replace with your custom domain
+
+  check-links:
+    name: Check Documentation Links
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install link checker
+      run: npm install -g markdown-link-check
+
+    - name: Check markdown links
+      run: |
+        find . -name "*.md" -not -path "./node_modules/*" -not -path "./.git/*" | \
+          xargs -I {} markdown-link-check {} --config .github/markdown-link-check.json
+
+    - name: Create link check config
+      run: |
+        mkdir -p .github
+        cat > .github/markdown-link-check.json << 'EOF'
+        {
+          "ignorePatterns": [
+            {
+              "pattern": "^http://localhost"
+            },
+            {
+              "pattern": "^https://localhost"
+            }
+          ],
+          "replacementPatterns": [
+            {
+              "pattern": "^/",
+              "replacement": "https://github.com/${{ github.repository }}/blob/main/"
+            }
+          ],
+          "httpHeaders": [
+            {
+              "urls": ["https://github.com"],
+              "headers": {
+                "Accept": "text/html"
+              }
+            }
+          ]
+        }
+        EOF

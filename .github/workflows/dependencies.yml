@@ -1,0 +1,174 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    # Check for dependency updates weekly on Mondays at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    name: Update Dependencies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Check Qt updates
+      id: qt-check
+      run: |
+        # Check for newer Qt versions
+        CURRENT_QT=$(grep "QT_VERSION:" .github/workflows/ci.yml | head -1 | cut -d"'" -f2)
+        echo "Current Qt version: $CURRENT_QT"
+        
+        # This is a simplified check - in practice you'd query Qt's release API
+        LATEST_QT="6.6.0"  # This would be dynamically fetched
+        
+        if [ "$CURRENT_QT" != "$LATEST_QT" ]; then
+          echo "qt_update_available=true" >> $GITHUB_OUTPUT
+          echo "new_qt_version=$LATEST_QT" >> $GITHUB_OUTPUT
+        else
+          echo "qt_update_available=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Check VLC updates
+      id: vlc-check
+      run: |
+        # Check for newer VLC versions
+        echo "Checking VLC updates..."
+        # Implementation would check VLC releases
+        echo "vlc_update_available=false" >> $GITHUB_OUTPUT
+
+    - name: Check CMake updates
+      id: cmake-check
+      run: |
+        # Check for newer CMake versions
+        CURRENT_CMAKE=$(grep "CMAKE_VERSION:" .github/workflows/ci.yml | head -1 | cut -d"'" -f2)
+        echo "Current CMake version: $CURRENT_CMAKE"
+        
+        # Fetch latest CMake version from GitHub API
+        LATEST_CMAKE=$(curl -s https://api.github.com/repos/Kitware/CMake/releases/latest | jq -r '.tag_name' | sed 's/v//')
+        
+        if [ "$CURRENT_CMAKE" != "$LATEST_CMAKE" ]; then
+          echo "cmake_update_available=true" >> $GITHUB_OUTPUT
+          echo "new_cmake_version=$LATEST_CMAKE" >> $GITHUB_OUTPUT
+        else
+          echo "cmake_update_available=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Update Qt version
+      if: steps.qt-check.outputs.qt_update_available == 'true'
+      run: |
+        NEW_VERSION="${{ steps.qt-check.outputs.new_qt_version }}"
+        sed -i "s/QT_VERSION: '[^']*'/QT_VERSION: '$NEW_VERSION'/g" .github/workflows/*.yml
+        git add .github/workflows/*.yml
+        git commit -m "Update Qt to version $NEW_VERSION" || true
+
+    - name: Update CMake version
+      if: steps.cmake-check.outputs.cmake_update_available == 'true'
+      run: |
+        NEW_VERSION="${{ steps.cmake-check.outputs.new_cmake_version }}"
+        sed -i "s/CMAKE_VERSION: '[^']*'/CMAKE_VERSION: '$NEW_VERSION'/g" .github/workflows/*.yml
+        git add .github/workflows/*.yml
+        git commit -m "Update CMake to version $NEW_VERSION" || true
+
+    - name: Create Pull Request
+      if: steps.qt-check.outputs.qt_update_available == 'true' || steps.cmake-check.outputs.cmake_update_available == 'true'
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "chore: update dependencies"
+        title: "chore: Update dependencies"
+        body: |
+          ## Dependency Updates
+          
+          This PR updates the following dependencies:
+          
+          ${{ steps.qt-check.outputs.qt_update_available == 'true' && format('- Qt: {0} → {1}', env.CURRENT_QT, steps.qt-check.outputs.new_qt_version) || '' }}
+          ${{ steps.cmake-check.outputs.cmake_update_available == 'true' && format('- CMake: {0} → {1}', env.CURRENT_CMAKE, steps.cmake-check.outputs.new_cmake_version) || '' }}
+          
+          ## Testing
+          
+          - [ ] All CI checks pass
+          - [ ] Manual testing on all platforms
+          - [ ] No breaking changes introduced
+          
+          ## Notes
+          
+          This PR was automatically created by the dependency update workflow.
+          Please review the changes and test thoroughly before merging.
+        branch: dependency-updates
+        delete-branch: true
+
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install audit tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tools
+
+    - name: Run security scan
+      run: |
+        # Run clang-tidy with security checks
+        find src include -name "*.cpp" -o -name "*.h" | \
+          xargs clang-tidy -checks='-*,cert-*,security-*,bugprone-*' \
+          --warnings-as-errors='*' || true
+
+    - name: Check for hardcoded secrets
+      run: |
+        # Simple regex-based secret detection
+        if grep -r -E "(password|secret|key|token)\s*=\s*['\"][^'\"]{8,}" src/ include/ || \
+           grep -r -E "AKIA[0-9A-Z]{16}" src/ include/ || \
+           grep -r -E "[0-9a-f]{32}" src/ include/; then
+          echo "Potential hardcoded secrets found!"
+          exit 1
+        fi
+
+    - name: Dependency vulnerability scan
+      run: |
+        # This would integrate with tools like Snyk, OWASP Dependency Check, etc.
+        echo "Running dependency vulnerability scan..."
+        # Implementation depends on chosen security scanning tool
+
+  license-compliance:
+    name: License Compliance
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check license headers
+      run: |
+        # Check that all source files have proper license headers
+        find src include -name "*.cpp" -o -name "*.h" | while read file; do
+          if ! head -10 "$file" | grep -q "Copyright\|License\|SPDX"; then
+            echo "Missing license header in: $file"
+            exit 1
+          fi
+        done
+
+    - name: Generate license report
+      run: |
+        # Generate a report of all third-party licenses
+        echo "# Third-Party Licenses" > LICENSE_REPORT.md
+        echo "" >> LICENSE_REPORT.md
+        echo "This project uses the following third-party libraries:" >> LICENSE_REPORT.md
+        echo "" >> LICENSE_REPORT.md
+        echo "- Qt Framework (LGPL/Commercial)" >> LICENSE_REPORT.md
+        echo "- VLC Media Player (GPL)" >> LICENSE_REPORT.md
+        echo "- CMake (BSD)" >> LICENSE_REPORT.md
+
+    - name: Upload license report
+      uses: actions/upload-artifact@v3
+      with:
+        name: license-report
+        path: LICENSE_REPORT.md

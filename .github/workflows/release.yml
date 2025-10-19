@@ -1,0 +1,283 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+env:
+  QT_VERSION: '6.5.3'
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      release_id: ${{ steps.create_release.outputs.id }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Generate changelog
+      id: changelog
+      run: |
+        # Generate changelog from git commits
+        PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+        if [ -n "$PREVIOUS_TAG" ]; then
+          CHANGELOG=$(git log --pretty=format:"- %s" $PREVIOUS_TAG..HEAD)
+        else
+          CHANGELOG=$(git log --pretty=format:"- %s")
+        fi
+        echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+        echo "$CHANGELOG" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: EonPlay ${{ github.ref }}
+        body: |
+          ## What's Changed
+          ${{ steps.changelog.outputs.CHANGELOG }}
+          
+          ## Installation
+          
+          ### Windows
+          Download and run the `.msi` installer.
+          
+          ### Linux
+          - **Ubuntu/Debian**: Download and install the `.deb` package
+          - **Red Hat/Fedora**: Download and install the `.rpm` package
+          - **Generic**: Extract the `.tar.gz` archive
+          
+          ### macOS
+          Download and mount the `.dmg` file, then drag the application to Applications folder.
+          
+          ## System Requirements
+          - Qt 6.5.3 or later
+          - VLC Media Player 3.0 or later
+          - Hardware acceleration support (optional but recommended)
+          
+          ## Known Issues
+          Please check the [Issues](https://github.com/${{ github.repository }}/issues) page for known problems and workarounds.
+        draft: false
+        prerelease: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') || contains(github.ref, 'rc') }}
+
+  build-release:
+    name: Build Release (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    needs: create-release
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            qt_arch: gcc_64
+            asset_name: "EonPlay-Linux-x64"
+            asset_extension: ".tar.gz"
+          - os: windows-latest
+            qt_arch: win64_msvc2019_64
+            asset_name: "EonPlay-Windows-x64"
+            asset_extension: ".msi"
+          - os: macos-latest
+            qt_arch: clang_64
+            asset_name: "EonPlay-macOS-x64"
+            asset_extension: ".dmg"
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: ${{ env.QT_VERSION }}
+        arch: ${{ matrix.qt_arch }}
+        modules: 'qtmultimedia qtnetwork'
+
+    - name: Install Linux dependencies
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libvlc-dev \
+          libvlccore-dev \
+          vlc \
+          libva-dev \
+          libvdpau-dev \
+          libx11-dev
+
+    - name: Install macOS dependencies
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew install vlc
+        brew install create-dmg
+
+    - name: Setup Windows environment
+      if: matrix.os == 'windows-latest'
+      run: |
+        # Download VLC SDK
+        Invoke-WebRequest -Uri "https://download.videolan.org/pub/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.zip" -OutFile "vlc.zip"
+        Expand-Archive -Path "vlc.zip" -DestinationPath "."
+        mkdir third_party
+        Move-Item "vlc-3.0.18" "third_party/vlc"
+        
+        # Install WiX for MSI creation
+        choco install wixtoolset
+      shell: powershell
+
+    - name: Configure CMake
+      run: |
+        cmake -B build -S . \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_INSTALL_PREFIX=install \
+          -DBUILD_EXAMPLES=OFF \
+          -DBUILD_TESTING=OFF
+
+    - name: Build
+      run: cmake --build build --config Release --parallel
+
+    - name: Run Tests
+      run: |
+        cd build
+        ctest --output-on-failure --build-config Release
+
+    - name: Install
+      run: cmake --install build --config Release
+
+    - name: Prepare Executables
+      run: |
+        mkdir -p release-executables
+        # Copy executables based on platform
+        if [ "${{ matrix.os }}" = "windows-latest" ]; then
+          # Windows executable and DLLs
+          cp build/Release/EonPlay.exe release-executables/ || cp build/EonPlay.exe release-executables/
+          find build -name "*.dll" -exec cp {} release-executables/ \; || true
+          # Create zip with executable
+          cd release-executables && zip -r ../EonPlay-Windows-x64-Portable.zip * && cd ..
+        elif [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+          # Linux executable
+          cp build/EonPlay release-executables/EonPlay-linux
+          chmod +x release-executables/EonPlay-linux
+        elif [ "${{ matrix.os }}" = "macos-latest" ]; then
+          # macOS executable
+          cp build/EonPlay release-executables/EonPlay-macos
+          chmod +x release-executables/EonPlay-macos
+        fi
+      shell: bash
+
+    - name: Create Linux package
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        cd install
+        tar -czf ../EonPlay-Linux-x64.tar.gz *
+
+    - name: Create Windows MSI
+      if: matrix.os == 'windows-latest'
+      run: |
+        # Use CPack to create MSI
+        cd build
+        cpack -G WIX -C Release
+        move *.msi ../EonPlay-Windows-x64.msi
+      shell: powershell
+
+    - name: Create macOS DMG
+      if: matrix.os == 'macos-latest'
+      run: |
+        create-dmg \
+          --volname "Cross-Platform Media Player" \
+          --volicon "resources/icons/app_icon.icns" \
+          --window-pos 200 120 \
+          --window-size 600 300 \
+          --icon-size 100 \
+          --icon "EonPlay.app" 175 120 \
+          --hide-extension "EonPlay.app" \
+          --app-drop-link 425 120 \
+          "EonPlay-macOS-x64.dmg" \
+          "install/"
+
+    - name: Upload Release Asset (Installer)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        asset_path: ./${{ matrix.asset_name }}${{ matrix.asset_extension }}
+        asset_name: ${{ matrix.asset_name }}${{ matrix.asset_extension }}
+        asset_content_type: application/octet-stream
+
+    - name: Upload Executable Asset (Windows)
+      if: matrix.os == 'windows-latest'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        asset_path: ./EonPlay-Windows-x64-Portable.zip
+        asset_name: EonPlay-Windows-x64-Portable.zip
+        asset_content_type: application/zip
+
+    - name: Upload Executable Asset (Linux)
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        asset_path: ./release-executables/EonPlay-linux
+        asset_name: EonPlay-linux
+        asset_content_type: application/octet-stream
+
+    - name: Upload Executable Asset (macOS)
+      if: matrix.os == 'macos-latest'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        asset_path: ./release-executables/EonPlay-macos
+        asset_name: EonPlay-macos
+        asset_content_type: application/octet-stream
+
+  publish-packages:
+    name: Publish Packages
+    runs-on: ubuntu-latest
+    needs: [create-release, build-release]
+    if: success()
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Publish to npm (if package.json exists)
+      if: hashFiles('package.json') != ''
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Update Homebrew formula (macOS)
+      if: success()
+      run: |
+        # This would update a Homebrew formula
+        # Implementation depends on your Homebrew tap setup
+        echo "Would update Homebrew formula here"
+
+    - name: Update Chocolatey package (Windows)
+      if: success()
+      run: |
+        # This would update a Chocolatey package
+        # Implementation depends on your Chocolatey package setup
+        echo "Would update Chocolatey package here"
+
+    - name: Notify release channels
+      run: |
+        echo "Release ${{ github.ref }} published successfully!"
+        # Add notifications to Discord, Slack, etc. here

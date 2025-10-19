@@ -1,0 +1,94 @@
+name: Simple EXE Upload
+
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  build-and-upload:
+    name: Build and Upload EXE
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.5.3'
+        arch: win64_msvc2019_64
+        modules: 'qtmultimedia qtnetwork'
+
+    - name: Setup Windows VLC
+      run: |
+        Invoke-WebRequest -Uri "https://download.videolan.org/pub/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.zip" -OutFile "vlc.zip"
+        Expand-Archive -Path "vlc.zip" -DestinationPath "."
+        mkdir third_party
+        Move-Item "vlc-3.0.18" "third_party/vlc"
+      shell: powershell
+
+    - name: Configure and Build
+      run: |
+        cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+        cmake --build build --config Release --parallel
+
+    - name: Prepare Distribution
+      run: |
+        mkdir dist
+        # Copy main executable
+        copy build\Release\EonPlay.exe dist\ 
+        # Copy Qt DLLs
+        windeployqt dist\EonPlay.exe
+        # Copy VLC DLLs
+        copy third_party\vlc\*.dll dist\ 2>nul || echo "VLC DLLs not found"
+      shell: cmd
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: EonPlay-Artifacts
+        path: |
+          dist/
+        retention-days: 1
+        if-no-files-found: warn
+
+    - name: Output Artifact URL
+      id: artifact-url
+      run: |
+        $runId = "${{ github.run_id }}"
+        $repo = "${{ github.repository }}"
+        $artifactUrl = "https://github.com/$repo/actions/runs/$runId"
+        
+        Write-Host "🚀 Executable built successfully!"
+        Write-Host "📦 Artifact URL: $artifactUrl"
+        Write-Host "📁 Artifact Name: EonPlay-Artifacts"
+        
+        # Output for other steps
+        echo "artifact-url=$artifactUrl" >> $env:GITHUB_OUTPUT
+        
+        # Add to job summary
+        @"
+        ## 🚀 Build Complete!
+        
+        **Artifact Name**: EonPlay-Artifacts
+        **Download URL**: [$artifactUrl]($artifactUrl)
+        **Retention**: 1 day
+        
+        ### How to Download:
+        1. Click the URL above
+        2. Scroll to "Artifacts" section  
+        3. Click "NexusExplorer-Artifacts" to download
+        4. Extract and run EonPlay.exe
+        "@ >> $env:GITHUB_STEP_SUMMARY
+      shell: powershell
+
+    - name: Create Direct Download Info
+      run: |
+        echo "Direct artifact download available at:" > download_info.txt
+        echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> download_info.txt
+        echo "Artifact name: EonPlay-Artifacts" >> download_info.txt
+        echo "Retention: 1 day" >> download_info.txt
+        type download_info.txt
+      shell: cmd
