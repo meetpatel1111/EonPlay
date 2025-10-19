@@ -1,20 +1,7 @@
 name: Documentation
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'docs/**'
-      - 'include/**'
-      - 'src/**'
-      - '*.md'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'docs/**'
-      - 'include/**'
-      - 'src/**'
-      - '*.md'
+  workflow_dispatch:
 
 jobs:
   build-docs:

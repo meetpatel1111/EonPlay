@@ -1,8 +1,6 @@
 name: Simple EXE Upload
 
 on:
-  push:
-    branches: [ main, develop ]
   workflow_dispatch:
 
 jobs:

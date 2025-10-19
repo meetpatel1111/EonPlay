@@ -1,9 +1,7 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  workflow_dispatch:
 
 env:
   QT_VERSION: '6.5.3'
