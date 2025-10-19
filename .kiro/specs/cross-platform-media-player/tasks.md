@@ -196,7 +196,7 @@
   - Implement auto library backup functionality
   - _Requirements: 5.1, 5.2_
 
-- [ ] 5.2 Implement library scanning and management
+- [x] 5.2 Implement library scanning and management
   - Create MediaScanner for file system scanning
   - Implement auto library scan for media detection
   - Add MetadataExtractor for media file metadata
@@ -205,7 +205,7 @@
   - Add library search functionality
   - _Requirements: 5.1, 5.3, 5.4_
 
-- [ ] 5.3 Create playlist management
+- [x] 5.3 Create playlist management
   - Implement PlaylistManager for playlist operations
   - Add manual playlist creation and editing
   - Create smart playlists with auto-generation

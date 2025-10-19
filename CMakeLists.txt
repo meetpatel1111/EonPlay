@@ -127,11 +127,10 @@ set(DATA_SOURCES
     src/data/MediaFile.cpp            # Task 5.1
     src/data/Playlist.cpp             # Task 5.1
     src/data/BackupManager.cpp        # Task 5.1
-    # Additional data files will be added as implemented:
-    # src/data/LibraryManager.cpp      # Task 5.2
-    # src/data/MediaScanner.cpp        # Task 5.2
-    # src/data/MetadataExtractor.cpp   # Task 5.2
-    # src/data/PlaylistManager.cpp     # Task 5.3
+    src/data/LibraryManager.cpp       # Task 5.2
+    src/data/MediaScanner.cpp         # Task 5.2
+    src/data/MetadataExtractor.cpp    # Task 5.2
+    src/data/PlaylistManager.cpp      # Task 5.3
 )
 
 set(NETWORK_SOURCES
