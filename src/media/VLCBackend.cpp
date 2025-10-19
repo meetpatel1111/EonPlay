@@ -412,12 +412,12 @@ void VLCBackend::updatePosition()
         
         if (newPosition != m_currentPosition) {
             m_currentPosition = newPosition;
-            emit positionChanged(newPosition);
+            emit playbackPositionChanged(newPosition);
         }
         
         if (newDuration != m_currentDuration && newDuration > 0) {
             m_currentDuration = newDuration;
-            emit durationChanged(newDuration);
+            emit playbackDurationChanged(newDuration);
         }
     }
 }

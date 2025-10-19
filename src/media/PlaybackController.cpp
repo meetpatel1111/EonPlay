@@ -459,9 +459,9 @@ void PlaybackController::connectEngineSignals()
     
     connect(m_mediaEngine.get(), &IMediaEngine::stateChanged,
             this, &PlaybackController::onEngineStateChanged);
-    connect(m_mediaEngine.get(), &IMediaEngine::positionChanged,
+    connect(m_mediaEngine.get(), &IMediaEngine::playbackPositionChanged,
             this, &PlaybackController::onEnginePositionChanged);
-    connect(m_mediaEngine.get(), &IMediaEngine::durationChanged,
+    connect(m_mediaEngine.get(), &IMediaEngine::playbackDurationChanged,
             this, &PlaybackController::onEngineDurationChanged);
     connect(m_mediaEngine.get(), &IMediaEngine::volumeChanged,
             this, &PlaybackController::onEngineVolumeChanged);

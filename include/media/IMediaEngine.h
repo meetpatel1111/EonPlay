@@ -130,13 +130,13 @@ signals:
      * @brief Emitted when playback position changes
      * @param position Current position in milliseconds
      */
-    void positionChanged(qint64 position);
+    void playbackPositionChanged(qint64 position);
     
     /**
      * @brief Emitted when media duration is available
      * @param duration Duration in milliseconds
      */
-    void durationChanged(qint64 duration);
+    void playbackDurationChanged(qint64 duration);
     
     /**
      * @brief Emitted when volume changes

@@ -154,6 +154,18 @@ set(AI_SOURCES
     # src/ai/AIRecommendations.cpp     # Task 9.2
 )
 
+# Header files for moc processing
+set(HEADER_FILES
+    include/media/VLCBackend.h
+    include/ui/MainWindow.h
+    include/ui/PlaybackControls.h
+    include/ui/MediaInfoWidget.h
+    include/ui/DragDropWidget.h
+    include/core/EonPlayApplication.h
+    include/core/ComponentManager.h
+    include/core/EventBus.h
+)
+
 # Main executable
 add_executable(EonPlay
     src/main.cpp
@@ -163,6 +175,7 @@ add_executable(EonPlay
     ${DATA_SOURCES}
     ${NETWORK_SOURCES}
     ${AI_SOURCES}
+    ${HEADER_FILES}
 )
 
 # Link libraries
