@@ -187,6 +187,12 @@ set(STABILITY_SOURCES
     # src/stability/SafeModeManager.cpp # Task 12.2
 )
 
+set(PLATFORM_SOURCES
+    src/platform/WindowsPlatform.cpp  # Task 13.1 - IMPLEMENTED
+    src/platform/LinuxPlatform.cpp    # Task 13.2 - IMPLEMENTED
+    src/platform/InstallerManager.cpp # Task 13.3 - IMPLEMENTED
+)
+
 # Header files for moc processing
 set(HEADER_FILES
     include/media/VLCBackend.h
@@ -216,6 +222,9 @@ set(HEADER_FILES
     include/stability/CrashReporter.h
     include/stability/AutoUpdater.h
     include/ui/LicenseViewer.h
+    include/platform/WindowsPlatform.h
+    include/platform/LinuxPlatform.h
+    include/platform/InstallerManager.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h
@@ -234,6 +243,7 @@ add_executable(EonPlay
     ${AI_SOURCES}
     ${SECURITY_SOURCES}
     ${STABILITY_SOURCES}
+    ${PLATFORM_SOURCES}
     ${HEADER_FILES}
 )
 

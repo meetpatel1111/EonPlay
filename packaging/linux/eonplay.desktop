@@ -1,0 +1,71 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=EonPlay
+GenericName=Media Player
+Comment=Timeless, futuristic media player - play for eons
+Comment[es]=Reproductor multimedia atemporal y futurista
+Comment[fr]=Lecteur multimédia intemporel et futuriste
+Comment[de]=Zeitloser, futuristischer Mediaplayer
+Comment[it]=Lettore multimediale senza tempo e futuristico
+Comment[pt]=Reprodutor de mídia atemporal e futurista
+Comment[ru]=Вечный, футуристический медиаплеер
+Comment[zh_CN]=永恒的未来主义媒体播放器
+Comment[ja]=時代を超越した未来的なメディアプレーヤー
+Icon=eonplay
+Exec=eonplay %F
+Terminal=false
+Categories=AudioVideo;Audio;Video;Player;Qt;
+MimeType=video/mp4;video/x-msvideo;video/x-matroska;video/quicktime;video/webm;video/x-ms-wmv;video/x-flv;video/3gpp;video/x-theora+ogg;audio/mpeg;audio/x-wav;audio/flac;audio/ogg;audio/x-vorbis+ogg;audio/x-opus+ogg;audio/mp4;audio/x-m4a;audio/x-aiff;audio/x-ms-wma;application/ogg;
+Keywords=media;player;audio;video;music;movie;film;clip;dvd;tv;television;
+StartupNotify=true
+StartupWMClass=EonPlay
+Actions=PlayPause;Stop;Next;Previous;
+
+[Desktop Action PlayPause]
+Name=Play/Pause
+Name[es]=Reproducir/Pausar
+Name[fr]=Lecture/Pause
+Name[de]=Wiedergabe/Pause
+Name[it]=Riproduci/Pausa
+Name[pt]=Reproduzir/Pausar
+Name[ru]=Воспроизведение/Пауза
+Name[zh_CN]=播放/暂停
+Name[ja]=再生/一時停止
+Exec=eonplay --play-pause
+
+[Desktop Action Stop]
+Name=Stop
+Name[es]=Detener
+Name[fr]=Arrêter
+Name[de]=Stoppen
+Name[it]=Ferma
+Name[pt]=Parar
+Name[ru]=Остановить
+Name[zh_CN]=停止
+Name[ja]=停止
+Exec=eonplay --stop
+
+[Desktop Action Next]
+Name=Next Track
+Name[es]=Siguiente pista
+Name[fr]=Piste suivante
+Name[de]=Nächster Titel
+Name[it]=Traccia successiva
+Name[pt]=Próxima faixa
+Name[ru]=Следующий трек
+Name[zh_CN]=下一首
+Name[ja]=次のトラック
+Exec=eonplay --next
+
+[Desktop Action Previous]
+Name=Previous Track
+Name[es]=Pista anterior
+Name[fr]=Piste précédente
+Name[de]=Vorheriger Titel
+Name[it]=Traccia precedente
+Name[pt]=Faixa anterior
+Name[ru]=Предыдущий трек
+Name[zh_CN]=上一首
+Name[ja]=前のトラック
+Exec=eonplay --previous

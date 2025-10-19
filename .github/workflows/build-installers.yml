@@ -1,0 +1,105 @@
+name: Build Installers
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.5.0'
+        arch: win64_msvc2019_64
+        modules: 'qtmultimedia qtnetworkauth'
+
+    - name: Install VLC
+      run: |
+        Invoke-WebRequest -Uri "https://download.videolan.org/pub/videolan/vlc/3.0.18/win64/vlc-3.0.18-win64.zip" -OutFile "vlc.zip"
+        Expand-Archive -Path "vlc.zip" -DestinationPath "C:\vlc"
+
+    - name: Install NSIS
+      run: choco install nsis -y
+
+    - name: Build
+      run: |
+        cmake -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+        cmake --build build --config Release
+
+    - name: Create Installer
+      run: |
+        cmake --install build --config Release --prefix dist
+        windeployqt.exe dist/bin/EonPlay.exe
+        Copy-Item "C:\vlc\vlc-3.0.18\libvlc*.dll" "dist\bin\"
+        Copy-Item -Recurse "C:\vlc\vlc-3.0.18\plugins" "dist\bin\"
+        Copy-Item -Recurse "dist\*" "packaging\windows\dist\"
+        makensis.exe packaging\windows\eonplay.nsi
+
+    - name: Upload Windows Installer
+      uses: actions/upload-artifact@v3
+      with:
+        name: eonplay-windows-installer
+        path: EonPlay-*-Setup.exe
+
+  build-linux:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake ninja-build qt6-base-dev qt6-multimedia-dev libqt6dbus6-dev libvlc-dev
+
+    - name: Build
+      run: |
+        cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        cmake --build build
+
+    - name: Create AppImage
+      run: |
+        DESTDIR=AppDir cmake --install build --prefix /usr
+        mkdir -p AppDir/usr/share/applications AppDir/usr/share/icons/hicolor/256x256/apps
+        cp packaging/linux/eonplay.desktop AppDir/usr/share/applications/
+        cp resources/icons/app_icon.png AppDir/usr/share/icons/hicolor/256x256/apps/eonplay.png
+        cp AppDir/usr/share/applications/eonplay.desktop AppDir/
+        cp AppDir/usr/share/icons/hicolor/256x256/apps/eonplay.png AppDir/
+        
+        cat > AppDir/AppRun << 'EOF'
+        #!/bin/bash
+        HERE="$(dirname "$(readlink -f "${0}")")"
+        export LD_LIBRARY_PATH="${HERE}/usr/lib:${LD_LIBRARY_PATH}"
+        exec "${HERE}/usr/bin/eonplay" "$@"
+        EOF
+        chmod +x AppDir/AppRun
+        
+        wget -q https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
+        chmod +x appimagetool-x86_64.AppImage
+        ./appimagetool-x86_64.AppImage AppDir EonPlay-x86_64.AppImage
+
+    - name: Create DEB Package
+      run: |
+        mkdir -p deb-package/DEBIAN deb-package/usr/bin deb-package/usr/share/applications deb-package/usr/share/icons/hicolor/256x256/apps
+        cp build/EonPlay deb-package/usr/bin/eonplay
+        cp packaging/linux/eonplay.desktop deb-package/usr/share/applications/
+        cp resources/icons/app_icon.png deb-package/usr/share/icons/hicolor/256x256/apps/eonplay.png
+        cp packaging/linux/debian/control deb-package/DEBIAN/
+        dpkg-deb --build deb-package eonplay_1.0.0_amd64.deb
+
+    - name: Upload Linux Packages
+      uses: actions/upload-artifact@v3
+      with:
+        name: eonplay-linux-packages
+        path: |
+          EonPlay-x86_64.AppImage
+          eonplay_*.deb

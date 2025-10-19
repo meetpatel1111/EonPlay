@@ -1,0 +1,29 @@
+Package: eonplay
+Version: 1.0.0
+Section: multimedia
+Priority: optional
+Architecture: amd64
+Depends: libc6 (>= 2.17), libqt6core6 (>= 6.2.0), libqt6gui6 (>= 6.2.0), libqt6widgets6 (>= 6.2.0), libqt6multimedia6 (>= 6.2.0), libqt6network6 (>= 6.2.0), libqt6sql6 (>= 6.2.0), libqt6dbus6 (>= 6.2.0), libvlc5 (>= 3.0.0), libvlccore9 (>= 3.0.0), libva2, libvdpau1
+Recommends: vlc-plugin-base, vlc-plugin-video-output
+Suggests: vlc-plugin-access-extra, vlc-plugin-fluidsynth, vlc-plugin-jack, vlc-plugin-notify, vlc-plugin-samba, vlc-plugin-svg, vlc-plugin-video-splitter, vlc-plugin-visualization
+Installed-Size: 25600
+Maintainer: EonPlay Team <support@eonplay.com>
+Homepage: https://eonplay.com
+Description: Timeless, futuristic media player - play for eons
+ EonPlay is a comprehensive, cross-platform media player that delivers
+ a cutting-edge media experience with advanced features and comprehensive
+ format support.
+ .
+ Key Features:
+  * Support for all major audio and video formats
+  * Hardware-accelerated playback (VA-API/VDPAU)
+  * Advanced audio processing with equalizer and effects
+  * Comprehensive subtitle support with AI features
+  * Network streaming and casting capabilities
+  * Library management with smart playlists
+  * Security features and parental controls
+  * Modern, futuristic user interface
+ .
+ EonPlay uses libVLC for robust media playback and Qt 6 for a native,
+ responsive user interface that integrates seamlessly with your desktop
+ environment.
