@@ -10,10 +10,11 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
-#include <QBluetoothDeviceDiscoveryAgent>
-#include <QBluetoothSocket>
-#include <QBluetoothLocalDevice>
-#include <QBluetoothDeviceInfo>
+// Bluetooth includes temporarily disabled for build compatibility
+// #include <QBluetoothDeviceDiscoveryAgent>
+// #include <QBluetoothSocket>
+// #include <QBluetoothLocalDevice>
+// #include <QBluetoothDeviceInfo>
 #include <QHostAddress>
 #include <QDateTime>
 #include <QDir>
@@ -44,7 +45,7 @@ NetworkDiscoveryManager::NetworkDiscoveryManager(QObject *parent)
     , m_deviceTimeout(DEFAULT_DEVICE_TIMEOUT_MS)
 {
     setupNetworkComponents();
-    setupBluetoothDiscovery();
+    // setupBluetoothDiscovery(); // Temporarily disabled
     setupMediaShareServer();
     setupSyncServer();
     
@@ -54,16 +55,16 @@ NetworkDiscoveryManager::NetworkDiscoveryManager(QObject *parent)
 NetworkDiscoveryManager::~NetworkDiscoveryManager()
 {
     stopDiscovery();
-    stopBluetoothDiscovery();
+    // stopBluetoothDiscovery(); // Temporarily disabled
     
-    // Clean up Bluetooth connections
-    for (auto socket : m_bluetoothConnections.values()) {
-        if (socket) {
-            socket->disconnectFromService();
-            socket->deleteLater();
-        }
-    }
-    m_bluetoothConnections.clear();
+    // Clean up Bluetooth connections - temporarily disabled
+    // for (auto socket : m_bluetoothConnections.values()) {
+    //     if (socket) {
+    //         socket->disconnectFromService();
+    //         socket->deleteLater();
+    //     }
+    // }
+    // m_bluetoothConnections.clear();
 }
 
 void NetworkDiscoveryManager::setupNetworkComponents()
@@ -87,6 +88,8 @@ void NetworkDiscoveryManager::setupNetworkComponents()
             this, &NetworkDiscoveryManager::onNetworkReplyFinished);
 }
 
+// Bluetooth setup temporarily disabled for build compatibility
+/*
 void NetworkDiscoveryManager::setupBluetoothDiscovery()
 {
     // Check if Bluetooth is available
@@ -103,6 +106,7 @@ void NetworkDiscoveryManager::setupBluetoothDiscovery()
     connect(m_bluetoothDiscovery.get(), &QBluetoothDeviceDiscoveryAgent::finished,
             this, &NetworkDiscoveryManager::onBluetoothDiscoveryFinished);
 }
+*/
 
 void NetworkDiscoveryManager::setupMediaShareServer()
 {
@@ -138,10 +142,10 @@ void NetworkDiscoveryManager::startDiscovery()
     // Start UPnP discovery
     startUPnPDiscovery();
     
-    // Start Bluetooth discovery if available
-    if (isBluetoothAvailable()) {
-        startBluetoothDiscovery();
-    }
+    // Start Bluetooth discovery if available - temporarily disabled
+    // if (isBluetoothAvailable()) {
+    //     startBluetoothDiscovery();
+    // }
     
     // Start periodic discovery
     if (m_autoDiscoveryEnabled) {
@@ -168,8 +172,8 @@ void NetworkDiscoveryManager::stopDiscovery()
     // Stop UPnP discovery
     stopUPnPDiscovery();
     
-    // Stop Bluetooth discovery
-    stopBluetoothDiscovery();
+    // Stop Bluetooth discovery - temporarily disabled
+    // stopBluetoothDiscovery();
     
     // Close UDP socket
     m_udpSocket->close();
@@ -408,7 +412,8 @@ void NetworkDiscoveryManager::checkDeviceTimeouts()
     }
 }
 
-// Bluetooth Integration
+// Bluetooth Integration - temporarily disabled for build compatibility
+/*
 void NetworkDiscoveryManager::startBluetoothDiscovery()
 {
     if (!isBluetoothAvailable()) return;
@@ -466,7 +471,10 @@ void NetworkDiscoveryManager::onBluetoothDiscoveryFinished()
 {
     qCDebug(networkDiscovery) << "Bluetooth discovery finished";
 }
+*/
 
+// Bluetooth connection functions - temporarily disabled for build compatibility
+/*
 bool NetworkDiscoveryManager::connectBluetoothDevice(const QString& deviceAddress)
 {
     if (m_bluetoothConnections.contains(deviceAddress)) {
@@ -501,7 +509,10 @@ void NetworkDiscoveryManager::disconnectBluetoothDevice(const QString& deviceAdd
         qCDebug(networkDiscovery) << "Disconnected from Bluetooth device:" << deviceAddress;
     }
 }
+*/
 
+// Bluetooth socket functions - temporarily disabled for build compatibility
+/*
 void NetworkDiscoveryManager::onBluetoothSocketConnected()
 {
     QBluetoothSocket* socket = qobject_cast<QBluetoothSocket*>(sender());
@@ -526,6 +537,7 @@ void NetworkDiscoveryManager::onBluetoothSocketDisconnected()
     
     qCDebug(networkDiscovery) << "Bluetooth device disconnected:" << deviceAddress;
 }
+*/
 
 // Media Sharing
 QString NetworkDiscoveryManager::createMediaShare(const QString& name, const QString& rootPath)
@@ -746,10 +758,13 @@ bool NetworkDiscoveryManager::isDeviceOnline(const QString& deviceId) const
     return m_discoveredDevices.contains(deviceId) && m_discoveredDevices[deviceId].isOnline;
 }
 
+// Bluetooth device getter - temporarily disabled for build compatibility
+/*
 QList<NetworkDiscoveryManager::NetworkDevice> NetworkDiscoveryManager::getBluetoothDevices() const
 {
     return getDevicesByType(BLUETOOTH_AUDIO_DEVICE);
 }
+*/
 
 QList<NetworkDiscoveryManager::MediaShare> NetworkDiscoveryManager::getActiveShares() const
 {

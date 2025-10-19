@@ -7,9 +7,10 @@
 #include <QUdpSocket>
 #include <QTcpServer>
 #include <QTimer>
-#include <QBluetoothDeviceDiscoveryAgent>
-#include <QBluetoothSocket>
-#include <QBluetoothLocalDevice>
+// Bluetooth includes temporarily disabled for build compatibility
+// #include <QBluetoothDeviceDiscoveryAgent>
+// #include <QBluetoothSocket>
+// #include <QBluetoothLocalDevice>
 #include <memory>
 
 class QNetworkAccessManager;
@@ -110,13 +111,13 @@ public:
     QList<MediaShare> getActiveShares() const;
     MediaShare getMediaShare(const QString& shareId) const;
 
-    // Bluetooth integration
-    void startBluetoothDiscovery();
-    void stopBluetoothDiscovery();
-    bool connectBluetoothDevice(const QString& deviceAddress);
-    void disconnectBluetoothDevice(const QString& deviceAddress);
-    QList<NetworkDevice> getBluetoothDevices() const;
-    bool isBluetoothAvailable() const;
+    // Bluetooth integration - temporarily disabled for build compatibility
+    // void startBluetoothDiscovery();
+    // void stopBluetoothDiscovery();
+    // bool connectBluetoothDevice(const QString& deviceAddress);
+    // void disconnectBluetoothDevice(const QString& deviceAddress);
+    // QList<NetworkDevice> getBluetoothDevices() const;
+    // bool isBluetoothAvailable() const;
 
     // Multi-device synchronization
     QString createSyncGroup(const QString& name);
@@ -161,10 +162,11 @@ private slots:
     void onDiscoveryTimerTimeout();
     void onDeviceTimeoutTimerTimeout();
     void onTcpServerNewConnection();
-    void onBluetoothDeviceDiscovered(const QBluetoothDeviceInfo& device);
-    void onBluetoothDiscoveryFinished();
-    void onBluetoothSocketConnected();
-    void onBluetoothSocketDisconnected();
+    // Bluetooth slots - temporarily disabled
+    // void onBluetoothDeviceDiscovered(const QBluetoothDeviceInfo& device);
+    // void onBluetoothDiscoveryFinished();
+    // void onBluetoothSocketConnected();
+    // void onBluetoothSocketDisconnected();
     void onNetworkReplyFinished();
 
 private:
@@ -185,9 +187,9 @@ private:
     void serveMediaFile(QTcpSocket* socket, const QString& filePath);
     void generateMediaShareResponse(const QString& shareId) const;
     
-    // Bluetooth helpers
-    void setupBluetoothDiscovery();
-    void processBluetoothDevice(const QBluetoothDeviceInfo& deviceInfo);
+    // Bluetooth helpers - temporarily disabled
+    // void setupBluetoothDiscovery();
+    // void processBluetoothDevice(const QBluetoothDeviceInfo& deviceInfo);
     
     // Synchronization
     void setupSyncServer();
@@ -221,10 +223,10 @@ private:
     int m_mediaSharePort;
     int m_maxConnections;
     
-    // Bluetooth
-    std::unique_ptr<QBluetoothDeviceDiscoveryAgent> m_bluetoothDiscovery;
-    std::unique_ptr<QBluetoothLocalDevice> m_bluetoothDevice;
-    QMap<QString, QBluetoothSocket*> m_bluetoothConnections;
+    // Bluetooth - temporarily disabled
+    // std::unique_ptr<QBluetoothDeviceDiscoveryAgent> m_bluetoothDiscovery;
+    // std::unique_ptr<QBluetoothLocalDevice> m_bluetoothDevice;
+    // QMap<QString, QBluetoothSocket*> m_bluetoothConnections;
     
     // Synchronization
     QMap<QString, SyncGroup> m_syncGroups;
