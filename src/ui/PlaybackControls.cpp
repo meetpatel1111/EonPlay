@@ -664,4 +664,3 @@ qint64 PlaybackControls::calculateSeekPosition(int mouseX) const
     return static_cast<qint64>(ratio * m_duration);
 }
 
-#include "ui/PlaybackControls.moc"

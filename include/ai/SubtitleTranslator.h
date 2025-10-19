@@ -224,9 +224,6 @@ private:
     QTimer* m_batchTimer;
     bool m_processingBatch;
     
-    // Current translation state
-    QString m_currentFilePath;
-    QList<SubtitleEntry> m_currentEntries;
     int m_currentBatchIndex;
     QStringList m_translatedBatches;
 };

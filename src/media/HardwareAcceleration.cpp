@@ -21,7 +21,13 @@
 #include <QX11Info>
 #else
 #include <QGuiApplication>
+#ifdef Q_OS_LINUX
+// Only include platform interface on Linux where it's commonly available
+#if __has_include(<qpa/qplatformnativeinterface.h>)
 #include <qpa/qplatformnativeinterface.h>
+#define HAS_PLATFORM_INTERFACE
+#endif
+#endif
 #endif
 #ifdef HAVE_LIBVA
 #include <va/va.h>
@@ -780,4 +786,3 @@ bool HardwareAcceleration::isVLCAccelerationSupported(HardwareAccelerationType t
     return false;
 }
 
-#include "HardwareAcceleration.moc"

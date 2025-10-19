@@ -515,4 +515,3 @@ void SettingsManager::migrateFromV0ToV1()
     // 4. Set new version
 }
 
-#include "SettingsManager.moc"

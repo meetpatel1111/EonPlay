@@ -574,6 +574,8 @@ MediaInfo FileUrlSupport::extractMediaInfo(const QString& filePath)
     return info;
 }
 
+MediaInfo FileUrlSupport::extractMediaInfoVLC(const QString& filePath)
+
 QStringList FileUrlSupport::autoDetectSubtitles(const QString& mediaPath)
 {
     QStringList subtitleFiles;
@@ -864,22 +866,7 @@ bool FileUrlSupport::isValidMediaFile(const QString& filePath) const
     // more comprehensive validation for common media file signatures
     return false;
 }
-  ion& info.duratudio) &info.hasAhasVideo || fo. (ind =o.isVali   
-    infstance);
- e(vlcInasele libvlc_rdia);
-   a_release(melibvlc_medi up
-    an Cle //
-      }
-    ee(mrl);
- c_fr     libvl);
-   r(().toUppe.suffix fileInfoformat = info.     8(mrl));
-  mUtfng::frorl(QStrirl u
-        QUf (mrl) {a);
-    i(medi_get_mrllibvlc_media =  char* mrlt info
-    Get forma
-    //   );
- kCountks, tracrelease(traccks_a_trac_medi libvl   ase tracks
-/ Rele
+
 MediaInfo FileUrlSupport::extractMediaInfo(const QString& filePath)
 {
     MediaInfo info;
@@ -999,27 +986,25 @@ QString FileUrlSupport::generateScreenshotFilename(const QString& mediaPath) con
 
 QStringList FileUrlSupport::getSupportedUrlSchemes() const
 {
-    return QStringList() << "http" << "https" << "ftp" << "ftps" << "rtsp" << "rtmp" << "hls" << "dash" << "icecast" << "shout";
-     " << "tcp" << "rtp<< "udpe"  "fil" <<<< "mmstsh" " << "mm< "mms        <                mps"
- "rt" << "rtmp<< "rtsp" tps" << " << "f" << "ftpttpstp" << "h << "htesemrlSchortedU_supp  m
-{
-  UrlSchemes()portedtializeSupt::iniupporrlS
-void FileUrc";
+    return QStringList() << "http" << "https" << "ftp" << "ftps" << "rtsp" << "rtmp" << "hls" << "dash" << "icecast" << "shout"
+                         << "tcp" << "rtp" << "udp" << "file" << "mms" << "mmsh" << "mmst";
 }
-sf" << "lf" << "s "usup" << "s  <<                    
-           s"<< "mk" < "mpl2"pjs" < << < "psb"" <jssaqt" << " << "                                "txt"
- t" <<" << "rmisai" << "p" << "sm< "dfx" <tml  << "t                               "vtt"
-dx" << sub" << "i" << "a << "ss" << "ass" << "srtnssioExtenSubtitlerted    m_supponsions
-le exte Subtit    
-    //"rmx";
-" << << "rms << "rmp"  << "rv" << "ra""rm" "ram" <<       <<                         l"
-  "zp" << smi" << ""smil<<  << "wpl" x"" << "wmvx     << "w                          x"
-  < "wa"asx" << f" <"xsp"pls" << " <<  "m3u8m3u" <<s << "siontenlaylistExportedP
-    m_supextensionsist // Playl    
-    < "mpp";
-mp+" <     << "                      "mpc"
-   2" << vr" << "sdds" << "a" << "s< "htkxi" <<< " "pvf"    <<                        mat"
-   f" << " << "s"ircam"<  "voc" <" <<"rf64"w64" << f" << ca     << "                       "aifc"
+
+void FileUrlSupport::initializeSupportedUrlSchemes()
+{
+    m_supportedUrlSchemes = getSupportedUrlSchemes();
+}
+
+QStringList FileUrlSupport::getSupportedSubtitleExtensions() const
+{
+    return QStringList() << "srt" << "vtt" << "ass" << "ssa" << "sub" << "idx" << "smi" << "rt" << "txt"
+                         << "usf" << "jss" << "psb" << "pjs" << "mpl2" << "mks" << "dfxp" << "ttml";
+}
+
+QStringList FileUrlSupport::getSupportedPlaylistExtensions() const
+{
+    return QStringList() << "m3u" << "m3u8" << "pls" << "xspf" << "asx" << "wax" << "wvx" << "wmx"
+                         << "wpl" << "smil" << "smi" << "zpl" << "ram" << "rm" << "ra" << "rv" << "rmp" << "rms";
 }
 
 QStringList FileUrlSupport::getSupportedAudioExtensions() const
@@ -1039,10 +1024,7 @@ QStringList FileUrlSupport::getSupportedVideoExtensions() const
                          << "nsv" << "f4v" << "f4p" << "f4a" << "f4b";
 }
 
-QStringList FileUrlSupport::getSupportedPlaylistExtensions() const
-{
-    return QStringList() << "m3u" << "m3u8" << "pls" << "xspf" << "asx" << "wax";
-}
+
 
 void FileUrlSupport::initializeSupportedExtensions()
 {
@@ -1091,8 +1073,3 @@ bool FileUrlSupport::isLocalFileUrl(const QUrl& url) const
     return url.isLocalFile() || url.scheme().toLower() == "file";
 }
 
-QStringList FileUrlSupport::getSupportedUrlSchemes()
-{
-    return QStringList() << "http" << "https" << "ftp" << "ftps" << "rtsp" << "rtmp" 
-                         << "hls" << "dash" << "icecast" << "shout";
-}

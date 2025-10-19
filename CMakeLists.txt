@@ -18,7 +18,7 @@ else()
 endif()
 
 # Find required packages
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui)
 
 # Find libVLC
 if(WIN32)
@@ -164,6 +164,7 @@ add_executable(EonPlay
 target_link_libraries(EonPlay
     Qt6::Core
     Qt6::Widgets
+    Qt6::Gui
     Qt6::Multimedia
     Qt6::MultimediaWidgets
     Qt6::Network

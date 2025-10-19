@@ -1197,9 +1197,6 @@ void PlaylistManager::performPeriodicMaintenance()
     qCDebug(playlistManager) << "Performed periodic maintenance";
 }
 
-} // namespace Data
-} // namespace EonPlay
-
 // Smart playlist helpers
 QList<MediaFile> PlaylistManager::generateSmartPlaylistContent(const SmartPlaylistCriteria& criteria)
 {

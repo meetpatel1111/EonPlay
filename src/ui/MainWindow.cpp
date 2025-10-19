@@ -929,7 +929,7 @@ void MainWindow::addToRecentFiles(const QString& filePath)
     }
 }
 
-#include "ui/MainWindow.moc"
+
 
 void MainWindow::onFilesDropped(const QStringList& processedFiles, const QStringList& failedFiles)
 {

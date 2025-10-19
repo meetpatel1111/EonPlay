@@ -273,6 +273,20 @@ public:
      * @return true if URL points to local file
      */
     bool isLocalFileUrl(const QUrl& url) const;
+    
+    /**
+     * @brief Get subtitle files for media file
+     * @param mediaPath Path to media file
+     * @return List of subtitle files
+     */
+    QStringList getSubtitleFiles(const QString& mediaPath) const;
+    
+    /**
+     * @brief Check if file is a valid media file
+     * @param filePath Path to file to check
+     * @return true if file is valid media
+     */
+    bool isValidMediaFile(const QString& filePath) const;
 
 public slots:
     /**
