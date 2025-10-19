@@ -1192,7 +1192,12 @@ void MainWindow::initializeSystemIntegration()
         // Connect to file support for media notifications
         if (m_fileUrlSupport) {
             connect(m_fileUrlSupport.get(), &FileUrlSupport::mediaFileLoaded,
-                    m_notificationManager.get(), &NotificationManager::onMediaLoaded);
+                    this, [this](const QString& filePath, const MediaInfo& info) {
+                        if (m_notificationManager) {
+                            QString title = info.title.isEmpty() ? QFileInfo(filePath).baseName() : info.title;
+                            m_notificationManager->onMediaLoaded(filePath, title);
+                        }
+                    });
         }
         
         // Show welcome notification

@@ -918,11 +918,7 @@ void FileUrlSupport::initializeSupportedUrlSchemes()
     m_supportedUrlSchemes = getSupportedUrlSchemes();
 }
 
-QStringList FileUrlSupport::getSupportedSubtitleExtensions() const
-{
-    return QStringList() << "srt" << "vtt" << "ass" << "ssa" << "sub" << "idx" << "smi" << "rt" << "txt"
-                         << "usf" << "jss" << "psb" << "pjs" << "mpl2" << "mks" << "dfxp" << "ttml";
-}
+
 
 QStringList FileUrlSupport::getSupportedPlaylistExtensions() const
 {

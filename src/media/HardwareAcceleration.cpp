@@ -509,7 +509,7 @@ HardwareAccelerationInfo HardwareAcceleration::detectVAAPI() const
 #ifdef HAVE_LIBVA
     try {
         // Try to initialize VA-API
-        Display* x11Display = QX11Info::display();
+        Display* x11Display = nullptr; // QX11Info not available in Qt6
         if (!x11Display) {
             qCDebug(hwAccel) << "No X11 display available for VA-API";
             return info;
@@ -604,7 +604,7 @@ HardwareAccelerationInfo HardwareAcceleration::detectVDPAU() const
 #ifdef HAVE_LIBVDPAU
     try {
         // Try to initialize VDPAU
-        Display* x11Display = QX11Info::display();
+        Display* x11Display = nullptr; // QX11Info not available in Qt6
         if (!x11Display) {
             qCDebug(hwAccel) << "No X11 display available for VDPAU";
             return info;
