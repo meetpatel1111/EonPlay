@@ -343,8 +343,9 @@ bool FileUrlSupport::loadMediaUrl(const QUrl& url)
     emit mediaUrlLoaded(url, info);
     
     return true;
-}Validatio
-nResult FileUrlSupport::validateMediaFile(const QString& filePath) const
+}
+
+ValidationResult FileUrlSupport::validateMediaFile(const QString& filePath) const
 {
     if (filePath.isEmpty()) {
         return ValidationResult::FileNotFound;
@@ -748,105 +749,121 @@ bool FileUrlSupport::isValidStreamUrl(const QUrl& url) const
     return m_supportedUrlSchemes.contains(scheme);
 }
 
-QStringList FileUrlSupport}les;
-Fibtitleurn su 
-    ret
-       }       }
-ePath;
- s << subtitlileeF subtitl        ath)) {
-   , subtitlePdiaPathMatch(meitleSubtif (is     e
-   media filhes the itle matc if subtCheck/       /
-  ;
-        h()PatuteFilefo.absolh = fileInitlePattring subt   QSs) {
-     eInfo : fileInfo& fililer (const QF 
-    fo;
-   e)r::ReadablDiiles | Q QDir::FeFilters,t(namInfoLis.entryiles = dirt fQFileInfoLis   
- rys in directoubtitle fileGet all s//        
-   }
-xt);
-  rg(e"*.%1").a QString(ters <<  nameFil  {
-    s) tensionleExedSubtitupportm_st : tring& exQSconst 
-    for (ers;st nameFilt   QStringLisions
- btitle extenrs for sute filterea/ C
-    /}
-        
-s;eFileurn subtitlet
-        r) {s().exist   if (!dirtory);
- r(direcQDir di   
-    
- tleFiles;ubtit s QStringLis
+QStringList FileUrlSupport::getSubtitleFiles(const QString& mediaPath) const
 {
-   constctory) String& direconst QmediaPath, ing& Stronst Qy(cnDirectoresIhSubtitl:searclSupport:FileUrgList 
-
-QStrineSize;
-}_maxFilze() <= msinfo.rn fileIretuh);
-    filePatInfo(Info file
-    QFilet
-{Path) consing& filetrnst QSizeLimit(cokFileSt::checileUrlSuppor
-bool F
-}
-rn true;retu
-    validationprehensive  more comuld have shon codectioch - produpproabasic ais is a d
-    // Th supporteon isensi if extidme val, assur formatsor othe F    // }
+    QStringList subtitleFiles;
     
-n true;
-     retur   VE") {
-   "WAid(8, 4) == r.m && heade"RIFF")rtsWith(staader.    if (he
-/ WAV files
-    
-    /
-    }rn true;  retu      {
- S"))ith("OggstartsW(header. if iles
-   GG f
-    // O }
-    e;
-   urn truret
-        ")) {LaCrtsWith("fsta(header.    if C files
-   // FLA  
- ;
+    if (mediaPath.isEmpty()) {
+        return subtitleFiles;
     }
-  urn true       ret
-  {xE0))) == 00xE0] & header[1 (F' &&xF== '\r[0] ) || (headeWith("ID3"r.starts if (heade
-   P3 files // M
     
-   
-    }rn true;     retu3")) {
-   \xA\xDF\x45\x1AWith(".startsif (header     files
-    // MKV 
-   }
-    true;
- eturn      r") {
-  VI  "Aid(8, 4) ==er.m) && headith("RIFF"r.startsWheade    if (iles
-    // AVI f
-
-    };
-    turn true   re   ") {
-  "ftypid(4, 4) == der.m   if (heaes
- 4V/MOV fil MP4/M   //
- es
-    gnatur sirehensivecompe  would havonementatimplfull iheck - a implified c is a s/ Thistures
-    /le signaedia fimon m for comckon - cheatider valid/ Basic hea
-    /    }
-    se;
-al  return f     y()) {
- isEmptr.   if (heade 
- 
-   ();.close file16);
-   le.read(der = fieArray hea   QBytation
- der validytes for heast 16 bRead fir  
-    // 
-  
-    }turn false;    re    )) {
-ce::ReadOnlyIODevile.open(Qf (!fi);
-    iathfilePFile file(
-    Qconst
-{h) ePatfiltring& der(const QSHeadateFile::valiSupportUrlilebool F;
+    QFileInfo mediaInfo(mediaPath);
+    QString baseName = mediaInfo.completeBaseName();
+    QString directory = mediaInfo.absolutePath();
+    
+    // Check if subtitle matches the media file
+    QDir dir(directory);
+    QStringList subtitleExtensions = {"srt", "ass", "ssa", "vtt", "sub", "idx"};
+    
+    for (const QString& ext : subtitleExtensions) {
+        QString subtitlePath = dir.absoluteFilePath(baseName + "." + ext);
+        if (QFile::exists(subtitlePath)) {
+            subtitleFiles << subtitlePath;
+        }
+    }
+    
+    return subtitleFiles;
 }
 
-return info    
+QStringList FileUrlSupport::searchSubtitlesInDirectory(const QString& mediaPath, const QString& directory) const
+{
+    QStringList subtitleFiles;
     
-toString(); << info.dia info:"Extracted me< "rt) <ppog(fileUrlSu
-    qCDebu   > 0;
+    QDir dir(directory);
+    if (!dir.exists()) {
+        return subtitleFiles;
+    }
+    
+    // Create filters for subtitle extensions
+    QStringList nameFilters;
+    for (const QString& extension : m_supportedSubtitleExtensions) {
+        nameFilters << QString("*.%1").arg(extension);
+    }
+    
+    // Get all subtitle files in directory
+    QFileInfoList files = dir.entryInfoList(nameFilters, QDir::Files | QDir::Readable);
+    
+    for (const QFileInfo& fileInfo : files) {
+        QString subtitlePath = fileInfo.absoluteFilePath();
+        subtitleFiles << subtitlePath;
+    }
+    
+    return subtitleFiles;
+} 
+
+bool FileUrlSupport::checkFileSizeLimit(const QString& filePath) const
+{
+    QFileInfo fileInfo(filePath);
+    qint64 fileSize = fileInfo.size();
+    qint64 maxFileSize = m_maxFileSize;
+    return fileSize <= maxFileSize;
+}
+
+bool FileUrlSupport::isValidMediaFile(const QString& filePath) const
+{
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        return false;
+    }
+    
+    QByteArray header = file.read(16);
+    file.close();
+    
+    if (header.size() < 4) {
+        return false;
+    }
+    
+    // Check for common media file signatures
+    // WAV files
+    if (header.startsWith("RIFF") && header.mid(8, 4) == "WAVE") {
+        return true;
+    }
+    
+    // OGG files
+    if (header.startsWith("OggS")) {
+        return true;
+    }
+    
+    // FLAC files
+    if (header.startsWith("fLaC")) {
+        return true;
+    }
+    
+    // MP3 files
+    if (header.startsWith("ID3") || (header[0] == '\xFF' && (header[1] & 0xE0) == 0xE0)) {
+        return true;
+    }
+    
+    // MKV files
+    if (header.startsWith("\x1A\x45\xDF\xA3")) {
+        return true;
+    }
+    
+    // AVI files
+    if (header.startsWith("RIFF") && header.mid(8, 4) == "AVI ") {
+        return true;
+
+    }
+    
+    // MP4/MOV files
+    if (header.mid(4, 4) == "ftyp") {
+        return true;
+    }
+    
+    // This is a simplified check - a full implementation would have
+    // more comprehensive validation for common media file signatures
+    return false;
+}
   ion& info.duratudio) &info.hasAhasVideo || fo. (ind =o.isVali   
     infstance);
  e(vlcInasele libvlc_rdia);
@@ -863,110 +880,126 @@ toString(); << info.dia info:"Extracted me< "rt) <ppog(fileUrlSu
     //   );
  kCountks, tracrelease(traccks_a_trac_medi libvl   ase tracks
 / Rele
-    /
-       }    }
- 
-          break;   t:
-         defaul   
-                  reak;
-              b           }
-            
->psz_codec);ck-ratf8(t:fromUc = QString:dioCodeau   info.          {
-       psz_codec) ack->    if (tr       }
-           
-          ps to kbertConv000; // trate / 1->i_biackte = traudioBitra    info.         {
-        0) _bitrate >k->irac      if (t    
-      io->i_rate;>audck-ate = trampleRaudioSa      info.       
-   nnels;udio->i_charack->a t =udioChannelsinfo.a           ;
-     io = trueudnfo.hasA          i      _audio:
-ibvlc_track  case l                
-        ;
-      break         }
-                  
- z_codec);track->psf8(ng::fromUtdec = QStrieoCoid.vfo      in          
-    _codec) {track->psz if (                    }
-
-            to kbps; // Convert / 1000_bitrate track->iitrate =fo.videoB         in       > 0) {
-    rate i_bitf (track-> i              _den;
- _frame_rateeo->iack->vidnum / trrate_e_deo->i_frame)track->vidoublRate = (rame info.f          ht;
-     eo->i_heigtrack->vid= height fo. in               ;
-thideo->i_widrack->v= th nfo.widt       i
-         rue; tasVideo =nfo.h  i        :
-      ideock_vbvlc_tra case li        {
-    ack->i_type)  switch (tr    
-      
-    ;ks[i]track = tracrack_t* ia_t_medlc     libv i++) {
-   ackCount;tr = 0; i < ned int ifor (unsig
-    
-    );cksdia, &tracks_get(meedia_tralc_munt = libvint trackCoed 
-    unsign;cksra tck_t**ia_tra libvlc_medo
-   cks infet tra
-    // G
-        }econds
-o millisrt t; // Conve/ 1000 = duration duration  info.{
-      ion > 0) (durata);
-    if on(mediget_duratiia_bvlc_medon = li duratic_time_tlibvln
-     Get duratio  
-    //
-  
-    }imeout++;   t00);
-     sleep(1:m QThread:
-       0) {t < 5eoued && timus_skipptatia_parsed_slc_meda) == libvmeditatus(d_st_parsea_gec_medihile (libvl 0;
-    weout =t tim)
-    inutwith timeote (leing to comppars a bit for  // Wait     
- dia);
- parse(memedia_vlc_ibinfo
-    l to get mediarse // Pa
-        }
-    n info;
-      returnce);
-  taease(vlcIns libvlc_rel
-       tion";trac for info exte VLC mediacreailed to  "Fat) <<or(fileUrlSuppngarniqCW        {
-dia)  (!me
-    if());stData.con.toUtf8()Pathance, filestInvlcw_path(lc_media_ne= libvmedia t* c_media_   libvl
- te media   // Crea
-    
- ;
-    }n infotur    renfo";
-     media iance for instate VLCreled to c< "Faiport) <g(fileUrlSupCWarnin{
-        q) tance(!vlcInsif ;
-    s)), vlcArgvlcArgs[0]/sizeof(s)rgvlcAf(_new(sizeovlcstance = libt* vlcInce_anlibvlc_inst
-    
-    "
-    };  "--no-osd     pu",
- "--no-s        io",
-  "--no-aud",
-      "--no-video     ",
-   mmyf=du "--int{
-       lcArgs[] = onst char* vtion
-    c extraca infomedie for ancinstLC mporary libVteate a 
-    // Cre();
-    eNameBaseteo.compl fileInf.title =  info;
-  ize()Info.s = fileleSize  info.fi  ePath);
-(filleInfoQFileInfo fi   
-    
- ilePath;Path = f  info.file  Info info;
-ia
-    MedfilePath)
-{t QString& LC(consMediaInfoVrt::extractFileUrlSuppodiaInfo 
-
-Mee);
-}(filenamthPabsoluteFile).atorynshotDireccreem_s QDir(rn
-    retu
-    er());rmat.toLowhotFop, m_screensmestamaseName, ti%3").arg(b%2.g("%1_ame = QStrinng filentri;
-    QShmmss")_h"yyyyMMddg(e().toStrintDateTimTime::currenmp = QDateg timestaQStrin
-       
-    }
- reenshot";"_Sc() + aseNameeBo.completInfdiaaseName = me;
-        bo(mediaPath)fo mediaInf  QFileIn     
- y()) {Path.isEmpt(!media    if ";
-    
-nshotnPlay_Screeme = "EoaseNaing b
+MediaInfo FileUrlSupport::extractMediaInfo(const QString& filePath)
 {
-    QStr) constmediaPathng& QStrit (conshotFilenameateScreensport::generup FileUrlS
-QStringcast";
+    MediaInfo info;
+    info.clear();
+    
+    if (filePath.isEmpty()) {
+        return info;
+    }
+    
+    QFileInfo fileInfo(filePath);
+    if (!fileInfo.exists()) {
+        return info;
+    }
+    
+    info.filePath = filePath;
+    info.fileSize = fileInfo.size();
+    
+    // Create VLC instance for media info extraction
+    const char* vlcArgs[] = {
+        "--intf", "dummy",
+        "--no-osd"
+    };
+    
+    libvlc_instance_t* vlcInstance = libvlc_new(sizeof(vlcArgs)/sizeof(vlcArgs[0]), vlcArgs);
+    if (!vlcInstance) {
+        qCWarning(fileUrlSupport) << "Failed to create VLC instance for media info extraction";
+        return info;
+    }
+    
+    libvlc_media_t* media = libvlc_media_new_path(vlcInstance, filePath.toUtf8().constData());
+    if (!media) {
+        libvlc_release(vlcInstance);
+        return info;
+    }
+    
+    // Parse media to get info
+    libvlc_media_parse(media);
+    
+    // Wait a bit for parsing to complete (with timeout)
+    int timeout = 0;
+    while (libvlc_media_get_parsed_status(media) == libvlc_media_parsed_status_skipped && timeout < 5000) {
+        QThread::msleep(100);
+        timeout += 100;
+    }
+    
+    // Get duration
+    libvlc_time_t duration = libvlc_media_get_duration(media);
+    if (duration > 0) {
+        info.duration = duration / 1000; // Convert to milliseconds
+    }
+    
+    // Get track info
+    unsigned int trackCount = 0;
+    libvlc_media_track_t** tracks = nullptr;
+    trackCount = libvlc_media_tracks_get(media, &tracks);
+    
+    for (unsigned int i = 0; i < trackCount; i++) {
+        libvlc_media_track_t* track = tracks[i];
+        
+        switch (track->i_type) {
+            case libvlc_track_video: {
+                info.hasVideo = true;
+                if (track->psz_codec) {
+                    info.videoCodec = QString::fromUtf8(track->psz_codec);
+                }
+                if (track->i_bitrate > 0) {
+                    info.videoBitrate = track->i_bitrate / 1000; // Convert to kbps
+                }
+                info.frameRate = (double)track->video->i_frame_rate_num / track->video->i_frame_rate_den;
+                info.height = track->video->i_height;
+                info.width = track->video->i_width;
+                break;
+            }
+            case libvlc_track_audio: {
+                info.hasAudio = true;
+                if (track->psz_codec) {
+                    info.audioCodec = QString::fromUtf8(track->psz_codec);
+                }
+                if (track->i_bitrate > 0) {
+                    info.audioBitrate = track->i_bitrate / 1000; // Convert to kbps
+                }
+                info.audioSampleRate = track->audio->i_rate;
+                info.audioChannels = track->audio->i_channels;
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    
+    libvlc_media_tracks_release(tracks, trackCount);
+    libvlc_media_release(media);
+    libvlc_release(vlcInstance);
+    
+    info.isValid = true;
+    qCDebug(fileUrlSupport) << "Extracted media info:" << info.toString();
+    
+    return info;
 }
-outt" << "sh< "icecas" <ash" << "d "hls         <<           "
+
+QString FileUrlSupport::generateScreenshotFilename(const QString& mediaPath) const
+{
+    if (mediaPath.isEmpty()) {
+        return QString();
+    }
+    
+    QFileInfo mediaInfo(mediaPath);
+    QString baseName = mediaInfo.completeBaseName();
+    
+    QString screenshotDirectory = QDir(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)).absoluteFilePath("EonPlay_Screenshots");
+    
+    QString timestamp = QDateTime::currentDateTime().toString("yyyyMMdd_hhmmss");
+    QString filename = QString("%1_%2_%3.png").arg(baseName, timestamp, "screenshot");
+    
+    return QDir(screenshotDirectory).absoluteFilePath(filename);
+}
+
+QStringList FileUrlSupport::getSupportedUrlSchemes() const
+{
+    return QStringList() << "http" << "https" << "ftp" << "ftps" << "rtsp" << "rtmp" << "hls" << "dash" << "icecast" << "shout";
      " << "tcp" << "rtp<< "udpe"  "fil" <<<< "mmstsh" " << "mm< "mms        <                mps"
  "rt" << "rtmp<< "rtsp" tps" << " << "f" << "ftpttpstp" << "h << "htesemrlSchortedU_supp  m
 {
@@ -987,58 +1020,79 @@ le exte Subtit
 mp+" <     << "                      "mpc"
    2" << vr" << "sdds" << "a" << "s< "htkxi" <<< " "pvf"    <<                        mat"
    f" << " << "s"ircam"<  "voc" <" <<"rf64"w64" << f" << ca     << "                       "aifc"
-  "aiff" << gsm" << spx" << "< "<< "3ga" < << "ra" "au"      <<                "
-         "amr"dts" <<  "ac3" << "tta" <<"wv" <<  "ape" <<  <<pus"     << "o                         a"
-ma" << "m4" << "w"ogg" << aacav" << "" << "w << "flacmp3" << "ExtensionsortedAudiouppm_snsions
-    dio exte/ Au   
-    /4b";
- " << "f"f4ap" << v" << "f4"f4nsv" <<  << "                     
-         "roq"<<< "mxf" " <2ts" << "m << "mts"<< "ts" "dvv" << "og  <<                           "vob"
-  mvb" << " << "r" << "rm "asf"3g2" <<"3gp" << " << "m4v        <<                     "
-  " << "webmlv "f< "wmv" <<"mov" << << "mkv" < "avi" mp4" << << "ionsideoExtensm_supportedVns
-    ioxtenseo eid
-    // V()
-{onsrtedExtensizeSuppot::initialilSupporUroid File
-
-v
-}meout";tion tietectitle d "Subupport) <<g(fileUrlSebuqCD  {
-  )
-onComplete(Detectititlert::onSubppod FileUrlSu
-
-voimeout";
-}action titro ex"Media infort) << ileUrlSuppbug(f
-    qCDeplete()
-{tractionComnMediaInfoExSupport::oUrlvoid File
-
 }
 
-    };ist"playled to ld be addng files woule, remainit fiLoaded firspport) << "UrlSuqCDebug(file     mented
-   impleem is laylist systn phelist wles to playremaining fiO: Add  TOD
-        //.first())) {Pathsile(fileediaF   if (loadMrst file
-  Load the fi
-    //  }
-     ;
-      return {
-   s.isEmpty())ePathf (fil
+QStringList FileUrlSupport::getSupportedAudioExtensions() const
 {
-    iPaths)List& filengt QStri(const::openFilespporrlSuid FileU
+    return QStringList() << "mp3" << "flac" << "wav" << "ogg" << "m4a" << "aac" << "wma" 
+                         << "opus" << "ape" << "wv" << "tta" << "ac3" << "dts" << "amr"
+                         << "au" << "ra" << "3ga" << "spx" << "gsm" << "aiff" << "aifc"
+                         << "caf" << "w64" << "rf64" << "voc" << "ircam" << "sf" << "mat"
+                         << "pvf" << "htk" << "sds" << "avr" << "sd2" << "flac";
 }
 
-vo);MediaUrl(url load)
+QStringList FileUrlSupport::getSupportedVideoExtensions() const
 {
-   st QUrl& url(conrlport::openUileUrlSup
-void F;
+    return QStringList() << "mp4" << "avi" << "mkv" << "mov" << "wmv" << "flv" << "webm"
+                         << "m4v" << "3gp" << "3g2" << "asf" << "rm" << "rmvb" << "vob"
+                         << "ogv" << "dv" << "ts" << "mts" << "m2ts" << "mxf" << "roq"
+                         << "nsv" << "f4v" << "f4p" << "f4a" << "f4b";
 }
-h)atile(fileP loadMediaF  ath)
-{
- tring& filePt QSle(consort::openFieUrlSuppoid Fil
 
-v;
-}= "file"() =wer).toLoheme(| url.sce() |il.isLocalFn urlreturnst
+QStringList FileUrlSupport::getSupportedPlaylistExtensions() const
 {
-     co& url)st QUrl(conleUrl:isLocalFiort:UrlSupp
-bool File
+    return QStringList() << "m3u" << "m3u8" << "pls" << "xspf" << "asx" << "wax";
 }
-UrlSchemes;pportedreturn m_su
-    st
-{ conSchemes()edUrlSupport::get
+
+void FileUrlSupport::initializeSupportedExtensions()
+{
+    m_supportedAudioExtensions = getSupportedAudioExtensions();
+    m_supportedVideoExtensions = getSupportedVideoExtensions();
+    m_supportedPlaylistExtensions = getSupportedPlaylistExtensions();
+}
+
+void FileUrlSupport::onSubtitleDetectionComplete()
+{
+    qCDebug(fileUrlSupport) << "Subtitle detection timeout";
+}
+
+void FileUrlSupport::onMediaInfoExtractionComplete()
+{
+    qCDebug(fileUrlSupport) << "Media info extraction timeout";
+}
+
+void FileUrlSupport::openFiles(const QStringList& filePaths)
+{
+    if (filePaths.isEmpty()) {
+        return;
+    }
+    
+    qCDebug(fileUrlSupport) << "Loading first file, remaining files would be added to playlist system";
+    // TODO: Add remaining files to playlist when playlist system is implemented
+    
+    // Load the first file
+    if (loadMediaFile(filePaths.first())) {
+        // Successfully loaded
+    }
+}
+
+void FileUrlSupport::openUrl(const QUrl& url)
+{
+    loadMediaUrl(url);
+}
+
+void FileUrlSupport::openFile(const QString& filePath)
+{
+    loadMediaFile(filePath);
+}
+
+bool FileUrlSupport::isLocalFileUrl(const QUrl& url) const
+{
+    return url.isLocalFile() || url.scheme().toLower() == "file";
+}
+
+QStringList FileUrlSupport::getSupportedUrlSchemes()
+{
+    return QStringList() << "http" << "https" << "ftp" << "ftps" << "rtsp" << "rtmp" 
+                         << "hls" << "dash" << "icecast" << "shout";
+}

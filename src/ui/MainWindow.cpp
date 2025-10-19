@@ -2,6 +2,8 @@
 #include "ui/DragDropWidget.h"
 #include "ui/MediaInfoWidget.h"
 #include "ui/PlaybackControls.h"
+#include "ui/PlaylistWidget.h"
+#include "ui/LibraryWidget.h"
 #include "ui/SystemTrayManager.h"
 #include "ui/MediaKeysManager.h"
 #include "ui/NotificationManager.h"
@@ -823,7 +825,7 @@ void MainWindow::saveState()
 {
     m_settings->beginGroup("MainWindow");
     m_settings->setValue("geometry", saveGeometry());
-    m_settings->setValue("windowState", saveState());
+    m_settings->setValue("windowState", QMainWindow::saveState());
     m_settings->setValue("isDarkTheme", m_isDarkTheme);
     m_settings->setValue("currentSkin", m_currentSkin);
     m_settings->setValue("menuBarVisible", menuBar()->isVisible());
@@ -927,8 +929,9 @@ void MainWindow::addToRecentFiles(const QString& filePath)
     }
 }
 
-#include "ui/MainWindow.moc"void Ma
-inWindow::onFilesDropped(const QStringList& processedFiles, const QStringList& failedFiles)
+#include "ui/MainWindow.moc"
+
+void MainWindow::onFilesDropped(const QStringList& processedFiles, const QStringList& failedFiles)
 {
     if (!processedFiles.isEmpty()) {
         QString firstFile = processedFiles.first();

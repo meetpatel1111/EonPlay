@@ -164,7 +164,7 @@ private:
 
     // Duplicate detection cache
     QHash<QString, QString> m_fileHashCache;
-    QHash<QString, QDateTime> m_fileModificationCache;
+    mutable QHash<QString, QDateTime> m_fileModificationCache;
 
     // Threading
     QThread* m_scanThread;

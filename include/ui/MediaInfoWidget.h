@@ -9,9 +9,9 @@
 #include <QScrollArea>
 #include <QTimer>
 #include <memory>
+#include "media/FileUrlSupport.h"
 
 class FileUrlSupport;
-struct MediaInfo;
 
 /**
  * @brief Widget for displaying detailed media information

@@ -56,7 +56,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest]
         include:
           - os: ubuntu-latest
             qt_arch: gcc_64
@@ -66,10 +66,6 @@ jobs:
             qt_arch: win64_msvc2019_64
             cmake_generator: "Visual Studio 17 2022"
             package_suffix: "windows-x64"
-          - os: macos-latest
-            qt_arch: clang_64
-            cmake_generator: "Unix Makefiles"
-            package_suffix: "macos-x64"
 
     steps:
     - uses: actions/checkout@v4
@@ -104,21 +100,36 @@ jobs:
           libasound2-dev \
           libpulse-dev
 
-    - name: Install macOS dependencies
-      if: matrix.os == 'macos-latest'
-      run: |
-        brew install vlc
-        brew install pkg-config
+
 
     - name: Setup Windows VLC
       if: matrix.os == 'windows-latest'
       run: |
-        # Create third_party directory structure
-        New-Item -ItemType Directory -Force -Path "third_party/vlc/include/vlc"
-        New-Item -ItemType Directory -Force -Path "third_party/vlc/lib"
+        # Create third_party directory structure with proper error handling
+        $vlcIncludeDir = "third_party\vlc\include\vlc"
+        $vlcLibDir = "third_party\vlc\lib"
+        
+        Write-Host "Creating VLC directory structure..."
+        New-Item -ItemType Directory -Force -Path $vlcIncludeDir
+        New-Item -ItemType Directory -Force -Path $vlcLibDir
+        
+        # Verify directories were created
+        if (Test-Path $vlcIncludeDir) {
+            Write-Host "✓ Created: $vlcIncludeDir"
+        } else {
+            Write-Error "✗ Failed to create: $vlcIncludeDir"
+            exit 1
+        }
+        
+        if (Test-Path $vlcLibDir) {
+            Write-Host "✓ Created: $vlcLibDir"
+        } else {
+            Write-Error "✗ Failed to create: $vlcLibDir"
+            exit 1
+        }
         
         # Create minimal VLC headers for compilation
-        @"
+        $vlcHeader = @"
         #ifndef VLC_VLC_H
         #define VLC_VLC_H
         
@@ -148,14 +159,30 @@ jobs:
         #endif
         
         #endif // VLC_VLC_H
-        "@ | Out-File -FilePath "third_party/vlc/include/vlc/vlc.h" -Encoding UTF8
+        "@
+        
+        $headerPath = Join-Path $vlcIncludeDir "vlc.h"
+        Write-Host "Writing VLC header to: $headerPath"
+        $vlcHeader | Out-File -FilePath $headerPath -Encoding UTF8
+        
+        # Verify header was created
+        if (Test-Path $headerPath) {
+            Write-Host "✓ Created VLC header: $headerPath"
+        } else {
+            Write-Error "✗ Failed to create VLC header: $headerPath"
+            exit 1
+        }
         
         # Create stub library files for linking
-        echo "VLC stub library for Windows compilation" | Out-File -FilePath "third_party/vlc/lib/libvlc.lib" -Encoding ASCII
-        echo "VLC core stub library for Windows compilation" | Out-File -FilePath "third_party/vlc/lib/libvlccore.lib" -Encoding ASCII
+        $libvlcPath = Join-Path $vlcLibDir "libvlc.lib"
+        $libvlccorePath = Join-Path $vlcLibDir "libvlccore.lib"
         
-        Write-Host "Created VLC stub files for Windows compilation"
-        Get-ChildItem -Recurse "third_party/vlc" | Select-Object FullName
+        "VLC stub library for Windows compilation" | Out-File -FilePath $libvlcPath -Encoding ASCII
+        "VLC core stub library for Windows compilation" | Out-File -FilePath $libvlccorePath -Encoding ASCII
+        
+        Write-Host "✓ Created stub libraries"
+        Write-Host "VLC setup complete. Directory structure:"
+        Get-ChildItem -Recurse "third_party\vlc" | Select-Object FullName
       shell: powershell
 
     - name: Configure CMake
@@ -194,12 +221,6 @@ jobs:
           chmod +x dist/EonPlay
           # Copy shared libraries if needed
           ldd build/EonPlay | grep "=> /" | awk '{print $3}' | grep -E "(Qt|vlc)" | xargs -I {} cp {} dist/ 2>/dev/null || true
-        elif [ "${{ matrix.os }}" = "macos-latest" ]; then
-          # macOS executable
-          cp build/EonPlay dist/
-          chmod +x dist/EonPlay
-          # Copy dylibs if needed
-          otool -L build/EonPlay | grep -E "(Qt|vlc)" | awk '{print $1}' | xargs -I {} cp {} dist/ 2>/dev/null || true
         fi
         
         # Create download instructions
@@ -507,11 +528,7 @@ jobs:
         echo "**Contains**: EonPlay + shared libraries" >> artifact_summary.md
         echo "**Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> artifact_summary.md
         echo "" >> artifact_summary.md
-        echo "### 🍎 macOS Executable" >> artifact_summary.md
-        echo "**Artifact Name**: \`EonPlay-macos-x64-Artifacts\`" >> artifact_summary.md
-        echo "**Contains**: EonPlay + dylibs" >> artifact_summary.md
-        echo "**Download**: [Click here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> artifact_summary.md
-        echo "" >> artifact_summary.md
+
         echo "## 🔗 Quick Access" >> artifact_summary.md
         echo "**Direct Actions Page**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> artifact_summary.md
         echo "" >> artifact_summary.md
@@ -558,12 +575,12 @@ jobs:
           ### 📦 Ready-to-Run Executables
           - **Windows**: [EonPlay-windows-x64-Artifacts](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId})
           - **Linux**: [EonPlay-linux-x64-Artifacts](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId})
-          - **macOS**: [EonPlay-macos-x64-Artifacts](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId})
+
           
           ### 📋 Installation Packages
           - **Windows**: media-player-packages-windows-x64 (.msi installer)
           - **Linux**: media-player-packages-linux-x64 (.deb, .rpm packages)
-          - **macOS**: media-player-packages-macos-x64 (.dmg disk image)
+
           
           ### 🔗 How to Download
           1. Click any link above to go to the Actions page

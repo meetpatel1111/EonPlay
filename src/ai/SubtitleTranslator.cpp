@@ -1,6 +1,7 @@
 #include "ai/SubtitleTranslator.h"
 #include <QFile>
 #include <QTextStream>
+#include <QStringConverter>
 #include <QDir>
 #include <QFileInfo>
 #include <QRegularExpression>
@@ -391,7 +392,7 @@ QList<SubtitleTranslator::SubtitleEntry> SubtitleTranslator::parseSRTFile(const 
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     SubtitleEntry currentEntry;
     QString line;
@@ -452,7 +453,7 @@ QList<SubtitleTranslator::SubtitleEntry> SubtitleTranslator::parseASSFile(const 
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     QString line;
     bool inEventsSection = false;
@@ -502,7 +503,7 @@ QList<SubtitleTranslator::SubtitleEntry> SubtitleTranslator::parseVTTFile(const 
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     SubtitleEntry currentEntry;
     QString line;
@@ -573,7 +574,7 @@ bool SubtitleTranslator::writeSRTFile(const QString& filePath, const QList<Subti
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     for (const SubtitleEntry& entry : entries) {
         stream << entry.index << "\n";
@@ -593,7 +594,7 @@ bool SubtitleTranslator::writeASSFile(const QString& filePath, const QList<Subti
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     // Write basic ASS header
     stream << "[Script Info]\n";
@@ -625,7 +626,7 @@ bool SubtitleTranslator::writeVTTFile(const QString& filePath, const QList<Subti
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     stream << "WEBVTT\n\n";
     

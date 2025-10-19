@@ -188,6 +188,7 @@ private:
     QNetworkRequest createApiRequest(const QString& url, TranslationService service);
     void processTranslationResponse(const QByteArray& data, TranslationService service,
                                    const QString& identifier);
+    void finalizeBatchTranslation(const QStringList& translatedTexts);
 
     // Batch processing
     struct BatchRequest {
@@ -205,6 +206,10 @@ private:
     TranslationOptions m_options;
     bool m_isTranslating;
     TranslationProgress m_progress;
+    
+    // Current translation state
+    QList<SubtitleEntry> m_currentEntries;
+    QString m_currentFilePath;
     
     // Network management
     QNetworkAccessManager* m_networkManager;

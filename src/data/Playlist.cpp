@@ -2,6 +2,7 @@
 #include "data/DatabaseManager.h"
 #include <QFileInfo>
 #include <QTextStream>
+#include <QStringConverter>
 #include <QUrl>
 #include <QDir>
 #include <QRandomGenerator>
@@ -699,7 +700,7 @@ bool Playlist::exportToM3U(const QString& filePath) const
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     stream << "#EXTM3U\n";
     
@@ -722,7 +723,7 @@ bool Playlist::exportToPLS(const QString& filePath) const
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     stream << "[playlist]\n";
     
@@ -754,7 +755,7 @@ bool Playlist::importFromM3U(const QString& filePath)
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     QList<MediaFile> newItems;
     QString line;
@@ -806,7 +807,7 @@ bool Playlist::importFromPLS(const QString& filePath)
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     QHash<int, QString> files;
     QHash<int, QString> titles;

@@ -436,8 +436,9 @@ int PlaylistManager::createArtistPlaylist(const QString& artist, int limit)
     criteria.sortOrder = Qt::AscendingOrder;
     
     return createSmartPlaylist(QString("Artist: %1").arg(artist), criteria);
-}//
- Playback history
+}
+
+// Playback history
 void PlaylistManager::recordPlayback(const QString& filePath, qint64 position, qint64 duration)
 {
     if (!m_dbManager || filePath.isEmpty()) {
@@ -772,8 +773,9 @@ void PlaylistManager::clearOldWatchProgress(int days)
     }
     
     qCInfo(playlistManager) << "Cleared watch progress older than" << days << "days";
-}// Multi
--device sync
+}
+
+// Multi-device sync
 void PlaylistManager::syncWatchProgress(const QList<WatchProgress>& remoteProgress)
 {
     if (!m_dbManager) {
@@ -1196,8 +1198,9 @@ void PlaylistManager::performPeriodicMaintenance()
 }
 
 } // namespace Data
-} // namespace EonPlay// Smart
- playlist helpers
+} // namespace EonPlay
+
+// Smart playlist helpers
 QList<MediaFile> PlaylistManager::generateSmartPlaylistContent(const SmartPlaylistCriteria& criteria)
 {
     QList<MediaFile> files;

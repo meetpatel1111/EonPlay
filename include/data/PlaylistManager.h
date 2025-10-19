@@ -8,6 +8,7 @@
 #include <QHash>
 #include <QTimer>
 #include <QDateTime>
+#include <QSqlQuery>
 #include <memory>
 
 namespace EonPlay {

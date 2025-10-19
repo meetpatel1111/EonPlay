@@ -5,6 +5,10 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QSysInfo>
+#include <QThread>
+
+// libVLC includes
+#include <vlc/vlc.h>
 
 #ifdef Q_OS_WIN
 #include <windows.h>
@@ -13,7 +17,12 @@
 #endif
 
 #ifdef Q_OS_LINUX
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QX11Info>
+#else
+#include <QGuiApplication>
+#include <qpa/qplatformnativeinterface.h>
+#endif
 #ifdef HAVE_LIBVA
 #include <va/va.h>
 #include <va/va_x11.h>

@@ -1,6 +1,7 @@
 #include "ai/SubtitleLanguageDetector.h"
 #include <QFile>
 #include <QTextStream>
+#include <QStringConverter>
 #include <QRegularExpression>
 #include <QNetworkRequest>
 #include <QNetworkReply>
@@ -8,6 +9,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QUrlQuery>
+#include <QTimer>
 #include <QSettings>
 #include <QLoggingCategory>
 #include <QDebug>
@@ -236,7 +238,7 @@ SubtitleLanguageDetector::DetectionResult SubtitleLanguageDetector::detectWithLo
               });
     
     // Add top 3 alternatives
-    for (int i = 0; i < std::min(3, sortedScores.size()); ++i) {
+    for (int i = 0; i < std::min(3, static_cast<int>(sortedScores.size())); ++i) {
         result.alternativeLanguages[sortedScores[i].first] = sortedScores[i].second;
     }
     
@@ -432,7 +434,7 @@ QString SubtitleLanguageDetector::extractTextFromSubtitleFile(const QString& fil
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     QString content = stream.readAll();
     
     // Remove common subtitle formatting
@@ -451,7 +453,7 @@ QString SubtitleLanguageDetector::extractSRTText(const QString& filePath)
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     QStringList textLines;
     QString line;
@@ -496,7 +498,7 @@ QString SubtitleLanguageDetector::extractASSText(const QString& filePath)
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     QStringList textLines;
     QString line;
@@ -540,7 +542,7 @@ QString SubtitleLanguageDetector::extractVTTText(const QString& filePath)
     }
     
     QTextStream stream(&file);
-    stream.setCodec("UTF-8");
+    stream.setEncoding(QStringConverter::Utf8);
     
     QStringList textLines;
     QString line;

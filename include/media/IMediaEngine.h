@@ -27,6 +27,7 @@ class IMediaEngine : public QObject
     Q_OBJECT
 
 public:
+    explicit IMediaEngine(QObject* parent = nullptr) : QObject(parent) {}
     virtual ~IMediaEngine() = default;
     
     /**

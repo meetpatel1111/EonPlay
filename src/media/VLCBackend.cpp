@@ -11,6 +11,9 @@
 // libVLC includes
 #include <vlc/vlc.h>
 
+// libVLC includes
+#include <vlc/vlc.h>
+
 Q_LOGGING_CATEGORY(vlcBackend, "mediaplayer.vlcbackend")
 
 VLCBackend::VLCBackend(QObject* parent)
@@ -409,21 +412,13 @@ void VLCBackend::updatePosition()
         
         if (newPosition != m_currentPosition) {
             m_currentPosition = newPosition;
-            positionChanged = true;
+            emit positionChanged(newPosition);
         }
         
         if (newDuration != m_currentDuration && newDuration > 0) {
             m_currentDuration = newDuration;
-            durationChanged = true;
+            emit durationChanged(newDuration);
         }
-    }
-    
-    if (positionChanged) {
-        emit positionChanged(newPosition);
-    }
-    
-    if (durationChanged) {
-        emit durationChanged(newDuration);
     }
 }
 
@@ -670,11 +665,11 @@ void VLCBackend::updateHardwareAccelerationFromPreferences(const UserPreferences
     }
     
     // Update hardware acceleration enabled state
-    setHardwareAccelerationEnabled(preferences.hardwareAcceleration);
+    this->setHardwareAccelerationEnabled(preferences.hardwareAcceleration);
     
     // Update preferred acceleration type
     HardwareAccelerationType type = HardwareAcceleration::stringToAccelerationType(preferences.preferredAccelerationType);
-    setPreferredAccelerationType(type);
+    this->setPreferredAccelerationType(type);
     
     qCDebug(vlcBackend) << "Hardware acceleration settings updated from preferences";
     qCDebug(vlcBackend) << "Enabled:" << preferences.hardwareAcceleration;

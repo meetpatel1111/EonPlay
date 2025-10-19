@@ -3,6 +3,7 @@
 #include "IMediaEngine.h"
 #include "IComponent.h"
 #include "HardwareAcceleration.h"
+#include "data/UserPreferences.h"
 #include <QObject>
 #include <QTimer>
 #include <QMutex>
