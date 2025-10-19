@@ -988,8 +988,9 @@ void MainWindow::onFileValidationFailed(const QString& filePath, const QString& 
     
     QMessageBox::warning(this, tr("File Validation Error"), 
         tr("Cannot load file '%1':\n%2").arg(fileName, errorMessage));
-}vo
-id MainWindow::registerFileAssociations()
+}
+
+void MainWindow::registerFileAssociations()
 {
     // This is a placeholder implementation
     // In a real application, this would register file associations with the OS
@@ -1022,8 +1023,9 @@ bool MainWindow::areFileAssociationsRegistered() const
 #else
     return false;
 #endif
-}void MainWi
-ndow::loadCustomSkin(const QString& skinName)
+}
+
+void MainWindow::loadCustomSkin(const QString& skinName)
 {
     if (skinName.isEmpty()) {
         return;
@@ -1120,8 +1122,9 @@ void MainWindow::showSkinSelector()
             loadCustomSkin(selectedSkin);
         }
     }
-}v
-oid MainWindow::initializeSystemIntegration()
+}
+
+void MainWindow::initializeSystemIntegration()
 {
     // Initialize System Tray Manager
     if (SystemTrayManager::isSystemTrayAvailable()) {
@@ -1282,8 +1285,9 @@ void MainWindow::onMediaKeyPressed(const QString& key)
 void MainWindow::onNotificationClicked()
 {
     updateStatusBar(tr("Notification clicked"));
-}vo
-id MainWindow::handleHotkeyAction(const QString& actionId)
+}
+
+void MainWindow::handleHotkeyAction(const QString& actionId)
 {
     // Handle various hotkey actions
     if (actionId == "play_pause") {

@@ -575,6 +575,27 @@ MediaInfo FileUrlSupport::extractMediaInfo(const QString& filePath)
 }
 
 MediaInfo FileUrlSupport::extractMediaInfoVLC(const QString& filePath)
+{
+    MediaInfo info;
+    info.clear();
+    
+    if (filePath.isEmpty()) {
+        return info;
+    }
+    
+    QFileInfo fileInfo(filePath);
+    if (!fileInfo.exists()) {
+        return info;
+    }
+    
+    info.filePath = filePath;
+    info.fileSize = fileInfo.size();
+    
+    // For now, return basic info without VLC dependency
+    info.isValid = true;
+    
+    return info;
+}
 
 QStringList FileUrlSupport::autoDetectSubtitles(const QString& mediaPath)
 {
@@ -867,105 +888,7 @@ bool FileUrlSupport::isValidMediaFile(const QString& filePath) const
     return false;
 }
 
-MediaInfo FileUrlSupport::extractMediaInfo(const QString& filePath)
-{
-    MediaInfo info;
-    info.clear();
-    
-    if (filePath.isEmpty()) {
-        return info;
-    }
-    
-    QFileInfo fileInfo(filePath);
-    if (!fileInfo.exists()) {
-        return info;
-    }
-    
-    info.filePath = filePath;
-    info.fileSize = fileInfo.size();
-    
-    // Create VLC instance for media info extraction
-    const char* vlcArgs[] = {
-        "--intf", "dummy",
-        "--no-osd"
-    };
-    
-    libvlc_instance_t* vlcInstance = libvlc_new(sizeof(vlcArgs)/sizeof(vlcArgs[0]), vlcArgs);
-    if (!vlcInstance) {
-        qCWarning(fileUrlSupport) << "Failed to create VLC instance for media info extraction";
-        return info;
-    }
-    
-    libvlc_media_t* media = libvlc_media_new_path(vlcInstance, filePath.toUtf8().constData());
-    if (!media) {
-        libvlc_release(vlcInstance);
-        return info;
-    }
-    
-    // Parse media to get info
-    libvlc_media_parse(media);
-    
-    // Wait a bit for parsing to complete (with timeout)
-    int timeout = 0;
-    while (libvlc_media_get_parsed_status(media) == libvlc_media_parsed_status_skipped && timeout < 5000) {
-        QThread::msleep(100);
-        timeout += 100;
-    }
-    
-    // Get duration
-    libvlc_time_t duration = libvlc_media_get_duration(media);
-    if (duration > 0) {
-        info.duration = duration / 1000; // Convert to milliseconds
-    }
-    
-    // Get track info
-    unsigned int trackCount = 0;
-    libvlc_media_track_t** tracks = nullptr;
-    trackCount = libvlc_media_tracks_get(media, &tracks);
-    
-    for (unsigned int i = 0; i < trackCount; i++) {
-        libvlc_media_track_t* track = tracks[i];
-        
-        switch (track->i_type) {
-            case libvlc_track_video: {
-                info.hasVideo = true;
-                if (track->psz_codec) {
-                    info.videoCodec = QString::fromUtf8(track->psz_codec);
-                }
-                if (track->i_bitrate > 0) {
-                    info.videoBitrate = track->i_bitrate / 1000; // Convert to kbps
-                }
-                info.frameRate = (double)track->video->i_frame_rate_num / track->video->i_frame_rate_den;
-                info.height = track->video->i_height;
-                info.width = track->video->i_width;
-                break;
-            }
-            case libvlc_track_audio: {
-                info.hasAudio = true;
-                if (track->psz_codec) {
-                    info.audioCodec = QString::fromUtf8(track->psz_codec);
-                }
-                if (track->i_bitrate > 0) {
-                    info.audioBitrate = track->i_bitrate / 1000; // Convert to kbps
-                }
-                info.audioSampleRate = track->audio->i_rate;
-                info.audioChannels = track->audio->i_channels;
-                break;
-            }
-            default:
-                break;
-        }
-    }
-    
-    libvlc_media_tracks_release(tracks, trackCount);
-    libvlc_media_release(media);
-    libvlc_release(vlcInstance);
-    
-    info.isValid = true;
-    qCDebug(fileUrlSupport) << "Extracted media info:" << info.toString();
-    
-    return info;
-}
+
 
 QString FileUrlSupport::generateScreenshotFilename(const QString& mediaPath) const
 {

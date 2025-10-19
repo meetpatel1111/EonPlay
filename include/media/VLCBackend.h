@@ -85,6 +85,19 @@ public:
      */
     void updateHardwareAccelerationFromPreferences(const UserPreferences& preferences);
 
+signals:
+    /**
+     * @brief Emitted when playback position changes
+     * @param position New position in milliseconds
+     */
+    void positionChanged(qint64 position);
+    
+    /**
+     * @brief Emitted when media duration changes
+     * @param duration New duration in milliseconds
+     */
+    void durationChanged(qint64 duration);
+
 private slots:
     /**
      * @brief Update position and duration periodically

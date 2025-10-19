@@ -156,6 +156,24 @@ public:
     QStringList getSupportedExtensions() const;
     
     /**
+     * @brief Get supported audio file extensions
+     * @return List of audio extensions
+     */
+    QStringList getSupportedAudioExtensions() const;
+    
+    /**
+     * @brief Get supported video file extensions
+     * @return List of video extensions
+     */
+    QStringList getSupportedVideoExtensions() const;
+    
+    /**
+     * @brief Get supported playlist file extensions
+     * @return List of playlist extensions
+     */
+    QStringList getSupportedPlaylistExtensions() const;
+    
+    /**
      * @brief Get file filter string for file dialogs
      * @return File filter string for QFileDialog
      */

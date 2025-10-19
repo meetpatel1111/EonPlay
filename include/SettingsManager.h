@@ -31,7 +31,7 @@ public:
      * @brief Get current user preferences
      * @return Reference to user preferences
      */
-    const UserPreferences& preferences() const { return m_preferences; }
+    const UserPreferences& preferences() const;
     
     /**
      * @brief Update user preferences

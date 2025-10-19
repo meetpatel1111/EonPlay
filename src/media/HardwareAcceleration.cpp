@@ -81,7 +81,7 @@ bool HardwareAcceleration::initialize()
     // Set default preferred acceleration if auto is selected
     if (m_preferredAcceleration == HardwareAccelerationType::Auto) {
         HardwareAccelerationType best = getBestAvailableAcceleration();
-        if (best != HardwareAccelerationType::None) {
+        if (best != HardwareAccelerationType::Software) {
             m_preferredAcceleration = best;
             qCDebug(hwAccel) << "Auto-selected acceleration:" << getAccelerationTypeName(best);
         } else {
@@ -120,7 +120,7 @@ QList<HardwareAccelerationInfo> HardwareAcceleration::detectAvailableAcceleratio
     
     // Always add software decoding as fallback
     HardwareAccelerationInfo software;
-    software.type = HardwareAccelerationType::None;
+    software.type = HardwareAccelerationType::Software;
     software.name = "Software Decoding";
     software.description = "CPU-based software decoding (fallback)";
     software.available = true;
@@ -153,7 +153,7 @@ HardwareAccelerationType HardwareAcceleration::getBestAvailableAcceleration() co
         }
     }
     
-    return HardwareAccelerationType::None;
+    return HardwareAccelerationType::Software;
 }
 
 bool HardwareAcceleration::isAccelerationAvailable(HardwareAccelerationType type) const
@@ -193,7 +193,7 @@ bool HardwareAcceleration::setPreferredAcceleration(HardwareAccelerationType typ
         return true;
     }
     
-    if (type == HardwareAccelerationType::None || isAccelerationAvailable(type)) {
+    if (type == HardwareAccelerationType::Software || isAccelerationAvailable(type)) {
         m_preferredAcceleration = type;
         qCDebug(hwAccel) << "Preferred acceleration set to:" << getAccelerationTypeName(type);
         emit preferredAccelerationChanged(type);
@@ -259,7 +259,7 @@ QStringList HardwareAcceleration::getVLCArguments() const
             break;
 #endif
             
-        case HardwareAccelerationType::None:
+        case HardwareAccelerationType::Software:
         default:
             args << "--no-hw-dec";
             qCDebug(hwAccel) << "Using software decoding (no hardware acceleration available)";
@@ -346,7 +346,7 @@ bool HardwareAcceleration::testHardwareAcceleration(const QString& testVideoPath
 QString HardwareAcceleration::getAccelerationTypeName(HardwareAccelerationType type)
 {
     switch (type) {
-        case HardwareAccelerationType::None:
+        case HardwareAccelerationType::Software:
             return "Software Decoding";
         case HardwareAccelerationType::DXVA:
             return "DXVA";
@@ -364,7 +364,7 @@ QString HardwareAcceleration::getAccelerationTypeName(HardwareAccelerationType t
 QString HardwareAcceleration::getAccelerationTypeDescription(HardwareAccelerationType type)
 {
     switch (type) {
-        case HardwareAccelerationType::None:
+        case HardwareAccelerationType::Software:
             return "CPU-based software decoding. Compatible with all systems but uses more CPU.";
         case HardwareAccelerationType::DXVA:
             return "DirectX Video Acceleration. Hardware-accelerated decoding on Windows systems with compatible graphics cards.";
@@ -391,7 +391,7 @@ bool HardwareAcceleration::isPlatformSupported()
 QString HardwareAcceleration::accelerationTypeToString(HardwareAccelerationType type)
 {
     switch (type) {
-        case HardwareAccelerationType::None:
+        case HardwareAccelerationType::Software:
             return "none";
         case HardwareAccelerationType::DXVA:
             return "dxva";
@@ -411,7 +411,7 @@ HardwareAccelerationType HardwareAcceleration::stringToAccelerationType(const QS
     QString lower = typeString.toLower();
     
     if (lower == "none") {
-        return HardwareAccelerationType::None;
+        return HardwareAccelerationType::Software;
     } else if (lower == "dxva") {
         return HardwareAccelerationType::DXVA;
     } else if (lower == "vaapi") {

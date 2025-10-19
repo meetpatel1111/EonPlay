@@ -9,7 +9,7 @@
  */
 enum class HardwareAccelerationType
 {
-    None,           // Software decoding only
+    Software,       // Software decoding only
     DXVA,          // DirectX Video Acceleration (Windows)
     VAAPI,         // Video Acceleration API (Linux)
     VDPAU,         // Video Decode and Presentation API for Unix (Linux)
@@ -21,7 +21,7 @@ enum class HardwareAccelerationType
  */
 struct HardwareAccelerationInfo
 {
-    HardwareAccelerationType type = HardwareAccelerationType::None;
+    HardwareAccelerationType type = HardwareAccelerationType::Software;
     QString name;                    // Human-readable name
     QString description;             // Detailed description
     bool available = false;          // Whether this acceleration is available
