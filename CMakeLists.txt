@@ -237,9 +237,9 @@ set(HEADER_FILES
     include/platform/WindowsPlatform.h
     include/platform/LinuxPlatform.h
     include/platform/InstallerManager.h
-    include/core/EonPlayApplication.h
-    include/core/ComponentManager.h
-    include/core/EventBus.h
+    include/EonPlayApplication.h
+    include/ComponentManager.h
+    include/EventBus.h
 )
 
 # Main executable
