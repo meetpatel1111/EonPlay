@@ -108,6 +108,7 @@ set(UI_SOURCES
     src/ui/PlaybackControls.cpp    # Task 3.2
     src/ui/LibraryWidget.cpp       # Task 5.4
     src/ui/PlaylistWidget.cpp      # Task 5.4
+    src/ui/AudioEqualizerWidget.cpp # Task 6.1
     # src/ui/VideoWidget.cpp         # Task 3.3
     # src/ui/SettingsDialog.cpp      # Task 10.1
 )
@@ -118,6 +119,10 @@ set(MEDIA_SOURCES
     src/media/MediaError.cpp
     src/media/HardwareAcceleration.cpp
     src/media/FileUrlSupport.cpp
+)
+
+set(AUDIO_SOURCES
+    src/audio/AudioEqualizer.cpp
 )
 
 # Add VLC stub for Windows builds
@@ -164,6 +169,8 @@ set(HEADER_FILES
     include/ui/DragDropWidget.h
     include/ui/LibraryWidget.h
     include/ui/PlaylistWidget.h
+    include/ui/AudioEqualizerWidget.h
+    include/audio/AudioEqualizer.h
     include/core/EonPlayApplication.h
     include/core/ComponentManager.h
     include/core/EventBus.h
@@ -175,6 +182,7 @@ add_executable(EonPlay
     ${CORE_SOURCES}
     ${UI_SOURCES}
     ${MEDIA_SOURCES}
+    ${AUDIO_SOURCES}
     ${DATA_SOURCES}
     ${NETWORK_SOURCES}
     ${AI_SOURCES}
