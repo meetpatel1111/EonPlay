@@ -9,6 +9,7 @@
 #include <QProcess>
 #include <QLoggingCategory>
 #include <QSettings>
+#include <QMetaType>
 
 #ifdef Q_OS_WIN
 #include <windows.h>
@@ -561,16 +562,16 @@ bool WindowsPlatform::writeRegistryValue(const QString& keyPath, const QString& 
     QByteArray valueData;
     DWORD valueType;
     
-    switch (value.type()) {
-        case QVariant::String: {
+    switch (value.typeId()) {
+        case QMetaType::QString: {
             QString str = value.toString();
             valueData = str.toUtf8();
             valueData.append('\0'); // Null terminator
             valueType = REG_SZ;
             break;
         }
-        case QVariant::Int:
-        case QVariant::UInt: {
+        case QMetaType::Int:
+        case QMetaType::UInt: {
             DWORD dwordValue = value.toUInt();
             valueData = QByteArray(reinterpret_cast<const char*>(&dwordValue), sizeof(DWORD));
             valueType = REG_DWORD;
