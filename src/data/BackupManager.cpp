@@ -10,9 +10,9 @@
 
 Q_LOGGING_CATEGORY(backupManager, "eonplay.backup")
 
-BackupManager::BackupManager(DatabaseManager* dbManager, QObject* parent)
+BackupManager::BackupManager(QObject* parent)
     : QObject(parent)
-    , m_dbManager(dbManager)
+    , m_dbManager(nullptr)
     , m_autoBackupEnabled(true)
     , m_backupIntervalHours(24)
     , m_maxBackupCount(7)
@@ -33,7 +33,7 @@ BackupManager::BackupManager(DatabaseManager* dbManager, QObject* parent)
     qCInfo(backupManager) << "BackupManager initialized with directory:" << m_backupDirectory;
 }
 
-void BackupManager::setAutoBackupEnabled(bool enabled)
+void BackupManager::enableAutomaticBackup(bool enabled)
 {
     if (m_autoBackupEnabled != enabled) {
         m_autoBackupEnabled = enabled;
@@ -50,7 +50,7 @@ void BackupManager::setAutoBackupEnabled(bool enabled)
     }
 }
 
-void BackupManager::setBackupIntervalHours(int hours)
+void BackupManager::setBackupInterval(int hours)
 {
     if (hours > 0 && m_backupIntervalHours != hours) {
         m_backupIntervalHours = hours;
@@ -80,13 +80,13 @@ void BackupManager::setBackupDirectory(const QString& directory)
     }
 }
 
-bool BackupManager::createBackup(const QString& backupName)
+QString BackupManager::createBackup(BackupType type, const QString& description)
 {
     if (!m_dbManager || !m_dbManager->isInitialized()) {
         QString error = "Database manager not available";
         qCWarning(backupManager) << error;
         emit backupFailed(error);
-        return false;
+        return QString();
     }
     
     // Ensure backup directory exists
@@ -95,34 +95,35 @@ bool BackupManager::createBackup(const QString& backupName)
         QString error = QString("Failed to create backup directory: %1").arg(m_backupDirectory);
         qCWarning(backupManager) << error;
         emit backupFailed(error);
-        return false;
+        return QString();
     }
     
     // Generate backup file name
-    QString fileName = backupName.isEmpty() ? generateBackupFileName() : backupName;
+    QString fileName = description.isEmpty() ? QDateTime::currentDateTime().toString("backup_yyyy-MM-dd_hh-mm-ss") : description;
     if (!fileName.endsWith(".db")) {
         fileName += ".db";
     }
     
     QString backupPath = backupDir.absoluteFilePath(fileName);
+    QString backupId = QFileInfo(fileName).baseName();
     
     // Create the backup
-    if (m_dbManager->createBackup(backupPath)) {
-        updateLastBackupInfo(backupPath);
+    if (m_dbManager && m_dbManager->createBackup(backupPath)) {
+        // updateLastBackupInfo(backupPath);
         cleanupOldBackups();
         
         qCInfo(backupManager) << "Backup created successfully:" << backupPath;
         emit backupCreated(backupPath);
-        return true;
+        return backupId;
     } else {
-        QString error = QString("Failed to create backup: %1").arg(m_dbManager->lastError());
+        QString error = QString("Failed to create backup");
         qCWarning(backupManager) << error;
         emit backupFailed(error);
-        return false;
+        return QString();
     }
 }
 
-bool BackupManager::restoreFromBackup(const QString& backupPath)
+bool BackupManager::restoreBackup(const QString& backupId)
 {
     if (!m_dbManager || !m_dbManager->isInitialized()) {
         QString error = "Database manager not available";
@@ -151,11 +152,11 @@ bool BackupManager::restoreFromBackup(const QString& backupPath)
     }
 }
 
-QStringList BackupManager::getAvailableBackups() const
+QList<BackupManager::BackupInfo> BackupManager::getAvailableBackups() const
 {
     QDir backupDir(m_backupDirectory);
     if (!backupDir.exists()) {
-        return QStringList();
+        return QList<BackupInfo>();
     }
     
     QStringList filters;
@@ -163,12 +164,18 @@ QStringList BackupManager::getAvailableBackups() const
     
     QFileInfoList backupFiles = backupDir.entryInfoList(filters, QDir::Files, QDir::Time | QDir::Reversed);
     
-    QStringList backupPaths;
+    QList<BackupInfo> backupInfos;
     for (const QFileInfo& fileInfo : backupFiles) {
-        backupPaths << fileInfo.absoluteFilePath();
+        BackupInfo info;
+        info.backupId = fileInfo.baseName();
+        info.filePath = fileInfo.absoluteFilePath();
+        info.fileSize = fileInfo.size();
+        info.timestamp = fileInfo.lastModified();
+        info.type = BACKUP_COMPLETE;
+        backupInfos << info;
     }
     
-    return backupPaths;
+    return backupInfos;
 }
 
 bool BackupManager::deleteBackup(const QString& backupPath)
@@ -188,7 +195,7 @@ bool BackupManager::deleteBackup(const QString& backupPath)
     }
 }
 
-qint64 BackupManager::getBackupSize(const QString& backupPath) const
+// qint64 BackupManager::getBackupSize(const QString& backupPath) const
 {
     QFileInfo backupInfo(backupPath);
     return backupInfo.exists() ? backupInfo.size() : 0;
@@ -196,28 +203,28 @@ qint64 BackupManager::getBackupSize(const QString& backupPath) const
 
 void BackupManager::cleanupOldBackups()
 {
-    QStringList backups = getAvailableBackups();
+    QList<BackupInfo> backups = getAvailableBackups();
     
     // Remove excess backups (keep only the most recent ones)
     while (backups.size() > m_maxBackupCount) {
-        QString oldestBackup = backups.takeLast();
-        deleteBackup(oldestBackup);
+        BackupInfo oldestBackup = backups.takeLast();
+        deleteBackup(oldestBackup.backupId);
     }
 }
 
 qint64 BackupManager::getTotalBackupSize() const
 {
-    QStringList backups = getAvailableBackups();
+    QList<BackupInfo> backups = getAvailableBackups();
     qint64 totalSize = 0;
     
-    for (const QString& backupPath : backups) {
-        totalSize += getBackupSize(backupPath);
+    for (const BackupInfo& backup : backups) {
+        totalSize += backup.fileSize;
     }
     
     return totalSize;
 }
 
-void BackupManager::performAutoBackup()
+// void BackupManager::performAutoBackup()
 {
     if (m_autoBackupEnabled) {
         qCInfo(backupManager) << "Performing automatic backup";
@@ -225,7 +232,7 @@ void BackupManager::performAutoBackup()
     }
 }
 
-void BackupManager::setupAutoBackupTimer()
+// void BackupManager::setupAutoBackupTimer()
 {
     if (m_autoBackupTimer) {
         m_autoBackupTimer->stop();
@@ -242,13 +249,13 @@ void BackupManager::setupAutoBackupTimer()
     }
 }
 
-QString BackupManager::generateBackupFileName() const
+// QString BackupManager::generateBackupFileName() const
 {
     QDateTime now = QDateTime::currentDateTime();
     return QString("eonplay_backup_%1.db").arg(now.toString("yyyyMMdd_hhmmss"));
 }
 
-void BackupManager::updateLastBackupInfo(const QString& backupPath)
+// void BackupManager::updateLastBackupInfo(const QString& backupPath)
 {
     m_lastBackupTime = QDateTime::currentDateTime();
     m_lastBackupPath = backupPath;
