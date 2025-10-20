@@ -83,8 +83,13 @@ void BackupManager::setBackupDirectory(const QString& directory)
 
 QString BackupManager::createBackup(BackupType type, const QString& description)
 {
-    // Create backup without database manager dependency
-    QString backupId = QDateTime::currentDateTime().toString("backup_yyyy-MM-dd_hh-mm-ss");
+    // Generate backup file name
+    QString fileName = description.isEmpty() ? QDateTime::currentDateTime().toString("backup_yyyy-MM-dd_hh-mm-ss") : description;
+    if (!fileName.endsWith(".db")) {
+        fileName += ".db";
+    }
+    
+    QString backupId = QFileInfo(fileName).baseName();
     emit backupStarted(backupId, type);
     
     // Ensure backup directory exists
@@ -96,14 +101,7 @@ QString BackupManager::createBackup(BackupType type, const QString& description)
         return QString();
     }
     
-    // Generate backup file name
-    QString fileName = description.isEmpty() ? QDateTime::currentDateTime().toString("backup_yyyy-MM-dd_hh-mm-ss") : description;
-    if (!fileName.endsWith(".db")) {
-        fileName += ".db";
-    }
-    
     QString backupPath = backupDir.absoluteFilePath(fileName);
-    backupId = QFileInfo(fileName).baseName();
     
     // Create the backup (simplified implementation)
     QFile sourceFile(backupPath);
