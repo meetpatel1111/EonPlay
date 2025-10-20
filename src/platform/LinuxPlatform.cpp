@@ -55,8 +55,9 @@ LinuxPlatform::LinuxPlatform(QObject *parent)
 LinuxPlatform::~LinuxPlatform()
 {
     shutdownMPRIS();
-}// MPRIS D
--Bus interface implementation
+}
+
+// MPRIS D-Bus interface implementation
 bool LinuxPlatform::initializeMPRIS()
 {
     if (m_mprisActive) {
@@ -181,8 +182,9 @@ QVariantMap LinuxPlatform::getMPRISMetadata() const
     }
     
     return metadata;
-}/
-/ XDG MIME type registration
+}
+
+// XDG MIME type registration
 bool LinuxPlatform::registerMimeTypes(const QList<MimeTypeAssociation>& associations)
 {
     bool allSuccess = true;
@@ -283,8 +285,9 @@ bool LinuxPlatform::updateDesktopDatabase()
     process.waitForFinished(10000);
     
     return process.exitCode() == 0;
-}// 
-Desktop integration
+}
+
+// Desktop integration
 bool LinuxPlatform::installDesktopEntry(const DesktopEntry& entry)
 {
     QString desktopContent = generateDesktopFile(entry);
@@ -399,8 +402,9 @@ QString LinuxPlatform::getDesktopEnvironmentName() const
         case DE_CINNAMON: return "Cinnamon";
         default: return "Unknown";
     }
-}// Har
-dware acceleration support
+}
+
+// Hardware acceleration support
 bool LinuxPlatform::checkVAAPISupport()
 {
     // Check for VA-API library and devices
@@ -516,8 +520,9 @@ QString LinuxPlatform::getHardwareAccelerationStatus() const
     }
     
     return status.join(", ");
-}// System i
-ntegration utilities
+}
+
+// System integration utilities
 bool LinuxPlatform::addToAutostart(bool enabled)
 {
     QString autostartDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/autostart";

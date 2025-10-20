@@ -4,6 +4,8 @@
 #include <QString>
 #include <QStringList>
 #include <QMap>
+#include <QDateTime>
+#include <QRegularExpression>
 
 #ifdef Q_OS_LINUX
 #include <QDBusConnection>
