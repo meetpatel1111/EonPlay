@@ -103,7 +103,7 @@ QString BackupManager::createBackup(BackupType type, const QString& description)
     }
     
     QString backupPath = backupDir.absoluteFilePath(fileName);
-    QString backupId = QFileInfo(fileName).baseName();
+    backupId = QFileInfo(fileName).baseName();
     
     // Create the backup (simplified implementation)
     QFile sourceFile(backupPath);
