@@ -294,8 +294,9 @@ void AudioOutputManager::applyDelayCompensation(QVector<float>& leftChannel, QVe
     
     if (delaySamples > 0) {
         // Positive delay - add silence at the beginning
-        leftChannel.prepend(QVector<float>(delaySamples, 0.0f));
-        rightChannel.prepend(QVector<float>(delaySamples, 0.0f));
+        QVector<float> silenceBuffer(delaySamples, 0.0f);
+        leftChannel = silenceBuffer + leftChannel;
+        rightChannel = silenceBuffer + rightChannel;
     } else if (delaySamples < 0) {
         // Negative delay - remove samples from the beginning
         int samplesToRemove = -delaySamples;

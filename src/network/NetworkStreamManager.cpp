@@ -166,34 +166,6 @@ bool NetworkStreamManager::openNetworkShare(const QUrl& url)
     return mountNetworkShare(url, username, password);
 }
 
-bool NetworkStreamManager::openHttpBasedStream(const QUrl& url)
-{
-    QNetworkRequest request(url);
-    configureRequest(request);
-    
-    // Add specific headers for streaming
-    request.setRawHeader("Accept", "*/*");
-    request.setRawHeader("Connection", "keep-alive");
-    
-    // For HLS streams, request the playlist
-    if (m_currentStreamInfo.type == HLS_STREAM) {
-        request.setRawHeader("Accept", "application/vnd.apple.mpegurl, application/x-mpegurl, */*");
-    }
-    
-    // For DASH streams, request the manifest
-    if (m_currentStreamInfo.type == DASH_STREAM) {
-        request.setRawHeader("Accept", "application/dash+xml, */*");
-    }
-    
-    m_currentReply = m_networkManager->get(request);
-    
-    connect(m_currentReply, &QNetworkReply::errorOccurred,
-            this, &NetworkStreamManager::onNetworkReplyError);
-    
-    qCDebug(networkStream) << "Opening HTTP-based stream:" << url.toString();
-    return true;
-}
-
 bool NetworkStreamManager::openRTSPStream(const QUrl& url)
 {
     // RTSP streams are typically handled by libVLC directly

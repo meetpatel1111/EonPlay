@@ -18,7 +18,7 @@ else()
 endif()
 
 # Find required packages
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui WebSockets)
 
 # Find optional Qt components
 if(NOT WIN32)
@@ -283,6 +283,7 @@ target_link_libraries(EonPlay
     Qt6::MultimediaWidgets
     Qt6::Network
     Qt6::Sql
+    Qt6::WebSockets
 )
 
 # Link DBus only on non-Windows platforms

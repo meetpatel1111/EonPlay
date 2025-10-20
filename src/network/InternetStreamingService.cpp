@@ -291,7 +291,7 @@ QList<InternetStreamingService::RadioStation> InternetStreamingService::parseSHO
     while (!reader.atEnd()) {
         reader.readNext();
         
-        if (reader.isStartElement() && reader.name() == "station") {
+        if (reader.isStartElement() && reader.name() == QStringView(u"station")) {
             RadioStation station;
             
             QXmlStreamAttributes attrs = reader.attributes();
@@ -349,32 +349,32 @@ InternetStreamingService::PodcastFeed InternetStreamingService::parseRSSFeed(con
         reader.readNext();
         
         if (reader.isStartElement()) {
-            if (reader.name() == "title" && feed.title.isEmpty()) {
+            if (reader.name() == QStringView(u"title") && feed.title.isEmpty()) {
                 feed.title = reader.readElementText();
-            } else if (reader.name() == "description" && feed.description.isEmpty()) {
+            } else if (reader.name() == QStringView(u"description") && feed.description.isEmpty()) {
                 feed.description = reader.readElementText();
-            } else if (reader.name() == "link" && feed.website.isEmpty()) {
+            } else if (reader.name() == QStringView(u"link") && feed.website.isEmpty()) {
                 feed.website = reader.readElementText();
-            } else if (reader.name() == "item") {
+            } else if (reader.name() == QStringView(u"item")) {
                 // Parse episode
                 PodcastEpisode episode;
                 
-                while (!(reader.isEndElement() && reader.name() == "item")) {
+                while (!(reader.isEndElement() && reader.name() == QStringView(u"item"))) {
                     reader.readNext();
                     
                     if (reader.isStartElement()) {
-                        if (reader.name() == "title") {
+                        if (reader.name() == QStringView(u"title")) {
                             episode.title = reader.readElementText();
-                        } else if (reader.name() == "description") {
+                        } else if (reader.name() == QStringView(u"description")) {
                             episode.description = reader.readElementText();
-                        } else if (reader.name() == "enclosure") {
+                        } else if (reader.name() == QStringView(u"enclosure")) {
                             QXmlStreamAttributes attrs = reader.attributes();
                             episode.audioUrl = attrs.value("url").toString();
                             episode.fileSize = attrs.value("length").toLongLong();
                             episode.mimeType = attrs.value("type").toString();
-                        } else if (reader.name() == "pubDate") {
+                        } else if (reader.name() == QStringView(u"pubDate")) {
                             episode.publishDate = QDateTime::fromString(reader.readElementText(), Qt::RFC2822Date);
-                        } else if (reader.name() == "guid") {
+                        } else if (reader.name() == QStringView(u"guid")) {
                             episode.guid = reader.readElementText();
                         }
                     }

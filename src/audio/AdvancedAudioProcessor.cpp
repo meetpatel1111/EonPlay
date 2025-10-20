@@ -772,7 +772,7 @@ void AdvancedAudioProcessor::applyWienerFilter(QVector<float>& leftChannel, QVec
     applySpectralSubtraction(leftChannel, rightChannel);
 }
 
-void AdvancedAudioProcessor::performFFT(const QVector<float>& input, QVector<std::complex<float>>& output)
+void AdvancedAudioProcessor::performFFT(const QVector<float>& input, QVector<ComplexF>& output)
 {
     // Simplified FFT implementation
     int N = qMin(input.size(), FFT_SIZE);
@@ -791,7 +791,7 @@ void AdvancedAudioProcessor::performFFT(const QVector<float>& input, QVector<std
     }
 }
 
-void AdvancedAudioProcessor::performIFFT(const QVector<std::complex<float>>& input, QVector<float>& output)
+void AdvancedAudioProcessor::performIFFT(const QVector<ComplexF>& input, QVector<float>& output)
 {
     // Simplified IFFT implementation
     int N = input.size();

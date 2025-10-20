@@ -10,9 +10,6 @@
 
 Q_LOGGING_CATEGORY(backupManager, "eonplay.backup")
 
-namespace EonPlay {
-namespace Data {
-
 BackupManager::BackupManager(DatabaseManager* dbManager, QObject* parent)
     : QObject(parent)
     , m_dbManager(dbManager)
@@ -256,6 +253,3 @@ void BackupManager::updateLastBackupInfo(const QString& backupPath)
     m_lastBackupTime = QDateTime::currentDateTime();
     m_lastBackupPath = backupPath;
 }
-
-} // namespace Data
-} // namespace EonPlay

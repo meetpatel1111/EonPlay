@@ -8,9 +8,13 @@
 #include <QMutex>
 #include <QTimer>
 #include <memory>
+#include <complex>
 
 // Forward declarations
 class AudioProcessor;
+
+// Type aliases for consistent complex number usage
+using ComplexF = std::complex<float>;
 
 /**
  * @brief Advanced audio processing system with karaoke, lyrics, and format conversion
@@ -397,8 +401,8 @@ private:
     void updateNoiseProfile(const QVector<float>& leftChannel, const QVector<float>& rightChannel);
     void applySpectralSubtraction(QVector<float>& leftChannel, QVector<float>& rightChannel);
     void applyWienerFilter(QVector<float>& leftChannel, QVector<float>& rightChannel);
-    void performFFT(const QVector<float>& input, QVector<std::complex<float>>& output);
-    void performIFFT(const QVector<std::complex<float>>& input, QVector<float>& output);
+    void performFFT(const QVector<float>& input, QVector<ComplexF>& output);
+    void performIFFT(const QVector<ComplexF>& input, QVector<float>& output);
 
     // Audio processor integration
     AudioProcessor* m_audioProcessor;

@@ -70,8 +70,9 @@ bool VideoExporter::captureScreenshotAtTime(qint64 timeMs, const ScreenshotOptio
     }
     
     return captureFrameAtTime(timeMs, options);
-}b
-ool VideoExporter::exportGIF(const GIFOptions& options)
+}
+
+bool VideoExporter::exportGIF(const GIFOptions& options)
 {
     if (m_exporting) {
         qCWarning(videoExporter) << "Export already in progress";
