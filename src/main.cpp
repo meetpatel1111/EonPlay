@@ -39,9 +39,9 @@ void printApplicationInfo()
  */
 int main(int argc, char *argv[])
 {
-    // Enable high DPI support
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    // High DPI support is automatically enabled in Qt6
+    // QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // Deprecated in Qt6
+    // QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);    // Deprecated in Qt6
     
     // Create application instance
     EonPlayApplication app(argc, argv);

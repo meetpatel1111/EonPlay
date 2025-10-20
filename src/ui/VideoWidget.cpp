@@ -296,8 +296,9 @@ void VideoWidget::hideVideoAdjustments()
         m_adjustmentWidget->setVisible(false);
         m_adjustmentsVisible = false;
     }
-}// 
-Event handlers
+}
+
+// Event handlers
 void VideoWidget::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton) {
@@ -429,8 +430,9 @@ void VideoWidget::paintEvent(QPaintEvent* event)
     }
     
     QWidget::paintEvent(event);
-}// P
-rivate slot implementations
+}
+
+// Private slot implementations
 void VideoWidget::onBrightnessChanged(int value)
 {
     setBrightness(value);
@@ -543,8 +545,9 @@ void VideoWidget::createVideoDisplay()
     
     // Add to main layout
     m_mainLayout->addWidget(m_videoDisplayWidget);
-}void VideoWi
-dget::createOverlayControls()
+}
+
+void VideoWidget::createOverlayControls()
 {
     // Create overlay widget
     m_overlayWidget = new QWidget(this);
@@ -624,8 +627,9 @@ void VideoWidget::createContextMenu()
     // Video adjustments action
     m_adjustmentsAction = m_contextMenu->addAction("Video Adjustments");
     connect(m_adjustmentsAction, &QAction::triggered, this, &VideoWidget::showVideoAdjustments);
-}void
- VideoWidget::createVideoAdjustmentControls()
+}
+
+void VideoWidget::createVideoAdjustmentControls()
 {
     // Create adjustment widget
     m_adjustmentWidget = new QWidget(this);
@@ -700,8 +704,9 @@ void VideoWidget::createContextMenu()
     
     // Position adjustment widget (this would typically be positioned relative to parent)
     m_adjustmentWidget->move(10, 10);
-}vo
-id VideoWidget::applyFuturisticStyling()
+}
+
+void VideoWidget::applyFuturisticStyling()
 {
     // Main widget styling
     setStyleSheet(R"(
@@ -810,8 +815,9 @@ id VideoWidget::applyFuturisticStyling()
             }
         )");
     }
-}void V
-ideoWidget::updateVideoOutput()
+}
+
+void VideoWidget::updateVideoOutput()
 {
     if (m_vlcBackend && m_videoDisplayWidget) {
         // Set VLC video output to this widget's window handle
@@ -914,8 +920,9 @@ void VideoWidget::stopControlsHideTimer()
     if (m_controlsHideTimer) {
         m_controlsHideTimer->stop();
     }
-}v
-oid VideoWidget::initializeSubtitleComponents()
+}
+
+void VideoWidget::initializeSubtitleComponents()
 {
     // Create subtitle manager
     m_subtitleManager = new SubtitleManager(this);
