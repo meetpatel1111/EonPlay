@@ -11,8 +11,10 @@
 #include <QNetworkReply>
 #include <QUdpSocket>
 #include <QTcpServer>
+#ifdef HAVE_QT_WEBSOCKETS
 #include <QWebSocketServer>
 #include <QWebSocket>
+#endif
 #include <memory>
 
 /**
@@ -333,9 +335,11 @@ signals:
 private slots:
     void onDiscoveryTimeout();
     void onUdpDataReceived();
+#ifdef HAVE_QT_WEBSOCKETS
     void onWebSocketConnected();
     void onWebSocketDisconnected();
     void onWebSocketMessageReceived(const QString& message);
+#endif
     void onNetworkReplyFinished();
     void updateSessionStatus();
 
@@ -355,10 +359,12 @@ private:
     bool stopChromecastCasting();
 
     // Remote control methods
+#ifdef HAVE_QT_WEBSOCKETS
     void setupWebControlServer();
     void handleWebControlRequest(QWebSocket* client, const QString& message);
     QString generateWebControlInterface() const;
     void broadcastSessionUpdate();
+#endif
 
     // Helper methods
     QString generateSessionId() const;
@@ -370,8 +376,10 @@ private:
     QNetworkAccessManager* m_networkManager;
     QUdpSocket* m_udpSocket;
     QTcpServer* m_tcpServer;
+#ifdef HAVE_QT_WEBSOCKETS
     QWebSocketServer* m_webSocketServer;
     QVector<QWebSocket*> m_connectedClients;
+#endif
 
     // Discovery state
     bool m_discovering;

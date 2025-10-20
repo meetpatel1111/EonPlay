@@ -8,8 +8,10 @@
 #include <QHostAddress>
 #include <QUuid>
 #include <QCryptographicHash>
+#ifdef HAVE_QT_WEBSOCKETS
 #include <QWebSocketServer>
 #include <QWebSocket>
+#endif
 #include <QtMath>
 
 Q_DECLARE_LOGGING_CATEGORY(videoCasting)
@@ -20,7 +22,9 @@ VideoCastingManager::VideoCastingManager(QObject* parent)
     , m_networkManager(new QNetworkAccessManager(this))
     , m_udpSocket(new QUdpSocket(this))
     , m_tcpServer(new QTcpServer(this))
+#ifdef HAVE_QT_WEBSOCKETS
     , m_webSocketServer(nullptr)
+#endif
     , m_discovering(false)
     , m_discoveryTimer(new QTimer(this))
     , m_casting(false)

@@ -18,7 +18,10 @@ else()
 endif()
 
 # Find required packages
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui WebSockets)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui)
+
+# Find optional Qt WebSockets component
+find_package(Qt6 QUIET COMPONENTS WebSockets)
 
 # Find optional Qt components
 if(NOT WIN32)
@@ -283,8 +286,13 @@ target_link_libraries(EonPlay
     Qt6::MultimediaWidgets
     Qt6::Network
     Qt6::Sql
-    Qt6::WebSockets
 )
+
+# Link WebSockets if available
+if(TARGET Qt6::WebSockets)
+    target_link_libraries(EonPlay Qt6::WebSockets)
+    target_compile_definitions(EonPlay PRIVATE HAVE_QT_WEBSOCKETS)
+endif()
 
 # Link DBus only on non-Windows platforms
 if(NOT WIN32 AND TARGET Qt6::DBus)
