@@ -39,7 +39,8 @@ InstallerManager::~InstallerManager()
 {
 }
 
-// void InstallerManager::detectInstallationType()
+/*
+void InstallerManager::detectInstallationType()
 {
     QString appDir = QCoreApplication::applicationDirPath();
     
@@ -65,6 +66,7 @@ InstallerManager::~InstallerManager()
         m_portableDirectory = appDir;
     }
 }
+*/
 
 // Installer creation
 bool InstallerManager::createInstaller(DeploymentTarget target, const InstallerConfig& config, const QString& outputPath)
@@ -187,7 +189,8 @@ SectionEnd
     return script;
 }
 
-// bool InstallerManager::compileInstaller(const QString& scriptPath, const QString& outputPath) const
+/*
+bool InstallerManager::compileInstaller(const QString& scriptPath, const QString& outputPath) const
 {
     QProcess process;
     
@@ -216,6 +219,7 @@ SectionEnd
     
     return process.exitCode() == 0;
 }
+*/
 
 // Portable mode management
 bool InstallerManager::enablePortableMode(bool enabled)
