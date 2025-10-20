@@ -220,7 +220,6 @@ private:
     QStringList m_maliciousPatterns;
     QStringList m_suspiciousExtensions;
     QMap<QString, QString> m_knownThreats;
-    QMap<QString, QString> m_knownThreats;
     
     // Constants
     static const int MAX_SECURITY_EVENTS = 1000;

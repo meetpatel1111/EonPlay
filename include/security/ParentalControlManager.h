@@ -108,7 +108,7 @@ public:
     bool areParentalSettingsLocked() const;
 
     // Content filtering
-    bool isContentAllowed(const QString& filePath) const;
+    bool isContentAllowed(const QString& filePath);
     bool isContentAllowed(const QString& title, const QString& genre, ContentRating rating) const;
     ContentRating detectContentRating(const QString& filePath) const;
     ContentRating parseRatingString(const QString& ratingStr) const;

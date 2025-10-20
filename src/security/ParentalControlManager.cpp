@@ -179,7 +179,7 @@ bool ParentalControlManager::areParentalSettingsLocked() const
 }
 
 // Content filtering
-bool ParentalControlManager::isContentAllowed(const QString& filePath) const
+bool ParentalControlManager::isContentAllowed(const QString& filePath)
 {
     if (!m_parentalControlsEnabled) {
         return true;
