@@ -836,7 +836,7 @@ void AudioEqualizer::performFFT(const QVector<float>& input, QVector<float>& mag
         for (int n = 0; n < N; ++n) {
             double angle = -2.0 * PI * k * n / N;
             std::complex<double> w(qCos(angle), qSin(angle));
-            sum += input[n] * w;
+            sum += static_cast<double>(input[n]) * w;
         }
         
         magnitude[k] = static_cast<float>(std::abs(sum));
