@@ -671,7 +671,7 @@ QColor AudioVisualizerWidget::interpolateColor(const QColor& color1, const QColo
     return QColor(r, g, b, a);
 }
 
-void AudioVisualizerWidget::drawBar(QPainter& painter, const QRectF& rect, float value, const QColor& color)
+void AudioVisualizerWidget::drawBar(QPainter& painter, const QRectF& rect, float /*value*/, const QColor& color)
 {
     if (m_gradientEnabled) {
         QLinearGradient gradient(rect.topLeft(), rect.bottomLeft());

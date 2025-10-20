@@ -938,7 +938,9 @@ void VideoWidget::initializeSubtitleComponents()
     if (m_subtitleManager && m_subtitleRenderer) {
         connect(m_subtitleManager, &SubtitleManager::activeSubtitlesChanged,
                 this, [this](qint64 time, const QList<SubtitleEntry>& entries) {
-                    m_subtitleRenderer->setSubtitleEntries(entries, time);
+                    if (m_subtitleRenderer) {
+                        m_subtitleRenderer->setSubtitleEntries(entries, time);
+                    }
                 });
         connect(m_subtitleManager, &SubtitleManager::subtitlesEnabledChanged,
                 m_subtitleRenderer, &SubtitleRenderer::setEnabled);

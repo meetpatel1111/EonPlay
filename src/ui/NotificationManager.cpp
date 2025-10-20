@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QScreen>
 #include <QStyle>
+#include <QStyleOption>
 // QDesktopWidget was removed in Qt6, use QScreen instead
 #include <QMouseEvent>
 #include <QPainter>

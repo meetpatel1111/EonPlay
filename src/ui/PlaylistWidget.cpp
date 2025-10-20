@@ -588,7 +588,7 @@ void PlaylistWidget::setupConnections()
             this, &PlaylistWidget::onItemSelectionChanged);
     
     connect(m_treeWidget, &QTreeWidget::itemDoubleClicked,
-            this, [this](QTreeWidgetItem* item, int column) {
+            this, [this](QTreeWidgetItem* /*item*/, int column) {
                 Q_UNUSED(column)
                 onItemDoubleClicked(nullptr); // Convert to list widget item call
             });

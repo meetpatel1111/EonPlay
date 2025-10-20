@@ -339,7 +339,7 @@ void MiniPlayerWidget::onNextClicked()
     }
 }
 
-void MiniPlayerWidget::onVolumeChanged(int volume)
+void MiniPlayerWidget::onVolumeChanged(int /*volume*/)
 {
     if (m_playbackController) {
         // m_playbackController->setVolume(volume);
@@ -352,7 +352,7 @@ void MiniPlayerWidget::onPositionChanged(int position)
     updatePositionSlider();
 }
 
-void MiniPlayerWidget::onSeekRequested(int position)
+void MiniPlayerWidget::onSeekRequested(int /*position*/)
 {
     if (m_playbackController) {
         // m_playbackController->setPosition(position);
