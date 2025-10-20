@@ -68,7 +68,7 @@ jobs:
         cmake --build build --target package --config Release
 
     - name: Upload Nightly Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.package_name }}-${{ github.sha }}
         path: |
@@ -134,7 +134,7 @@ jobs:
 
     - name: Upload Valgrind logs
       if: failure()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: valgrind-logs
         path: build/valgrind-*.log

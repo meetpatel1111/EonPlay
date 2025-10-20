@@ -165,7 +165,7 @@ jobs:
         echo "- CMake (BSD)" >> LICENSE_REPORT.md
 
     - name: Upload license report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: license-report
         path: LICENSE_REPORT.md
