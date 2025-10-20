@@ -243,6 +243,18 @@ set(HEADER_FILES
     include/network/NetworkStreamManager.h
     include/network/InternetStreamingService.h
     include/network/NetworkDiscoveryManager.h
+    include/data/DatabaseManager.h
+    include/data/MediaFile.h
+    include/data/Playlist.h
+    include/data/BackupManager.h
+    include/data/LibraryManager.h
+    include/data/MediaScanner.h
+    include/data/MetadataExtractor.h
+    include/data/PlaylistManager.h
+    include/ai/AISubtitleGenerator.h
+    include/ai/SubtitleLanguageDetector.h
+    include/ai/SubtitleTranslator.h
+    include/ai/AISubtitleManager.h
     include/security/SecurityManager.h
     include/security/ParentalControlManager.h
     include/stability/CrashReporter.h
