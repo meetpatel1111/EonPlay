@@ -166,39 +166,6 @@ bool NetworkStreamManager::openNetworkShare(const QUrl& url)
     return mountNetworkShare(url, username, password);
 }
 
-bool NetworkStreamManager::openRTSPStream(const QUrl& url)
-{
-    // RTSP streams are typically handled by libVLC directly
-    // We validate and prepare the URL for libVLC consumption
-    
-    if (!url.isValid() || url.scheme().toLower() != "rtsp") {
-        m_lastError = "Invalid RTSP URL";
-        m_lastErrorCode = -3;
-        return false;
-    }
-    
-    m_currentStreamInfo.isLive = true;
-    m_currentState = CONNECTED;
-    emit streamStateChanged(m_currentState);
-    emit streamOpened(m_currentStreamInfo);
-    
-    qCDebug(networkStream) << "RTSP stream prepared:" << url.toString();
-    return true;
-}
-
-bool NetworkStreamManager::openNetworkShare(const QUrl& url)
-{
-    QString username, password;
-    
-    // Extract credentials from URL if present
-    if (!url.userName().isEmpty()) {
-        username = url.userName();
-        password = url.password();
-    }
-    
-    return mountNetworkShare(url, username, password);
-}
-
 void NetworkStreamManager::closeStream()
 {
     if (m_currentReply) {
