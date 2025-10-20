@@ -58,6 +58,12 @@ public:
     void hideNotification();
     
     /**
+     * @brief Get current notification data
+     * @return Current notification data
+     */
+    const NotificationData& getCurrentNotification() const;
+    
+    /**
      * @brief Check if notification is currently visible
      * @return true if visible
      */

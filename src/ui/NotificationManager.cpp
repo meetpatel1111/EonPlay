@@ -1,6 +1,7 @@
 #include "ui/NotificationManager.h"
 #include <QApplication>
 #include <QScreen>
+#include <QStyle>
 // QDesktopWidget was removed in Qt6, use QScreen instead
 #include <QMouseEvent>
 #include <QPainter>
@@ -174,6 +175,11 @@ void NotificationWidget::onHideAnimationFinished()
     
     emit hideAnimationFinished();
     emit closed();
+}
+
+const NotificationData& NotificationWidget::getCurrentNotification() const
+{
+    return m_currentNotification;
 }
 
 void NotificationWidget::initializeUI()
@@ -389,7 +395,7 @@ void NotificationManager::onNotificationClicked()
 {
     NotificationWidget* widget = qobject_cast<NotificationWidget*>(sender());
     if (widget && widget == m_activeNotification) {
-        emit notificationClicked(m_activeNotification->m_currentNotification);
+        emit notificationClicked(m_activeNotification->getCurrentNotification());
     }
 }
 
