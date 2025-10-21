@@ -20,6 +20,15 @@ endif()
 # Find required packages
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Multimedia MultimediaWidgets Network Sql Gui)
 
+# Enable Qt MOC, UIC, and RCC early
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# Qt6 standard project setup
+qt6_standard_project_setup()
+
 # Find optional Qt WebSockets component
 find_package(Qt6 QUIET COMPONENTS WebSockets)
 
@@ -299,8 +308,11 @@ target_include_directories(EonPlay PRIVATE
     ${LIBVLC_INCLUDE_DIRS}
 )
 
-# Set target sources to include headers for MOC processing
-target_sources(EonPlay PRIVATE ${HEADER_FILES})
+# Set target properties for MOC processing
+set_target_properties(EonPlay PROPERTIES
+    AUTOMOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE"
+    AUTOMOC_MOC_OPTIONS "-I${CMAKE_SOURCE_DIR}/include"
+)
 
 # Link libraries
 target_link_libraries(EonPlay
@@ -381,16 +393,8 @@ else()
     endif()
 endif()
 
-# Enable Qt MOC, UIC, and RCC
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTORCC ON)
-
-# Ensure MOC finds all header files
+# Additional MOC configuration
 set(CMAKE_AUTOMOC_MOC_OPTIONS "-I${CMAKE_SOURCE_DIR}/include")
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-# Set MOC path hints
 set(CMAKE_AUTOMOC_PATH_PREFIX ON)
 
 # Resources (optional)
