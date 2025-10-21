@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ratingusage_0',['ratingUsage',['../d8/d81/structParentalControlManager_1_1UsageStatistics.html#a54749d7331efbc35211f4b02fd59d667',1,'ParentalControlManager::UsageStatistics']]],
+  ['recentlywatched_1',['recentlyWatched',['../d8/d81/structParentalControlManager_1_1UsageStatistics.html#ab07fd218f77fb6ad36cf883bf09b8779',1,'ParentalControlManager::UsageStatistics']]],
+  ['recursive_2',['recursive',['../d9/d36/structEonPlay_1_1Data_1_1MediaScanner_1_1ScanOptions.html#a4583a103487fe7b17c3da0d1ddf8831d',1,'EonPlay::Data::MediaScanner::ScanOptions']]],
+  ['registerfileassociations_3',['registerFileAssociations',['../d8/dd0/structInstallerManager_1_1InstallerConfig.html#a8e6101232f948307b9818fbc7e320329',1,'InstallerManager::InstallerConfig']]],
+  ['releasedate_4',['releaseDate',['../d6/df1/structAutoUpdater_1_1UpdateInfo.html#a9b7bb7223ec3233f9c179239bd6516fb',1,'AutoUpdater::UpdateInfo']]],
+  ['releasenotes_5',['releaseNotes',['../d6/df1/structAutoUpdater_1_1UpdateInfo.html#aba006f57d639f28aef1ef22fe062b500',1,'AutoUpdater::UpdateInfo']]],
+  ['rememberrecentfiles_6',['rememberRecentFiles',['../db/d11/structUserPreferences.html#a8c9fa6280cea242dbfc7d96b792f24fd',1,'UserPreferences']]],
+  ['requestdelay_7',['requestDelay',['../d4/d1d/structEonPlay_1_1AI_1_1SubtitleTranslator_1_1TranslationOptions.html#a17281e63415837a178434c4971fc628a',1,'EonPlay::AI::SubtitleTranslator::TranslationOptions']]],
+  ['requiredcomponents_8',['requiredComponents',['../d8/dd0/structInstallerManager_1_1InstallerConfig.html#accc5dfa0c6af6a801a6c0f96084a3adf',1,'InstallerManager::InstallerConfig']]],
+  ['requiredfiles_9',['requiredFiles',['../dd/d6c/structInstallerManager_1_1PortableConfig.html#a79d04b0b08f4597bc28facb56d29f4c4',1,'InstallerManager::PortableConfig']]],
+  ['requiresacceptance_10',['requiresAcceptance',['../df/dff/structLicenseViewer_1_1LegalDocument.html#a4464781d831131f32e348b7d44fd36ec',1,'LicenseViewer::LegalDocument']]],
+  ['requiresadmin_11',['requiresAdmin',['../d8/dd0/structInstallerManager_1_1InstallerConfig.html#a28ae930555102acc0ce4cee7ac652d6d',1,'InstallerManager::InstallerConfig']]],
+  ['requiresrestart_12',['requiresRestart',['../d9/d35/structInstallerManager_1_1UpdateInfo.html#a4db006def0fc71fe33e00be0a7acc0d9',1,'InstallerManager::UpdateInfo']]],
+  ['requiressupervision_13',['requiresSupervision',['../d3/d80/structParentalControlManager_1_1UserProfile.html#a6c6d177cce600212b906524d66c01759',1,'ParentalControlManager::UserProfile']]],
+  ['resolution_14',['resolution',['../d8/de1/structStreamingManager_1_1StreamInfo.html#a077c68684bb80751b914434100fb2f31',1,'StreamingManager::StreamInfo::resolution'],['../d6/d01/structVideoExporter_1_1ScreenshotOptions.html#aa39c9c39993be1395345718f426125cd',1,'VideoExporter::ScreenshotOptions::resolution'],['../de/d84/structVideoExporter_1_1GIFOptions.html#adc9213508b4906f12eefef7545a0d290',1,'VideoExporter::GIFOptions::resolution'],['../dd/d1e/structVideoExporter_1_1VideoExportOptions.html#a4c9d37cfb00dad5a7b34426df5876385',1,'VideoExporter::VideoExportOptions::resolution']]],
+  ['resumeplayback_15',['resumePlayback',['../db/d11/structUserPreferences.html#aaa5dcce4f1081af5f3183fd1f41651b4',1,'UserPreferences']]],
+  ['rightchannel_16',['rightChannel',['../d7/dbf/structAudioVisualizer_1_1AudioSample.html#a75d9b33a9f088b382f0c78eae308647e',1,'AudioVisualizer::AudioSample']]],
+  ['rootpath_17',['rootPath',['../d9/db8/structNetworkDiscoveryManager_1_1MediaShare.html#a7d27f0d5f23f41d7b6bf01ed59b35611',1,'NetworkDiscoveryManager::MediaShare']]]
+];

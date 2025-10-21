@@ -1,0 +1,10 @@
+<map id="HotkeyManager::showCustomizationDialog" name="HotkeyManager::showCustomizationDialog">
+<area shape="rect" id="Node000001" title="Show hotkey customization dialog." alt="" coords="5,22,267,62"/>
+<area shape="rect" id="Node000002" href="$d2/d66/classHotkeyManager.html#a650e859f82e65f43e80477b095250eef" title="Check if key sequence conflicts with existing hotkeys." alt="" coords="569,5,789,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,34,555,21,555,26,267,39"/>
+<area shape="rect" id="Node000003" href="$d2/d66/classHotkeyManager.html#a370e812ad2887b649fe7861717e6facd" title="Set hotkey for an action." alt="" coords="315,55,513,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,51,301,54,301,60,267,57"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="482,52,596,31,597,36,483,57"/>
+<area shape="rect" id="Node000004" href="$d2/d66/classHotkeyManager.html#a28aff79a1e510ff4fe892e4541a31643" title="Emitted when hotkey settings change." alt="" coords="561,55,796,80"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="514,65,548,65,548,70,514,70"/>
+</map>

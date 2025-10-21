@@ -1,0 +1,7 @@
+<map id="VideoWidget::setGamma" name="VideoWidget::setGamma">
+<area shape="rect" id="Node000001" title="Set gamma adjustment (0.1 to 10.0)" alt="" coords="5,35,191,60"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a28a304019603266c5530cc2a80100d6d" title="Get current gamma." alt="" coords="273,5,435,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,34,259,26,259,31,191,39"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#af63a2ee0f85d44eccaad6871dbb0e4bf" title="Emitted when video adjustments change." alt="" coords="239,55,469,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,55,225,59,225,64,190,60"/>
+</map>

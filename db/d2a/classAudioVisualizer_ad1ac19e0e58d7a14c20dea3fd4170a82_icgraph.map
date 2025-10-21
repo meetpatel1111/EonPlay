@@ -1,0 +1,5 @@
+<map id="AudioVisualizer::waveformDataUpdated" name="AudioVisualizer::waveformDataUpdated">
+<area shape="rect" id="Node000001" title="Emitted when waveform data is updated." alt="" coords="223,5,420,45"/>
+<area shape="rect" id="Node000002" href="$d5/d45/classAudioVisualizerWidget.html#ad727db0859687c0c4a001e8a7c1ebab4" title="Set the audio visualizer backend." alt="" coords="5,5,175,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,28,175,28,175,23,209,23"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="StreamingManager::shutdown" name="StreamingManager::shutdown">
+<area shape="rect" id="Node000001" title="Shutdown the streaming manager." alt="" coords="5,77,223,102"/>
+<area shape="rect" id="Node000002" href="$d9/d32/classStreamingManager.html#a9054710bdf9f149b516252cfa9c75686" title="Disconnect from network share." alt="" coords="284,5,508,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,74,293,46,295,51,171,79"/>
+<area shape="rect" id="Node000003" href="$d9/d32/classStreamingManager.html#ae21d866d039209839e42253b7d756419" title="Stop bandwidth monitoring." alt="" coords="271,69,521,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,87,257,87,257,92,223,92"/>
+<area shape="rect" id="Node000004" href="$d9/d32/classStreamingManager.html#a753f3430d44ecbfabc5a88f6e083574a" title="Stop current stream." alt="" coords="281,134,511,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,99,271,119,320,129,318,134,270,124,176,105"/>
+</map>

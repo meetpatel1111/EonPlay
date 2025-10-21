@@ -1,0 +1,14 @@
+<map id="SubtitleManager::setEnabled" name="SubtitleManager::setEnabled">
+<area shape="rect" id="Node000001" title="Enable or disable subtitles." alt="" coords="5,70,215,95"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a4da4d64818831616c79df498283f26b4" title="Emitted when active subtitles change." alt="" coords="516,5,751,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,67,262,48,385,35,502,27,503,32,386,40,263,53,163,73"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#a0f7ec6b8d0765725ba1b72dbf6f4d784" title="Handle media position change." alt="" coords="263,63,468,103"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,80,249,80,249,85,215,85"/>
+<area shape="rect" id="Node000006" href="$dd/d8b/classSubtitleManager.html#ac8cf37e80cd3e1345e97a3280fa1522c" title="Emitted when subtitles are enabled/disabled." alt="" coords="269,127,462,167"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="163,93,272,121,271,126,161,98"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="459,60,525,46,526,51,460,65"/>
+<area shape="rect" id="Node000004" href="$dd/d8b/classSubtitleManager.html#ab895587ae818bbf845af0852e617d74d" title="Get active subtitle entries at current time." alt="" coords="534,69,733,109"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="468,83,520,84,520,89,468,88"/>
+<area shape="rect" id="Node000005" href="$d1/de3/classSubtitleTrack.html#abddc35798ef24393b10e0859eef65c90" title="Get active subtitle entries at given time." alt="" coords="799,69,975,109"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="733,87,785,87,785,92,733,92"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="PlaybackController::duration" name="PlaybackController::duration">
+<area shape="rect" id="Node000001" title="Get media duration." alt="" coords="624,223,769,263"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a8cb2e6930e89b963867d2b6eca398020" title="Save current playback position for resume." alt="" coords="409,53,576,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="659,216,516,95,520,91,663,212"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#a6ef737643d936bc69833b090f9ff4416" title="Seek to specific position." alt="" coords="420,193,565,233"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="610,233,565,226,566,221,611,228"/>
+<area shape="rect" id="Node000008" href="$d0/d22/classPlaybackController.html#ab4a61c8ea850238d901ad652c1bd4506" title="Seek to percentage of total duration." alt="" coords="206,353,354,393"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="611,249,512,264,460,278,411,298,396,308,387,319,377,331,363,344,340,356,338,351,360,339,374,328,383,316,392,305,408,294,458,273,511,258,610,243"/>
+<area shape="rect" id="Node000011" href="$d0/d22/classPlaybackController.html#a3a55530f437efd75ab79c001a4367a5d" title="Enable or disable crossfade between tracks." alt="" coords="409,308,576,348"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="637,270,542,310,540,306,635,266"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#a188796e3061d606b9f1ee44fca8fdf8d" title="Load media file or URL." alt="" coords="5,5,151,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,50,401,35,361,24,306,17,251,14,151,19,151,14,251,9,307,11,362,19,403,30,441,45"/>
+<area shape="rect" id="Node000005" href="$d0/d22/classPlaybackController.html#acb360376f5afae30d7b16cd47df34f0c" title="Load and seek to saved resume position." alt="" coords="199,33,361,73"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="464,184,418,135,360,88,338,76,341,71,363,83,422,131,468,181"/>
+<area shape="rect" id="Node000006" href="$d0/d22/classPlaybackController.html#a85b1abf15e44338edafa5d003559ca3f" title="Seek backward by specified amount." alt="" coords="207,97,353,137"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="439,190,360,152,332,140,334,135,362,147,442,185"/>
+<area shape="rect" id="Node000007" href="$d0/d22/classPlaybackController.html#a6084dd2e7f68b0ee353f093e2fd8340a" title="Seek forward by specified amount." alt="" coords="207,161,353,201"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="406,203,352,195,353,190,407,198"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="426,242,411,254,395,276,388,298,381,320,363,343,346,356,343,351,359,339,376,318,383,296,390,274,407,250,423,238"/>
+<area shape="rect" id="Node000009" href="$d0/d22/classPlaybackController.html#abbf5ea8a1b47b768ef5883cdbcfe97b8" title="Step backward one frame (video only)" alt="" coords="207,225,353,265"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="407,229,353,237,352,232,406,224"/>
+<area shape="rect" id="Node000010" href="$d0/d22/classPlaybackController.html#adaa7ccd1a7ef9bb7d4bdec07ae8525f4" title="Step forward one frame (video only)" alt="" coords="207,289,353,329"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="436,242,411,254,362,280,335,292,333,287,360,275,408,250,434,237"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="185,43,151,38,152,33,185,38"/>
+</map>

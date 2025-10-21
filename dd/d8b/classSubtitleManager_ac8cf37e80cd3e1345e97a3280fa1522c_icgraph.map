@@ -1,0 +1,8 @@
+<map id="SubtitleManager::subtitlesEnabledChanged" name="SubtitleManager::subtitlesEnabledChanged">
+<area shape="rect" id="Node000001" title="Emitted when subtitles are enabled/disabled." alt="" coords="476,23,669,63"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#ab3f20c8c68c5b49e4facf27917afebf1" title="Enable or disable subtitles." alt="" coords="219,5,428,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="462,35,428,31,429,26,463,30"/>
+<area shape="rect" id="Node000003" href="$d9/dff/classSubtitleControlWidget.html#a6dbdfc2ebce1598ac0d4bc6411c85717" title="Set subtitle manager." alt="" coords="5,23,171,63"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="462,46,171,46,171,41,462,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="205,33,171,37,170,32,205,28"/>
+</map>

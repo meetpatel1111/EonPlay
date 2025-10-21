@@ -1,0 +1,7 @@
+<map id="EonPlay::Data::LibraryManager::LibrarySettings" name="EonPlay::Data::LibraryManager::LibrarySettings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="121,308,336,488"/>
+<area shape="rect" id="Node000002" href="$d9/d36/structEonPlay_1_1Data_1_1MediaScanner_1_1ScanOptions.html" title=" " alt="" coords="5,5,209,245"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,244,185,292,180,294,158,247"/>
+<area shape="rect" id="Node000003" href="$d1/d13/structEonPlay_1_1Data_1_1MetadataExtractor_1_1ExtractionOptions.html" title=" " alt="" coords="233,35,467,215"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="313,217,278,294,273,292,308,214"/>
+</map>

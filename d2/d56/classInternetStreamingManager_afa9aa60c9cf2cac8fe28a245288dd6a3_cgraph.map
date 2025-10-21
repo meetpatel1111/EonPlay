@@ -1,0 +1,5 @@
+<map id="InternetStreamingManager::startRecording" name="InternetStreamingManager::startRecording">
+<area shape="rect" id="Node000001" title="Start recording current stream." alt="" coords="5,5,203,45"/>
+<area shape="rect" id="Node000002" href="$d2/d56/classInternetStreamingManager.html#a9ce5b262b9a3d8f2541df5eef6b22be7" title="Emitted when recording starts." alt="" coords="251,5,448,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,23,237,23,237,28,203,28"/>
+</map>

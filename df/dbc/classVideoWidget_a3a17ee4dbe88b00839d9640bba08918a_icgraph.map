@@ -1,0 +1,5 @@
+<map id="VideoWidget::setGamma" name="VideoWidget::setGamma">
+<area shape="rect" id="Node000001" title="Set gamma adjustment (0.1 to 10.0)" alt="" coords="319,5,504,31"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a1464faf11fefac7fae77e7aaec07b7ce" title="Reset all video adjustments to default." alt="" coords="5,5,271,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,21,271,21,271,15,305,15"/>
+</map>

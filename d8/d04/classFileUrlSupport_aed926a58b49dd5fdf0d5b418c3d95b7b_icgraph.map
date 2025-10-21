@@ -1,0 +1,8 @@
+<map id="FileUrlSupport::screenshotCaptureFailed" name="FileUrlSupport::screenshotCaptureFailed">
+<area shape="rect" id="Node000001" title="Emitted when screenshot capture fails." alt="" coords="587,5,780,45"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a605927fb3ddd04e7cc31bb75f6d66232" title="Capture screenshot of current video frame." alt="" coords="5,13,248,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="573,25,539,24,296,24,248,25,248,19,296,19,539,19,573,19"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#a4a53dcf6c01c360aa8c9fe15467306db" title="Capture screenshot at specific position." alt="" coords="296,33,539,73"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="573,40,539,43,539,38,573,34"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="282,43,248,40,249,34,283,38"/>
+</map>

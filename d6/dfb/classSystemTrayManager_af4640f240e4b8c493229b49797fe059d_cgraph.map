@@ -1,0 +1,9 @@
+<map id="SystemTrayManager::onMediaLoaded" name="SystemTrayManager::onMediaLoaded">
+<area shape="rect" id="Node000001" title="Handle media file loaded." alt="" coords="5,37,168,77"/>
+<area shape="rect" id="Node000002" href="$d6/dfb/classSystemTrayManager.html#a0d5500cf2b4967b648ad1305c8a9674c" title="Show notification message." alt="" coords="216,5,379,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,42,202,37,203,42,169,48"/>
+<area shape="rect" id="Node000003" href="$d6/dfb/classSystemTrayManager.html#a951260cd5bcaa70e658bfe8e509a2264" title="Update playback controls state." alt="" coords="216,69,379,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,67,203,72,202,78,168,72"/>
+<area shape="rect" id="Node000004" href="$d6/dfb/classSystemTrayManager.html#ac8ff72ea9be764f21243b03a7ea8ee31" title="Update tray icon tooltip with current media info." alt="" coords="427,69,589,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="379,87,413,87,413,92,379,92"/>
+</map>

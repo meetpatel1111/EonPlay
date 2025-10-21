@@ -1,0 +1,7 @@
+<map id="SubtitleManager::validateSubtitleFile" name="SubtitleManager::validateSubtitleFile">
+<area shape="rect" id="Node000001" title="Validate subtitle file for security." alt="" coords="533,5,724,45"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a8b6d9ea90c799260111c17b60b4d4e2c" title="Load subtitle file." alt="" coords="247,13,485,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="520,28,486,28,486,23,520,23"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#a09a785b7bd91cada546078cbe9337eda" title="Handle media loaded." alt="" coords="5,5,199,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="233,28,199,28,199,23,233,23"/>
+</map>

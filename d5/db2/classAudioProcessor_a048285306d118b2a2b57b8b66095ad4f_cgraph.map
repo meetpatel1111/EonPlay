@@ -1,0 +1,7 @@
+<map id="AudioProcessor::setEnabled" name="AudioProcessor::setEnabled">
+<area shape="rect" id="Node000001" title="Enable or disable the processor." alt="" coords="5,31,208,56"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#a20a681418e1acc1b785832101c4e29b5" title="Emitted when processor is enabled/disabled." alt="" coords="256,5,495,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,31,242,28,242,33,208,36"/>
+<area shape="rect" id="Node000003" href="$d5/db2/classAudioProcessor.html#a850087f7f22643e23d2d3844b1872022" title="Check if lyrics are available." alt="" coords="280,55,471,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,50,266,55,266,60,208,55"/>
+</map>

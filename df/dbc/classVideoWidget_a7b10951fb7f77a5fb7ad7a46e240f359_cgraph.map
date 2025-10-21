@@ -1,0 +1,7 @@
+<map id="VideoWidget::setRotation" name="VideoWidget::setRotation">
+<area shape="rect" id="Node000001" title="Set video rotation (0, 90, 180, 270 degrees)" alt="" coords="5,35,193,60"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#aaced5f2fcb881347bc3c7488be4a3b76" title="Get current rotation." alt="" coords="267,5,431,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,34,253,27,254,32,194,39"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#a4022e8fc18185cfe5c9eb928459c531f" title="Emitted when video transformation changes." alt="" coords="241,55,456,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,55,228,59,228,64,193,61"/>
+</map>

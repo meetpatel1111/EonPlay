@@ -1,0 +1,5 @@
+<map id="SubtitleTrack::getNextEntry" name="SubtitleTrack::getNextEntry">
+<area shape="rect" id="Node000001" title="Get next subtitle entry after given time." alt="" coords="5,5,205,31"/>
+<area shape="rect" id="Node000002" href="$db/d1c/classSubtitleEntry.html#a7d02be234e56c8e399e8890fd8985803" title=" " alt="" coords="253,5,429,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,15,240,15,240,21,206,21"/>
+</map>

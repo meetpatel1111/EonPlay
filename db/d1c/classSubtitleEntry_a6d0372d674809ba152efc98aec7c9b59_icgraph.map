@@ -1,0 +1,9 @@
+<map id="SubtitleEntry::isValid" name="SubtitleEntry::isValid">
+<area shape="rect" id="Node000001" title="Check if subtitle entry is valid." alt="" coords="656,5,812,31"/>
+<area shape="rect" id="Node000002" href="$d1/de3/classSubtitleTrack.html#a22a6718c776a6e6e2857469f8ca05d0a" title=" " alt="" coords="436,5,608,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="642,21,608,21,608,15,642,15"/>
+<area shape="rect" id="Node000003" href="$dc/db9/classSRTParser.html#a1f7cc9e6aaf5755d85f12e8c45c3fd43" title="Parse subtitle content and return subtitle track." alt="" coords="207,5,388,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="422,21,388,21,388,15,422,15"/>
+<area shape="rect" id="Node000004" href="$dc/db9/classSRTParser.html#aeef7c45b58862be36745cd1f39abe5a5" title="Parse subtitle file and return subtitle track." alt="" coords="5,5,159,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="193,21,159,21,159,15,193,15"/>
+</map>

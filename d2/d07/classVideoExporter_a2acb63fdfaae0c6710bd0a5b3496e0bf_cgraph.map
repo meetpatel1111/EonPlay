@@ -1,0 +1,5 @@
+<map id="VideoExporter::applyColorCorrection" name="VideoExporter::applyColorCorrection">
+<area shape="rect" id="Node000001" title="Apply smart color correction." alt="" coords="5,5,197,45"/>
+<area shape="rect" id="Node000002" href="$d2/d07/classVideoExporter.html#a29601b8be6654ee41a470ca6accee008" title="Emitted when color correction completes." alt="" coords="245,5,467,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,23,232,23,232,28,198,28"/>
+</map>

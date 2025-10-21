@@ -1,0 +1,9 @@
+<map id="PlaybackController::generateSeekThumbnail" name="PlaybackController::generateSeekThumbnail">
+<area shape="rect" id="Node000001" title="Generate thumbnail for seek preview." alt="" coords="5,69,195,109"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a1a864cc9746736841077caf5195ea483" title="Check if media is currently loaded." alt="" coords="269,5,415,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,67,255,45,257,51,177,72"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#aae1e4a03d5e4873bd67700ad0eecb827" title="Get current playback position." alt="" coords="269,69,415,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,87,256,87,256,92,195,92"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#ae88ce15c3c3daccf70caaaecf957b866" title="Emitted when a seek thumbnail is generated." alt="" coords="243,133,441,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,107,254,127,252,132,176,112"/>
+</map>

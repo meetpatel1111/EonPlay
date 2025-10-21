@@ -1,0 +1,11 @@
+<map id="AudioEqualizer::enabledChanged" name="AudioEqualizer::enabledChanged">
+<area shape="rect" id="Node000001" title="Emitted when equalizer is enabled/disabled." alt="" coords="283,92,519,117"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#a8303ee2073a7bc91ad6c0dee052e75fe" title="Import equalizer settings from file." alt="" coords="9,5,231,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="355,89,234,46,185,33,186,28,235,41,357,84"/>
+<area shape="rect" id="Node000003" href="$d9/d4c/classAudioEqualizerWidget.html#a96f7775022636c37fa20cb10b514412d" title="Initialize the widget with audio equalizer." alt="" coords="37,55,203,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="269,94,202,87,203,81,270,88"/>
+<area shape="rect" id="Node000004" href="$d1/db9/classAudioEqualizer.html#a53b3705e78894c1779060067e9c5b1e3" title="Reset equalizer to default settings." alt="" coords="5,120,235,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="270,120,235,124,235,119,269,115"/>
+<area shape="rect" id="Node000005" href="$d1/db9/classAudioEqualizer.html#af87e24d743ca713d55b1963039cce963" title="Enable or disable the equalizer." alt="" coords="21,169,219,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="350,124,235,159,183,172,182,167,234,154,349,119"/>
+</map>

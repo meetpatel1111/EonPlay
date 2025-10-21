@@ -1,0 +1,33 @@
+<map id="SRTParser::parseFile" name="SRTParser::parseFile">
+<area shape="rect" id="Node000001" title="Parse subtitle file and return subtitle track." alt="" coords="5,405,159,431"/>
+<area shape="rect" id="Node000002" href="$dc/db9/classSRTParser.html#a1f7cc9e6aaf5755d85f12e8c45c3fd43" title="Parse subtitle content and return subtitle track." alt="" coords="207,199,388,224"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,403,271,232,275,236,98,407"/>
+<area shape="rect" id="Node000012" href="$d0/dcf/classBaseSubtitleParser.html#ada1817afe5f75918a5dbbb33b4046243" title="Read file content with encoding detection." alt="" coords="470,462,614,502"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="126,428,207,447,338,465,456,475,456,480,337,470,206,453,125,433"/>
+<area shape="rect" id="Node000014" href="$d0/dcf/classBaseSubtitleParser.html#a447bd858af80cd7c94e3ace71faca2bf" title="Validate subtitle file for security issues." alt="" coords="225,398,369,438"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="159,415,212,415,212,421,159,421"/>
+<area shape="rect" id="Node000003" href="$d1/de3/classSubtitleTrack.html#a22a6718c776a6e6e2857469f8ca05d0a" title=" " alt="" coords="456,169,628,195"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="388,198,442,191,442,197,388,203"/>
+<area shape="rect" id="Node000005" href="$d0/dcf/classBaseSubtitleParser.html#a5a5d04bf48b74bc7b6397ee97f56b272" title="Get maximum allowed number of subtitle entries." alt="" coords="470,219,614,259"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="388,219,457,227,456,232,388,224"/>
+<area shape="rect" id="Node000006" href="$d1/de3/classSubtitleTrack.html#a14288829f2168d06300faf875a2498f3" title=" " alt="" coords="452,284,632,309"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="326,222,376,245,437,269,468,278,466,283,435,274,374,250,323,227"/>
+<area shape="rect" id="Node000008" href="$d1/de3/classSubtitleTrack.html#a6f59ca6817dc11a4f2ac0b30aeb8b97c" title="Sort entries by start time." alt="" coords="447,5,637,31"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="303,197,322,165,351,123,389,78,435,41,449,33,452,38,437,46,392,82,355,126,326,168,308,200"/>
+<area shape="rect" id="Node000009" href="$dd/d74/structSubtitleParseResult.html#a615d239f4b9cc79cf5f16e38b3cbb584" title="Get human&#45;readable result summary." alt="" coords="468,55,616,95"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="310,197,362,152,397,127,435,105,454,96,456,101,437,110,400,132,366,157,314,201"/>
+<area shape="rect" id="Node000010" href="$d0/dcf/classBaseSubtitleParser.html#a62679a3e71c2e13e63515fccb82f25e2" title="Validate subtitle content for security issues." alt="" coords="470,334,614,374"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="313,222,365,269,400,295,437,318,459,328,456,333,435,323,397,300,362,273,310,226"/>
+<area shape="rect" id="Node000011" href="$d1/de3/classSubtitleTrack.html#a2ef28446d8fc6e666d86a00b698d1241" title="Validate all entries and remove invalid ones." alt="" coords="436,120,648,145"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="326,196,435,154,464,146,465,151,437,159,328,201"/>
+<area shape="rect" id="Node000004" href="$db/d1c/classSubtitleEntry.html#a6d0372d674809ba152efc98aec7c9b59" title="Check if subtitle entry is valid." alt="" coords="697,169,853,195"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="629,179,683,179,683,185,629,185"/>
+<area shape="rect" id="Node000007" href="$d1/de3/classSubtitleTrack.html#ae429993e8ef2f02d263d784cb8fab249" title=" " alt="" coords="696,284,855,309"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="633,294,682,294,682,299,633,299"/>
+<area shape="rect" id="Node000013" href="$d0/dcf/classBaseSubtitleParser.html#a4495a629d13d37b8357c620faeb992fd" title="Detect text encoding of subtitle file." alt="" coords="703,462,847,502"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="614,479,690,479,690,485,614,485"/>
+<area shape="poly" id="edge16_Node000014_Node000010" title=" " alt="" coords="369,397,456,374,457,379,371,402"/>
+<area shape="poly" id="edge14_Node000014_Node000012" title=" " alt="" coords="371,434,457,457,456,462,369,439"/>
+<area shape="rect" id="Node000015" href="$d3/dc3/classISubtitleParser.html#a16b65bcc13bbabef68819861e611b5f9" title="Get supported file extensions." alt="" coords="447,398,637,438"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="370,415,433,415,433,421,370,421"/>
+</map>

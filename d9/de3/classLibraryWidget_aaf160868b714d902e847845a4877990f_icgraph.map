@@ -1,0 +1,7 @@
+<map id="LibraryWidget::initialize" name="LibraryWidget::initialize">
+<area shape="rect" id="Node000001" title="Initialize the widget with managers." alt="" coords="325,5,503,31"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#ae0e54160db525152d6583cd9f9b9efe4" title="Initialize the main window with component manager." alt="" coords="108,5,277,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="312,21,277,21,277,15,312,15"/>
+<area shape="rect" id="Node000003" href="$df/d0a/main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main application entry point." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

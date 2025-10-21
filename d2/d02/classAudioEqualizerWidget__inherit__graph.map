@@ -1,0 +1,5 @@
+<map id="AudioEqualizerWidget" name="AudioEqualizerWidget">
+<area shape="rect" id="Node000001" title="Widget for audio equalizer controls." alt="" coords="5,119,245,384"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="90,5,161,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,84,128,119,123,119,123,84"/>
+</map>

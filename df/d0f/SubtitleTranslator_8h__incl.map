@@ -1,0 +1,17 @@
+<map id="include/ai/SubtitleTranslator.h" name="include/ai/SubtitleTranslator.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="243,5,458,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,80,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="302,33,94,81,93,76,300,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,79,175,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="318,33,188,77,186,72,316,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="200,79,293,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="335,33,277,73,274,68,332,28"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="318,79,383,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="353,31,353,65,348,65,348,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="408,79,597,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="376,28,467,70,465,75,374,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="622,79,746,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="405,28,617,73,616,78,404,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="770,79,841,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="447,28,589,48,757,76,756,81,589,53,446,33"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="AdvancedAudioProcessor::analyzeNoiseProfile" name="AdvancedAudioProcessor::analyzeNoiseProfile">
+<area shape="rect" id="Node000001" title="Analyze noise profile." alt="" coords="5,5,192,45"/>
+<area shape="rect" id="Node000002" href="$d9/d29/classAdvancedAudioProcessor.html#acd02165391f52a69d2c463a205e6a502" title="Emitted when noise profile is analyzed." alt="" coords="240,5,427,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,23,226,23,226,28,192,28"/>
+</map>

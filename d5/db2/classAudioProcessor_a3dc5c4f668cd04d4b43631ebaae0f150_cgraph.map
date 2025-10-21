@@ -1,0 +1,15 @@
+<map id="AudioProcessor::~AudioProcessor" name="AudioProcessor::~AudioProcessor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,247,80"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#a3e9c3f2e0397567e0c9dd7c92b08959a" title="Shutdown the processor." alt="" coords="295,55,488,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,65,281,65,281,70,247,70"/>
+<area shape="rect" id="Node000003" href="$d5/db2/classAudioProcessor.html#ade7e840be3ffdca1d56f5372fb153c00" title="Cancel ongoing conversion." alt="" coords="536,5,781,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="460,52,575,31,576,36,461,57"/>
+<area shape="rect" id="Node000004" href="$d5/db2/classAudioProcessor.html#a14fbb0d942d5357df8f46213dbb9ce3a" title="Clear loaded lyrics." alt="" coords="559,55,758,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="488,65,546,65,546,70,488,70"/>
+<area shape="rect" id="Node000005" href="$d5/db2/classAudioProcessor.html#a048285306d118b2a2b57b8b66095ad4f" title="Enable or disable the processor." alt="" coords="557,104,760,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="461,77,576,99,575,104,460,83"/>
+<area shape="rect" id="Node000006" href="$d5/db2/classAudioProcessor.html#a20a681418e1acc1b785832101c4e29b5" title="Emitted when processor is enabled/disabled." alt="" coords="829,79,1068,104"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="760,105,815,100,816,106,760,110"/>
+<area shape="rect" id="Node000007" href="$d5/db2/classAudioProcessor.html#a850087f7f22643e23d2d3844b1872022" title="Check if lyrics are available." alt="" coords="853,128,1044,153"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="760,122,840,129,839,134,760,128"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="include/ai/SubtitleTranslator.h" name="include/ai/SubtitleTranslator.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="125,5,340,31"/>
+<area shape="rect" id="Node000002" href="$d0/d97/AISubtitleManager_8h.html" title=" " alt="" coords="5,79,225,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,40,136,81,133,76,201,35"/>
+<area shape="rect" id="Node000004" href="$da/ddb/SubtitleTranslator_8cpp.html" title=" " alt="" coords="249,79,451,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="265,35,332,76,329,81,262,40"/>
+<area shape="rect" id="Node000003" href="$df/db4/AISubtitleManager_8cpp.html" title=" " alt="" coords="12,152,219,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,118,118,152,113,152,113,118"/>
+</map>

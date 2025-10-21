@@ -1,0 +1,9 @@
+<map id="PlaybackController::volume" name="PlaybackController::volume">
+<area shape="rect" id="Node000001" title="Get current volume level." alt="" coords="392,37,537,77"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a15e32e121328c54d449bc7c8b3dbd842" title="Set volume level." alt="" coords="199,37,344,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,60,345,60,345,55,378,55"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#a8d07479456563a0e1391f096e719e34b" title="Decrease volume by step." alt="" coords="5,5,151,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="185,46,151,40,152,35,186,40"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#acbecefd2f7aed52a6e3fcc23a02f2a0b" title="Increase volume by step." alt="" coords="5,69,151,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="186,74,152,80,151,75,185,69"/>
+</map>

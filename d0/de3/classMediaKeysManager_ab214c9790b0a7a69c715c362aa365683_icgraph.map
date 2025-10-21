@@ -1,0 +1,7 @@
+<map id="MediaKeysManager::updatePlaybackState" name="MediaKeysManager::updatePlaybackState">
+<area shape="rect" id="Node000001" title="Update playback state for system integration." alt="" coords="287,37,489,77"/>
+<area shape="rect" id="Node000002" href="$d0/de3/classMediaKeysManager.html#a5d2ef7dd11be002c8ce1f0d91518fe9c" title="Handle playback state changes." alt="" coords="5,5,239,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="273,46,238,42,239,37,273,41"/>
+<area shape="rect" id="Node000003" href="$d0/de3/classMediaKeysManager.html#a59ed1ec7220a8d76da31476d5b6f3df5" title="Handle position changes." alt="" coords="9,69,235,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,74,236,78,235,73,273,68"/>
+</map>

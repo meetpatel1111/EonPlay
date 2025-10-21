@@ -1,0 +1,16 @@
+<map id="FileUrlSupport::validateMediaFile" name="FileUrlSupport::validateMediaFile">
+<area shape="rect" id="Node000001" title="Validate media file format and accessibility." alt="" coords="799,81,973,121"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a37b71fc93757ef83b9d21774b6253675" title="Load media file with validation and auto subtitle detection." alt="" coords="537,88,751,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="785,103,751,103,751,98,785,98"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#ae40a5216c2e2f98b8a943086cc6852f6" title="Load media from URL or stream." alt="" coords="280,12,489,37"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="586,87,428,40,430,35,588,82"/>
+<area shape="rect" id="Node000005" href="$d8/d04/classFileUrlSupport.html#a778c1c9fa26afa5d85905bcd813a9dd8" title="Process dropped files and URLs." alt="" coords="5,55,232,95"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="523,98,232,83,233,78,523,92"/>
+<area shape="rect" id="Node000006" href="$d8/d04/classFileUrlSupport.html#a6878e3a41ccde6cf7d6092d93c1a421b" title="Handle file open request." alt="" coords="296,113,473,139"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="524,115,474,120,473,115,523,110"/>
+<area shape="rect" id="Node000007" href="$d8/d04/classFileUrlSupport.html#a8293ec6df26878b99baf15ee65139e3e" title="Handle multiple files open request." alt="" coords="293,163,477,188"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="595,120,490,154,446,165,445,160,489,149,594,115"/>
+<area shape="rect" id="Node000004" href="$d8/d04/classFileUrlSupport.html#a305f70beca6d625e0043d1798d25cfbb" title="Handle URL open request." alt="" coords="32,5,205,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="266,24,205,23,205,17,266,19"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="304,43,225,58,224,53,303,37"/>
+</map>

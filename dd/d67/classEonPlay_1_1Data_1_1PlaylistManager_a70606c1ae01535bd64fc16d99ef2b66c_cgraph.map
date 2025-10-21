@@ -1,0 +1,17 @@
+<map id="EonPlay::Data::PlaylistManager::addToPlaylist" name="EonPlay::Data::PlaylistManager::addToPlaylist">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,120,231,160"/>
+<area shape="rect" id="Node000002" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#aca1d848bb9b4f1a489f0bd42dbb3a423" title=" " alt="" coords="279,5,517,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,117,210,86,278,55,299,47,301,52,280,60,212,91,154,122"/>
+<area shape="rect" id="Node000003" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#aeb83eaa447b5b8ee7ffd807ba13f91de" title=" " alt="" coords="297,70,499,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,117,322,95,323,101,217,123"/>
+<area shape="rect" id="Node000004" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ac58b462f918e2599c573f99938b2f926" title=" " alt="" coords="307,120,489,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,137,293,137,293,143,231,143"/>
+<area shape="rect" id="Node000007" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#ab7c27c39584aff891ef753c05c96b5e4" title=" " alt="" coords="285,184,511,224"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="207,157,297,178,296,184,206,163"/>
+<area shape="rect" id="Node000008" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a2bc3ed8a7eac97e8a44bb5164b30574e" title=" " alt="" coords="285,248,511,288"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="149,158,208,196,280,234,299,241,297,246,278,238,205,201,146,162"/>
+<area shape="rect" id="Node000005" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ad640ac7e92f75f102d2828dc0b092eb0" title=" " alt="" coords="565,120,748,160"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="490,137,552,137,552,143,490,143"/>
+<area shape="rect" id="Node000006" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ad3d64b0f06c4b50e4be23cba4b668680" title=" " alt="" coords="796,120,979,160"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="748,137,782,137,782,143,748,143"/>
+</map>

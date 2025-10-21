@@ -1,0 +1,5 @@
+<map id="PlaybackControls::setVolume" name="PlaybackControls::setVolume">
+<area shape="rect" id="Node000001" title="Set the current volume level." alt="" coords="5,5,217,31"/>
+<area shape="rect" id="Node000002" href="$d6/d3c/classPlaybackControls.html#a55053794e9de9db99d56eae626bae1ca" title="Get current volume." alt="" coords="265,5,457,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,15,252,15,252,21,218,21"/>
+</map>

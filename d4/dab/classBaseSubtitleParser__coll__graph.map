@@ -1,0 +1,5 @@
+<map id="BaseSubtitleParser" name="BaseSubtitleParser">
+<area shape="rect" id="Node000001" title="Base implementation of ISubtitleParser with common functionality." alt="" coords="7,339,179,624"/>
+<area shape="rect" id="Node000002" href="$d3/dc3/classISubtitleParser.html" title="Abstract interface for subtitle format parsers." alt="" coords="5,5,180,291"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,304,95,339,90,339,90,304"/>
+</map>

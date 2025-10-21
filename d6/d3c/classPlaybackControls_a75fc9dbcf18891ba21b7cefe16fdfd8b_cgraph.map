@@ -1,0 +1,8 @@
+<map id="PlaybackControls::updatePosition" name="PlaybackControls::updatePosition">
+<area shape="rect" id="Node000001" title="Update position display." alt="" coords="5,5,193,45"/>
+<area shape="rect" id="Node000002" href="$d6/d3c/classPlaybackControls.html#aa1dd091b4949b31cdd31327f717644e0" title="Get current position." alt="" coords="504,13,699,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,23,491,23,491,28,193,28"/>
+<area shape="rect" id="Node000003" href="$d6/d3c/classPlaybackControls.html#af1050f68356753e55ff1e9eaaa340c92" title="Set the current playback position." alt="" coords="241,38,456,63"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,32,228,36,228,41,193,38"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="456,37,490,34,491,39,456,43"/>
+</map>

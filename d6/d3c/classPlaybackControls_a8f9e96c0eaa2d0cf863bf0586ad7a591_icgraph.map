@@ -1,0 +1,12 @@
+<map id="PlaybackControls::duration" name="PlaybackControls::duration">
+<area shape="rect" id="Node000001" title="Get current duration." alt="" coords="801,45,999,70"/>
+<area shape="rect" id="Node000002" href="$d6/d3c/classPlaybackControls.html#a7fd8df16a2f1ef5e97317c392d2cdae5" title="Set the media duration." alt="" coords="535,19,753,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="788,49,753,45,754,40,788,44"/>
+<area shape="rect" id="Node000005" href="$d6/d3c/classPlaybackControls.html#a84902f588c893870d90df7ca047b35fe" title="Update duration display." alt="" coords="277,63,465,103"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="787,65,466,81,465,76,787,60"/>
+<area shape="rect" id="Node000003" href="$d6/d3c/classPlaybackControls.html#adcf4ff63c1b6fb018fa7737694e06383" title="Reset all controls to default state." alt="" coords="256,13,487,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="521,32,487,31,487,25,521,26"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="562,50,466,68,465,63,561,45"/>
+<area shape="rect" id="Node000004" href="$d6/d3c/classPlaybackControls.html#a7d27f828f2f1c02d87692ef60ab69b93" title=" " alt="" coords="5,5,208,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="242,28,208,28,208,23,242,23"/>
+</map>

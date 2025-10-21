@@ -1,0 +1,5 @@
+<map id="SubtitleRenderer::opacity" name="SubtitleRenderer::opacity">
+<area shape="rect" id="Node000001" title="Get current subtitle opacity." alt="" coords="263,5,449,31"/>
+<area shape="rect" id="Node000002" href="$de/d8e/classSubtitleRenderer.html#a4f34d675d3ea278200295dc3464e4c8f" title="Set subtitle opacity." alt="" coords="5,5,215,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,21,215,21,215,15,249,15"/>
+</map>

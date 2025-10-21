@@ -1,0 +1,13 @@
+<map id="BackupManager::getAvailableBackups" name="BackupManager::getAvailableBackups">
+<area shape="rect" id="Node000001" title=" " alt="" coords="591,83,805,123"/>
+<area shape="rect" id="Node000002" href="$d5/d62/classBackupManager.html#af61ef85d1ec367222b8015aa153c3a3b" title=" " alt="" coords="309,26,516,66"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="584,83,512,69,513,63,585,78"/>
+<area shape="rect" id="Node000005" href="$d5/d62/classBackupManager.html#addb86cb9b57afe4ea911f4256fa7496d" title=" " alt="" coords="283,91,543,116"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="577,106,543,106,543,101,577,101"/>
+<area shape="rect" id="Node000006" href="$d5/d62/classBackupManager.html#aed2049f065440fdc106e3f37d0e6baf8" title=" " alt="" coords="299,140,526,165"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="578,127,487,143,486,137,577,122"/>
+<area shape="rect" id="Node000003" href="$d5/d62/classBackupManager.html#a397b21de2f56dc3bc47f1068ece59380" title=" " alt="" coords="9,5,231,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="295,37,231,31,232,26,296,32"/>
+<area shape="rect" id="Node000004" href="$d5/d62/classBackupManager.html#af44caf77020d5c06be416841971b6219" title=" " alt="" coords="5,55,235,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="296,60,235,66,235,61,295,55"/>
+</map>

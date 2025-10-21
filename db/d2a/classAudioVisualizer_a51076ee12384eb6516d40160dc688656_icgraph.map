@@ -1,0 +1,5 @@
+<map id="AudioVisualizer::getSpectrumBandCount" name="AudioVisualizer::getSpectrumBandCount">
+<area shape="rect" id="Node000001" title="Get spectrum analyzer band count." alt="" coords="223,5,437,45"/>
+<area shape="rect" id="Node000002" href="$d5/d45/classAudioVisualizerWidget.html#ab94c9a60561c5fe360f6671c3be06b44" title=" " alt="" coords="5,5,175,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,28,175,28,175,23,209,23"/>
+</map>

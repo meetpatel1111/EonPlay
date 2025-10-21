@@ -1,0 +1,5 @@
+<map id="SettingsManager::setValue" name="SettingsManager::setValue">
+<area shape="rect" id="Node000001" title="Set a specific setting value." alt="" coords="5,13,201,38"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#a2bc4bde942fa578970ad951547b46f0e" title="Emitted when a specific setting is changed." alt="" coords="249,5,435,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,23,236,23,236,28,201,28"/>
+</map>

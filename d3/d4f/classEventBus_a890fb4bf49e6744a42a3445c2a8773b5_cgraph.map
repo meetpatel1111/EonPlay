@@ -1,0 +1,5 @@
+<map id="EventBus::publish" name="EventBus::publish">
+<area shape="rect" id="Node000001" title="Publish an event with simplified parameters." alt="" coords="5,5,144,31"/>
+<area shape="rect" id="Node000002" href="$d3/d4f/classEventBus.html#a3c7f98c18480c1003d984861738cd441" title="Publish an event to all subscribers." alt="" coords="192,5,331,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,15,178,15,178,21,145,21"/>
+</map>

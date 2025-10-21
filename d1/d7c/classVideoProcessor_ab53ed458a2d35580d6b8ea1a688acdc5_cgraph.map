@@ -1,0 +1,7 @@
+<map id="VideoProcessor::setFilterEnabled" name="VideoProcessor::setFilterEnabled">
+<area shape="rect" id="Node000001" title="Enable or disable a filter." alt="" coords="5,35,188,75"/>
+<area shape="rect" id="Node000002" href="$d1/d7c/classVideoProcessor.html#a546f1f3113fe52671cdec80ef1de40b8" title="Emitted when a filter is enabled/disabled." alt="" coords="241,5,453,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,41,228,37,228,42,189,47"/>
+<area shape="rect" id="Node000003" href="$d1/d7c/classVideoProcessor.html#aab64357e49e2f9776e7e2ec951f2ab32" title="Get filter name." alt="" coords="236,70,459,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,62,223,66,222,71,188,68"/>
+</map>

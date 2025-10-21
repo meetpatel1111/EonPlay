@@ -1,0 +1,13 @@
+<map id="VLCBackend::position" name="VLCBackend::position">
+<area shape="rect" id="Node000001" title="Get current playback position." alt="" coords="1023,42,1185,67"/>
+<area shape="rect" id="Node000002" href="$d6/d6e/classVLCBackend.html#a74baf7c1984854476e23d9ae3c0f4224" title="Seek to specific position." alt="" coords="833,17,975,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1009,45,974,41,975,36,1009,40"/>
+<area shape="rect" id="Node000003" href="$d6/d6e/classVLCBackend.html#a80643e4b0983248daee43ac1ada9d441" title="Update hardware acceleration settings." alt="" coords="511,35,785,75"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="1009,57,785,57,785,52,1009,52"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="820,40,786,44,785,38,819,35"/>
+<area shape="rect" id="Node000004" href="$d6/d6e/classVLCBackend.html#ac324fcd2c2413b5753bfcf3064df5157" title="Set preferred hardware acceleration type." alt="" coords="272,5,463,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="497,42,463,38,463,33,497,36"/>
+<area shape="rect" id="Node000005" href="$d6/d6e/classVLCBackend.html#a66f2d955ba041562dfccaa3cf8163394" title="Update hardware acceleration from user preferences." alt="" coords="5,35,224,75"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="497,60,463,60,272,60,224,59,224,54,272,55,463,55,497,54"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="259,41,225,45,224,39,258,35"/>
+</map>

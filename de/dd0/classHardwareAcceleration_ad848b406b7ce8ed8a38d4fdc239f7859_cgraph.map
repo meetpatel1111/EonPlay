@@ -1,0 +1,11 @@
+<map id="HardwareAcceleration::initialize" name="HardwareAcceleration::initialize">
+<area shape="rect" id="Node000001" title="Initialize hardware acceleration detection." alt="" coords="5,101,172,141"/>
+<area shape="rect" id="Node000002" href="$de/dd0/classHardwareAcceleration.html#a6cd739eee409b526c7befc6d81886cc6" title="Detect available hardware acceleration methods." alt="" coords="225,5,437,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,99,219,55,240,47,242,52,221,60,128,104"/>
+<area shape="rect" id="Node000003" href="$de/dd0/classHardwareAcceleration.html#a5bf84a3466dfdd5fa1cbbcf181a23b95" title="Get platform&#45;specific acceleration type name." alt="" coords="230,69,431,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,108,216,102,216,107,172,113"/>
+<area shape="rect" id="Node000004" href="$de/dd0/classHardwareAcceleration.html#a674048f48d5889721dd91b8db4475863" title="Get the best available hardware acceleration method." alt="" coords="220,133,441,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,130,207,134,206,140,172,135"/>
+<area shape="rect" id="Node000005" href="$de/dd0/classHardwareAcceleration.html#a53caaec6d9c3f063b5f2a5d22731a2c7" title="Check if the current platform supports hardware acceleration." alt="" coords="247,197,414,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="128,139,221,183,242,190,240,195,219,188,126,144"/>
+</map>

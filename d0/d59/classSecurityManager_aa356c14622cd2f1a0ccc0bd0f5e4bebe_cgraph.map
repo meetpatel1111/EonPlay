@@ -1,0 +1,19 @@
+<map id="SecurityManager::validateMediaFile" name="SecurityManager::validateMediaFile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,120,199,160"/>
+<area shape="rect" id="Node000002" href="$d0/d59/classSecurityManager.html#a6c3bdbbe1b7300c9ccaa4650e0320ce3" title=" " alt="" coords="263,5,461,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,118,184,86,246,55,265,47,267,52,248,60,186,91,134,122"/>
+<area shape="rect" id="Node000003" href="$d0/d59/classSecurityManager.html#aaef34ebaf26845ba3135a1e848eb5851" title=" " alt="" coords="251,70,473,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,117,246,105,289,96,290,101,247,111,194,123"/>
+<area shape="rect" id="Node000007" href="$d0/d59/classSecurityManager.html#a9664e0e3734f8e79704205911b9bbe3c" title=" " alt="" coords="249,120,475,160"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="199,137,236,137,236,143,199,143"/>
+<area shape="rect" id="Node000008" href="$d0/d59/classSecurityManager.html#a2f6ae24144e016a768062a5e42d6a14e" title=" " alt="" coords="247,185,477,210"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="194,157,247,169,290,179,289,184,246,175,193,163"/>
+<area shape="rect" id="Node000009" href="$d0/d59/classSecurityManager.html#a81b244e5eccae0f81aea2304d742a8a3" title=" " alt="" coords="265,235,459,275"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="136,158,187,189,248,219,271,228,269,233,246,224,185,193,133,163"/>
+<area shape="rect" id="Node000004" href="$d0/d59/classSecurityManager.html#aff7a609161d297df43c181e75ab7f557" title=" " alt="" coords="525,70,747,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="474,80,512,80,512,85,474,85"/>
+<area shape="rect" id="Node000005" href="$d0/d59/classSecurityManager.html#a49e1020b62e60790214a2782cf5c6aff" title=" " alt="" coords="799,45,1029,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="747,70,785,66,785,72,747,75"/>
+<area shape="rect" id="Node000006" href="$d0/d59/classSecurityManager.html#ae455fbfee3cf9a7894edbd2205c25bce" title=" " alt="" coords="795,94,1033,119"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="747,90,781,93,781,98,747,95"/>
+</map>

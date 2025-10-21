@@ -1,0 +1,5 @@
+<map id="AudioProcessor::switchAudioTrack" name="AudioProcessor::switchAudioTrack">
+<area shape="rect" id="Node000001" title="Switch to specified audio track." alt="" coords="5,5,215,45"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#a622f26117d08bc1154e232f9c5ded611" title="Emitted when audio track changes." alt="" coords="263,5,463,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,23,249,23,249,28,215,28"/>
+</map>

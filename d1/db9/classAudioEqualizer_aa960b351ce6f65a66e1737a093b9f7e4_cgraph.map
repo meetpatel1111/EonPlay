@@ -1,0 +1,12 @@
+<map id="AudioEqualizer::applyPreset" name="AudioEqualizer::applyPreset">
+<area shape="rect" id="Node000001" title="Apply a preset profile." alt="" coords="5,56,209,81"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#a1ed4e6e6f95a1160d2ca8ec8db2c3b36" title="Get preset name." alt="" coords="257,5,485,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,53,290,31,291,36,175,59"/>
+<area shape="rect" id="Node000003" href="$d1/db9/classAudioEqualizer.html#af60730b36b8f47173835619d2e9d224f" title="Emitted when preset changes." alt="" coords="533,56,759,81"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,66,520,66,520,71,209,71"/>
+<area shape="rect" id="Node000004" href="$d1/db9/classAudioEqualizer.html#a8c8dd2e3cb98396f8a0b8ea18c755cc4" title="Set all band gains." alt="" coords="273,106,470,146"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,79,266,100,265,106,166,84"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="467,103,571,82,572,87,468,109"/>
+<area shape="rect" id="Node000005" href="$d1/db9/classAudioEqualizer.html#aa74eed06fe12bea90e9870ab3e0b9057" title="Emitted when a band gain changes." alt="" coords="551,106,741,146"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="470,123,537,123,537,129,470,129"/>
+</map>

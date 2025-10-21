@@ -1,0 +1,13 @@
+<map id="LibraryWidget::refreshLibrary" name="LibraryWidget::refreshLibrary">
+<area shape="rect" id="Node000001" title="Refresh library display." alt="" coords="785,35,997,60"/>
+<area shape="rect" id="Node000002" href="$d9/de3/classLibraryWidget.html#ac5cc2e5c3f6ea2c7756663e16f2fdc9f" title=" " alt="" coords="551,5,737,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="771,36,737,32,738,26,772,31"/>
+<area shape="rect" id="Node000003" href="$d9/de3/classLibraryWidget.html#a2dad9f8c731f1cf20da3deab540dadd3" title="Set library manager." alt="" coords="551,55,737,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="772,64,738,67,737,62,771,58"/>
+<area shape="rect" id="Node000004" href="$d9/de3/classLibraryWidget.html#aaf160868b714d902e847845a4877990f" title="Initialize the widget with managers." alt="" coords="325,63,503,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="537,78,503,78,503,73,537,73"/>
+<area shape="rect" id="Node000005" href="$d6/d1a/classMainWindow.html#ae0e54160db525152d6583cd9f9b9efe4" title="Initialize the main window with component manager." alt="" coords="108,63,277,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="312,78,277,78,277,73,312,73"/>
+<area shape="rect" id="Node000006" href="$df/d0a/main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main application entry point." alt="" coords="5,63,60,88"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="94,78,60,78,60,73,94,73"/>
+</map>

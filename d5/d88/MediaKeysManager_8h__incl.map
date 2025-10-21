@@ -1,0 +1,11 @@
+<map id="include/ui/MediaKeysManager.h" name="include/ui/MediaKeysManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="167,5,395,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,80,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,33,94,78,93,72,242,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="103,79,302,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,33,227,71,224,68,267,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="326,79,397,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="296,29,340,68,336,72,292,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="421,79,499,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="311,28,419,71,417,76,309,33"/>
+</map>

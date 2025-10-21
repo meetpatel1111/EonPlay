@@ -1,0 +1,5 @@
+<map id="MainWindow::setFullscreen" name="MainWindow::setFullscreen">
+<area shape="rect" id="Node000001" title="Set window to fullscreen mode." alt="" coords="5,5,204,31"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#a6008a33337b6a0072879957b83cc7227" title="Emitted when fullscreen mode changes." alt="" coords="252,5,487,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,15,238,15,238,21,204,21"/>
+</map>

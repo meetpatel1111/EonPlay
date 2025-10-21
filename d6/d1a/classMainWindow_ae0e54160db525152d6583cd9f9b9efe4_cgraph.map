@@ -1,0 +1,45 @@
+<map id="MainWindow::initialize" name="MainWindow::initialize">
+<area shape="rect" id="Node000001" title="Initialize the main window with component manager." alt="" coords="5,407,175,433"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#af7ab89ece6edc9a56fb22a70b8b3a860" title="Emitted when file validation fails." alt="" coords="249,5,455,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,407,95,344,115,249,131,197,154,145,183,97,221,55,235,45,238,49,224,59,188,100,159,148,136,199,120,250,101,345,95,407"/>
+<area shape="rect" id="Node000003" href="$da/d51/classComponentManager.html#a7fe5559cfb05b881c6f6813b3fd17fe5" title="Get a component by name." alt="" coords="223,70,481,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="90,406,98,350,120,268,136,223,159,179,187,139,221,105,227,100,230,105,224,109,191,142,163,182,141,225,125,269,104,351,95,407"/>
+<area shape="rect" id="Node000004" href="$d6/d3c/classPlaybackControls.html#a08a3c9f324b80c26a4d49c32b939adfb" title="Initialize with component manager." alt="" coords="253,119,451,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="91,406,102,358,126,289,143,252,164,216,190,182,221,154,238,144,241,148,224,158,194,186,169,219,148,254,131,291,107,359,96,408"/>
+<area shape="rect" id="Node000005" href="$d9/de3/classLibraryWidget.html#aaf160868b714d902e847845a4877990f" title="Initialize the widget with managers." alt="" coords="263,169,441,194"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="93,406,107,366,132,310,170,252,194,226,221,203,249,189,251,194,224,208,198,229,174,255,137,313,112,368,98,408"/>
+<area shape="rect" id="Node000009" href="$db/d32/classPlaylistWidget.html#a7041739487deba5d1a770e87415b9c6c" title="Initialize the widget with playlist manager." alt="" coords="262,218,442,243"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="95,406,113,374,140,333,177,290,221,254,248,241,250,246,224,258,180,293,144,336,117,377,100,409"/>
+<area shape="rect" id="Node000011" href="$d8/d04/classFileUrlSupport.html#ad7738c4718eeaa38962f9602ddc8dd2d" title="Emitted when media file is successfully loaded." alt="" coords="259,268,445,308"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="103,405,152,362,185,338,221,318,245,308,247,313,224,322,188,343,155,366,106,409"/>
+<area shape="rect" id="Node000012" href="$d6/d3c/classPlaybackControls.html#a48ff5d02728c2860dc3427159140e9f5" title="Emitted when pause button is clicked." alt="" coords="227,333,477,358"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="119,405,167,385,222,367,257,358,258,363,223,372,169,390,121,410"/>
+<area shape="rect" id="Node000013" href="$d6/d3c/classPlaybackControls.html#a7fe89a1e70d20b850f46f3f4e58ec27d" title="Emitted when play button is clicked." alt="" coords="232,382,472,407"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="175,409,218,405,219,410,175,414"/>
+<area shape="rect" id="Node000014" href="$d9/de3/classLibraryWidget.html#a985657cd795cf3ee210f7c7bb525c81f" title="Emitted when play is requested for a file." alt="" coords="243,431,461,457"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="175,425,229,430,229,435,175,430"/>
+<area shape="rect" id="Node000015" href="$db/d32/classPlaylistWidget.html#a483e0fa6eb8be365ef64c3dc7634dee5" title="Emitted when play is requested for a file." alt="" coords="241,481,463,506"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="123,430,223,465,264,475,262,480,222,471,121,435"/>
+<area shape="rect" id="Node000016" href="$d9/de3/classLibraryWidget.html#afb113d7b60254edd5e9b0d1785ef2c0c" title="Emitted when queue is requested for a file." alt="" coords="237,530,467,555"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="106,431,155,473,188,496,224,515,248,524,246,529,222,520,185,500,152,477,103,435"/>
+<area shape="rect" id="Node000017" href="$d6/d3c/classPlaybackControls.html#ac65374f3c4d395089f7f71f8e2b49946" title="Emitted when user seeks to a position." alt="" coords="231,579,473,605"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="101,431,147,496,182,533,224,564,240,572,238,577,221,569,179,537,143,499,96,434"/>
+<area shape="rect" id="Node000018" href="$dd/d2d/classDragDropWidget.html#a689eb9ec57ec6b221b47bc46a4f28930" title="Set the file URL support component." alt="" coords="252,629,452,669"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="99,432,114,469,141,519,177,571,200,595,224,615,241,625,238,629,221,620,196,599,173,574,136,521,109,471,94,434"/>
+<area shape="rect" id="Node000020" href="$d6/d3c/classPlaybackControls.html#a1321c40c7a847f8f7c11a6fce3c64a97" title="Emitted when stop button is clicked." alt="" coords="232,694,472,719"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="96,432,108,480,131,547,148,584,169,619,194,652,224,679,234,686,231,690,221,683,191,655,165,622,144,586,126,549,103,481,91,434"/>
+<area shape="rect" id="Node000021" href="$d6/d1a/classMainWindow.html#a51ab21a1be4a1389a00bdb35feee8d64" title="Update status bar with playback information." alt="" coords="241,743,463,769"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="95,433,104,489,125,570,142,614,163,657,191,696,224,730,231,735,228,739,221,734,187,700,159,660,137,616,120,572,98,490,90,434"/>
+<area shape="rect" id="Node000022" href="$d6/d3c/classPlaybackControls.html#a18d592f1ba68e9a93d0ba9e8a7861330" title="Emitted when volume changes." alt="" coords="256,793,448,833"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="95,433,101,495,120,589,136,640,159,691,188,739,224,779,245,793,242,798,221,783,184,742,154,694,131,642,115,590,96,496,89,433"/>
+<area shape="rect" id="Node000006" href="$d9/de3/classLibraryWidget.html#a2dad9f8c731f1cf20da3deab540dadd3" title="Set library manager." alt="" coords="532,97,719,137"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="421,166,481,153,540,138,541,144,482,159,422,171"/>
+<area shape="rect" id="Node000008" href="$d9/de3/classLibraryWidget.html#a99f13df6f1da0508db3a7768b54b4f73" title="Set playlist manager." alt="" coords="531,161,720,201"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="441,179,517,179,517,184,441,184"/>
+<area shape="rect" id="Node000007" href="$d9/de3/classLibraryWidget.html#a953fa7f20120faaa402fdbafc87faae2" title="Refresh library display." alt="" coords="769,105,981,130"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="719,115,756,115,756,120,719,120"/>
+<area shape="rect" id="Node000010" href="$db/d32/classPlaylistWidget.html#a165f875ca314a173822c9aacaed988dd" title="Set playlist manager." alt="" coords="529,225,721,265"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="442,233,516,237,515,242,442,238"/>
+<area shape="rect" id="Node000019" href="$d8/d04/classFileUrlSupport.html#ac793923a239f275c51bd2e06ca785462" title="Emitted when drag and drop operation is processed." alt="" coords="534,629,717,669"/>
+<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="452,647,520,647,520,652,452,652"/>
+</map>

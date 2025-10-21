@@ -1,0 +1,11 @@
+<map id="AudioEqualizer::bassBoostChanged" name="AudioEqualizer::bassBoostChanged">
+<area shape="rect" id="Node000001" title="Emitted when bass boost changes." alt="" coords="283,85,477,125"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#a8303ee2073a7bc91ad6c0dee052e75fe" title="Import equalizer settings from file." alt="" coords="9,5,231,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="324,82,234,46,187,33,188,28,236,41,326,77"/>
+<area shape="rect" id="Node000003" href="$d9/d4c/classAudioEqualizerWidget.html#a96f7775022636c37fa20cb10b514412d" title="Initialize the widget with audio equalizer." alt="" coords="37,55,203,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="269,95,203,87,203,82,269,90"/>
+<area shape="rect" id="Node000004" href="$d1/db9/classAudioEqualizer.html#a53b3705e78894c1779060067e9c5b1e3" title="Reset equalizer to default settings." alt="" coords="5,120,235,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="269,119,235,123,234,118,269,114"/>
+<area shape="rect" id="Node000005" href="$d1/db9/classAudioEqualizer.html#a34d63aa5f853dbf54e7ceeb50ec066f5" title="Set bass boost level." alt="" coords="13,169,227,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="316,132,235,159,186,172,185,167,234,154,314,127"/>
+</map>

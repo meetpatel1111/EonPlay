@@ -1,0 +1,11 @@
+<map id="FileUrlSupport::mediaUrlLoaded" name="FileUrlSupport::mediaUrlLoaded">
+<area shape="rect" id="Node000001" title="Emitted when media URL is successfully loaded." alt="" coords="537,57,720,97"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#ae40a5216c2e2f98b8a943086cc6852f6" title="Load media from URL or stream." alt="" coords="280,35,489,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="524,67,489,63,490,57,524,61"/>
+<area shape="rect" id="Node000005" href="$dd/d6b/classMediaInfoWidget.html#a750ae87503febe4e07f870243be01729" title="Set the file URL support component." alt="" coords="293,85,477,125"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="524,91,477,97,477,91,523,86"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#a305f70beca6d625e0043d1798d25cfbb" title="Handle URL open request." alt="" coords="32,5,205,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="266,37,205,30,206,25,267,32"/>
+<area shape="rect" id="Node000004" href="$d8/d04/classFileUrlSupport.html#a778c1c9fa26afa5d85905bcd813a9dd8" title="Process dropped files and URLs." alt="" coords="5,55,232,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="266,62,233,66,232,61,266,57"/>
+</map>

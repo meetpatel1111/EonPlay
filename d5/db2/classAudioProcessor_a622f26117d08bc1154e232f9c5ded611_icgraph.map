@@ -1,0 +1,7 @@
+<map id="AudioProcessor::audioTrackChanged" name="AudioProcessor::audioTrackChanged">
+<area shape="rect" id="Node000001" title="Emitted when audio track changes." alt="" coords="263,37,463,77"/>
+<area shape="rect" id="Node000002" href="$d5/da7/classAudioProcessorWidget.html#af02c20348db98edb4582faa930a3f0d7" title="Initialize the widget with audio processor." alt="" coords="26,5,194,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,46,194,39,194,33,249,40"/>
+<area shape="rect" id="Node000003" href="$d5/db2/classAudioProcessor.html#a75b873ec73621f0d6678712c2e885626" title="Switch to specified audio track." alt="" coords="5,69,215,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,74,215,79,214,73,249,69"/>
+</map>

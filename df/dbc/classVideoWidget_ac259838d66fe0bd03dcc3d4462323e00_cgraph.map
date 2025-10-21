@@ -1,0 +1,5 @@
+<map id="VideoWidget::takeScreenshot" name="VideoWidget::takeScreenshot">
+<area shape="rect" id="Node000001" title="Take a screenshot of current video frame." alt="" coords="5,5,219,31"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a76ac55975eddb3adacebd78549474ec6" title="Emitted when screenshot is taken." alt="" coords="267,5,488,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,15,253,15,253,21,219,21"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="InternetStreamingService::getRecordingDuration" name="InternetStreamingService::getRecordingDuration">
+<area shape="rect" id="Node000001" title=" " alt="" coords="496,37,684,77"/>
+<area shape="rect" id="Node000002" href="$df/dba/classInternetStreamingService.html#a4165af70136a56ecba79cccc4e933edd" title=" " alt="" coords="260,37,448,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,60,448,60,448,55,482,55"/>
+<area shape="rect" id="Node000003" href="$df/dba/classInternetStreamingService.html#a09b6f4ca9c2f8259133d024ae794ae39" title=" " alt="" coords="15,5,203,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="246,46,202,40,203,35,247,41"/>
+<area shape="rect" id="Node000004" href="$df/dba/classInternetStreamingService.html#a035871229b82cdc765db053e3b1d829c" title=" " alt="" coords="5,69,212,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="247,74,212,79,212,73,246,69"/>
+</map>

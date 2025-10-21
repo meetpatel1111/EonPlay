@@ -1,0 +1,28 @@
+<map id="PlaybackController::loadMedia" name="PlaybackController::loadMedia">
+<area shape="rect" id="Node000001" title="Load media file or URL." alt="" coords="5,127,151,167"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a1a864cc9746736841077caf5195ea483" title="Check if media is currently loaded." alt="" coords="413,5,559,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,124,139,84,167,64,198,48,248,32,301,23,399,17,400,23,301,28,249,38,200,53,170,69,142,88,99,128"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#acb360376f5afae30d7b16cd47df34f0c" title="Load and seek to saved resume position." alt="" coords="201,127,363,167"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,144,187,144,187,149,151,149"/>
+<area shape="rect" id="Node000007" href="$d0/d22/classPlaybackController.html#afbf281f2142eb16aa5b3e73d3c387120" title="Emitted when media loading completes." alt="" coords="209,191,355,231"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="143,164,205,184,204,189,142,169"/>
+<area shape="rect" id="Node000008" href="$d0/d22/classPlaybackController.html#a8cb2e6930e89b963867d2b6eca398020" title="Save current playback position for resume." alt="" coords="199,63,365,103"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="142,124,204,104,205,109,143,129"/>
+<area shape="rect" id="Node000009" href="$d0/d22/classPlaybackController.html#a1942021a93ef2bb5b1f800c4876b7cc4" title="Stop fast forward/rewind and return to normal playback." alt="" coords="209,255,355,295"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="102,165,146,202,200,240,212,247,209,251,197,245,142,207,99,169"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#a6ef737643d936bc69833b090f9ff4416" title="Seek to specific position." alt="" coords="413,171,559,211"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="364,162,401,170,400,175,363,167"/>
+<area shape="rect" id="Node000005" href="$d0/d22/classPlaybackController.html#ab04e1d486535808826072f0a2a31f6ed" title="Get media duration." alt="" coords="607,75,752,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="526,168,625,118,627,123,529,173"/>
+<area shape="rect" id="Node000006" href="$d0/d22/classPlaybackController.html#aae1e4a03d5e4873bd67700ad0eecb827" title="Get current playback position." alt="" coords="607,160,752,200"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="559,184,592,182,593,187,559,189"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="353,60,400,47,402,52,354,65"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="366,83,593,89,593,95,366,88"/>
+<area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="365,100,594,156,592,162,364,105"/>
+<area shape="rect" id="Node000010" href="$d0/d22/classPlaybackController.html#a65f120c8c3e1d7ccd6067631d6d4409e" title="Emitted when fast seek state changes." alt="" coords="413,244,559,284"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="355,268,399,266,400,271,355,274"/>
+<area shape="rect" id="Node000011" href="$d0/d22/classPlaybackController.html#aa73d55c20b71a8c6c18c3ac914154636" title="Start or resume playback." alt="" coords="413,308,559,348"/>
+<area shape="poly" id="edge13_Node000009_Node000011" title=" " alt="" coords="356,291,401,303,399,308,354,296"/>
+<area shape="rect" id="Node000012" href="$d0/d22/classPlaybackController.html#aeb617eb0c421fcbb5d449a1b99b24a93" title="Emitted when an error occurs." alt="" coords="607,308,752,348"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="559,325,592,325,592,331,559,331"/>
+</map>

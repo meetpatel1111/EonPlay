@@ -1,0 +1,11 @@
+<map id="VideoProcessor::shutdown" name="VideoProcessor::shutdown">
+<area shape="rect" id="Node000001" title="Shutdown the processor." alt="" coords="5,31,199,56"/>
+<area shape="rect" id="Node000002" href="$d1/d7c/classVideoProcessor.html#aad3bfea35c10bde0feadc82202942b4d" title="Enable or disable the processor." alt="" coords="247,31,449,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,41,233,41,233,46,199,46"/>
+<area shape="rect" id="Node000003" href="$d1/d7c/classVideoProcessor.html#a7cf62d6cf5f39f7c2229bc6c4bbc9000" title="Emitted when processor is enabled/disabled." alt="" coords="497,5,736,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="449,31,483,28,484,33,450,36"/>
+<area shape="rect" id="Node000004" href="$d1/d7c/classVideoProcessor.html#ab965b584be52a08caa15bf84359e0ed8" title="Reset all filters to default." alt="" coords="515,55,718,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="450,50,502,54,501,60,449,55"/>
+<area shape="rect" id="Node000005" href="$d1/d7c/classVideoProcessor.html#adada1922ec830252670342bd8da5e561" title="Emitted when parameters change." alt="" coords="784,47,989,87"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="718,65,770,65,770,70,718,70"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="HardwareAcceleration::stringToAccelerationType" name="HardwareAcceleration::stringToAccelerationType">
+<area shape="rect" id="Node000001" title="Convert string to acceleration type." alt="" coords="272,5,464,45"/>
+<area shape="rect" id="Node000002" href="$d6/d6e/classVLCBackend.html#a66f2d955ba041562dfccaa3cf8163394" title="Update hardware acceleration from user preferences." alt="" coords="5,5,224,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,28,224,28,224,23,258,23"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="SubtitleParserFactory::getParserForFile" name="SubtitleParserFactory::getParserForFile">
+<area shape="rect" id="Node000001" title="Get parser for file path." alt="" coords="5,27,164,67"/>
+<area shape="rect" id="Node000002" href="$d3/dc3/classISubtitleParser.html#a884701b75985477e7abb541bfdf238ea" title="Check if parser can handle the given file." alt="" coords="212,5,395,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,34,198,29,199,35,165,39"/>
+<area shape="rect" id="Node000003" href="$d3/dcc/classSubtitleParserFactory.html#a7f0b9aeb0fe3f5226c65f3bacf024f0b" title="Get parser for file extension." alt="" coords="216,55,391,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,55,203,60,202,65,164,60"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="AudioVisualizer::shutdown" name="AudioVisualizer::shutdown">
+<area shape="rect" id="Node000001" title="Shutdown the visualizer." alt="" coords="5,13,200,38"/>
+<area shape="rect" id="Node000002" href="$db/d2a/classAudioVisualizer.html#a8af04956210fbdcdba1454bbfcd0830f" title="Enable or disable the visualizer." alt="" coords="248,13,451,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,23,235,23,235,28,200,28"/>
+<area shape="rect" id="Node000003" href="$db/d2a/classAudioVisualizer.html#a426eb9c16f6fdca356008958cbae3829" title="Emitted when visualizer is enabled/disabled." alt="" coords="499,5,681,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,23,485,23,485,28,451,28"/>
+</map>

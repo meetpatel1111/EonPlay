@@ -1,0 +1,5 @@
+<map id="ISubtitleParser::parseContent" name="ISubtitleParser::parseContent">
+<area shape="rect" id="Node000001" title="Parse subtitle content and return subtitle track." alt="" coords="268,13,479,38"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a608442cfbbc105168de564e34f98d13c" title="Load subtitle from content." alt="" coords="5,5,220,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,28,220,28,220,23,254,23"/>
+</map>

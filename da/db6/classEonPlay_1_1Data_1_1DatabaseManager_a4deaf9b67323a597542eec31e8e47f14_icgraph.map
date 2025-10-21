@@ -1,0 +1,9 @@
+<map id="EonPlay::Data::DatabaseManager::playlistCreated" name="EonPlay::Data::DatabaseManager::playlistCreated">
+<area shape="rect" id="Node000001" title=" " alt="" coords="839,5,1077,45"/>
+<area shape="rect" id="Node000002" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#a71c2ae02457173c5736e0f7a05d7f8af" title=" " alt="" coords="552,5,791,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="825,28,791,28,791,23,825,23"/>
+<area shape="rect" id="Node000003" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#aec45bb274b5d3933fb90e40cd3fb6c23" title=" " alt="" coords="279,5,504,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="539,28,504,28,504,23,539,23"/>
+<area shape="rect" id="Node000004" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a686c0e80e2604d2410ee5a3f64a63a30" title=" " alt="" coords="5,5,231,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,28,231,28,231,23,265,23"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="EonPlay::Data::MediaScanner::rescanLibrary" name="EonPlay::Data::MediaScanner::rescanLibrary">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,197,217,237"/>
+<area shape="rect" id="Node000002" href="$d8/d4f/classEonPlay_1_1Data_1_1MediaScanner.html#afc649447c08cbf73676ce2908e37ed86" title=" " alt="" coords="279,5,491,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,196,179,127,219,88,264,55,276,49,279,53,267,60,223,92,183,130,128,199"/>
+<area shape="rect" id="Node000003" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#a710368797cbe91a8473a409dd0fa4cc8" title=" " alt="" coords="265,69,504,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,195,194,157,264,119,284,111,285,116,266,124,197,161,141,199"/>
+<area shape="rect" id="Node000004" href="$d8/d4f/classEonPlay_1_1Data_1_1MediaScanner.html#adee2daba8fe40c939c52d2a907794ff2" title=" " alt="" coords="279,133,491,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="197,195,285,174,286,179,198,200"/>
+<area shape="rect" id="Node000005" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#a583f34313ed0a724067e36ded4657634" title=" " alt="" coords="265,197,504,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="218,215,252,215,252,220,218,220"/>
+<area shape="rect" id="Node000006" href="$d8/d4f/classEonPlay_1_1Data_1_1MediaScanner.html#a625b72e5fd2d7696064946d1ccaf4327" title=" " alt="" coords="279,261,491,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="198,235,286,256,285,261,197,240"/>
+<area shape="rect" id="Node000007" href="$d8/d4f/classEonPlay_1_1Data_1_1MediaScanner.html#a186408b64605cfa38553e904397604bb" title=" " alt="" coords="279,325,491,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="141,235,197,274,266,311,285,318,284,323,264,316,194,278,138,240"/>
+<area shape="rect" id="Node000008" href="$d8/d4f/classEonPlay_1_1Data_1_1MediaScanner.html#aa892248f876643a5cbcf0bafc89bf62b" title=" " alt="" coords="279,389,491,429"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="128,236,183,304,223,343,267,375,279,381,276,386,264,380,219,347,179,308,124,239"/>
+</map>

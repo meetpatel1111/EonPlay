@@ -1,0 +1,26 @@
+<map id="VLCBackend::updateHardwareAccelerationFromPreferences" name="VLCBackend::updateHardwareAccelerationFromPreferences">
+<area shape="rect" id="Node000001" title="Update hardware acceleration from user preferences." alt="" coords="5,130,224,170"/>
+<area shape="rect" id="Node000002" href="$d6/d6e/classVLCBackend.html#a80643e4b0983248daee43ac1ada9d441" title="Update hardware acceleration settings." alt="" coords="512,73,787,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,127,272,115,387,103,498,95,498,101,387,108,272,121,204,133"/>
+<area shape="rect" id="Node000009" href="$d6/d6e/classVLCBackend.html#ac324fcd2c2413b5753bfcf3064df5157" title="Set preferred hardware acceleration type." alt="" coords="273,130,463,170"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="224,147,259,147,259,153,224,153"/>
+<area shape="rect" id="Node000011" href="$de/dd0/classHardwareAcceleration.html#a7b3312452a26cb8263617e282ed3d010" title="Convert string to acceleration type." alt="" coords="272,194,464,234"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="195,167,276,188,274,193,194,173"/>
+<area shape="rect" id="Node000003" href="$d6/d6e/classVLCBackend.html#aeda285ae63c3a0e56c4158e484503d34" title="Load media from file path or URL." alt="" coords="835,55,1013,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="787,77,821,74,821,79,787,83"/>
+<area shape="rect" id="Node000006" href="$d6/d6e/classVLCBackend.html#a6043b25f0b210cdeac420aab048fde7d" title="Start or resume playback." alt="" coords="855,5,993,31"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="722,70,834,39,862,32,863,37,835,45,724,75"/>
+<area shape="rect" id="Node000007" href="$d6/d6e/classVLCBackend.html#ab289e57c1f8b2ad2d86f07d0b41a37db" title="Get current playback position." alt="" coords="1083,131,1246,156"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="787,103,1070,131,1069,137,786,109"/>
+<area shape="rect" id="Node000008" href="$d6/d6e/classVLCBackend.html#a74baf7c1984854476e23d9ae3c0f4224" title="Seek to specific position." alt="" coords="853,156,995,181"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="741,110,787,122,874,149,872,154,786,127,740,115"/>
+<area shape="rect" id="Node000004" href="$d0/dbd/classIMediaEngine.html#afd3b746eb440a3385bd290bc92323a0a" title="Emitted when an error occurs." alt="" coords="1061,5,1268,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="986,52,1088,31,1089,36,987,57"/>
+<area shape="rect" id="Node000005" href="$d0/dbd/classIMediaEngine.html#a2627690efa2c50ca165f675ef84b8804" title="Emitted when media loading completes." alt="" coords="1061,55,1268,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="1014,65,1048,65,1048,70,1014,70"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="994,15,1048,15,1048,21,994,21"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="995,159,1070,151,1070,156,995,164"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="463,128,537,113,538,118,464,133"/>
+<area shape="rect" id="Node000010" href="$de/dd0/classHardwareAcceleration.html#a5bf84a3466dfdd5fa1cbbcf181a23b95" title="Get platform&#45;specific acceleration type name." alt="" coords="549,137,750,177"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="464,150,535,151,535,157,464,155"/>
+</map>

@@ -1,0 +1,50 @@
+<map id="include/IComponent.h" name="include/IComponent.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1690,5,1854,31"/>
+<area shape="rect" id="Node000002" href="$d3/d3e/ComponentManager_8h.html" title=" " alt="" coords="585,79,801,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1676,28,802,86,802,80,1676,23"/>
+<area shape="rect" id="Node000009" href="$d9/d4a/SettingsManager_8h.html" title=" " alt="" coords="1531,79,1725,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1738,39,1653,81,1650,76,1736,34"/>
+<area shape="rect" id="Node000011" href="$d7/d62/FileUrlSupport_8h.html" title=" " alt="" coords="1849,79,2071,104"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1816,33,1930,76,1928,81,1814,38"/>
+<area shape="rect" id="Node000016" href="$dd/d0d/PlaybackController_8h.html" title=" " alt="" coords="2383,79,2635,104"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="1868,26,2391,76,2391,81,1867,31"/>
+<area shape="rect" id="Node000020" href="$d0/df4/VLCBackend_8h.html" title=" " alt="" coords="1265,79,1476,104"/>
+<area shape="poly" id="edge23_Node000001_Node000020" title=" " alt="" coords="1694,36,1436,81,1435,76,1693,30"/>
+<area shape="rect" id="Node000022" href="$d4/db1/IComponent_8cpp.html" title=" " alt="" coords="2659,79,2842,104"/>
+<area shape="poly" id="edge26_Node000001_Node000022" title=" " alt="" coords="1868,22,2212,43,2648,76,2659,77,2659,82,2648,81,2212,48,1868,27"/>
+<area shape="rect" id="Node000003" href="$dd/dc9/ComponentManager_8cpp.html" title=" " alt="" coords="819,152,1053,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="746,105,897,149,896,154,744,110"/>
+<area shape="rect" id="Node000004" href="$d8/db4/EonPlayApplication_8cpp.html" title=" " alt="" coords="5,152,235,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="588,108,213,155,212,149,587,103"/>
+<area shape="rect" id="Node000005" href="$da/d59/MediaPlayerApplication_8cpp.html" title=" " alt="" coords="259,152,517,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="632,110,438,154,437,149,630,104"/>
+<area shape="rect" id="Node000006" href="$d3/db7/MainWindow_8cpp.html" title=" " alt="" coords="1661,225,1832,251"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="644,111,613,124,588,140,575,158,576,166,582,175,596,182,627,188,728,200,1036,217,1387,228,1661,233,1661,238,1387,233,1036,222,727,205,626,194,595,187,578,179,571,168,570,156,584,136,611,120,642,106"/>
+<area shape="rect" id="Node000007" href="$d3/d6e/PlaybackControls_8cpp.html" title=" " alt="" coords="593,152,794,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="696,118,696,152,691,152,691,118"/>
+<area shape="rect" id="Node000008" href="$df/db1/VideoWidget_8cpp.html" title=" " alt="" coords="1077,152,1248,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="782,103,1087,149,1087,155,782,109"/>
+<area shape="rect" id="Node000010" href="$da/dec/SettingsManager_8cpp.html" title=" " alt="" coords="1494,152,1709,177"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1621,118,1608,153,1603,151,1616,116"/>
+<area shape="poly" id="edge16_Node000011_Node000006" title=" " alt="" coords="1853,110,1811,127,1774,154,1762,171,1755,190,1749,226,1744,225,1750,189,1757,168,1770,150,1808,123,1851,105"/>
+<area shape="rect" id="Node000012" href="$d8/d12/MediaInfoWidget_8h.html" title=" " alt="" coords="1783,152,1995,177"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1941,116,1903,154,1899,150,1937,112"/>
+<area shape="rect" id="Node000013" href="$dd/d8e/MediaInfoWidget_8cpp.html" title=" " alt="" coords="1894,225,2093,251"/>
+<area shape="poly" id="edge17_Node000011_Node000013" title=" " alt="" coords="1986,113,2000,130,2011,151,2014,171,2012,192,2002,226,1997,224,2007,191,2009,172,2005,153,1995,133,1981,116"/>
+<area shape="rect" id="Node000014" href="$d6/dff/FileUrlSupport_8cpp.html" title=" " alt="" coords="2290,152,2499,177"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="2043,104,2325,149,2324,155,2043,109"/>
+<area shape="rect" id="Node000015" href="$db/d4b/DragDropWidget_8cpp.html" title=" " alt="" coords="2070,152,2266,177"/>
+<area shape="poly" id="edge15_Node000011_Node000015" title=" " alt="" coords="2007,106,2135,149,2133,154,2006,111"/>
+<area shape="poly" id="edge12_Node000012_Node000006" title=" " alt="" coords="1856,186,1771,227,1769,223,1853,181"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="1919,183,1978,223,1975,227,1916,187"/>
+<area shape="poly" id="edge19_Node000016_Node000014" title=" " alt="" coords="2481,113,2415,154,2412,150,2478,109"/>
+<area shape="rect" id="Node000017" href="$db/d57/PlaybackController_8cpp.html" title=" " alt="" coords="3011,152,3250,177"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="2623,103,3031,149,3030,155,2622,108"/>
+<area shape="rect" id="Node000018" href="$d9/d11/MiniPlayerWidget_8cpp.html" title=" " alt="" coords="2524,152,2727,177"/>
+<area shape="poly" id="edge21_Node000016_Node000018" title=" " alt="" coords="2541,109,2608,149,2605,154,2538,113"/>
+<area shape="rect" id="Node000019" href="$d6/d23/PictureInPictureWidget_8cpp.html" title=" " alt="" coords="2751,152,2987,177"/>
+<area shape="poly" id="edge22_Node000016_Node000019" title=" " alt="" coords="2581,104,2812,149,2811,155,2580,109"/>
+<area shape="poly" id="edge25_Node000020_Node000008" title=" " alt="" coords="1325,111,1197,154,1195,149,1323,106"/>
+<area shape="rect" id="Node000021" href="$d5/dac/VLCBackend_8cpp.html" title=" " alt="" coords="1272,152,1469,177"/>
+<area shape="poly" id="edge24_Node000020_Node000021" title=" " alt="" coords="1373,118,1373,152,1368,152,1368,118"/>
+</map>

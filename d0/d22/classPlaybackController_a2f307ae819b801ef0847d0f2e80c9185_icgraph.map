@@ -1,0 +1,5 @@
+<map id="PlaybackController::playbackModeChanged" name="PlaybackController::playbackModeChanged">
+<area shape="rect" id="Node000001" title="Emitted when playback mode changes." alt="" coords="199,5,381,45"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#ab41c1b6bf3c49a42e959542e4430b02a" title="Set playback mode (normal, repeat, shuffle)" alt="" coords="5,5,151,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,28,151,28,151,23,184,23"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="FileUrlSupport::loadMediaUrl" name="FileUrlSupport::loadMediaUrl">
+<area shape="rect" id="Node000001" title="Load media from URL or stream." alt="" coords="280,35,489,60"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a305f70beca6d625e0043d1798d25cfbb" title="Handle URL open request." alt="" coords="32,5,205,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,37,205,30,206,25,267,32"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#a778c1c9fa26afa5d85905bcd813a9dd8" title="Process dropped files and URLs." alt="" coords="5,55,232,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="266,62,233,66,232,61,266,57"/>
+</map>

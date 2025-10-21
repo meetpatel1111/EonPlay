@@ -1,0 +1,9 @@
+<map id="SubtitleRenderer::setSubtitleEntries" name="SubtitleRenderer::setSubtitleEntries">
+<area shape="rect" id="Node000001" title="Set subtitle entries to display." alt="" coords="5,23,215,63"/>
+<area shape="rect" id="Node000002" href="$de/d8e/classSubtitleRenderer.html#ada1175e3ae16c82f74e6744aa0ed7885" title="Hide subtitles with animation." alt="" coords="266,5,490,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,31,252,27,252,33,215,36"/>
+<area shape="rect" id="Node000003" href="$de/d8e/classSubtitleRenderer.html#a1e73f9cc44c3f000a32cdaf05287fc9b" title="Show subtitles with animation." alt="" coords="263,55,493,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,50,249,53,249,58,214,55"/>
+<area shape="rect" id="Node000004" href="$de/d8e/classSubtitleRenderer.html#a56bcc3d33ee9230f45e208dafad76e29" title="Emitted when subtitle visibility changes." alt="" coords="541,47,736,87"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="494,65,528,65,528,70,494,70"/>
+</map>

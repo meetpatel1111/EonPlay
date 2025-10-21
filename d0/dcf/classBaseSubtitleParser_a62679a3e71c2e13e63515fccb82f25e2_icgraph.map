@@ -1,0 +1,19 @@
+<map id="BaseSubtitleParser::validateContent" name="BaseSubtitleParser::validateContent">
+<area shape="rect" id="Node000001" title="Validate subtitle content for security issues." alt="" coords="439,47,583,87"/>
+<area shape="rect" id="Node000002" href="$db/dc3/classASSParser.html#a176ba7444de20be9855bf85ec96a2968" title="Parse subtitle content and return subtitle track." alt="" coords="208,5,391,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="424,50,354,33,355,28,426,45"/>
+<area shape="rect" id="Node000004" href="$dc/db9/classSRTParser.html#a1f7cc9e6aaf5755d85f12e8c45c3fd43" title="Parse subtitle content and return subtitle track." alt="" coords="209,55,390,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="424,70,390,70,390,65,424,65"/>
+<area shape="rect" id="Node000006" href="$d0/dcf/classBaseSubtitleParser.html#a447bd858af80cd7c94e3ace71faca2bf" title="Validate subtitle file for security issues." alt="" coords="227,105,371,145"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="425,93,372,108,371,103,424,88"/>
+<area shape="rect" id="Node000003" href="$db/dc3/classASSParser.html#ab8109b9fd9345830b366a40a0c386945" title="Parse subtitle file and return subtitle track." alt="" coords="5,7,160,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,21,160,22,160,16,194,16"/>
+<area shape="rect" id="Node000005" href="$dc/db9/classSRTParser.html#aeef7c45b58862be36745cd1f39abe5a5" title="Parse subtitle file and return subtitle track." alt="" coords="6,57,159,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,71,160,72,160,66,195,66"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="220,101,206,94,192,81,182,70,173,58,159,47,132,34,134,30,161,42,177,54,186,66,195,78,210,89,222,96"/>
+<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="213,106,133,85,135,80,214,101"/>
+<area shape="rect" id="Node000007" href="$db/dc3/classASSParser.html#a94ca6cfb172b266fe73f14fdc9690489" title="Check if parser can handle the given file." alt="" coords="6,111,159,136"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="213,127,159,126,159,121,213,121"/>
+<area shape="rect" id="Node000008" href="$dc/db9/classSRTParser.html#a4c218e0ebb82084001a469a05e27f20e" title="Check if parser can handle the given file." alt="" coords="7,160,159,185"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="214,146,141,163,140,157,213,141"/>
+</map>

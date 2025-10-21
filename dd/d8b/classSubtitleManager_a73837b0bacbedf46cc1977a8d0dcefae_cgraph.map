@@ -1,0 +1,15 @@
+<map id="SubtitleManager::validateSubtitleFile" name="SubtitleManager::validateSubtitleFile">
+<area shape="rect" id="Node000001" title="Validate subtitle file for security." alt="" coords="5,119,196,159"/>
+<area shape="rect" id="Node000002" href="$d3/dcc/classSubtitleParserFactory.html#a615177f918d10dcf0e6a0587e3ef5714" title="Get parser for file path." alt="" coords="277,55,435,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,117,263,96,264,101,182,122"/>
+<area shape="rect" id="Node000005" href="$dd/d8b/classSubtitleManager.html#ad2c991a2f4eee0398e11520ee7361582" title="Get supported subtitle file extensions." alt="" coords="244,119,468,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="196,137,230,137,230,142,196,142"/>
+<area shape="rect" id="Node000007" href="$d3/dc3/classISubtitleParser.html#a4049222a64d29d661b2941d1545398ec" title="Validate subtitle file for security issues." alt="" coords="256,184,456,209"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="191,157,286,178,285,184,190,162"/>
+<area shape="rect" id="Node000003" href="$d3/dc3/classISubtitleParser.html#a884701b75985477e7abb541bfdf238ea" title="Check if parser can handle the given file." alt="" coords="519,5,701,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="435,55,539,31,540,36,436,60"/>
+<area shape="rect" id="Node000004" href="$d3/dcc/classSubtitleParserFactory.html#a7f0b9aeb0fe3f5226c65f3bacf024f0b" title="Get parser for file extension." alt="" coords="523,55,697,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="435,73,509,73,509,78,435,78"/>
+<area shape="rect" id="Node000006" href="$d3/dcc/classSubtitleParserFactory.html#a10add6ac804d0668e332b07149df6351" title="Get all supported extensions." alt="" coords="516,119,704,159"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="468,137,502,137,502,142,468,142"/>
+</map>

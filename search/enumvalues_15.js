@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['vaapi_0',['VAAPI',['../d2/dd7/HardwareAcceleration_8h.html#a6576862f80bdf20d24b8594896c4aa21ab80a85e9723eafdfdfb1221ae4bb4bf3',1,'HardwareAcceleration.h']]],
+  ['valid_1',['Valid',['../d7/d62/FileUrlSupport_8h.html#a35e452a11d6f808cdfa73b5af45e3ed0a3ac705f2acd51a4613f9188c05c91d0d',1,'FileUrlSupport.h']]],
+  ['vdpau_2',['VDPAU',['../d2/dd7/HardwareAcceleration_8h.html#a6576862f80bdf20d24b8594896c4aa21ab83822fde0d5ba24b7dd9e38f458864e',1,'HardwareAcceleration.h']]],
+  ['veryfast_3',['VeryFast',['../dd/d0d/PlaybackController_8h.html#a4153be238a91a2d983d0beaeb35a7ea9ac3f886add2c17b5e2a344c3848e41a55',1,'PlaybackController.h']]],
+  ['video_4',['video',['../d9/de3/classLibraryWidget.html#a3e277891cd58fb2dba61e79e3abcc3ffa033195d05425c5aa11da24bb908882cb',1,'LibraryWidget::Video'],['../de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a10c443513aa3748f1fad17718bb12939acbeaf0355c64baea97ca5f06e2bab58c',1,'EonPlay::Data::MediaFile::Video']]],
+  ['video_5f1080p_5',['Video_1080p',['../d2/d56/classInternetStreamingManager.html#ac2fad8fd3f6f2484c2ad5428a713ed88a7ed329be6e98b714b112f490b49b03ed',1,'InternetStreamingManager']]],
+  ['video_5f360p_6',['Video_360p',['../d2/d56/classInternetStreamingManager.html#ac2fad8fd3f6f2484c2ad5428a713ed88a2d7ea8ff5edd015f6addd1cc66531ac7',1,'InternetStreamingManager']]],
+  ['video_5f480p_7',['Video_480p',['../d2/d56/classInternetStreamingManager.html#ac2fad8fd3f6f2484c2ad5428a713ed88a6bfedf5729cf502eadba5005c36246c3',1,'InternetStreamingManager']]],
+  ['video_5f4k_8',['Video_4K',['../d2/d56/classInternetStreamingManager.html#ac2fad8fd3f6f2484c2ad5428a713ed88ad7548061c45fc429b0f9ade85b1d62d2',1,'InternetStreamingManager']]],
+  ['video_5f720p_9',['Video_720p',['../d2/d56/classInternetStreamingManager.html#ac2fad8fd3f6f2484c2ad5428a713ed88a42123415cac72090307945a98468ce74',1,'InternetStreamingManager']]],
+  ['videomode_10',['VideoMode',['../d7/ddb/classMiniPlayerWidget.html#abdc6e806f01296385fac18f7a54cc004accdcae01ad488f97d3fa0a518f59ab70',1,'MiniPlayerWidget']]],
+  ['vietnamese_11',['vietnamese',['../d7/d93/classEonPlay_1_1AI_1_1SubtitleLanguageDetector.html#a72994367511065726d963bfb9ff59774a184569a2e78a45ea5335c13171e9ab54',1,'EonPlay::AI::SubtitleLanguageDetector::Vietnamese'],['../d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#a12e7787fca98b622c979907e982feeffa01a11ae8812a5f6ac0173c670249e038',1,'EonPlay::AI::SubtitleTranslator::Vietnamese']]],
+  ['vintage_12',['Vintage',['../d1/d7c/classVideoProcessor.html#a43d6b99831b542aabef4401579dffb42a926f89495e17c06b3ee8727d5eae08d7',1,'VideoProcessor']]],
+  ['vocal_13',['Vocal',['../d1/db9/classAudioEqualizer.html#a9d2a0966557df1513aca42a2682bab1eaab683086c1ce65962014b48acce3c1c2',1,'AudioEqualizer']]],
+  ['vocalisolation_14',['vocalisolation',['../d9/d29/classAdvancedAudioProcessor.html#a18a1536c3241438eb4539d18c8c9af70a786bb4118f9ebb60eb03b45434360083',1,'AdvancedAudioProcessor::VocalIsolation'],['../d5/db2/classAudioProcessor.html#a79418ed055d6fca519c3215b376a7a06a61a959278f923ff6ca91ded1f00a88d1',1,'AudioProcessor::VocalIsolation']]],
+  ['vocalremoval_15',['vocalremoval',['../d9/d29/classAdvancedAudioProcessor.html#a18a1536c3241438eb4539d18c8c9af70a5b6d2d0bf52feedf7f7c3380c7ff46a4',1,'AdvancedAudioProcessor::VocalRemoval'],['../d5/db2/classAudioProcessor.html#a79418ed055d6fca519c3215b376a7a06a177fd529c381eac9a31109dd5516f512',1,'AudioProcessor::VocalRemoval']]],
+  ['vumeter_16',['VUMeter',['../db/d2a/classAudioVisualizer.html#a50031bc567245099b890e5e5fc64114da8b4f0c25405afc4873a8d042b5ed1d82',1,'AudioVisualizer']]]
+];

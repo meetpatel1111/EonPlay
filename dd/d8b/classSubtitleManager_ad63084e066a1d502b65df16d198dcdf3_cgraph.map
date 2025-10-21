@@ -1,0 +1,13 @@
+<map id="SubtitleManager::setTimingOffset" name="SubtitleManager::setTimingOffset">
+<area shape="rect" id="Node000001" title="Set subtitle timing offset." alt="" coords="5,69,208,109"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a0f7ec6b8d0765725ba1b72dbf6f4d784" title="Handle media position change." alt="" coords="263,37,468,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,74,248,69,249,74,208,79"/>
+<area shape="rect" id="Node000006" href="$dd/d8b/classSubtitleManager.html#a5eac01fcf99a2461fa7edf801df2226b" title="Emitted when subtitle timing offset changes." alt="" coords="256,101,475,141"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="208,99,243,103,242,109,208,104"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#a4da4d64818831616c79df498283f26b4" title="Emitted when active subtitles change." alt="" coords="523,5,757,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="468,43,509,38,509,43,469,48"/>
+<area shape="rect" id="Node000004" href="$dd/d8b/classSubtitleManager.html#ab895587ae818bbf845af0852e617d74d" title="Get active subtitle entries at current time." alt="" coords="541,69,739,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="469,67,527,74,527,79,468,72"/>
+<area shape="rect" id="Node000005" href="$d1/de3/classSubtitleTrack.html#abddc35798ef24393b10e0859eef65c90" title="Get active subtitle entries at given time." alt="" coords="805,69,981,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="740,87,792,87,792,92,740,92"/>
+</map>

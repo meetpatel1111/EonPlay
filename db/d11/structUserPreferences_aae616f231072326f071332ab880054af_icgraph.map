@@ -1,0 +1,10 @@
+<map id="UserPreferences::resetToDefaults" name="UserPreferences::resetToDefaults">
+<area shape="rect" id="Node000001" title="Reset all settings to default values." alt="" coords="519,27,703,67"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#ac666cd35e1136facad31de99a6c44bd3" title="Load settings from storage." alt="" coords="249,5,471,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="505,38,468,33,469,28,505,32"/>
+<area shape="rect" id="Node000004" href="$d1/dea/classSettingsManager.html#a1566b3c0ec17dcbf59685739d9eb6ec2" title="Reset all settings to defaults." alt="" coords="267,55,453,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="505,62,454,68,453,62,505,56"/>
+<area shape="rect" id="Node000003" href="$d1/dea/classSettingsManager.html#a388a44b8f1843f317823b690748ebdd5" title="Initialize the component." alt="" coords="5,35,201,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,35,202,39,201,34,235,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="253,66,201,61,202,55,253,61"/>
+</map>

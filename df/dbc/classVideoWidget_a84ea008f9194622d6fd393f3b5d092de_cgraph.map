@@ -1,0 +1,5 @@
+<map id="VideoWidget::setHorizontalMirror" name="VideoWidget::setHorizontalMirror">
+<area shape="rect" id="Node000001" title="Set horizontal mirroring." alt="" coords="5,5,205,45"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a4022e8fc18185cfe5c9eb928459c531f" title="Emitted when video transformation changes." alt="" coords="253,5,468,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,23,240,23,240,28,205,28"/>
+</map>

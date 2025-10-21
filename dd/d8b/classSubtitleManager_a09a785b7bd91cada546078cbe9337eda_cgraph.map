@@ -1,0 +1,54 @@
+<map id="SubtitleManager::onMediaLoaded" name="SubtitleManager::onMediaLoaded">
+<area shape="rect" id="Node000001" title="Handle media loaded." alt="" coords="5,523,199,563"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a8b6d9ea90c799260111c17b60b4d4e2c" title="Load subtitle file." alt="" coords="247,387,485,413"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,520,328,417,330,422,141,525"/>
+<area shape="rect" id="Node000019" href="$d2/dac/structSubtitleLoadResult.html#a052cb7c230f04d6d77ce16328fba413e" title=" " alt="" coords="561,691,705,731"/>
+<area shape="poly" id="edge27_Node000001_Node000019" title=" " alt="" coords="167,560,556,684,555,689,166,565"/>
+<area shape="rect" id="Node000003" href="$d1/de3/classSubtitleTrack.html#ac5892a48b527a1d3fb2f33b0907135c7" title=" " alt="" coords="552,97,715,122"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="369,386,387,338,420,268,442,231,468,194,498,160,532,131,540,126,543,130,535,135,502,164,472,197,446,234,425,271,392,340,374,388"/>
+<area shape="rect" id="Node000004" href="$d1/de3/classSubtitleTrack.html#ab729bb3f702d3d469ddfb20c2b6f8ab7" title=" " alt="" coords="540,146,727,171"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="372,386,394,347,429,294,476,238,503,211,532,188,559,174,562,179,535,193,506,215,480,241,433,297,398,350,376,388"/>
+<area shape="rect" id="Node000005" href="$d3/dcc/classSubtitleParserFactory.html#a615177f918d10dcf0e6a0587e3ef5714" title="Get parser for file path." alt="" coords="814,131,973,171"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="374,386,398,354,434,313,480,269,532,232,570,219,638,202,800,167,801,172,639,207,572,224,535,237,483,273,438,316,402,358,378,389"/>
+<area shape="rect" id="Node000008" href="$d3/dc3/classISubtitleParser.html#a1ca9c9e4905abe0c9a9bb81d6be3ff2f" title="Parse subtitle file and return subtitle track." alt="" coords="542,247,725,273"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="380,385,443,336,486,307,532,283,555,274,557,279,534,288,489,312,447,340,383,389"/>
+<area shape="rect" id="Node000009" href="$dd/d8b/classSubtitleManager.html#af2da2cbc2883cf667f623f09ebf9ba86" title="Set active subtitle track." alt="" coords="534,297,733,337"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="407,385,554,339,555,344,409,390"/>
+<area shape="rect" id="Node000015" href="$d1/de3/classSubtitleTrack.html#ae75b560fd9d03ac98f727af466a939c1" title=" " alt="" coords="552,362,715,387"/>
+<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="485,386,538,381,539,386,486,391"/>
+<area shape="rect" id="Node000016" href="$d1/de3/classSubtitleTrack.html#a8418b7a532e9e21d4d1de910800691cc" title=" " alt="" coords="823,387,963,413"/>
+<area shape="poly" id="edge20_Node000002_Node000016" title=" " alt="" coords="486,397,810,397,810,403,486,403"/>
+<area shape="rect" id="Node000017" href="$dd/d8b/classSubtitleManager.html#af93f03f881f82d83a3ac8a7205749017" title="Emitted when subtitle loading fails." alt="" coords="540,463,727,503"/>
+<area shape="poly" id="edge16_Node000002_Node000017" title=" " alt="" coords="409,410,555,456,554,461,407,415"/>
+<area shape="rect" id="Node000018" href="$dd/d8b/classSubtitleManager.html#aa7d8609a88bee11c0eb5499d723bc717" title="Emitted when subtitle track is loaded." alt="" coords="540,527,727,567"/>
+<area shape="poly" id="edge17_Node000002_Node000018" title=" " alt="" coords="384,411,447,459,490,487,535,512,550,519,548,524,532,517,487,492,444,463,381,415"/>
+<area shape="poly" id="edge18_Node000002_Node000019" title=" " alt="" coords="382,411,432,468,461,507,488,548,502,585,507,618,514,647,522,662,535,677,551,688,548,693,532,681,518,665,509,649,501,619,497,587,483,551,457,510,428,471,378,415"/>
+<area shape="rect" id="Node000020" href="$db/d1c/classSubtitleEntry.html#a0c18fed0c6433dcdf15b660a2d9a52e0" title=" " alt="" coords="564,591,703,617"/>
+<area shape="poly" id="edge19_Node000002_Node000020" title=" " alt="" coords="377,411,401,445,436,490,482,537,535,576,552,585,550,590,532,581,478,541,432,493,396,448,373,414"/>
+<area shape="rect" id="Node000021" href="$d1/de3/classSubtitleTrack.html#a076bd609ae4ef5d621de6bcbcab084e9" title="Get total duration of subtitle track." alt="" coords="533,641,733,666"/>
+<area shape="poly" id="edge21_Node000002_Node000021" title=" " alt="" coords="380,411,428,469,488,548,501,572,508,592,517,610,535,627,543,632,540,637,532,631,513,613,503,594,496,574,483,551,424,472,376,414"/>
+<area shape="rect" id="Node000022" href="$dd/d8b/classSubtitleManager.html#a73837b0bacbedf46cc1977a8d0dcefae" title="Validate subtitle file for security." alt="" coords="538,32,729,72"/>
+<area shape="poly" id="edge22_Node000002_Node000022" title=" " alt="" coords="368,386,384,331,415,249,437,204,464,160,495,118,532,82,538,77,541,81,535,86,499,122,468,163,442,207,420,251,389,332,373,388"/>
+<area shape="rect" id="Node000006" href="$d3/dc3/classISubtitleParser.html#a884701b75985477e7abb541bfdf238ea" title="Check if parser can handle the given file." alt="" coords="1079,125,1262,150"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="973,144,1066,140,1066,145,973,150"/>
+<area shape="rect" id="Node000007" href="$d3/dcc/classSubtitleParserFactory.html#a7f0b9aeb0fe3f5226c65f3bacf024f0b" title="Get parser for file extension." alt="" coords="1083,175,1258,215"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="973,161,1070,176,1069,181,973,166"/>
+<area shape="rect" id="Node000010" href="$dd/d8b/classSubtitleManager.html#afa69f195a45d8c296995aed92c02759d" title="Emitted when active track changes." alt="" coords="788,233,999,273"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="715,295,798,274,799,279,716,300"/>
+<area shape="rect" id="Node000011" href="$dd/d8b/classSubtitleManager.html#a0f7ec6b8d0765725ba1b72dbf6f4d784" title="Handle media position change." alt="" coords="791,297,996,337"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="733,315,777,315,777,320,733,320"/>
+<area shape="rect" id="Node000012" href="$dd/d8b/classSubtitleManager.html#a4da4d64818831616c79df498283f26b4" title="Emitted when active subtitles change." alt="" coords="1053,248,1288,288"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="996,296,1044,288,1045,293,997,302"/>
+<area shape="rect" id="Node000013" href="$dd/d8b/classSubtitleManager.html#ab895587ae818bbf845af0852e617d74d" title="Get active subtitle entries at current time." alt="" coords="1071,312,1270,352"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="996,320,1057,323,1057,329,996,325"/>
+<area shape="rect" id="Node000014" href="$d1/de3/classSubtitleTrack.html#abddc35798ef24393b10e0859eef65c90" title="Get active subtitle entries at given time." alt="" coords="1336,312,1512,352"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="1270,329,1322,329,1322,335,1270,335"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="715,380,810,389,809,395,714,385"/>
+<area shape="poly" id="edge23_Node000022_Node000005" title=" " alt="" coords="701,70,734,82,782,104,828,123,826,128,780,109,732,86,699,75"/>
+<area shape="rect" id="Node000023" href="$dd/d8b/classSubtitleManager.html#ad2c991a2f4eee0398e11520ee7361582" title="Get supported subtitle file extensions." alt="" coords="781,5,1005,45"/>
+<area shape="poly" id="edge24_Node000022_Node000023" title=" " alt="" coords="729,40,767,36,768,41,729,45"/>
+<area shape="rect" id="Node000025" href="$d3/dc3/classISubtitleParser.html#a4049222a64d29d661b2941d1545398ec" title="Validate subtitle file for security issues." alt="" coords="793,70,993,95"/>
+<area shape="poly" id="edge26_Node000022_Node000025" title=" " alt="" coords="729,61,780,67,780,72,729,66"/>
+<area shape="rect" id="Node000024" href="$d3/dcc/classSubtitleParserFactory.html#a10add6ac804d0668e332b07149df6351" title="Get all supported extensions." alt="" coords="1077,5,1265,45"/>
+<area shape="poly" id="edge25_Node000023_Node000024" title=" " alt="" coords="1006,23,1063,23,1063,28,1006,28"/>
+</map>

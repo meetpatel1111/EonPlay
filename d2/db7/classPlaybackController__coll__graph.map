@@ -1,0 +1,7 @@
+<map id="PlaybackController" name="PlaybackController">
+<area shape="rect" id="Node000001" title="EonPlay core playback controller that manages media playback operations." alt="" coords="19,199,192,484"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,45,72,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,123,72,198,66,199,47,124"/>
+<area shape="rect" id="Node000003" href="$d5/d3d/classIComponent.html" title="Interface for modular application components." alt="" coords="97,5,247,151"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,165,144,199,139,198,148,163"/>
+</map>

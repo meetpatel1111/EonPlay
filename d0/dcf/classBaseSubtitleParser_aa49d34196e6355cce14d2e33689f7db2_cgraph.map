@@ -1,0 +1,7 @@
+<map id="BaseSubtitleParser::parseGenericTime" name="BaseSubtitleParser::parseGenericTime">
+<area shape="rect" id="Node000001" title="Parse common time formats." alt="" coords="5,23,155,63"/>
+<area shape="rect" id="Node000002" href="$db/d1c/classSubtitleEntry.html#a9ed3365f628eba186081bae49f5c4cc7" title="Parse time from SRT format to milliseconds." alt="" coords="215,5,397,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,32,201,27,201,32,155,38"/>
+<area shape="rect" id="Node000003" href="$db/d1c/classSubtitleEntry.html#ae615b2c47318fb1ab161b542cce7078f" title="Parse time from ASS format to milliseconds." alt="" coords="203,55,409,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,49,189,52,189,58,155,54"/>
+</map>

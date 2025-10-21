@@ -1,0 +1,41 @@
+<map id="EonPlay::Data::PlaylistManager::deletePlaylist" name="EonPlay::Data::PlaylistManager::deletePlaylist">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,325,231,365"/>
+<area shape="rect" id="Node000002" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a318b67254c38b5dd781a07c041cc8981" title=" " alt="" coords="285,229,511,269"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,323,278,279,304,271,305,276,280,284,166,328"/>
+<area shape="rect" id="Node000018" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a3ec3853b1f913ad37d6f04e63ea2355b" title=" " alt="" coords="314,293,482,333"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="231,330,300,322,300,327,231,335"/>
+<area shape="rect" id="Node000019" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#ae9519094e8c43dc236badcb10226bc19" title=" " alt="" coords="285,357,511,397"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="231,356,272,360,271,366,231,361"/>
+<area shape="rect" id="Node000020" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#a699b327fd19ff72227eba450c4ae17ce" title=" " alt="" coords="279,421,517,461"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="166,363,280,407,305,415,304,420,278,412,164,368"/>
+<area shape="rect" id="Node000003" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a0dcef6a77d0706afa09021481dcd473b" title=" " alt="" coords="565,229,733,269"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="511,247,551,247,551,252,511,252"/>
+<area shape="rect" id="Node000004" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#a19da66df360ebe035942e0e0857a2533" title=" " alt="" coords="781,5,1020,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="656,228,674,191,700,144,736,96,780,55,789,49,791,54,783,59,740,100,705,147,678,193,661,230"/>
+<area shape="rect" id="Node000005" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#a1e98619f4bbbd1a752e22ee1465aa209" title=" " alt="" coords="781,69,1020,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="664,227,711,173,744,144,780,119,793,112,795,117,783,124,747,148,715,177,668,231"/>
+<area shape="rect" id="Node000006" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ac7b77dd4fd9235f729fe3000cf280e01" title=" " alt="" coords="809,133,992,173"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="686,227,780,183,803,175,805,180,782,188,688,232"/>
+<area shape="rect" id="Node000008" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ad9940de5c551727f95a98ed16caad932" title=" " alt="" coords="809,197,992,237"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="733,236,795,228,796,233,734,241"/>
+<area shape="rect" id="Node000010" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a8e21eb7ca2b0ea4dbc709f3e0f1b5740" title=" " alt="" coords="809,261,992,301"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="734,257,796,265,795,271,733,263"/>
+<area shape="rect" id="Node000012" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a2803406d0a659719a22162057febdc28" title=" " alt="" coords="809,325,992,365"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="688,267,782,311,805,319,803,324,780,316,686,272"/>
+<area shape="rect" id="Node000014" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a7598825cbdac94beb499b01f69be7d32" title=" " alt="" coords="809,389,992,429"/>
+<area shape="poly" id="edge13_Node000003_Node000014" title=" " alt="" coords="668,268,715,322,747,350,783,375,798,383,795,387,780,380,744,355,711,325,664,271"/>
+<area shape="rect" id="Node000016" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ab5c607a255318448ec724daec9ad0cf4" title=" " alt="" coords="809,453,992,493"/>
+<area shape="poly" id="edge15_Node000003_Node000016" title=" " alt="" coords="661,269,678,306,705,352,740,399,783,439,798,448,796,453,780,443,736,403,700,355,674,308,656,271"/>
+<area shape="rect" id="Node000007" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a09f8ad403a921430628d18e76dd90023" title=" " alt="" coords="1078,133,1261,173"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="992,151,1064,151,1064,156,992,156"/>
+<area shape="rect" id="Node000009" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a75c0e956449eb91ad71bb2644110c83e" title=" " alt="" coords="1078,197,1261,237"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="992,215,1064,215,1064,220,992,220"/>
+<area shape="rect" id="Node000011" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a9f59cdb65f31f8506749bd6984339c0f" title=" " alt="" coords="1078,261,1261,301"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="992,279,1064,279,1064,284,992,284"/>
+<area shape="rect" id="Node000013" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a7eb834a0663186a43f3eacb12d18ded7" title=" " alt="" coords="1078,325,1261,365"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="992,343,1064,343,1064,348,992,348"/>
+<area shape="rect" id="Node000015" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#aeb83eaa447b5b8ee7ffd807ba13f91de" title=" " alt="" coords="1068,397,1271,422"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="992,407,1054,407,1054,412,992,412"/>
+<area shape="rect" id="Node000017" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ad6daf8d51553ea2d923d87f4e6b84e01" title=" " alt="" coords="1078,453,1261,493"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="992,471,1064,471,1064,476,992,476"/>
+</map>

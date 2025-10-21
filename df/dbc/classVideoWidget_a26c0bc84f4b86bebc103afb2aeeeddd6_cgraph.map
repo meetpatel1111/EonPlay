@@ -1,0 +1,5 @@
+<map id="VideoWidget::setVerticalMirror" name="VideoWidget::setVerticalMirror">
+<area shape="rect" id="Node000001" title="Set vertical mirroring." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a4022e8fc18185cfe5c9eb928459c531f" title="Emitted when video transformation changes." alt="" coords="236,5,451,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
+</map>

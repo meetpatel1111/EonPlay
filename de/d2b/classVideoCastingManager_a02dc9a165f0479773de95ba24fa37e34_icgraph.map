@@ -1,0 +1,9 @@
+<map id="VideoCastingManager::stopDeviceDiscovery" name="VideoCastingManager::stopDeviceDiscovery">
+<area shape="rect" id="Node000001" title="Stop device discovery." alt="" coords="451,37,619,77"/>
+<area shape="rect" id="Node000002" href="$de/d2b/classVideoCastingManager.html#a332b025ee1adfe2bf19d61a3bfeaa3ef" title="Refresh device list." alt="" coords="237,5,403,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="437,45,402,40,403,35,437,40"/>
+<area shape="rect" id="Node000003" href="$de/d2b/classVideoCastingManager.html#a02a9adb4959d3937a55b35a80481fa81" title="Shutdown the casting manager." alt="" coords="237,69,403,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="437,75,403,80,402,74,437,69"/>
+<area shape="rect" id="Node000004" href="$de/d2b/classVideoCastingManager.html#aaf3f940361d49b946010277096a4f316" title=" " alt="" coords="5,69,189,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="223,92,190,92,190,87,223,87"/>
+</map>

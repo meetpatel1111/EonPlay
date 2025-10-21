@@ -1,0 +1,13 @@
+<map id="VideoCastingManager::~VideoCastingManager" name="VideoCastingManager::~VideoCastingManager">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,189,109"/>
+<area shape="rect" id="Node000002" href="$de/d2b/classVideoCastingManager.html#a02a9adb4959d3937a55b35a80481fa81" title="Shutdown the casting manager." alt="" coords="237,69,403,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,87,224,87,224,92,189,92"/>
+<area shape="rect" id="Node000003" href="$de/d2b/classVideoCastingManager.html#a6b3707035dde1ed74389e42bdc308d41" title="Stop current casting session." alt="" coords="455,5,621,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="388,67,456,47,457,52,390,72"/>
+<area shape="rect" id="Node000004" href="$de/d2b/classVideoCastingManager.html#a02dc9a165f0479773de95ba24fa37e34" title="Stop device discovery." alt="" coords="454,69,622,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="403,87,440,87,440,92,403,92"/>
+<area shape="rect" id="Node000006" href="$de/d2b/classVideoCastingManager.html#a8684354a08d98eaab11a9dbf6d8ca181" title="Stop web control server." alt="" coords="451,133,625,173"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="390,107,457,127,456,132,388,112"/>
+<area shape="rect" id="Node000005" href="$de/d2b/classVideoCastingManager.html#a0cca5053560ff30f71a4cb1454651ab0" title="Emitted when device discovery stops." alt="" coords="673,69,839,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="623,87,659,87,659,92,623,92"/>
+</map>

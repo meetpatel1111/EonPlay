@@ -1,0 +1,5 @@
+<map id="PlaybackControls::setPosition" name="PlaybackControls::setPosition">
+<area shape="rect" id="Node000001" title="Set the current playback position." alt="" coords="5,5,220,31"/>
+<area shape="rect" id="Node000002" href="$d6/d3c/classPlaybackControls.html#aa1dd091b4949b31cdd31327f717644e0" title="Get current position." alt="" coords="268,5,463,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,15,254,15,254,21,220,21"/>
+</map>

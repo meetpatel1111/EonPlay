@@ -1,0 +1,11 @@
+<map id="SubtitleManager::shiftTiming" name="SubtitleManager::shiftTiming">
+<area shape="rect" id="Node000001" title="Shift subtitle timing for active track." alt="" coords="5,45,216,70"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a0f7ec6b8d0765725ba1b72dbf6f4d784" title="Handle media position change." alt="" coords="264,37,469,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,55,250,55,250,60,216,60"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#a4da4d64818831616c79df498283f26b4" title="Emitted when active subtitles change." alt="" coords="517,5,752,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="469,42,503,38,504,44,470,48"/>
+<area shape="rect" id="Node000004" href="$dd/d8b/classSubtitleManager.html#ab895587ae818bbf845af0852e617d74d" title="Get active subtitle entries at current time." alt="" coords="535,69,734,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="470,67,522,73,521,78,469,72"/>
+<area shape="rect" id="Node000005" href="$d1/de3/classSubtitleTrack.html#abddc35798ef24393b10e0859eef65c90" title="Get active subtitle entries at given time." alt="" coords="800,69,976,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="734,87,786,87,786,92,734,92"/>
+</map>

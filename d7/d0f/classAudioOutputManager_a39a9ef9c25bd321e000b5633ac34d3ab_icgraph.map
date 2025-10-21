@@ -1,0 +1,5 @@
+<map id="AudioOutputManager::currentDeviceChanged" name="AudioOutputManager::currentDeviceChanged">
+<area shape="rect" id="Node000001" title="Emitted when current device changes." alt="" coords="213,5,392,45"/>
+<area shape="rect" id="Node000002" href="$d7/d0f/classAudioOutputManager.html#a6cca3713056b791ac50ac698d783b80d" title="Set audio output device." alt="" coords="5,5,165,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,28,165,28,165,23,199,23"/>
+</map>

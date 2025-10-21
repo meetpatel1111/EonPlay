@@ -1,0 +1,15 @@
+<map id="AudioEqualizer::bandGainChanged" name="AudioEqualizer::bandGainChanged">
+<area shape="rect" id="Node000001" title="Emitted when a band gain changes." alt="" coords="535,113,724,153"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#a8303ee2073a7bc91ad6c0dee052e75fe" title="Import equalizer settings from file." alt="" coords="261,5,483,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="590,107,542,75,486,46,447,33,448,28,488,41,544,70,593,102"/>
+<area shape="rect" id="Node000003" href="$d9/d4c/classAudioEqualizerWidget.html#a96f7775022636c37fa20cb10b514412d" title="Initialize the widget with audio equalizer." alt="" coords="289,55,455,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="525,112,454,96,455,91,527,107"/>
+<area shape="rect" id="Node000004" href="$d1/db9/classAudioEqualizer.html#a53b3705e78894c1779060067e9c5b1e3" title="Reset equalizer to default settings." alt="" coords="257,120,487,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="521,135,487,135,487,130,521,130"/>
+<area shape="rect" id="Node000005" href="$d1/db9/classAudioEqualizer.html#a8c8dd2e3cb98396f8a0b8ea18c755cc4" title="Set all band gains." alt="" coords="273,170,471,210"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="526,158,463,173,462,167,525,153"/>
+<area shape="rect" id="Node000007" href="$d1/db9/classAudioEqualizer.html#ae55bbdcc9cd1f8d5d05082f2df110ede" title="Set equalizer band gain." alt="" coords="267,235,477,260"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="593,163,544,195,488,224,448,237,447,232,486,220,542,191,590,159"/>
+<area shape="rect" id="Node000006" href="$d1/db9/classAudioEqualizer.html#aa960b351ce6f65a66e1737a093b9f7e4" title="Apply a preset profile." alt="" coords="5,177,209,203"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="259,193,209,193,209,187,259,187"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="IMediaEngine::getVideoFrame" name="IMediaEngine::getVideoFrame">
+<area shape="rect" id="Node000001" title="Get video frame at specific position (for thumbnails)" alt="" coords="5,5,223,31"/>
+<area shape="rect" id="Node000002" href="$d0/dbd/classIMediaEngine.html#a921728e0df0bdda6be7047f8b8d4742d" title="Get current playback position." alt="" coords="271,5,441,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,15,257,15,257,21,223,21"/>
+</map>

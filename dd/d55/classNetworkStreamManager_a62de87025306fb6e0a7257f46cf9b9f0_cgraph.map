@@ -1,0 +1,15 @@
+<map id="NetworkStreamManager::~NetworkStreamManager" name="NetworkStreamManager::~NetworkStreamManager">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,133,205,173"/>
+<area shape="rect" id="Node000002" href="$dd/d55/classNetworkStreamManager.html#a04d53350368ca173ace7e0431fe8ab81" title=" " alt="" coords="253,85,435,125"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,131,239,124,240,129,206,136"/>
+<area shape="rect" id="Node000006" href="$dd/d55/classNetworkStreamManager.html#a3179c715696916ac9448c9b0791065a3" title=" " alt="" coords="253,165,435,205"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="206,164,240,169,239,174,205,169"/>
+<area shape="rect" id="Node000003" href="$dd/d55/classNetworkStreamManager.html#ad00590fceb04ded19a1bec8917bde165" title=" " alt="" coords="483,5,680,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,83,482,55,504,47,506,52,484,60,403,88"/>
+<area shape="rect" id="Node000004" href="$dd/d55/classNetworkStreamManager.html#a675b6344d7c54d54bcaa2def77c064d2" title=" " alt="" coords="491,69,672,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="435,97,477,94,477,99,435,102"/>
+<area shape="rect" id="Node000005" href="$dd/d55/classNetworkStreamManager.html#a879f118c02501c27462064f78a83586b" title=" " alt="" coords="491,133,672,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="435,121,478,130,477,135,434,126"/>
+<area shape="rect" id="Node000007" href="$dd/d55/classNetworkStreamManager.html#a43885514eef0c8dc15476563849ddc31" title=" " alt="" coords="483,197,679,237"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="435,195,470,200,469,205,434,200"/>
+</map>

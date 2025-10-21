@@ -1,0 +1,22 @@
+<map id="FileUrlSupport::mediaFileLoaded" name="FileUrlSupport::mediaFileLoaded">
+<area shape="rect" id="Node000001" title="Emitted when media file is successfully loaded." alt="" coords="799,98,985,138"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#ae0e54160db525152d6583cd9f9b9efe4" title="Initialize the main window with component manager." alt="" coords="559,31,729,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="811,97,686,59,688,53,813,91"/>
+<area shape="rect" id="Node000004" href="$d8/d04/classFileUrlSupport.html#a37b71fc93757ef83b9d21774b6253675" title="Load media file with validation and auto subtitle detection." alt="" coords="537,105,751,131"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="785,121,751,121,751,115,785,115"/>
+<area shape="rect" id="Node000010" href="$dd/d6b/classMediaInfoWidget.html#a750ae87503febe4e07f870243be01729" title="Set the file URL support component." alt="" coords="552,155,736,195"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="792,144,732,158,730,153,791,139"/>
+<area shape="rect" id="Node000003" href="$df/d0a/main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main application entry point." alt="" coords="357,5,412,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="545,36,412,23,412,18,546,31"/>
+<area shape="rect" id="Node000005" href="$d8/d04/classFileUrlSupport.html#ae40a5216c2e2f98b8a943086cc6852f6" title="Load media from URL or stream." alt="" coords="280,55,489,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="564,105,450,83,451,77,565,100"/>
+<area shape="rect" id="Node000007" href="$d8/d04/classFileUrlSupport.html#a778c1c9fa26afa5d85905bcd813a9dd8" title="Process dropped files and URLs." alt="" coords="5,98,232,138"/>
+<area shape="poly" id="edge9_Node000004_Node000007" title=" " alt="" coords="523,121,232,121,232,115,523,115"/>
+<area shape="rect" id="Node000008" href="$d8/d04/classFileUrlSupport.html#a6878e3a41ccde6cf7d6092d93c1a421b" title="Handle file open request." alt="" coords="296,156,473,181"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="565,136,451,159,450,153,564,131"/>
+<area shape="rect" id="Node000009" href="$d8/d04/classFileUrlSupport.html#a8293ec6df26878b99baf15ee65139e3e" title="Handle multiple files open request." alt="" coords="293,205,477,231"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="555,138,539,146,524,157,516,170,506,184,491,196,465,208,462,203,488,192,502,180,511,167,520,154,536,141,553,133"/>
+<area shape="rect" id="Node000006" href="$d8/d04/classFileUrlSupport.html#a305f70beca6d625e0043d1798d25cfbb" title="Handle URL open request." alt="" coords="32,48,205,73"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="266,67,205,65,205,60,266,62"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="304,85,225,101,224,95,303,80"/>
+</map>

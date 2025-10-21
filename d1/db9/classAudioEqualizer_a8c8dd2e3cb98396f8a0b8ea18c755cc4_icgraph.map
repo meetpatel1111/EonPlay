@@ -1,0 +1,5 @@
+<map id="AudioEqualizer::setAllBandGains" name="AudioEqualizer::setAllBandGains">
+<area shape="rect" id="Node000001" title="Set all band gains." alt="" coords="257,5,455,45"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#aa960b351ce6f65a66e1737a093b9f7e4" title="Apply a preset profile." alt="" coords="5,13,209,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,28,209,28,209,23,244,23"/>
+</map>

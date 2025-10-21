@@ -1,0 +1,28 @@
+<map id="SettingsManager::initialize" name="SettingsManager::initialize">
+<area shape="rect" id="Node000001" title="Initialize the component." alt="" coords="5,149,201,175"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#ac666cd35e1136facad31de99a6c44bd3" title="Load settings from storage." alt="" coords="259,5,481,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,147,168,95,206,66,248,41,269,32,271,37,251,46,209,70,172,99,118,151"/>
+<area shape="rect" id="Node000006" href="$d1/dea/classSettingsManager.html#a5434e9fcb4048c111415eb8f0f835ae1" title="Perform settings migration from older version." alt="" coords="275,55,465,95"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="135,147,248,105,275,97,277,102,250,110,137,152"/>
+<area shape="rect" id="Node000007" href="$d1/dea/classSettingsManager.html#a5a058b3b20dac6ad648f70fb32615b16" title="Check if settings migration is needed." alt="" coords="249,120,491,145"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="201,149,241,144,241,149,202,154"/>
+<area shape="rect" id="Node000008" href="$d1/dea/classSettingsManager.html#a1566b3c0ec17dcbf59685739d9eb6ec2" title="Reset all settings to defaults." alt="" coords="277,170,463,210"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="202,170,263,176,262,181,201,175"/>
+<area shape="rect" id="Node000010" href="$d1/dea/classSettingsManager.html#ab58d13c6d172b64182706bc353b58ec7" title="Save settings immediately." alt="" coords="539,235,763,260"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="130,172,184,197,250,219,320,232,391,241,525,247,525,253,391,246,319,238,249,225,182,202,127,177"/>
+<area shape="rect" id="Node000012" href="$db/d11/structUserPreferences.html#ab358afc97446127480f8869d2874f17e" title="Validate settings and fix invalid values." alt="" coords="275,285,465,311"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="120,173,175,217,212,242,250,264,292,279,290,284,248,268,209,247,172,221,117,177"/>
+<area shape="rect" id="Node000003" href="$d1/dea/classSettingsManager.html#ab272cfaf088e474319378d94c2b55577" title="Get settings file path." alt="" coords="811,74,1025,114"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="481,8,617,9,691,15,763,27,818,44,868,66,866,71,817,49,762,33,690,21,616,15,481,14"/>
+<area shape="rect" id="Node000004" href="$db/d11/structUserPreferences.html#aae616f231072326f071332ab880054af" title="Reset all settings to default values." alt="" coords="559,106,743,146"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="462,28,492,41,508,54,517,67,526,80,540,92,552,98,549,103,537,96,522,83,513,70,504,57,489,46,460,33"/>
+<area shape="rect" id="Node000005" href="$d1/dea/classSettingsManager.html#a3d81017685f7730b3cd364ed27285417" title="Emitted when settings are loaded." alt="" coords="555,42,747,82"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="452,28,541,42,541,47,451,33"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="458,167,549,146,550,152,459,173"/>
+<area shape="rect" id="Node000009" href="$d1/dea/classSettingsManager.html#ac33df025a767e4e09ef8c99ad5154da2" title="Emitted when preferences are changed." alt="" coords="542,170,759,210"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="464,187,529,187,529,193,464,193"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="464,206,575,229,574,234,463,212"/>
+<area shape="poly" id="edge11_Node000010_Node000003" title=" " alt="" coords="728,232,762,220,798,198,832,173,887,122,891,126,835,177,801,203,764,224,730,237"/>
+<area shape="rect" id="Node000011" href="$d1/dea/classSettingsManager.html#aef7ec0bb37318673516b2aeaa332026e" title="Emitted when settings are saved." alt="" coords="822,227,1014,267"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="763,245,808,245,808,250,763,250"/>
+</map>

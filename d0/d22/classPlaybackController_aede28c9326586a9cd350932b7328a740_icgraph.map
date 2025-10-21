@@ -1,0 +1,9 @@
+<map id="PlaybackController::playbackSpeedChanged" name="PlaybackController::playbackSpeedChanged">
+<area shape="rect" id="Node000001" title="Emitted when playback speed changes." alt="" coords="413,37,600,77"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#aeeae9de244a528683f831605a66a0439" title="Set playback speed." alt="" coords="216,37,365,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="400,60,366,60,366,55,400,55"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#a092f6abd7027333e93abdd9430b62a4f" title="Reset playback speed to normal." alt="" coords="5,5,168,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,46,168,41,169,35,202,41"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#a3c8c069515a39dbfe8d1c28d67319d73" title="Set playback speed using enum." alt="" coords="12,69,161,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="203,74,162,80,161,75,202,69"/>
+</map>

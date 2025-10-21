@@ -1,0 +1,9 @@
+<map id="InternetStreamingManager::recordingStopped" name="InternetStreamingManager::recordingStopped">
+<area shape="rect" id="Node000001" title="Emitted when recording stops." alt="" coords="760,5,957,45"/>
+<area shape="rect" id="Node000002" href="$d2/d56/classInternetStreamingManager.html#a9e068bf9ad295aff7b9ccfdbcb7372b2" title="Stop current recording." alt="" coords="515,5,712,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="746,28,712,28,712,23,746,23"/>
+<area shape="rect" id="Node000003" href="$d2/d56/classInternetStreamingManager.html#afab40555db202d332bfba0f860659ebf" title="Shutdown the manager." alt="" coords="269,5,467,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="501,28,467,28,467,23,501,23"/>
+<area shape="rect" id="Node000004" href="$d2/d56/classInternetStreamingManager.html#a8ba673ccfc1b6e7d574c6a46ad9df03f" title=" " alt="" coords="5,5,221,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="256,28,221,28,221,23,256,23"/>
+</map>

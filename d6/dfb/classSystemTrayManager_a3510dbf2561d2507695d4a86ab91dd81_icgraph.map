@@ -1,0 +1,5 @@
+<map id="SystemTrayManager::quitRequested" name="SystemTrayManager::quitRequested">
+<area shape="rect" id="Node000001" title="Emitted when user requests to quit application." alt="" coords="216,5,379,45"/>
+<area shape="rect" id="Node000002" href="$d6/dfb/classSystemTrayManager.html#ab3a961a708c5c1b82e9f300b9afc4c13" title="Initialize system tray with main window reference." alt="" coords="5,5,168,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,28,168,28,168,23,202,23"/>
+</map>

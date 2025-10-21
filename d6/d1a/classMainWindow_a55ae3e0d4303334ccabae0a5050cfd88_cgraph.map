@@ -1,0 +1,7 @@
+<map id="MainWindow::keyPressEvent" name="MainWindow::keyPressEvent">
+<area shape="rect" id="Node000001" title="Handle key press events for shortcuts." alt="" coords="5,5,213,31"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#ad5cfa654e779027aa81b52113db170fa" title="Set window to fullscreen mode." alt="" coords="261,5,460,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,15,248,15,248,21,214,21"/>
+<area shape="rect" id="Node000003" href="$d6/d1a/classMainWindow.html#a6008a33337b6a0072879957b83cc7227" title="Emitted when fullscreen mode changes." alt="" coords="508,5,743,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="460,15,494,15,494,21,460,21"/>
+</map>

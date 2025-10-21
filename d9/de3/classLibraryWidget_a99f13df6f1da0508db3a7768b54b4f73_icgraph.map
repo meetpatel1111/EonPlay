@@ -1,0 +1,9 @@
+<map id="LibraryWidget::setPlaylistManager" name="LibraryWidget::setPlaylistManager">
+<area shape="rect" id="Node000001" title="Set playlist manager." alt="" coords="551,5,740,45"/>
+<area shape="rect" id="Node000002" href="$d9/de3/classLibraryWidget.html#aaf160868b714d902e847845a4877990f" title="Initialize the widget with managers." alt="" coords="325,13,503,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="537,28,503,28,503,23,537,23"/>
+<area shape="rect" id="Node000003" href="$d6/d1a/classMainWindow.html#ae0e54160db525152d6583cd9f9b9efe4" title="Initialize the main window with component manager." alt="" coords="108,13,277,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="312,28,277,28,277,23,312,23"/>
+<area shape="rect" id="Node000004" href="$df/d0a/main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main application entry point." alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

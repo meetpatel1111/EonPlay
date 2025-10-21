@@ -1,0 +1,5 @@
+<map id="AudioEqualizerWidget::onReplayGainChanged" name="AudioEqualizerWidget::onReplayGainChanged">
+<area shape="rect" id="Node000001" title="Handle ReplayGain change." alt="" coords="219,5,397,45"/>
+<area shape="rect" id="Node000002" href="$d9/d4c/classAudioEqualizerWidget.html#a96f7775022636c37fa20cb10b514412d" title="Initialize the widget with audio equalizer." alt="" coords="5,5,171,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,28,171,28,171,23,205,23"/>
+</map>

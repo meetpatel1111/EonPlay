@@ -1,0 +1,7 @@
+<map id="VideoWidget::setBrightness" name="VideoWidget::setBrightness">
+<area shape="rect" id="Node000001" title="Set brightness adjustment (&#45;100 to 100)" alt="" coords="5,35,208,60"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#ae725a4cf61fdc1be5879e22e2efcfafb" title="Get current brightness." alt="" coords="281,5,462,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,33,267,27,268,32,208,39"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#af63a2ee0f85d44eccaad6871dbb0e4bf" title="Emitted when video adjustments change." alt="" coords="256,55,487,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,55,243,59,242,64,208,61"/>
+</map>

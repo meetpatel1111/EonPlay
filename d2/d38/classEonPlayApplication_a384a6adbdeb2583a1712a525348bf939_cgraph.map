@@ -1,0 +1,9 @@
+<map id="EonPlayApplication::shutdown" name="EonPlayApplication::shutdown">
+<area shape="rect" id="Node000001" title="Gracefully shutdown EonPlay." alt="" coords="5,63,152,103"/>
+<area shape="rect" id="Node000002" href="$d2/d38/classEonPlayApplication.html#ab7042fdb2e8a993af3716156ba5038c3" title="Emitted when EonPlay shutdown begins." alt="" coords="200,5,393,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,61,206,46,208,51,153,66"/>
+<area shape="rect" id="Node000003" href="$d3/d4f/classEventBus.html#ab628daa9a218728977fc71ddf09389dc" title="Clear all subscriptions." alt="" coords="235,70,358,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,80,221,80,221,85,152,85"/>
+<area shape="rect" id="Node000004" href="$d3/d4f/classEventBus.html#a54f74b6e60e93f5d6bcaaf184318fa14" title=" " alt="" coords="223,119,370,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,97,227,114,226,119,152,102"/>
+</map>

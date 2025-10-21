@@ -1,0 +1,11 @@
+<map id="PlaybackController::state" name="PlaybackController::state">
+<area shape="rect" id="Node000001" title="Get current playback state." alt="" coords="199,101,344,141"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a2863b36c274bd466f71380a93426b92a" title="Start fast forward with specified speed." alt="" coords="5,5,151,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,97,149,60,124,48,126,43,152,55,223,92"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#a67f8769f236304a0060542a3dc226a56" title="Start rewind with specified speed." alt="" coords="5,69,151,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,110,151,104,152,99,186,104"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#abbf5ea8a1b47b768ef5883cdbcfe97b8" title="Step backward one frame (video only)" alt="" coords="5,133,151,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="186,138,152,144,151,139,185,133"/>
+<area shape="rect" id="Node000005" href="$d0/d22/classPlaybackController.html#adaa7ccd1a7ef9bb7d4bdec07ae8525f4" title="Step forward one frame (video only)" alt="" coords="5,197,151,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="223,151,152,188,126,200,124,195,149,183,220,146"/>
+</map>

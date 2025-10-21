@@ -1,0 +1,7 @@
+<map id="FileUrlSupport::captureScreenshotAtPosition" name="FileUrlSupport::captureScreenshotAtPosition">
+<area shape="rect" id="Node000001" title="Capture screenshot at specific position." alt="" coords="5,37,248,77"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a583921dd1f4e7e68fad5e96d82df34ff" title="Emitted when screenshot is captured." alt="" coords="296,5,489,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,40,282,36,283,41,248,45"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#aed926a58b49dd5fdf0d5b418c3d95b7b" title="Emitted when screenshot capture fails." alt="" coords="296,69,489,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="248,69,283,73,282,79,248,75"/>
+</map>

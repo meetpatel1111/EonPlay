@@ -1,0 +1,7 @@
+<map id="PlaybackController::setCrossfadeEnabled" name="PlaybackController::setCrossfadeEnabled">
+<area shape="rect" id="Node000001" title="Enable or disable crossfade between tracks." alt="" coords="5,37,172,77"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a8d82320d9084378433bd16dc33267ca4" title="Emitted when crossfade settings change." alt="" coords="220,5,371,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,42,206,36,207,42,173,47"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#ab04e1d486535808826072f0a2a31f6ed" title="Get media duration." alt="" coords="223,69,368,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,68,209,73,209,79,172,73"/>
+</map>

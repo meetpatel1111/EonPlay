@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,111,56"/>
+<area shape="rect" id="Node000001" href="$d2/d38/classEonPlayApplication.html" title="Main application class for EonPlay &#45; Timeless, futuristic media player." alt="" coords="173,5,320,31"/>
+<area shape="poly" id="edge56_Node000000_Node000001" title=" " alt="" coords="124,32,173,25,174,30,125,37"/>
+<area shape="rect" id="Node000002" href="$d2/dd7/classMediaPlayerApplication.html" title="Main application class for the Cross&#45;Platform Media Player." alt="" coords="159,55,335,80"/>
+<area shape="poly" id="edge57_Node000000_Node000002" title=" " alt="" coords="125,49,159,53,158,59,124,54"/>
+</map>

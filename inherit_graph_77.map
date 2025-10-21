@@ -1,0 +1,29 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,301,84,327"/>
+<area shape="rect" id="Node000001" href="$d9/d4c/classAudioEqualizerWidget.html" title="Widget for audio equalizer controls." alt="" coords="135,5,300,31"/>
+<area shape="poly" id="edge61_Node000000_Node000001" title=" " alt="" coords="44,287,48,235,61,169,72,134,87,100,106,68,130,40,146,29,150,33,134,44,111,71,92,103,77,136,67,170,54,236,49,288"/>
+<area shape="rect" id="Node000002" href="$d5/da7/classAudioProcessorWidget.html" title="Widget for advanced audio processing controls." alt="" coords="133,55,301,80"/>
+<area shape="poly" id="edge62_Node000000_Node000002" title=" " alt="" coords="46,287,53,244,68,191,93,136,110,111,130,89,147,78,150,82,134,93,114,115,98,139,73,193,59,245,51,288"/>
+<area shape="rect" id="Node000003" href="$d5/d45/classAudioVisualizerWidget.html" title="Widget for displaying audio visualizations." alt="" coords="133,104,302,129"/>
+<area shape="poly" id="edge63_Node000000_Node000003" title=" " alt="" coords="49,287,60,253,76,213,99,173,130,139,149,127,152,132,134,143,103,176,81,215,65,255,54,288"/>
+<area shape="rect" id="Node000004" href="$dd/d2d/classDragDropWidget.html" title="Widget that handles drag and drop operations for media files and URLs." alt="" coords="152,153,283,179"/>
+<area shape="poly" id="edge64_Node000000_Node000004" title=" " alt="" coords="55,288,84,237,105,210,130,188,152,176,154,181,134,192,109,214,88,240,59,290"/>
+<area shape="rect" id="Node000005" href="$d9/de3/classLibraryWidget.html" title="Comprehensive media library browser widget." alt="" coords="161,203,274,228"/>
+<area shape="poly" id="edge65_Node000000_Node000005" title=" " alt="" coords="65,289,95,262,131,237,159,225,161,230,133,242,98,266,69,293"/>
+<area shape="rect" id="Node000006" href="$dd/d6b/classMediaInfoWidget.html" title="Widget for displaying detailed media information." alt="" coords="151,252,284,277"/>
+<area shape="poly" id="edge66_Node000000_Node000006" title=" " alt="" coords="96,296,131,286,170,275,172,280,133,291,98,301"/>
+<area shape="rect" id="Node000007" href="$d7/ddb/classMiniPlayerWidget.html" title="Mini player with always&#45;on&#45;top floating window." alt="" coords="149,301,286,327"/>
+<area shape="poly" id="edge67_Node000000_Node000007" title=" " alt="" coords="98,311,149,311,149,317,98,317"/>
+<area shape="rect" id="Node000008" href="$dd/de6/classPictureInPictureWidget.html" title="Picture&#45;in&#45;Picture floating video window." alt="" coords="132,351,303,376"/>
+<area shape="poly" id="edge68_Node000000_Node000008" title=" " alt="" coords="98,326,173,348,171,353,97,331"/>
+<area shape="rect" id="Node000009" href="$d6/d3c/classPlaybackControls.html" title="Playback controls widget for EonPlay media player." alt="" coords="150,400,285,425"/>
+<area shape="poly" id="edge69_Node000000_Node000009" title=" " alt="" coords="69,335,98,361,133,385,163,397,161,402,131,390,95,365,65,338"/>
+<area shape="rect" id="Node000010" href="$db/d32/classPlaylistWidget.html" title="Comprehensive playlist management widget." alt="" coords="159,449,275,475"/>
+<area shape="poly" id="edge70_Node000000_Node000010" title=" " alt="" coords="60,338,89,387,109,413,134,434,161,448,158,453,130,439,105,416,84,390,55,340"/>
+<area shape="rect" id="Node000011" href="$d9/dff/classSubtitleControlWidget.html" title="Subtitle control widget for EonPlay." alt="" coords="135,499,300,524"/>
+<area shape="poly" id="edge71_Node000000_Node000011" title=" " alt="" coords="55,339,65,373,81,412,104,451,134,484,154,496,152,501,130,488,99,454,76,414,60,374,50,341"/>
+<area shape="rect" id="Node000012" href="$de/d8e/classSubtitleRenderer.html" title="Subtitle text overlay renderer widget." alt="" coords="152,548,283,573"/>
+<area shape="poly" id="edge72_Node000000_Node000012" title=" " alt="" coords="51,340,59,383,74,435,98,488,114,512,134,533,153,546,150,550,130,537,110,515,93,490,69,437,54,384,46,341"/>
+<area shape="rect" id="Node000013" href="$df/dbc/classVideoWidget.html" title="Video display widget for EonPlay media player." alt="" coords="165,597,270,623"/>
+<area shape="poly" id="edge73_Node000000_Node000013" title=" " alt="" coords="49,340,54,391,67,456,92,524,111,555,134,583,148,593,166,600,164,605,146,598,130,587,106,558,88,527,62,458,49,392,44,341"/>
+</map>

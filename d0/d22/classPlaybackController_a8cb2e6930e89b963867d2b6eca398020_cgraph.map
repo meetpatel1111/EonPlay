@@ -1,0 +1,9 @@
+<map id="PlaybackController::saveResumePosition" name="PlaybackController::saveResumePosition">
+<area shape="rect" id="Node000001" title="Save current playback position for resume." alt="" coords="5,69,172,109"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#ab04e1d486535808826072f0a2a31f6ed" title="Get media duration." alt="" coords="220,5,365,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,67,214,47,216,52,154,72"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#a1a864cc9746736841077caf5195ea483" title="Check if media is currently loaded." alt="" coords="220,69,365,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,87,206,87,206,92,172,92"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#aae1e4a03d5e4873bd67700ad0eecb827" title="Get current playback position." alt="" coords="220,133,365,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,107,216,127,214,132,152,112"/>
+</map>

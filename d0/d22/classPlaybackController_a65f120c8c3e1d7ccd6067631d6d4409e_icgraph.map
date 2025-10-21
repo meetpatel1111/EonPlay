@@ -1,0 +1,11 @@
+<map id="PlaybackController::fastSeekChanged" name="PlaybackController::fastSeekChanged">
+<area shape="rect" id="Node000001" title="Emitted when fast seek state changes." alt="" coords="392,69,537,109"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a2863b36c274bd466f71380a93426b92a" title="Start fast forward with specified speed." alt="" coords="199,5,344,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="390,67,331,48,333,43,391,62"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#a67f8769f236304a0060542a3dc226a56" title="Start rewind with specified speed." alt="" coords="199,69,344,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="378,92,345,92,345,87,378,87"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#a1942021a93ef2bb5b1f800c4876b7cc4" title="Stop fast forward/rewind and return to normal playback." alt="" coords="199,133,344,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="391,116,333,136,331,131,390,111"/>
+<area shape="rect" id="Node000005" href="$d0/d22/classPlaybackController.html#a188796e3061d606b9f1ee44fca8fdf8d" title="Load media file or URL." alt="" coords="5,133,151,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="185,156,151,156,151,151,185,151"/>
+</map>

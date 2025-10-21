@@ -1,0 +1,7 @@
+<map id="PlaybackController::resetPlaybackSpeed" name="PlaybackController::resetPlaybackSpeed">
+<area shape="rect" id="Node000001" title="Reset playback speed to normal." alt="" coords="5,5,168,45"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#aeeae9de244a528683f831605a66a0439" title="Set playback speed." alt="" coords="216,5,365,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,23,202,23,202,28,168,28"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#aede28c9326586a9cd350932b7328a740" title="Emitted when playback speed changes." alt="" coords="413,5,600,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,23,400,23,400,28,365,28"/>
+</map>

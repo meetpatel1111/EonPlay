@@ -1,0 +1,13 @@
+<map id="VideoWidget::videoTransformChanged" name="VideoWidget::videoTransformChanged">
+<area shape="rect" id="Node000001" title="Emitted when video transformation changes." alt="" coords="567,63,781,103"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a84ea008f9194622d6fd393f3b5d092de" title="Set horizontal mirroring." alt="" coords="319,5,519,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,62,508,48,509,43,571,57"/>
+<area shape="rect" id="Node000004" href="$df/dbc/classVideoWidget.html#a7b10951fb7f77a5fb7ad7a46e240f359" title="Set video rotation (0, 90, 180, 270 degrees)" alt="" coords="325,70,513,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="553,85,513,85,513,80,553,80"/>
+<area shape="rect" id="Node000005" href="$df/dbc/classVideoWidget.html#a26c0bc84f4b86bebc103afb2aeeeddd6" title="Set vertical mirroring." alt="" coords="327,120,510,160"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="571,108,509,123,508,117,570,103"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#a1464faf11fefac7fae77e7aaec07b7ce" title="Reset all video adjustments to default." alt="" coords="5,70,271,95"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="307,51,201,73,200,67,306,45"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="311,85,271,85,271,80,311,80"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="313,121,201,98,202,93,314,116"/>
+</map>

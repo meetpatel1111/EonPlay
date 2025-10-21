@@ -1,0 +1,5 @@
+<map id="AudioEqualizer::getPresetName" name="AudioEqualizer::getPresetName">
+<area shape="rect" id="Node000001" title="Get preset name." alt="" coords="257,5,485,31"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#aa960b351ce6f65a66e1737a093b9f7e4" title="Apply a preset profile." alt="" coords="5,5,209,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,21,209,21,209,15,244,15"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="SubtitleEntry::parseTime" name="SubtitleEntry::parseTime">
+<area shape="rect" id="Node000001" title="Parse time from SRT format to milliseconds." alt="" coords="203,13,385,38"/>
+<area shape="rect" id="Node000002" href="$d0/dcf/classBaseSubtitleParser.html#aa49d34196e6355cce14d2e33689f7db2" title="Parse common time formats." alt="" coords="5,5,155,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,28,155,28,155,23,189,23"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="LibraryWidget::dropEvent" name="LibraryWidget::dropEvent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,42,192,67"/>
+<area shape="rect" id="Node000002" href="$d9/d0d/classEonPlay_1_1Data_1_1LibraryManager.html#ad4ec2b679768d080cdddcdb0850251c2" title=" " alt="" coords="240,5,463,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,41,226,37,227,42,192,47"/>
+<area shape="rect" id="Node000003" href="$d9/de3/classLibraryWidget.html#a953fa7f20120faaa402fdbafc87faae2" title="Refresh library display." alt="" coords="245,70,457,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,62,232,67,231,72,192,68"/>
+</map>

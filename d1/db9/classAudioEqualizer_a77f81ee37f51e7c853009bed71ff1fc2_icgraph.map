@@ -1,0 +1,5 @@
+<map id="AudioEqualizer::shutdown" name="AudioEqualizer::shutdown">
+<area shape="rect" id="Node000001" title="Shutdown the equalizer." alt="" coords="288,5,479,31"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#acda143151aa2008dc96df0afa49f7e67" title=" " alt="" coords="5,5,240,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,21,240,21,240,15,274,15"/>
+</map>

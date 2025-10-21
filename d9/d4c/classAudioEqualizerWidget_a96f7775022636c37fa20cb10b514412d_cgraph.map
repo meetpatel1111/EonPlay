@@ -1,0 +1,33 @@
+<map id="AudioEqualizerWidget::initialize" name="AudioEqualizerWidget::initialize">
+<area shape="rect" id="Node000001" title="Initialize the widget with audio equalizer." alt="" coords="5,440,171,480"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#aa74eed06fe12bea90e9870ab3e0b9057" title="Emitted when a band gain changes." alt="" coords="251,5,441,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,440,91,367,109,264,125,207,148,152,178,100,217,55,237,41,240,46,220,59,182,104,153,154,130,209,114,265,97,368,92,440"/>
+<area shape="rect" id="Node000003" href="$d1/db9/classAudioEqualizer.html#a4ea1fbeb04218b6f9afdaad714bb86b5" title="Emitted when bass boost changes." alt="" coords="249,69,443,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="88,439,97,377,117,291,134,244,155,199,183,156,217,119,234,107,237,111,220,123,187,159,160,201,139,246,122,292,102,378,93,440"/>
+<area shape="rect" id="Node000004" href="$d1/db9/classAudioEqualizer.html#aeff0ac8afdf5f92d8d4ff8bbca20d75a" title="Emitted when equalizer is enabled/disabled." alt="" coords="228,134,464,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="89,439,100,385,123,312,140,273,160,235,186,200,217,170,226,164,229,168,220,174,190,203,165,238,144,275,128,313,105,386,95,440"/>
+<area shape="rect" id="Node000005" href="$d9/d4c/classAudioEqualizerWidget.html#a2077a7cb761f891ba17afc39c7a747b2" title="Handle band gain change." alt="" coords="263,184,429,224"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="92,439,108,396,133,340,169,283,191,257,217,234,248,217,251,222,220,238,195,260,173,286,137,343,112,398,98,441"/>
+<area shape="rect" id="Node000006" href="$d9/d4c/classAudioEqualizerWidget.html#a2d01b2f6f1ac900d2495f65eafc3f6f5" title="Handle bass boost change." alt="" coords="261,248,431,288"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="98,438,143,369,177,330,217,298,246,283,249,288,220,302,181,334,147,372,102,441"/>
+<area shape="rect" id="Node000007" href="$d9/d4c/classAudioEqualizerWidget.html#a8f69beb522717e123c260b0495b414f3" title="Handle equalizer enabled state change." alt="" coords="239,312,453,352"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="109,438,157,399,217,362,235,354,237,359,220,366,160,403,113,442"/>
+<area shape="rect" id="Node000008" href="$d9/d4c/classAudioEqualizerWidget.html#a2470ebaaa82bb7b84461e9005faafb34" title="Handle preset change." alt="" coords="263,376,429,416"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="169,437,251,417,252,422,170,443"/>
+<area shape="rect" id="Node000009" href="$d9/d4c/classAudioEqualizerWidget.html#a3fb29d3c5d37142651c312ab3b0e57a4" title="Handle ReplayGain change." alt="" coords="257,440,435,480"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="171,457,243,457,243,463,171,463"/>
+<area shape="rect" id="Node000010" href="$d9/d4c/classAudioEqualizerWidget.html#a7e0f4bd6bce4769d8fe48e6c22e00714" title="Handle 3D surround change." alt="" coords="263,504,429,544"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="170,477,252,498,251,503,169,483"/>
+<area shape="rect" id="Node000011" href="$d9/d4c/classAudioEqualizerWidget.html#a013c997f016007fc6d3308ceb5581b98" title="Handle treble enhancement change." alt="" coords="231,568,461,608"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="113,478,160,517,220,554,237,561,235,566,217,558,157,521,109,482"/>
+<area shape="rect" id="Node000012" href="$d1/db9/classAudioEqualizer.html#af60730b36b8f47173835619d2e9d224f" title="Emitted when preset changes." alt="" coords="233,633,459,658"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="102,479,120,511,147,549,180,586,220,618,234,625,232,630,217,622,177,590,143,552,116,513,97,482"/>
+<area shape="rect" id="Node000013" href="$d1/db9/classAudioEqualizer.html#a726f0699e17d1bc9bc879ec65a77c6b3" title="Emitted when ReplayGain settings change." alt="" coords="247,683,445,723"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="98,479,114,519,140,570,175,623,196,647,220,667,236,677,233,681,217,671,193,650,171,626,135,573,110,522,94,481"/>
+<area shape="rect" id="Node000014" href="$d1/db9/classAudioEqualizer.html#a37c50143b4d12c3d6f33f8e4e011b51e" title="Emitted when 3D surround settings change." alt="" coords="254,747,438,787"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="95,480,107,531,131,600,147,636,167,672,192,704,220,733,243,747,240,751,217,737,188,708,163,675,142,639,126,602,102,533,90,481"/>
+<area shape="rect" id="Node000015" href="$d1/db9/classAudioEqualizer.html#a37cc38e4253320cb56ea71d899aee4e5" title="Emitted when treble enhancement changes." alt="" coords="219,811,473,851"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="93,480,102,542,122,628,139,674,160,719,187,761,220,797,226,801,222,805,217,801,183,764,155,721,134,676,117,629,97,543,88,481"/>
+<area shape="rect" id="Node000016" href="$d9/d4c/classAudioEqualizerWidget.html#affbc2777a727dad047bf42ee6f54a145" title="Update the widget from equalizer settings." alt="" coords="262,875,430,915"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="92,480,97,552,114,655,130,711,153,766,182,816,220,861,251,879,248,884,217,865,178,820,148,768,125,713,109,656,91,553,87,480"/>
+</map>

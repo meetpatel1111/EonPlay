@@ -1,0 +1,5 @@
+<map id="SettingsManager::getValue" name="SettingsManager::getValue">
+<area shape="rect" id="Node000001" title="Get a specific setting value." alt="" coords="280,13,477,38"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#a5e34f2d6bac55f07fb81cbf161973fa1" title="Get encrypted setting value." alt="" coords="5,5,232,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,28,232,28,232,23,266,23"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="SettingsManager::shutdown" name="SettingsManager::shutdown">
+<area shape="rect" id="Node000001" title="Shutdown the component and cleanup resources." alt="" coords="5,45,208,70"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#ab58d13c6d172b64182706bc353b58ec7" title="Save settings immediately." alt="" coords="256,45,480,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,55,242,55,242,60,208,60"/>
+<area shape="rect" id="Node000003" href="$d1/dea/classSettingsManager.html#ab272cfaf088e474319378d94c2b55577" title="Get settings file path." alt="" coords="528,5,743,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="474,42,514,37,515,42,475,47"/>
+<area shape="rect" id="Node000004" href="$d1/dea/classSettingsManager.html#aef7ec0bb37318673516b2aeaa332026e" title="Emitted when settings are saved." alt="" coords="539,69,731,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="475,67,526,74,525,79,474,73"/>
+</map>

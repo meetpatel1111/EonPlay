@@ -1,0 +1,5 @@
+<map id="LibraryWidget::showLibraryStats" name="LibraryWidget::showLibraryStats">
+<area shape="rect" id="Node000001" title="Show library statistics dialog." alt="" coords="5,5,205,45"/>
+<area shape="rect" id="Node000002" href="$d9/de3/classLibraryWidget.html#ab67928546b5ea197e3cb6ee44051ef7f" title="Get library statistics." alt="" coords="253,5,440,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,23,239,23,239,28,205,28"/>
+</map>

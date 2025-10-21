@@ -1,0 +1,17 @@
+<map id="BaseSubtitleParser::readFileContent" name="BaseSubtitleParser::readFileContent">
+<area shape="rect" id="Node000001" title="Read file content with encoding detection." alt="" coords="400,89,544,129"/>
+<area shape="rect" id="Node000002" href="$db/dc3/classASSParser.html#a94ca6cfb172b266fe73f14fdc9690489" title="Check if parser can handle the given file." alt="" coords="6,5,159,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="420,85,351,58,252,37,159,25,160,20,253,31,353,53,422,80"/>
+<area shape="rect" id="Node000003" href="$dc/db9/classSRTParser.html#a4c218e0ebb82084001a469a05e27f20e" title="Check if parser can handle the given file." alt="" coords="7,71,159,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="395,88,352,79,251,74,159,78,159,73,251,68,352,74,396,83"/>
+<area shape="rect" id="Node000004" href="$db/dc3/classASSParser.html#ab8109b9fd9345830b366a40a0c386945" title="Parse subtitle file and return subtitle track." alt="" coords="5,123,160,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="396,135,352,143,252,149,160,146,160,140,252,144,352,138,395,129"/>
+<area shape="rect" id="Node000005" href="$dc/db9/classSRTParser.html#aeef7c45b58862be36745cd1f39abe5a5" title="Parse subtitle file and return subtitle track." alt="" coords="6,176,159,201"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="412,136,353,155,252,175,160,186,159,180,252,169,351,150,411,131"/>
+<area shape="rect" id="Node000006" href="$d0/dcf/classBaseSubtitleParser.html#a447bd858af80cd7c94e3ace71faca2bf" title="Validate subtitle file for security issues." alt="" coords="208,89,352,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="386,111,352,111,352,106,386,106"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="222,85,110,33,113,28,224,80"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="194,100,159,96,159,90,195,95"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="195,123,161,128,160,122,194,118"/>
+<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="221,137,161,162,119,178,117,173,159,157,219,132"/>
+</map>

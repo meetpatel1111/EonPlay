@@ -1,0 +1,9 @@
+<map id="SubtitleManager::onPositionChanged" name="SubtitleManager::onPositionChanged">
+<area shape="rect" id="Node000001" title="Handle media position change." alt="" coords="5,37,211,77"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a4da4d64818831616c79df498283f26b4" title="Emitted when active subtitles change." alt="" coords="259,5,493,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,42,245,38,245,44,211,48"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#ab895587ae818bbf845af0852e617d74d" title="Get active subtitle entries at current time." alt="" coords="277,69,475,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,67,263,73,262,78,210,72"/>
+<area shape="rect" id="Node000004" href="$d1/de3/classSubtitleTrack.html#abddc35798ef24393b10e0859eef65c90" title="Get active subtitle entries at given time." alt="" coords="541,69,717,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="476,87,528,87,528,92,476,92"/>
+</map>

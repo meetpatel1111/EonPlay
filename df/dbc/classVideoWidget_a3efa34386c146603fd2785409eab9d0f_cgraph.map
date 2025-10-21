@@ -1,0 +1,14 @@
+<map id="VideoWidget::keyPressEvent" name="VideoWidget::keyPressEvent">
+<area shape="rect" id="Node000001" title="Handle key press events." alt="" coords="5,31,213,56"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a6952570486065662b9d65e146e85b466" title="Enter or exit fullscreen mode." alt="" coords="541,5,739,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,28,261,15,399,9,527,10,527,16,399,15,262,21,172,33"/>
+<area shape="rect" id="Node000004" href="$df/dbc/classVideoWidget.html#ac259838d66fe0bd03dcc3d4462323e00" title="Take a screenshot of current video frame." alt="" coords="265,80,478,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="178,53,290,75,289,80,177,59"/>
+<area shape="rect" id="Node000006" href="$df/dbc/classVideoWidget.html#addf7f275d3651648118da94dc1f6b711" title="Toggle fullscreen mode." alt="" coords="261,31,481,56"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="214,41,248,41,248,46,214,46"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#aef75034146d02688079238c07885e975" title="Emitted when fullscreen mode changes." alt="" coords="799,5,1033,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="740,15,785,15,785,21,740,21"/>
+<area shape="rect" id="Node000005" href="$df/dbc/classVideoWidget.html#a76ac55975eddb3adacebd78549474ec6" title="Emitted when screenshot is taken." alt="" coords="529,80,751,105"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="478,90,515,90,515,95,478,95"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="481,30,527,26,527,31,482,36"/>
+</map>

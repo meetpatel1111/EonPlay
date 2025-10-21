@@ -1,0 +1,11 @@
+<map id="SubtitleParseResult::summary" name="SubtitleParseResult::summary">
+<area shape="rect" id="Node000001" title="Get human&#45;readable result summary." alt="" coords="439,23,587,63"/>
+<area shape="rect" id="Node000002" href="$db/dc3/classASSParser.html#a176ba7444de20be9855bf85ec96a2968" title="Parse subtitle content and return subtitle track." alt="" coords="208,5,391,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="424,36,390,31,391,26,425,30"/>
+<area shape="rect" id="Node000004" href="$dc/db9/classSRTParser.html#a1f7cc9e6aaf5755d85f12e8c45c3fd43" title="Parse subtitle content and return subtitle track." alt="" coords="209,55,390,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="425,56,391,60,390,54,424,51"/>
+<area shape="rect" id="Node000003" href="$db/dc3/classASSParser.html#ab8109b9fd9345830b366a40a0c386945" title="Parse subtitle file and return subtitle track." alt="" coords="5,5,160,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,21,160,21,160,15,194,15"/>
+<area shape="rect" id="Node000005" href="$dc/db9/classSRTParser.html#aeef7c45b58862be36745cd1f39abe5a5" title="Parse subtitle file and return subtitle track." alt="" coords="6,55,159,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,70,160,70,160,65,195,65"/>
+</map>

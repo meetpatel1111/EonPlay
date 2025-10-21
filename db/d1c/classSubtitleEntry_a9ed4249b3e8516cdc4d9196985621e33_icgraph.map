@@ -1,0 +1,5 @@
+<map id="SubtitleEntry::formatTime" name="SubtitleEntry::formatTime">
+<area shape="rect" id="Node000001" title="Convert time in milliseconds to SRT format (HH:MM:SS,mmm)" alt="" coords="217,5,408,31"/>
+<area shape="rect" id="Node000002" href="$db/d1c/classSubtitleEntry.html#ab4cee984d3ea6064d5e52dcf4f197a30" title="Get subtitle text with timing information." alt="" coords="5,5,169,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,21,170,21,170,15,204,15"/>
+</map>

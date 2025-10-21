@@ -1,0 +1,9 @@
+<map id="SubtitleEntry::startTime" name="SubtitleEntry::startTime">
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,63,429,88"/>
+<area shape="rect" id="Node000002" href="$d1/de3/classSubtitleTrack.html#acccda194f59cf3a795f22c1e9c214619" title="Get next subtitle entry after given time." alt="" coords="5,5,205,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,62,158,33,159,28,276,57"/>
+<area shape="rect" id="Node000003" href="$d1/de3/classSubtitleTrack.html#acbdcec85a94524a6fc7de89b7dd12ba2" title="Get previous subtitle entry before given time." alt="" coords="10,55,201,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="240,78,201,78,201,73,240,73"/>
+<area shape="rect" id="Node000004" href="$db/d1c/classSubtitleEntry.html#afd7c31d2fe9fe7ee1b46d78c1bf80460" title=" " alt="" coords="7,120,204,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="276,94,159,123,158,117,274,89"/>
+</map>

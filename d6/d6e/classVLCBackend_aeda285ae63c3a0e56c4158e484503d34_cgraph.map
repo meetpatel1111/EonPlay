@@ -1,0 +1,7 @@
+<map id="VLCBackend::loadMedia" name="VLCBackend::loadMedia">
+<area shape="rect" id="Node000001" title="Load media from file path or URL." alt="" coords="5,31,184,56"/>
+<area shape="rect" id="Node000002" href="$d0/dbd/classIMediaEngine.html#afd3b746eb440a3385bd290bc92323a0a" title="Emitted when an error occurs." alt="" coords="232,5,439,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,31,218,28,219,33,185,37"/>
+<area shape="rect" id="Node000003" href="$d0/dbd/classIMediaEngine.html#a2627690efa2c50ca165f675ef84b8804" title="Emitted when media loading completes." alt="" coords="232,55,439,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,50,219,53,218,58,184,55"/>
+</map>

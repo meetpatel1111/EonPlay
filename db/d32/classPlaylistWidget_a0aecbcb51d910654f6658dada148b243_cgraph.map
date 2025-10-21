@@ -1,0 +1,5 @@
+<map id="PlaylistWidget::setCurrentPlaylist" name="PlaylistWidget::setCurrentPlaylist">
+<area shape="rect" id="Node000001" title="Set current playlist." alt="" coords="5,5,197,45"/>
+<area shape="rect" id="Node000002" href="$db/d32/classPlaylistWidget.html#ab88dae8735ff38a589f420900811fb3f" title="Emitted when playlist changes." alt="" coords="245,5,417,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,23,232,23,232,28,198,28"/>
+</map>

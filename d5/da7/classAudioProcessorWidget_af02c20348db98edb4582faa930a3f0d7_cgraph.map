@@ -1,0 +1,41 @@
+<map id="AudioProcessorWidget::initialize" name="AudioProcessorWidget::initialize">
+<area shape="rect" id="Node000001" title="Initialize the widget with audio processor." alt="" coords="5,555,173,595"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#ae111f673e56b352c338d970fc148aee7" title="Emitted when audio delay changes." alt="" coords="239,5,443,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,554,105,450,131,300,149,223,170,153,193,95,219,56,226,50,229,54,223,59,198,97,175,155,154,225,137,301,110,451,96,555"/>
+<area shape="rect" id="Node000003" href="$d5/db2/classAudioProcessor.html#a622f26117d08bc1154e232f9c5ded611" title="Emitted when audio track changes." alt="" coords="241,69,441,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,554,90,474,95,419,105,358,121,294,145,230,177,171,219,119,227,113,230,117,223,123,182,174,150,233,126,295,110,359,100,420,95,475,93,555"/>
+<area shape="rect" id="Node000004" href="$d5/db2/classAudioProcessor.html#aad3ac5b5fb7bebc6ec45ff9fc56ffb9c" title="Emitted when conversion completes." alt="" coords="240,133,441,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="88,554,94,484,113,384,130,330,152,277,182,227,219,183,227,177,230,181,223,187,186,230,157,279,135,332,118,385,100,484,94,554"/>
+<area shape="rect" id="Node000005" href="$d5/db2/classAudioProcessor.html#a96c56b77e62b8b4335fd29d228ef2ab5" title="Emitted during audio conversion." alt="" coords="240,197,441,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="90,554,100,494,121,411,138,367,160,323,187,283,220,247,227,242,230,246,223,251,191,286,164,326,143,369,126,413,105,495,95,555"/>
+<area shape="rect" id="Node000006" href="$d5/db2/classAudioProcessor.html#ab820a03c4fe38f02fdd6ffd88e9cdcd1" title="Emitted when current lyrics line changes." alt="" coords="234,261,447,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="92,554,106,504,130,439,167,370,191,339,220,311,226,306,229,311,223,315,195,342,172,373,135,441,111,506,97,555"/>
+<area shape="rect" id="Node000007" href="$d5/db2/classAudioProcessor.html#a20a681418e1acc1b785832101c4e29b5" title="Emitted when processor is enabled/disabled." alt="" coords="221,326,460,351"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="95,553,111,512,137,460,173,407,195,382,220,362,231,355,234,359,223,366,199,386,177,410,141,463,116,514,100,555"/>
+<area shape="rect" id="Node000008" href="$d5/db2/classAudioProcessor.html#a1b58c7b5b4194e9b26b8d2b824366b7d" title="Emitted when karaoke mode changes." alt="" coords="232,376,449,416"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="101,553,148,490,181,455,220,426,232,419,234,424,223,430,185,459,152,493,105,556"/>
+<area shape="rect" id="Node000009" href="$d5/db2/classAudioProcessor.html#a28b327618c2258ee08240d14334c2133" title="Emitted when lyrics are loaded." alt="" coords="235,441,447,466"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="110,552,158,513,188,493,220,476,244,467,246,472,222,481,191,498,161,518,114,557"/>
+<area shape="rect" id="Node000010" href="$d5/db2/classAudioProcessor.html#a344d2d2ca558e7a18da7ad2d6526b8eb" title="Emitted when noise reduction settings change." alt="" coords="225,491,456,531"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="168,552,248,531,249,537,169,557"/>
+<area shape="rect" id="Node000011" href="$d5/da7/classAudioProcessorWidget.html#a7a152d7642e3e9a98dc8b42d12fccb40" title="Handle audio delay change." alt="" coords="251,555,430,595"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="173,572,237,572,237,577,173,577"/>
+<area shape="rect" id="Node000012" href="$d5/da7/classAudioProcessorWidget.html#ad54167ec4389c984105a652998962b02" title="Handle audio track change." alt="" coords="253,619,428,659"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="169,592,249,613,248,618,168,597"/>
+<area shape="rect" id="Node000013" href="$d5/da7/classAudioProcessorWidget.html#ad487150f3c459c4e5feb1077489ee82e" title="Handle conversion completed." alt="" coords="245,683,436,723"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="114,593,162,631,223,668,239,676,237,680,220,673,159,635,111,597"/>
+<area shape="rect" id="Node000014" href="$d5/da7/classAudioProcessorWidget.html#a3bcddc3eca78ee96c1d38331fab31593" title="Handle conversion progress." alt="" coords="253,747,428,787"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="104,593,150,662,183,700,223,732,241,742,239,747,220,737,180,704,145,665,99,596"/>
+<area shape="rect" id="Node000015" href="$d5/da7/classAudioProcessorWidget.html#a633e1771d957c70f73916807b7fd2523" title="Handle current lyrics change." alt="" coords="247,811,435,851"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="99,594,115,637,140,692,176,748,198,774,223,797,236,805,233,809,220,801,194,778,172,752,135,694,110,639,94,596"/>
+<area shape="rect" id="Node000016" href="$d5/da7/classAudioProcessorWidget.html#ae11783a3c92bffb502232189bd35de0c" title="Handle karaoke mode change." alt="" coords="245,875,437,915"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="96,594,108,648,131,720,148,758,169,796,194,831,223,861,234,869,231,873,220,865,189,834,164,799,143,761,126,722,103,649,91,596"/>
+<area shape="rect" id="Node000017" href="$d5/da7/classAudioProcessorWidget.html#aafa87ae4a2e05b970053851ea31f86a8" title="Handle lyrics loaded." alt="" coords="257,939,425,979"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="95,595,103,659,123,748,140,796,161,843,189,887,223,925,245,939,242,944,220,929,185,890,157,845,135,798,118,749,97,659,89,595"/>
+<area shape="rect" id="Node000018" href="$d5/da7/classAudioProcessorWidget.html#a5a359d8f0aab3d1351144e1ccac971ed" title="Handle noise reduction change." alt="" coords="238,1003,443,1043"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="93,595,98,669,115,775,131,833,154,890,184,943,223,989,228,993,225,997,219,993,180,946,149,892,126,835,110,776,92,670,88,595"/>
+<area shape="rect" id="Node000019" href="$d5/da7/classAudioProcessorWidget.html#ad4127a8321433eaa55317d31bd430767" title="Handle processor enabled state change." alt="" coords="231,1067,450,1107"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="96,594,112,691,139,830,157,900,177,965,199,1018,223,1053,227,1056,223,1060,219,1056,195,1020,172,967,152,902,134,831,106,692,91,595"/>
+<area shape="rect" id="Node000020" href="$d5/da7/classAudioProcessorWidget.html#ae4e5e579b166f33ae367f25e5fce37c6" title="Update the widget from processor settings." alt="" coords="255,1131,426,1171"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="95,595,109,703,135,861,153,942,173,1016,197,1076,223,1117,244,1132,241,1136,219,1120,192,1079,168,1017,147,943,130,862,104,704,90,595"/>
+</map>

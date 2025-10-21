@@ -1,0 +1,12 @@
+<map id="MediaInfo::clear" name="MediaInfo::clear">
+<area shape="rect" id="Node000001" title="Clear all media information." alt="" coords="524,46,651,71"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="629,37,618,28,587,25,563,27,550,32,547,37,554,44,550,48,542,38,546,28,562,22,587,19,620,23,632,33"/>
+<area shape="rect" id="Node000002" href="$dd/d6b/classMediaInfoWidget.html#a3c148eb8048514abf09aebf320d7863f" title="Clear all displayed information." alt="" coords="237,17,476,42"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="510,52,456,45,457,39,511,46"/>
+<area shape="rect" id="Node000004" href="$d8/d04/classFileUrlSupport.html#a8d178e71b93b714c7fdf02ca05a5b3ef" title="Shutdown the component and cleanup resources." alt="" coords="264,70,449,95"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="510,69,450,76,449,70,510,64"/>
+<area shape="rect" id="Node000003" href="$dd/d6b/classMediaInfoWidget.html#a750ae87503febe4e07f870243be01729" title="Set the file URL support component." alt="" coords="5,5,189,45"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="224,30,189,29,189,24,224,25"/>
+<area shape="rect" id="Node000005" href="$d8/d04/classFileUrlSupport.html#aa95e256aa0eb84f199617346f9b062e6" title=" " alt="" coords="10,69,185,109"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="250,88,185,90,185,84,250,83"/>
+</map>

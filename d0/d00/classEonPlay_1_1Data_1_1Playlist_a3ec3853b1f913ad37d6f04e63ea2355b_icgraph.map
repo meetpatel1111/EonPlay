@@ -1,0 +1,31 @@
+<map id="EonPlay::Data::Playlist::name" name="EonPlay::Data::Playlist::name">
+<area shape="rect" id="Node000001" title=" " alt="" coords="825,325,993,365"/>
+<area shape="rect" id="Node000002" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a392bcbcf74115b20a5c0fe5bda8ed1f1" title=" " alt="" coords="552,261,777,301"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="818,324,741,304,742,299,820,319"/>
+<area shape="rect" id="Node000011" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a0c7e440c7038ab4e7e743b4b0294e8dd" title=" " alt="" coords="581,325,749,365"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="812,348,749,348,749,343,812,343"/>
+<area shape="rect" id="Node000012" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a76aa332e013b6b966c81429014fed11d" title=" " alt="" coords="581,389,749,429"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="820,371,742,392,741,387,818,366"/>
+<area shape="rect" id="Node000003" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a3b6861f3d0977f2fd48f9e9da0215564" title=" " alt="" coords="279,197,504,237"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="565,261,477,240,478,235,566,256"/>
+<area shape="rect" id="Node000010" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#ae9590c9a80460f5329ccc64f71501688" title=" " alt="" coords="279,261,504,301"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="538,284,504,284,504,279,538,279"/>
+<area shape="rect" id="Node000004" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a84790a4d6548c747ffdbe6b4958d920c" title=" " alt="" coords="5,5,231,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="365,188,308,123,270,89,229,60,205,48,207,43,232,55,274,84,311,119,369,184"/>
+<area shape="rect" id="Node000005" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a892aa3b6498c552fbe7c28cc22b9f652" title=" " alt="" coords="5,69,231,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="349,192,294,157,230,124,198,112,200,107,232,119,296,152,352,187"/>
+<area shape="rect" id="Node000006" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a5c1aa3437e772bf3dde512b1b3993a13" title=" " alt="" coords="5,133,231,173"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="291,197,203,176,205,171,293,192"/>
+<area shape="rect" id="Node000007" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a65f921bf2db44c90def328eb22c7ebb0" title=" " alt="" coords="5,197,231,237"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="265,220,231,220,231,215,265,215"/>
+<area shape="rect" id="Node000008" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a681deb4cd09114a73608639d6ea7e2ca" title=" " alt="" coords="5,261,231,301"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="293,243,205,264,203,259,291,238"/>
+<area shape="rect" id="Node000009" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#aa833f907ff44fd7a50e23a27a8b98e38" title=" " alt="" coords="5,325,231,365"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="289,246,280,251,265,267,257,283,249,299,232,315,211,328,208,323,229,311,244,296,252,280,261,263,277,247,287,241"/>
+<area shape="rect" id="Node000013" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#af9c4ed10cbfac3d5b99821f6e081227c" title=" " alt="" coords="279,389,504,429"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="567,412,504,412,504,407,567,407"/>
+<area shape="rect" id="Node000014" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#aaa7cec19b504dc090693e9ca6da70abd" title=" " alt="" coords="5,389,231,429"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="265,412,231,412,231,407,265,407"/>
+<area shape="rect" id="Node000015" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#ac30c4008bccb88bf98dd5dc425b0ba89" title=" " alt="" coords="5,453,231,493"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="293,435,205,456,203,451,291,430"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="EonPlay::Data::PlaylistManager::syncWatchProgress" name="EonPlay::Data::PlaylistManager::syncWatchProgress">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,231,77"/>
+<area shape="rect" id="Node000002" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#afa72d5eb12c3fdcf9d64179c36b08cf3" title=" " alt="" coords="279,5,504,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,41,265,37,266,43,231,47"/>
+<area shape="rect" id="Node000004" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#aa08c0d424262c2c7a5d17b41be8833d4" title=" " alt="" coords="279,69,504,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,68,266,72,265,77,231,73"/>
+<area shape="rect" id="Node000003" href="$da/db6/classEonPlay_1_1Data_1_1DatabaseManager.html#a17c3a9ed1ea5a58d450bd7311bddb41c" title=" " alt="" coords="552,5,791,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="504,23,538,23,538,28,504,28"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="479,67,569,46,571,51,480,72"/>
+<area shape="rect" id="Node000005" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a85e55f283f2f557937164a677a2081d9" title=" " alt="" coords="559,69,784,109"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="504,87,545,87,545,92,504,92"/>
+</map>

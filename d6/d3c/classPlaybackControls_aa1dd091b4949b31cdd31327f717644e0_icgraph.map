@@ -1,0 +1,12 @@
+<map id="PlaybackControls::position" name="PlaybackControls::position">
+<area shape="rect" id="Node000001" title="Get current position." alt="" coords="797,45,992,70"/>
+<area shape="rect" id="Node000002" href="$d6/d3c/classPlaybackControls.html#af1050f68356753e55ff1e9eaaa340c92" title="Set the current playback position." alt="" coords="535,19,749,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="783,49,749,45,750,40,784,44"/>
+<area shape="rect" id="Node000005" href="$d6/d3c/classPlaybackControls.html#a75fc9dbcf18891ba21b7cefe16fdfd8b" title="Update position display." alt="" coords="277,63,465,103"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="784,65,466,81,465,75,783,60"/>
+<area shape="rect" id="Node000003" href="$d6/d3c/classPlaybackControls.html#adcf4ff63c1b6fb018fa7737694e06383" title="Reset all controls to default state." alt="" coords="256,13,487,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="521,32,487,31,487,26,521,26"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="561,50,466,68,465,62,560,45"/>
+<area shape="rect" id="Node000004" href="$d6/d3c/classPlaybackControls.html#a7d27f828f2f1c02d87692ef60ab69b93" title=" " alt="" coords="5,5,208,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="242,28,208,28,208,23,242,23"/>
+</map>

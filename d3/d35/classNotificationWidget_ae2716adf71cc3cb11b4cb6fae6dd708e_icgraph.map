@@ -1,0 +1,9 @@
+<map id="NotificationWidget::hideNotification" name="NotificationWidget::hideNotification">
+<area shape="rect" id="Node000001" title="Hide notification with animation." alt="" coords="436,37,579,77"/>
+<area shape="rect" id="Node000002" href="$d3/d46/classNotificationManager.html#a2d15ed6a0d8427b733b70e17c59f7a91" title="Clear all pending notifications." alt="" coords="227,5,388,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="422,46,388,41,389,36,423,41"/>
+<area shape="rect" id="Node000004" href="$d3/d35/classNotificationWidget.html#a7fb0651d70f3ef38da3bf17cbeb06a00" title="Handle mouse press events for click detection." alt="" coords="234,69,381,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="423,74,381,80,380,75,422,68"/>
+<area shape="rect" id="Node000003" href="$d3/d46/classNotificationManager.html#a8f95844c6fe5324b80b3dd3553766e1a" title=" " alt="" coords="5,5,179,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,28,179,28,179,23,213,23"/>
+</map>

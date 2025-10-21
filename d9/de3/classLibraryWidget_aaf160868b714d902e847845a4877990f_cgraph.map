@@ -1,0 +1,9 @@
+<map id="LibraryWidget::initialize" name="LibraryWidget::initialize">
+<area shape="rect" id="Node000001" title="Initialize the widget with managers." alt="" coords="5,45,183,70"/>
+<area shape="rect" id="Node000002" href="$d9/de3/classLibraryWidget.html#a2dad9f8c731f1cf20da3deab540dadd3" title="Set library manager." alt="" coords="232,5,419,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,42,218,37,219,43,183,48"/>
+<area shape="rect" id="Node000004" href="$d9/de3/classLibraryWidget.html#a99f13df6f1da0508db3a7768b54b4f73" title="Set playlist manager." alt="" coords="231,69,420,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,67,217,72,217,77,183,72"/>
+<area shape="rect" id="Node000003" href="$d9/de3/classLibraryWidget.html#a953fa7f20120faaa402fdbafc87faae2" title="Refresh library display." alt="" coords="468,13,680,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="419,23,454,23,454,28,419,28"/>
+</map>

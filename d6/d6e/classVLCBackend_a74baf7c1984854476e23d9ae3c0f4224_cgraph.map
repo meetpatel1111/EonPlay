@@ -1,0 +1,5 @@
+<map id="VLCBackend::seek" name="VLCBackend::seek">
+<area shape="rect" id="Node000001" title="Seek to specific position." alt="" coords="5,5,147,31"/>
+<area shape="rect" id="Node000002" href="$d6/d6e/classVLCBackend.html#ab289e57c1f8b2ad2d86f07d0b41a37db" title="Get current playback position." alt="" coords="195,5,357,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,15,181,15,181,21,147,21"/>
+</map>

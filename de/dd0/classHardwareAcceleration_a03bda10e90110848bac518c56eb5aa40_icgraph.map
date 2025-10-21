@@ -1,0 +1,5 @@
+<map id="HardwareAcceleration::preferredAccelerationChanged" name="HardwareAcceleration::preferredAccelerationChanged">
+<area shape="rect" id="Node000001" title="Emitted when preferred acceleration method changes." alt="" coords="244,5,472,45"/>
+<area shape="rect" id="Node000002" href="$de/dd0/classHardwareAcceleration.html#a0a04cb2f4447fc8b703d3073863761f3" title="Set the preferred acceleration method." alt="" coords="5,5,196,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,28,196,28,196,23,230,23"/>
+</map>

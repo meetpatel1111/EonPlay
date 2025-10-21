@@ -1,0 +1,9 @@
+<map id="HardwareAcceleration::getBestAvailableAcceleration" name="HardwareAcceleration::getBestAvailableAcceleration">
+<area shape="rect" id="Node000001" title="Get the best available hardware acceleration method." alt="" coords="467,37,688,77"/>
+<area shape="rect" id="Node000002" href="$de/dd0/classHardwareAcceleration.html#adf1ce4109c4c725fbb382b25c5a5e962" title="Get libVLC arguments for the current acceleration configuration." alt="" coords="252,5,419,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="453,44,419,39,419,34,453,38"/>
+<area shape="rect" id="Node000004" href="$de/dd0/classHardwareAcceleration.html#ad848b406b7ce8ed8a38d4fdc239f7859" title="Initialize hardware acceleration detection." alt="" coords="252,69,419,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="453,76,419,81,419,76,453,71"/>
+<area shape="rect" id="Node000003" href="$de/dd0/classHardwareAcceleration.html#aa8dc865943b1146e9a077adc84e1387e" title="Test if hardware acceleration is working with a sample video." alt="" coords="5,5,204,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,28,204,28,204,23,238,23"/>
+</map>

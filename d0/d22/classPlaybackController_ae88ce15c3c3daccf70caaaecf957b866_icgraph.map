@@ -1,0 +1,5 @@
+<map id="PlaybackController::seekThumbnailGenerated" name="PlaybackController::seekThumbnailGenerated">
+<area shape="rect" id="Node000001" title="Emitted when a seek thumbnail is generated." alt="" coords="243,5,441,45"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a03781f3b7a83b6bb90ccd2e47d30e147" title="Generate thumbnail for seek preview." alt="" coords="5,5,195,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,28,195,28,195,23,229,23"/>
+</map>

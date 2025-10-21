@@ -1,0 +1,27 @@
+<map id="SubtitleTrack::getActiveEntries" name="SubtitleTrack::getActiveEntries">
+<area shape="rect" id="Node000001" title="Get active subtitle entries at given time." alt="" coords="1297,120,1473,160"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#ab895587ae818bbf845af0852e617d74d" title="Get active subtitle entries at current time." alt="" coords="1051,120,1249,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1283,143,1250,143,1250,137,1283,137"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#a0f7ec6b8d0765725ba1b72dbf6f4d784" title="Handle media position change." alt="" coords="797,120,1003,160"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1037,143,1003,143,1003,137,1037,137"/>
+<area shape="rect" id="Node000004" href="$dd/d8b/classSubtitleManager.html#a78c88240c2d5763f6902b3ae56dbda65" title="Scale subtitle timing for active track." alt="" coords="533,13,749,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="858,114,807,82,748,53,709,41,711,36,750,48,810,78,861,110"/>
+<area shape="rect" id="Node000005" href="$dd/d8b/classSubtitleManager.html#af2da2cbc2883cf667f623f09ebf9ba86" title="Set active subtitle track." alt="" coords="542,63,741,103"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="796,120,732,105,733,100,797,114"/>
+<area shape="rect" id="Node000010" href="$dd/d8b/classSubtitleManager.html#ab3f20c8c68c5b49e4facf27917afebf1" title="Enable or disable subtitles." alt="" coords="537,127,746,153"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="784,143,746,143,746,137,784,137"/>
+<area shape="rect" id="Node000011" href="$dd/d8b/classSubtitleManager.html#ad63084e066a1d502b65df16d198dcdf3" title="Set subtitle timing offset." alt="" coords="540,177,743,217"/>
+<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="797,166,733,180,732,175,796,160"/>
+<area shape="rect" id="Node000012" href="$dd/d8b/classSubtitleManager.html#ac45fa6f5a951b8cee7eb85925fea20ec" title="Shift subtitle timing for active track." alt="" coords="536,242,747,267"/>
+<area shape="poly" id="edge13_Node000003_Node000012" title=" " alt="" coords="861,170,810,202,750,232,711,244,709,239,748,227,807,198,858,166"/>
+<area shape="rect" id="Node000006" href="$dd/d8b/classSubtitleManager.html#a608442cfbbc105168de564e34f98d13c" title="Load subtitle from content." alt="" coords="259,5,473,45"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="531,62,462,48,463,43,532,57"/>
+<area shape="rect" id="Node000007" href="$dd/d8b/classSubtitleManager.html#a8b6d9ea90c799260111c17b60b4d4e2c" title="Load subtitle file." alt="" coords="247,70,485,95"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="528,85,485,85,485,80,528,80"/>
+<area shape="rect" id="Node000009" href="$d9/dff/classSubtitleControlWidget.html#a6dbdfc2ebce1598ac0d4bc6411c85717" title="Set subtitle manager." alt="" coords="283,120,449,160"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="532,108,450,125,449,120,531,103"/>
+<area shape="rect" id="Node000008" href="$dd/d8b/classSubtitleManager.html#a09a785b7bd91cada546078cbe9337eda" title="Handle media loaded." alt="" coords="5,63,199,103"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="233,85,199,85,199,80,233,80"/>
+<area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="523,143,449,143,449,137,523,137"/>
+<area shape="poly" id="edge12_Node000011_Node000009" title=" " alt="" coords="531,177,449,160,450,155,532,172"/>
+</map>

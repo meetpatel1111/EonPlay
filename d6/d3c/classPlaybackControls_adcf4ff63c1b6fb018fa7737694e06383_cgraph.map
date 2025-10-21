@@ -1,0 +1,21 @@
+<map id="PlaybackControls::resetControls" name="PlaybackControls::resetControls">
+<area shape="rect" id="Node000001" title="Reset all controls to default state." alt="" coords="5,159,236,185"/>
+<area shape="rect" id="Node000002" href="$d6/d3c/classPlaybackControls.html#a4d16418be071caabb663989d600f853d" title="Enable or disable controls." alt="" coords="287,5,504,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,157,197,108,238,80,283,55,300,48,302,52,285,60,241,84,200,112,138,161"/>
+<area shape="rect" id="Node000003" href="$d6/d3c/classPlaybackControls.html#a7fd8df16a2f1ef5e97317c392d2cdae5" title="Set the media duration." alt="" coords="286,70,505,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,157,211,131,283,105,317,96,319,101,285,111,213,136,152,162"/>
+<area shape="rect" id="Node000005" href="$d6/d3c/classPlaybackControls.html#abc7c0697f67c485018c906d5e8e7744a" title="Set the current playback speed." alt="" coords="284,120,507,160"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="230,157,270,152,270,157,230,162"/>
+<area shape="rect" id="Node000006" href="$d6/d3c/classPlaybackControls.html#ad2d0918f52d9cfb0100c8fbeeeef98f5" title="Update playback state." alt="" coords="284,184,507,224"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="230,182,270,187,270,192,230,187"/>
+<area shape="rect" id="Node000007" href="$d6/d3c/classPlaybackControls.html#af1050f68356753e55ff1e9eaaa340c92" title="Set the current playback position." alt="" coords="288,249,503,274"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="152,182,213,208,285,233,319,243,317,248,283,239,211,213,150,187"/>
+<area shape="rect" id="Node000009" href="$d6/d3c/classPlaybackControls.html#a391fea849c2f75ad7a1a4dad28836ee6" title="Set the current volume level." alt="" coords="289,298,501,323"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="138,183,199,233,240,261,285,284,304,292,303,297,283,289,238,265,196,237,134,187"/>
+<area shape="rect" id="Node000004" href="$d6/d3c/classPlaybackControls.html#a8f9e96c0eaa2d0cf863bf0586ad7a591" title="Get current duration." alt="" coords="555,70,752,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="505,80,541,80,541,85,505,85"/>
+<area shape="rect" id="Node000008" href="$d6/d3c/classPlaybackControls.html#aa1dd091b4949b31cdd31327f717644e0" title="Get current position." alt="" coords="556,249,751,274"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="503,259,542,259,542,264,503,264"/>
+<area shape="rect" id="Node000010" href="$d6/d3c/classPlaybackControls.html#a55053794e9de9db99d56eae626bae1ca" title="Get current volume." alt="" coords="557,298,749,323"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="502,308,544,308,544,313,502,313"/>
+</map>

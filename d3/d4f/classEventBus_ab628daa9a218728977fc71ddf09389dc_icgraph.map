@@ -1,0 +1,11 @@
+<map id="EventBus::clear" name="EventBus::clear">
+<area shape="rect" id="Node000001" title="Clear all subscriptions." alt="" coords="461,45,584,70"/>
+<area shape="rect" id="Node000002" href="$d2/d38/classEonPlayApplication.html#a384a6adbdeb2583a1712a525348bf939" title="Gracefully shutdown EonPlay." alt="" coords="252,5,399,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="447,48,398,40,399,35,448,43"/>
+<area shape="rect" id="Node000004" href="$d2/dd7/classMediaPlayerApplication.html#a0fb67a53079da3e6c1e58ec645e60a5f" title="Gracefully shutdown the application." alt="" coords="237,69,413,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="448,72,414,78,413,72,447,67"/>
+<area shape="rect" id="Node000003" href="$d2/d38/classEonPlayApplication.html#a4332862d2af1b77d083be91c08c8a583" title=" " alt="" coords="20,5,175,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,28,175,28,175,23,238,23"/>
+<area shape="rect" id="Node000005" href="$d2/dd7/classMediaPlayerApplication.html#a4ae632879f4278eac66c205c13c4ebd3" title=" " alt="" coords="5,69,189,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="223,92,190,92,190,87,223,87"/>
+</map>

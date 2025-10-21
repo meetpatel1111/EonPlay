@@ -1,0 +1,5 @@
+<map id="AudioProcessor::setAudioDelay" name="AudioProcessor::setAudioDelay">
+<area shape="rect" id="Node000001" title="Set audio delay for A/V sync." alt="" coords="5,5,192,45"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#ae111f673e56b352c338d970fc148aee7" title="Emitted when audio delay changes." alt="" coords="240,5,444,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,23,226,23,226,28,192,28"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="FileUrlSupport::screenshotCaptured" name="FileUrlSupport::screenshotCaptured">
+<area shape="rect" id="Node000001" title="Emitted when screenshot is captured." alt="" coords="587,5,780,45"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a4a53dcf6c01c360aa8c9fe15467306db" title="Capture screenshot at specific position." alt="" coords="296,5,539,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="573,28,539,28,539,23,573,23"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#a605927fb3ddd04e7cc31bb75f6d66232" title="Capture screenshot of current video frame." alt="" coords="5,13,248,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="283,28,248,28,248,23,283,23"/>
+</map>

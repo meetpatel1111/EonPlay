@@ -1,0 +1,9 @@
+<map id="VLCBackend::initialize" name="VLCBackend::initialize">
+<area shape="rect" id="Node000001" title="Initialize the component." alt="" coords="5,70,172,95"/>
+<area shape="rect" id="Node000002" href="$de/dd0/classHardwareAcceleration.html#a5bf84a3466dfdd5fa1cbbcf181a23b95" title="Get platform&#45;specific acceleration type name." alt="" coords="223,5,424,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,67,227,46,229,51,142,73"/>
+<area shape="rect" id="Node000003" href="$d6/d6e/classVLCBackend.html#a13eae1b16b7b7d7114248428686befa7" title="Check if libVLC is available." alt="" coords="220,70,427,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,80,206,80,206,85,172,85"/>
+<area shape="rect" id="Node000004" href="$d6/d6e/classVLCBackend.html#a678df176b6ebfce9d1079051f4d68f7d" title="Get libVLC version information." alt="" coords="235,119,412,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="150,93,249,114,248,119,149,98"/>
+</map>

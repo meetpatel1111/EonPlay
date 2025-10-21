@@ -1,0 +1,7 @@
+<map id="HotkeyManager::setHotkey" name="HotkeyManager::setHotkey">
+<area shape="rect" id="Node000001" title="Set hotkey for an action." alt="" coords="5,31,204,56"/>
+<area shape="rect" id="Node000002" href="$d2/d66/classHotkeyManager.html#a650e859f82e65f43e80477b095250eef" title="Check if key sequence conflicts with existing hotkeys." alt="" coords="259,5,479,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,31,245,27,246,33,205,36"/>
+<area shape="rect" id="Node000003" href="$d2/d66/classHotkeyManager.html#a28aff79a1e510ff4fe892e4541a31643" title="Emitted when hotkey settings change." alt="" coords="252,55,487,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,50,239,53,238,58,204,55"/>
+</map>

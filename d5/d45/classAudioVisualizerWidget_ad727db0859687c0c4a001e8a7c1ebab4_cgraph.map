@@ -1,0 +1,13 @@
+<map id="AudioVisualizerWidget::setAudioVisualizer" name="AudioVisualizerWidget::setAudioVisualizer">
+<area shape="rect" id="Node000001" title="Set the audio visualizer backend." alt="" coords="5,133,175,173"/>
+<area shape="rect" id="Node000002" href="$db/d2a/classAudioVisualizer.html#a28aca1a8aaf1eeddc5d7a50afae9f8a8" title="Emitted when AI color palette updates." alt="" coords="223,5,431,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,131,161,93,221,55,237,48,239,53,224,60,164,97,116,135"/>
+<area shape="rect" id="Node000003" href="$db/d2a/classAudioVisualizer.html#a0aa8e59ea13824bf4ac4daa021f46c15" title="Emitted when peak levels are updated." alt="" coords="224,69,429,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,131,239,110,240,115,165,136"/>
+<area shape="rect" id="Node000004" href="$db/d2a/classAudioVisualizer.html#a07182d73ca4cf4865be8e899caa59bc2" title="Emitted when spectrum data is updated." alt="" coords="231,133,423,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,151,217,151,217,156,175,156"/>
+<area shape="rect" id="Node000005" href="$db/d2a/classAudioVisualizer.html#aa6287338c872c197d85376f56e3d30df" title="Emitted when VU levels are updated." alt="" coords="232,197,421,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="165,171,240,191,239,196,164,176"/>
+<area shape="rect" id="Node000006" href="$db/d2a/classAudioVisualizer.html#ad1ac19e0e58d7a14c20dea3fd4170a82" title="Emitted when waveform data is updated." alt="" coords="228,261,425,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="116,171,164,209,224,247,239,254,237,259,221,252,161,214,112,176"/>
+</map>

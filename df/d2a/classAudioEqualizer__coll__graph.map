@@ -1,0 +1,5 @@
+<map id="AudioEqualizer" name="AudioEqualizer">
+<area shape="rect" id="Node000001" title="Audio equalizer with multi&#45;band frequency adjustment." alt="" coords="5,119,173,424"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="56,5,123,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,84,92,119,87,119,87,84"/>
+</map>

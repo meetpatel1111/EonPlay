@@ -1,0 +1,7 @@
+<map id="SettingsManager::setEncryptedValue" name="SettingsManager::setEncryptedValue">
+<area shape="rect" id="Node000001" title="Set encrypted setting value." alt="" coords="5,5,231,45"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#a8c2f223afeca2a17621eb906ebceee29" title="Set a specific setting value." alt="" coords="279,13,475,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,23,265,23,265,28,231,28"/>
+<area shape="rect" id="Node000003" href="$d1/dea/classSettingsManager.html#a2bc4bde942fa578970ad951547b46f0e" title="Emitted when a specific setting is changed." alt="" coords="523,5,708,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="475,23,509,23,509,28,475,28"/>
+</map>

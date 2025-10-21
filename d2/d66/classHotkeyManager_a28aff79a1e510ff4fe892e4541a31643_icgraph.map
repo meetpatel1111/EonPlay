@@ -1,0 +1,11 @@
+<map id="HotkeyManager::hotkeyChanged" name="HotkeyManager::hotkeyChanged">
+<area shape="rect" id="Node000001" title="Emitted when hotkey settings change." alt="" coords="591,70,825,95"/>
+<area shape="rect" id="Node000002" href="$d2/d66/classHotkeyManager.html#ab0210f85b2b62d9a9b735d14f53dc897" title="Reset all hotkeys to defaults." alt="" coords="330,5,527,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="632,70,526,48,527,43,633,65"/>
+<area shape="rect" id="Node000003" href="$d2/d66/classHotkeyManager.html#a1c2a9c4b3187b322d2e6b432d21419b9" title="Reset hotkey to default." alt="" coords="315,70,543,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="577,85,543,85,543,80,577,80"/>
+<area shape="rect" id="Node000004" href="$d2/d66/classHotkeyManager.html#a370e812ad2887b649fe7861717e6facd" title="Set hotkey for an action." alt="" coords="329,119,528,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="623,100,502,122,501,117,622,95"/>
+<area shape="rect" id="Node000005" href="$d2/d66/classHotkeyManager.html#aaeacc013d47b8d38c9444b4bf6e302ea" title="Show hotkey customization dialog." alt="" coords="5,112,267,152"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="315,135,267,135,267,129,315,129"/>
+</map>

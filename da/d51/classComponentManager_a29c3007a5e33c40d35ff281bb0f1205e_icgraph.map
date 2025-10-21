@@ -1,0 +1,9 @@
+<map id="ComponentManager::componentInitializationFailed" name="ComponentManager::componentInitializationFailed">
+<area shape="rect" id="Node000001" title="Emitted when a component fails to initialize." alt="" coords="288,63,523,103"/>
+<area shape="rect" id="Node000002" href="$d2/d38/classEonPlayApplication.html#a4332862d2af1b77d083be91c08c8a583" title=" " alt="" coords="45,5,200,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,63,200,44,201,38,293,57"/>
+<area shape="rect" id="Node000003" href="$da/d51/classComponentManager.html#a0c21d6e88be3def75a70b314eea0c5ee" title="Initialize all registered components." alt="" coords="5,70,240,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,85,240,85,240,80,274,80"/>
+<area shape="rect" id="Node000004" href="$d2/dd7/classMediaPlayerApplication.html#a4ae632879f4278eac66c205c13c4ebd3" title=" " alt="" coords="31,120,215,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="293,108,215,124,214,119,292,103"/>
+</map>

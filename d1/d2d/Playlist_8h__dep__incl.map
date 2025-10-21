@@ -1,0 +1,25 @@
+<map id="include/data/Playlist.h" name="include/data/Playlist.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="691,5,858,31"/>
+<area shape="rect" id="Node000002" href="$d4/d51/PlaylistManager_8h.html" title=" " alt="" coords="378,79,601,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="716,37,536,81,535,76,715,31"/>
+<area shape="rect" id="Node000006" href="$d4/d80/PlaylistWidget_8h.html" title=" " alt="" coords="577,152,772,177"/>
+<area shape="poly" id="edge12_Node000001_Node000006" title=" " alt="" coords="761,44,685,153,680,150,756,41"/>
+<area shape="rect" id="Node000007" href="$df/d3c/PlaylistWidget_8cpp.html" title=" " alt="" coords="591,225,774,251"/>
+<area shape="poly" id="edge14_Node000001_Node000007" title=" " alt="" coords="786,43,794,72,800,107,798,144,786,179,773,195,757,209,722,228,719,223,754,205,769,192,782,176,793,143,794,107,789,73,781,44"/>
+<area shape="rect" id="Node000009" href="$d9/d53/Playlist_8cpp.html" title=" " alt="" coords="847,79,1001,104"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="812,34,901,76,898,81,810,39"/>
+<area shape="rect" id="Node000003" href="$dc/dbc/LibraryWidget_8h.html" title=" " alt="" coords="260,152,452,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="457,113,379,154,376,149,455,108"/>
+<area shape="rect" id="Node000004" href="$d9/de2/LibraryWidget_8cpp.html" title=" " alt="" coords="51,225,229,251"/>
+<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="364,102,148,122,60,137,30,145,15,154,9,165,9,175,16,184,27,194,59,210,95,223,94,228,57,215,24,198,12,188,4,176,4,163,11,150,28,140,58,132,147,117,364,97"/>
+<area shape="rect" id="Node000005" href="$d3/db7/MainWindow_8cpp.html" title=" " alt="" coords="396,225,567,251"/>
+<area shape="poly" id="edge10_Node000002_Node000005" title=" " alt="" coords="490,118,484,225,479,225,485,118"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="532,106,645,149,643,154,530,111"/>
+<area shape="poly" id="edge11_Node000002_Node000007" title=" " alt="" coords="508,113,534,145,567,175,611,203,654,223,652,228,609,208,564,179,530,148,504,117"/>
+<area shape="rect" id="Node000008" href="$da/d2f/PlaylistManager_8cpp.html" title=" " alt="" coords="26,152,235,177"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="419,109,189,155,188,149,418,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="309,184,176,228,174,223,307,179"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="389,182,462,223,459,227,387,186"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="632,184,514,228,512,223,630,179"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="680,191,684,225,679,226,675,191"/>
+</map>

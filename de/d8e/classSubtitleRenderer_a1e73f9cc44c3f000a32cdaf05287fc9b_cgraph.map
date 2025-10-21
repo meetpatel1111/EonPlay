@@ -1,0 +1,5 @@
+<map id="SubtitleRenderer::showSubtitles" name="SubtitleRenderer::showSubtitles">
+<area shape="rect" id="Node000001" title="Show subtitles with animation." alt="" coords="5,13,236,38"/>
+<area shape="rect" id="Node000002" href="$de/d8e/classSubtitleRenderer.html#a56bcc3d33ee9230f45e208dafad76e29" title="Emitted when subtitle visibility changes." alt="" coords="284,5,479,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,23,270,23,270,28,236,28"/>
+</map>

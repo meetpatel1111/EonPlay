@@ -1,0 +1,9 @@
+<map id="AudioProcessor::noiseReductionChanged" name="AudioProcessor::noiseReductionChanged">
+<area shape="rect" id="Node000001" title="Emitted when noise reduction settings change." alt="" coords="240,69,471,109"/>
+<area shape="rect" id="Node000002" href="$d5/da7/classAudioProcessorWidget.html#af02c20348db98edb4582faa930a3f0d7" title="Initialize the widget with audio processor." alt="" coords="15,5,183,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,69,179,48,180,43,262,63"/>
+<area shape="rect" id="Node000003" href="$d5/db2/classAudioProcessor.html#a718b256166ebb274d6e8581078ab5687" title="Enable or disable noise reduction." alt="" coords="5,69,192,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,92,192,92,192,87,226,87"/>
+<area shape="rect" id="Node000004" href="$d5/db2/classAudioProcessor.html#aef3dc52bdde056cf5f089160a255a0ee" title="Set noise reduction strength." alt="" coords="5,133,192,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="262,115,180,136,179,131,261,110"/>
+</map>

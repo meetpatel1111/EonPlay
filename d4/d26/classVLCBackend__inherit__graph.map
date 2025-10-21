@@ -1,0 +1,9 @@
+<map id="VLCBackend" name="VLCBackend">
+<area shape="rect" id="Node000001" title="libVLC&#45;based media engine implementation" alt="" coords="83,432,233,737"/>
+<area shape="rect" id="Node000002" href="$d0/dbd/classIMediaEngine.html" title="Interface for media engine implementations." alt="" coords="5,119,143,384"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,397,122,431,117,433,108,398"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="41,5,107,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,84,77,119,71,119,71,84"/>
+<area shape="rect" id="Node000004" href="$d5/d3d/classIComponent.html" title="Interface for modular application components." alt="" coords="167,179,317,324"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="223,338,199,433,194,431,218,336"/>
+</map>

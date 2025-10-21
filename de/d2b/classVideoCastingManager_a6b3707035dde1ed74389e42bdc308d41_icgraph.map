@@ -1,0 +1,7 @@
+<map id="VideoCastingManager::stopCasting" name="VideoCastingManager::stopCasting">
+<area shape="rect" id="Node000001" title="Stop current casting session." alt="" coords="451,5,616,45"/>
+<area shape="rect" id="Node000002" href="$de/d2b/classVideoCastingManager.html#a02a9adb4959d3937a55b35a80481fa81" title="Shutdown the casting manager." alt="" coords="237,5,403,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="437,28,403,28,403,23,437,23"/>
+<area shape="rect" id="Node000003" href="$de/d2b/classVideoCastingManager.html#aaf3f940361d49b946010277096a4f316" title=" " alt="" coords="5,5,189,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,28,190,28,190,23,223,23"/>
+</map>

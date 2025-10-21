@@ -1,0 +1,11 @@
+<map id="InternetStreamingService::startRecording" name="InternetStreamingService::startRecording">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,193,109"/>
+<area shape="rect" id="Node000002" href="$df/dba/classInternetStreamingService.html#a4165af70136a56ecba79cccc4e933edd" title=" " alt="" coords="241,69,429,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,87,227,87,227,92,194,92"/>
+<area shape="rect" id="Node000003" href="$df/dba/classInternetStreamingService.html#aef7f22a83e980bd99a25c92a80eb429d" title=" " alt="" coords="477,5,665,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="409,67,483,46,485,51,411,72"/>
+<area shape="rect" id="Node000004" href="$df/dba/classInternetStreamingService.html#aababc332d0350d62c2689af536ea6a91" title=" " alt="" coords="477,69,665,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="430,87,463,87,463,92,430,92"/>
+<area shape="rect" id="Node000005" href="$df/dba/classInternetStreamingService.html#a822928d3df2b0125d00f5e11c517bd7c" title=" " alt="" coords="477,133,665,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="411,107,485,127,483,132,409,112"/>
+</map>

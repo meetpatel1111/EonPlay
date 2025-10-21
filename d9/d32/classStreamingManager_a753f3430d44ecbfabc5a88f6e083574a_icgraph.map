@@ -1,0 +1,7 @@
+<map id="StreamingManager::stopStream" name="StreamingManager::stopStream">
+<area shape="rect" id="Node000001" title="Stop current stream." alt="" coords="476,13,705,38"/>
+<area shape="rect" id="Node000002" href="$d9/d32/classStreamingManager.html#a84e81f392f6e3cea0a213f0acfddfab7" title="Shutdown the streaming manager." alt="" coords="211,13,428,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="462,28,428,28,428,23,462,23"/>
+<area shape="rect" id="Node000003" href="$d9/d32/classStreamingManager.html#aa6a4c7f44702e46c6712901439c22fc8" title=" " alt="" coords="5,5,163,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="197,28,163,28,163,23,197,23"/>
+</map>

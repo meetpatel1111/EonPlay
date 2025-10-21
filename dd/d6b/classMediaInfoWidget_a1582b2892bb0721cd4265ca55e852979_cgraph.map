@@ -1,0 +1,9 @@
+<map id="MediaInfoWidget::MediaInfoWidget" name="MediaInfoWidget::MediaInfoWidget">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,212,45"/>
+<area shape="rect" id="Node000002" href="$dd/d6b/classMediaInfoWidget.html#a668f7244d98ab56e6ed123f4541a674d" title="Refresh media information display." alt="" coords="260,5,447,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,23,246,23,246,28,212,28"/>
+<area shape="rect" id="Node000003" href="$dd/d6b/classMediaInfoWidget.html#ac778134d63372863f981501302984405" title="Update display with new media information." alt="" coords="495,13,745,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="447,23,481,23,481,28,447,28"/>
+<area shape="rect" id="Node000004" href="$dd/d6b/classMediaInfoWidget.html#ad9fcd58fdddc59739cecc76875fbd806" title="Emitted when media info is updated." alt="" coords="793,5,1000,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="746,23,780,23,780,28,746,28"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="AudioEqualizer::setBandGain" name="AudioEqualizer::setBandGain">
+<area shape="rect" id="Node000001" title="Set equalizer band gain." alt="" coords="5,42,216,67"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#aa74eed06fe12bea90e9870ab3e0b9057" title="Emitted when a band gain changes." alt="" coords="282,5,471,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,40,268,35,268,40,216,46"/>
+<area shape="rect" id="Node000003" href="$d1/db9/classAudioEqualizer.html#af60730b36b8f47173835619d2e9d224f" title="Emitted when preset changes." alt="" coords="264,70,489,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,63,251,67,250,72,216,68"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="VideoWidget::videoAdjustmentsChanged" name="VideoWidget::videoAdjustmentsChanged">
+<area shape="rect" id="Node000001" title="Emitted when video adjustments change." alt="" coords="569,47,800,87"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#ac0de61fb247fb22132657de447e9ae37" title="Set brightness adjustment (&#45;100 to 100)" alt="" coords="319,5,521,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="563,47,488,33,489,28,564,42"/>
+<area shape="rect" id="Node000004" href="$df/dbc/classVideoWidget.html#ae2532cb78f4bff3c37f1b8a8ec8648c8" title="Set contrast adjustment (&#45;100 to 100)" alt="" coords="326,55,514,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="556,70,514,70,514,65,556,65"/>
+<area shape="rect" id="Node000005" href="$df/dbc/classVideoWidget.html#a3a17ee4dbe88b00839d9640bba08918a" title="Set gamma adjustment (0.1 to 10.0)" alt="" coords="327,104,513,129"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="564,93,489,107,488,101,563,87"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#a1464faf11fefac7fae77e7aaec07b7ce" title="Reset all video adjustments to default." alt="" coords="5,55,271,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="334,36,212,57,211,52,333,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="312,70,271,70,271,65,312,65"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="333,104,211,83,212,77,334,99"/>
+</map>

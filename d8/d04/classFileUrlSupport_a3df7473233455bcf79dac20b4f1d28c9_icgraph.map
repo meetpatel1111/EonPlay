@@ -1,0 +1,12 @@
+<map id="FileUrlSupport::isLocalFileUrl" name="FileUrlSupport::isLocalFileUrl">
+<area shape="rect" id="Node000001" title="Check if URL is a local file." alt="" coords="537,70,747,95"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a53e015fc064fb9a7648f525556e7c3ae" title="Check if mime data contains supported media files." alt="" coords="289,5,480,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,70,474,48,475,43,572,64"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#ae40a5216c2e2f98b8a943086cc6852f6" title="Load media from URL or stream." alt="" coords="280,70,489,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="524,85,489,85,489,80,524,80"/>
+<area shape="rect" id="Node000005" href="$d8/d04/classFileUrlSupport.html#a778c1c9fa26afa5d85905bcd813a9dd8" title="Process dropped files and URLs." alt="" coords="5,113,232,153"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="561,100,490,111,356,123,232,131,232,126,356,118,489,105,560,95"/>
+<area shape="rect" id="Node000004" href="$d8/d04/classFileUrlSupport.html#a305f70beca6d625e0043d1798d25cfbb" title="Handle URL open request." alt="" coords="32,63,205,89"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="266,82,205,81,205,75,266,77"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="304,101,225,116,224,111,303,95"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="HardwareAcceleration::getVLCArguments" name="HardwareAcceleration::getVLCArguments">
+<area shape="rect" id="Node000001" title="Get libVLC arguments for the current acceleration configuration." alt="" coords="252,5,419,45"/>
+<area shape="rect" id="Node000002" href="$de/dd0/classHardwareAcceleration.html#aa8dc865943b1146e9a077adc84e1387e" title="Test if hardware acceleration is working with a sample video." alt="" coords="5,5,204,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,28,204,28,204,23,238,23"/>
+</map>

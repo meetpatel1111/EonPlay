@@ -1,0 +1,21 @@
+<map id="include/network/InternetStreamingService.h" name="include/network/InternetStreamingService.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="460,5,641,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,80,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="460,40,294,63,94,96,93,91,293,58,459,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,93,175,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="460,45,190,96,189,91,459,39"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="200,93,251,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="463,48,265,96,264,90,462,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="275,93,464,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="508,48,410,90,408,85,506,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="489,93,613,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="553,46,553,79,548,79,548,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="637,93,707,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="581,43,644,84,641,88,579,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="732,93,833,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="607,43,737,86,735,91,605,48"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="858,93,953,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="636,43,845,89,844,94,635,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="977,93,1055,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="642,37,789,60,964,91,964,96,788,65,641,42"/>
+</map>

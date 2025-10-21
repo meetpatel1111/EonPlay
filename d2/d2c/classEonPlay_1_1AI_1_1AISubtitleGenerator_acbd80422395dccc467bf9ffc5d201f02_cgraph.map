@@ -1,0 +1,12 @@
+<map id="EonPlay::AI::AISubtitleGenerator::detectLanguage" name="EonPlay::AI::AISubtitleGenerator::detectLanguage">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,236,77"/>
+<area shape="rect" id="Node000002" href="$d2/d2c/classEonPlay_1_1AI_1_1AISubtitleGenerator.html#ae0e10d3d752dc62d0fe7ddb59922bdfa" title=" " alt="" coords="284,5,515,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,41,270,37,271,43,237,47"/>
+<area shape="rect" id="Node000005" href="$d2/d2c/classEonPlay_1_1AI_1_1AISubtitleGenerator.html#ae968dd9b2808bb6d5ed865a985e1b7d5" title=" " alt="" coords="284,69,515,109"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="237,68,271,72,270,77,236,73"/>
+<area shape="rect" id="Node000003" href="$d2/d2c/classEonPlay_1_1AI_1_1AISubtitleGenerator.html#a2f85844b62943531af7654aa91228541" title=" " alt="" coords="841,7,1072,47"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="515,21,563,20,793,20,828,21,828,26,793,25,563,25,515,26"/>
+<area shape="rect" id="Node000004" href="$d2/d2c/classEonPlay_1_1AI_1_1AISubtitleGenerator.html#a331b7281575fa442bf91950f27cfe381" title=" " alt="" coords="563,35,793,75"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="515,35,549,38,549,44,515,40"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="793,40,828,37,828,42,794,46"/>
+</map>

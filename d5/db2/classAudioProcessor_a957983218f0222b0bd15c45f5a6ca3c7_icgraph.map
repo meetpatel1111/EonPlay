@@ -1,0 +1,5 @@
+<map id="AudioProcessor::getKaraokeModeName" name="AudioProcessor::getKaraokeModeName">
+<area shape="rect" id="Node000001" title="Get karaoke mode name." alt="" coords="292,5,496,45"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#aea7e0f29ed1bed0d6607d07b48e091fd" title="Set karaoke mode." alt="" coords="5,13,244,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,28,244,28,244,23,278,23"/>
+</map>

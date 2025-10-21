@@ -1,0 +1,9 @@
+<map id="ISubtitleParser" name="ISubtitleParser">
+<area shape="rect" id="Node000001" title="Abstract interface for subtitle format parsers." alt="" coords="104,5,279,291"/>
+<area shape="rect" id="Node000002" href="$d0/dcf/classBaseSubtitleParser.html" title="Base implementation of ISubtitleParser with common functionality." alt="" coords="105,339,277,624"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,304,194,339,189,339,189,304"/>
+<area shape="rect" id="Node000003" href="$db/dc3/classASSParser.html" title="Parser for Advanced SubStation Alpha (.ass/.ssa) subtitle format." alt="" coords="5,672,180,877"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="141,638,130,673,125,671,136,636"/>
+<area shape="rect" id="Node000004" href="$dc/db9/classSRTParser.html" title="Parser for SubRip (.srt) subtitle format." alt="" coords="204,672,379,877"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="247,636,259,671,254,673,242,638"/>
+</map>

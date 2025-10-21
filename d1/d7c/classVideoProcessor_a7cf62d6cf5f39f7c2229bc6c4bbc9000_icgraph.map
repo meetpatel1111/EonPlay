@@ -1,0 +1,9 @@
+<map id="VideoProcessor::enabledChanged" name="VideoProcessor::enabledChanged">
+<area shape="rect" id="Node000001" title="Emitted when processor is enabled/disabled." alt="" coords="787,5,1025,31"/>
+<area shape="rect" id="Node000002" href="$d1/d7c/classVideoProcessor.html#aad3bfea35c10bde0feadc82202942b4d" title="Enable or disable the processor." alt="" coords="536,5,739,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="773,21,739,21,739,15,773,15"/>
+<area shape="rect" id="Node000003" href="$d1/d7c/classVideoProcessor.html#a876c1126a4be9cd4b31bef41878993b4" title="Shutdown the processor." alt="" coords="295,5,488,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="523,21,488,21,488,15,523,15"/>
+<area shape="rect" id="Node000004" href="$d1/d7c/classVideoProcessor.html#a7ec1fa8e3a1c7426e0d08bc7692f8b75" title=" " alt="" coords="5,5,247,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+</map>

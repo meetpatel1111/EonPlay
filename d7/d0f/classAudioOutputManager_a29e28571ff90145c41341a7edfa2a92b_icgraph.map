@@ -1,0 +1,11 @@
+<map id="AudioOutputManager::delayCompensationChanged" name="AudioOutputManager::delayCompensationChanged">
+<area shape="rect" id="Node000001" title="Emitted when delay compensation changes." alt="" coords="236,101,453,141"/>
+<area shape="rect" id="Node000002" href="$d7/d0f/classAudioOutputManager.html#ad0154815b3006aa2721befe7e18ff5a4" title="Set audio delay in milliseconds." alt="" coords="17,5,177,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,99,187,60,155,48,157,43,189,55,285,94"/>
+<area shape="rect" id="Node000003" href="$d7/d0f/classAudioOutputManager.html#aff13629ed4861cb01511b6242a35e664" title="Enable or disable auto A/V sync." alt="" coords="15,69,178,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,108,178,102,179,97,222,103"/>
+<area shape="rect" id="Node000004" href="$d7/d0f/classAudioOutputManager.html#a1ceb44f1c21cd9ba23191df60d391940" title="Set delay compensation settings." alt="" coords="5,133,188,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="223,140,189,144,188,139,222,134"/>
+<area shape="rect" id="Node000005" href="$d7/d0f/classAudioOutputManager.html#a18800113b79da8cc1b602d4a2f0b5e9d" title="Set video delay in milliseconds." alt="" coords="17,197,177,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="285,149,189,188,157,200,155,195,187,183,283,144"/>
+</map>

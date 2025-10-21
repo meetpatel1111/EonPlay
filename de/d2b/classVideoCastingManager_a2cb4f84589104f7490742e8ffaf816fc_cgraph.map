@@ -1,0 +1,5 @@
+<map id="VideoCastingManager::startCasting" name="VideoCastingManager::startCasting">
+<area shape="rect" id="Node000001" title="Start casting to device." alt="" coords="5,5,171,45"/>
+<area shape="rect" id="Node000002" href="$de/d2b/classVideoCastingManager.html#aa744676abcc8cf29eec5d49cb16a285e" title="Emitted when casting starts." alt="" coords="219,5,384,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,23,205,23,205,28,171,28"/>
+</map>

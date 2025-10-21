@@ -1,0 +1,19 @@
+<map id="EonPlay::Data::Playlist::playlistModified" name="EonPlay::Data::Playlist::playlistModified">
+<area shape="rect" id="Node000001" title=" " alt="" coords="437,133,605,173"/>
+<area shape="rect" id="Node000002" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a27a5870aa7756eaf5534e49f21887bad" title=" " alt="" coords="221,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="485,127,440,93,388,60,363,48,366,43,391,55,443,88,488,122"/>
+<area shape="rect" id="Node000003" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a695b8db0a05ac3e7d3986788976a5ff9" title=" " alt="" coords="221,69,389,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="439,132,373,112,374,107,440,127"/>
+<area shape="rect" id="Node000004" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a842c9a92e0bcf7f4ce38497354779d89" title=" " alt="" coords="221,133,389,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="423,156,390,156,390,151,423,151"/>
+<area shape="rect" id="Node000006" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#afb4db675b9d1b2d98fc92127cb1d466c" title=" " alt="" coords="221,197,389,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="440,180,374,200,373,195,439,175"/>
+<area shape="rect" id="Node000007" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#ab035dc491645b0d628f526ce82815d3c" title=" " alt="" coords="221,261,389,301"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="488,184,443,218,391,252,366,264,363,259,388,247,440,214,485,180"/>
+<area shape="rect" id="Node000005" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a634b1e1d5a94f1ac3f196dcd490eb242" title=" " alt="" coords="5,133,173,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="207,156,174,156,174,151,207,151"/>
+<area shape="rect" id="Node000008" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#abe7ca2f792b59771d68dd4925e5da42e" title=" " alt="" coords="5,229,173,269"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="207,270,173,264,174,259,208,264"/>
+<area shape="rect" id="Node000009" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#ac4194490570c588f1de7121de065b249" title=" " alt="" coords="5,293,173,333"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="208,298,174,304,173,298,207,293"/>
+</map>

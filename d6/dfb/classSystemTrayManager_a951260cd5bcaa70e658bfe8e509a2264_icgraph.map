@@ -1,0 +1,7 @@
+<map id="SystemTrayManager::updatePlaybackState" name="SystemTrayManager::updatePlaybackState">
+<area shape="rect" id="Node000001" title="Update playback controls state." alt="" coords="241,37,404,77"/>
+<area shape="rect" id="Node000002" href="$d6/dfb/classSystemTrayManager.html#af4640f240e4b8c493229b49797fe059d" title="Handle media file loaded." alt="" coords="18,5,181,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,46,181,40,181,34,228,41"/>
+<area shape="rect" id="Node000003" href="$d6/dfb/classSystemTrayManager.html#ab718214d0211b5eabdbb5458d2782448" title="Handle playback state changes." alt="" coords="5,69,193,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,74,194,78,193,73,227,68"/>
+</map>

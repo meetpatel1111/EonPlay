@@ -1,0 +1,5 @@
+<map id="AudioProcessor::loadLyricsFromFile" name="AudioProcessor::loadLyricsFromFile">
+<area shape="rect" id="Node000001" title="Load lyrics from file." alt="" coords="5,5,200,45"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#a28b327618c2258ee08240d14334c2133" title="Emitted when lyrics are loaded." alt="" coords="248,13,460,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,23,234,23,234,28,200,28"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="FileUrlSupport::canHandleMimeData" name="FileUrlSupport::canHandleMimeData">
+<area shape="rect" id="Node000001" title="Check if mime data contains supported media files." alt="" coords="5,23,196,63"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a3df7473233455bcf79dac20b4f1d28c9" title="Check if URL is a local file." alt="" coords="255,5,464,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,31,241,27,241,32,196,37"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#adfa2738cd27f0ad1beecdaae4b8cf4b8" title="Validate URL for streaming." alt="" coords="244,55,475,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,50,231,53,230,58,196,55"/>
+</map>

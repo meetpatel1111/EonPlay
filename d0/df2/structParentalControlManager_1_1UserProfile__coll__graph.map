@@ -1,0 +1,9 @@
+<map id="ParentalControlManager::UserProfile" name="ParentalControlManager::UserProfile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="200,288,371,508"/>
+<area shape="rect" id="Node000002" href="$d7/d4f/structParentalControlManager_1_1TimeRestriction.html" title=" " alt="" coords="5,25,176,205"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,204,160,263,191,303,187,306,155,265,123,207"/>
+<area shape="rect" id="Node000003" href="$d3/d7a/structParentalControlManager_1_1ContentFilter.html" title=" " alt="" coords="200,5,371,225"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="288,226,288,271,283,271,283,226"/>
+<area shape="rect" id="Node000004" href="$d8/d81/structParentalControlManager_1_1UsageStatistics.html" title=" " alt="" coords="395,5,565,225"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="423,227,398,266,383,287,378,284,394,262,419,224"/>
+</map>

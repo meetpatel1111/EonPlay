@@ -1,0 +1,7 @@
+<map id="VideoWidget::setContrast" name="VideoWidget::setContrast">
+<area shape="rect" id="Node000001" title="Set contrast adjustment (&#45;100 to 100)" alt="" coords="5,35,193,60"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a7a52ea805154dd1c4fc7915a830e4e61" title="Get current contrast." alt="" coords="273,5,440,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,34,260,26,260,32,194,39"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#af63a2ee0f85d44eccaad6871dbb0e4bf" title="Emitted when video adjustments change." alt="" coords="241,55,472,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,55,228,59,228,64,193,60"/>
+</map>

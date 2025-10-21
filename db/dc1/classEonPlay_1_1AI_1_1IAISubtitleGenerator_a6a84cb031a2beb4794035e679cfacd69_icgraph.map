@@ -1,0 +1,7 @@
+<map id="EonPlay::AI::IAISubtitleGenerator::generationFailed" name="EonPlay::AI::IAISubtitleGenerator::generationFailed">
+<area shape="rect" id="Node000001" title="Emitted when generation fails." alt="" coords="592,5,795,45"/>
+<area shape="rect" id="Node000002" href="$d6/d5c/classEonPlay_1_1AI_1_1WhisperSubtitleGenerator.html#a22e9fe78cec3c05b12b97cb2c5a6f3f7" title="Generate subtitles from media file." alt="" coords="333,5,544,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="578,28,544,28,544,23,578,23"/>
+<area shape="rect" id="Node000003" href="$d6/d5c/classEonPlay_1_1AI_1_1WhisperSubtitleGenerator.html#a2cc33b06c248fcd12cc62a7793589c14" title="Generate subtitles from audio data." alt="" coords="5,5,285,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="320,28,286,28,286,23,320,23"/>
+</map>

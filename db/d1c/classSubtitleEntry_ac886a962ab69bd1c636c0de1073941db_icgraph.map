@@ -1,0 +1,7 @@
+<map id="SubtitleEntry::plainText" name="SubtitleEntry::plainText">
+<area shape="rect" id="Node000001" title=" " alt="" coords="296,31,468,56"/>
+<area shape="rect" id="Node000002" href="$db/d1c/classSubtitleEntry.html#a399052a8c1b507b27c41d9d5181ed2ab" title="Parse HTML&#45;like tags in subtitle text." alt="" coords="5,5,248,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,36,248,33,248,27,283,31"/>
+<area shape="rect" id="Node000003" href="$db/d1c/classSubtitleEntry.html#ab4cee984d3ea6064d5e52dcf4f197a30" title="Get subtitle text with timing information." alt="" coords="45,55,209,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,55,209,62,209,57,282,50"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="StreamingManager::startStream" name="StreamingManager::startStream">
+<area shape="rect" id="Node000001" title="Start streaming from URL." alt="" coords="5,45,236,70"/>
+<area shape="rect" id="Node000002" href="$d9/d32/classStreamingManager.html#a89254053713a8e648ee07feee2afd2e7" title="Start bandwidth monitoring." alt="" coords="284,5,537,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,42,270,38,271,43,236,47"/>
+<area shape="rect" id="Node000003" href="$d9/d32/classStreamingManager.html#a25aeca5bc85eaa7406dca57807335812" title="Emitted when stream starts." alt="" coords="311,69,511,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="236,67,297,74,296,79,236,73"/>
+</map>

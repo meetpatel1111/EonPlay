@@ -1,0 +1,9 @@
+<map id="SubtitleManager::activeTrack" name="SubtitleManager::activeTrack">
+<area shape="rect" id="Node000001" title="Get active track index." alt="" coords="432,45,643,70"/>
+<area shape="rect" id="Node000002" href="$d9/dff/classSubtitleControlWidget.html#a8da197db32f62b0c4a9e048768cd0513" title="Update control states from current settings." alt="" coords="219,37,384,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="418,60,384,60,384,55,418,55"/>
+<area shape="rect" id="Node000003" href="$d9/dff/classSubtitleControlWidget.html#a6dbdfc2ebce1598ac0d4bc6411c85717" title="Set subtitle manager." alt="" coords="5,5,171,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="205,46,171,40,171,35,206,40"/>
+<area shape="rect" id="Node000004" href="$d9/dff/classSubtitleControlWidget.html#aeed88b911aa93fe41db608124c0922c6" title="Set subtitle renderer." alt="" coords="5,69,171,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="206,74,171,80,171,74,205,69"/>
+</map>

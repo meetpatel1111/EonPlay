@@ -1,0 +1,5 @@
+<map id="AudioEqualizer::setBassBoost" name="AudioEqualizer::setBassBoost">
+<area shape="rect" id="Node000001" title="Set bass boost level." alt="" coords="5,13,220,38"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#a4ea1fbeb04218b6f9afdaad714bb86b5" title="Emitted when bass boost changes." alt="" coords="268,5,463,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,23,254,23,254,28,220,28"/>
+</map>

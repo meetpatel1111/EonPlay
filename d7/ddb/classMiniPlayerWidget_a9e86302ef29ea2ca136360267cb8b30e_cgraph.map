@@ -1,0 +1,5 @@
+<map id="MiniPlayerWidget::setAlwaysOnTop" name="MiniPlayerWidget::setAlwaysOnTop">
+<area shape="rect" id="Node000001" title="Set always on top." alt="" coords="5,5,217,45"/>
+<area shape="rect" id="Node000002" href="$d7/ddb/classMiniPlayerWidget.html#a2cc7aeded3b7bc382d99a2e2173dcd1b" title="Emitted when always on top changes." alt="" coords="265,5,456,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,23,251,23,251,28,218,28"/>
+</map>

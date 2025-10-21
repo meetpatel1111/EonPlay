@@ -1,0 +1,5 @@
+<map id="AudioProcessor::setNoiseReductionStrength" name="AudioProcessor::setNoiseReductionStrength">
+<area shape="rect" id="Node000001" title="Set noise reduction strength." alt="" coords="5,5,192,45"/>
+<area shape="rect" id="Node000002" href="$d5/db2/classAudioProcessor.html#a344d2d2ca558e7a18da7ad2d6526b8eb" title="Emitted when noise reduction settings change." alt="" coords="240,5,471,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,23,226,23,226,28,192,28"/>
+</map>

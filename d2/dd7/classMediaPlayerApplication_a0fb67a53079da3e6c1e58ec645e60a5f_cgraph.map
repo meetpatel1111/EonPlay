@@ -1,0 +1,9 @@
+<map id="MediaPlayerApplication::shutdown" name="MediaPlayerApplication::shutdown">
+<area shape="rect" id="Node000001" title="Gracefully shutdown the application." alt="" coords="5,63,181,103"/>
+<area shape="rect" id="Node000002" href="$d2/dd7/classMediaPlayerApplication.html#a83302e2da5ddb523fd349ec623d140a6" title="Emitted when application shutdown begins." alt="" coords="229,5,423,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,60,230,46,232,51,176,65"/>
+<area shape="rect" id="Node000003" href="$d3/d4f/classEventBus.html#ab628daa9a218728977fc71ddf09389dc" title="Clear all subscriptions." alt="" coords="265,70,387,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,80,251,80,251,85,182,85"/>
+<area shape="rect" id="Node000004" href="$d3/d4f/classEventBus.html#a54f74b6e60e93f5d6bcaaf184318fa14" title=" " alt="" coords="253,119,399,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="182,99,252,114,251,119,181,104"/>
+</map>

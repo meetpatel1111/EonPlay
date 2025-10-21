@@ -1,0 +1,15 @@
+<map id="MediaPlayerApplication::MediaPlayerApplication" name="MediaPlayerApplication::MediaPlayerApplication">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,189,109"/>
+<area shape="rect" id="Node000002" href="$da/d51/classComponentManager.html#a14d464e5826e2f56ebb9656a45bab9b5" title="Emitted when all components are initialized." alt="" coords="237,5,497,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,67,269,46,270,51,183,72"/>
+<area shape="rect" id="Node000003" href="$da/d51/classComponentManager.html#a29c3007a5e33c40d35ff281bb0f1205e" title="Emitted when a component fails to initialize." alt="" coords="250,69,485,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,87,236,87,236,92,190,92"/>
+<area shape="rect" id="Node000004" href="$d2/dd7/classMediaPlayerApplication.html#a0fb67a53079da3e6c1e58ec645e60a5f" title="Gracefully shutdown the application." alt="" coords="279,133,455,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,107,270,128,269,133,182,112"/>
+<area shape="rect" id="Node000005" href="$d2/dd7/classMediaPlayerApplication.html#a83302e2da5ddb523fd349ec623d140a6" title="Emitted when application shutdown begins." alt="" coords="545,76,739,116"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="455,132,532,116,533,121,456,138"/>
+<area shape="rect" id="Node000006" href="$d3/d4f/classEventBus.html#ab628daa9a218728977fc71ddf09389dc" title="Clear all subscriptions." alt="" coords="581,141,703,166"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="455,151,567,151,567,156,455,156"/>
+<area shape="rect" id="Node000007" href="$d3/d4f/classEventBus.html#a54f74b6e60e93f5d6bcaaf184318fa14" title=" " alt="" coords="569,190,715,215"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="456,166,558,185,557,190,455,172"/>
+</map>

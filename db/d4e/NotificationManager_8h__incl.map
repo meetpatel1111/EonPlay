@@ -1,0 +1,23 @@
+<map id="include/ui/NotificationManager.h" name="include/ui/NotificationManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="552,5,784,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,80,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="552,30,343,49,94,81,93,76,342,43,551,24"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,79,175,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="552,33,385,52,189,81,188,76,384,47,551,27"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="200,79,355,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="606,33,354,79,353,74,605,28"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="379,79,555,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="637,33,513,77,511,71,635,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="579,79,645,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="661,33,632,69,627,66,657,29"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="670,79,781,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="680,29,709,66,705,70,675,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="805,79,915,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="700,28,817,71,815,76,698,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="939,79,1013,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="719,28,927,76,925,81,718,33"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1037,79,1112,104"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="745,28,1024,76,1023,81,744,33"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1136,79,1213,104"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="777,28,936,48,1123,76,1122,81,936,53,776,33"/>
+</map>

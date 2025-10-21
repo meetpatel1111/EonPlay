@@ -1,0 +1,7 @@
+<map id="AudioEqualizer::saveSettings" name="AudioEqualizer::saveSettings">
+<area shape="rect" id="Node000001" title="Save current equalizer settings." alt="" coords="527,5,737,31"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#a77f81ee37f51e7c853009bed71ff1fc2" title="Shutdown the equalizer." alt="" coords="288,5,479,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="513,21,479,21,479,15,513,15"/>
+<area shape="rect" id="Node000003" href="$d1/db9/classAudioEqualizer.html#acda143151aa2008dc96df0afa49f7e67" title=" " alt="" coords="5,5,240,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="274,21,240,21,240,15,274,15"/>
+</map>

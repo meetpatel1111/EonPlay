@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['name_0',['name',['../d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a3ec3853b1f913ad37d6f04e63ea2355b',1,'EonPlay::Data::Playlist']]],
+  ['namechanged_1',['nameChanged',['../d0/d00/classEonPlay_1_1Data_1_1Playlist.html#aba2637fbf1f9943a80a9c72d7e9df447',1,'EonPlay::Data::Playlist']]],
+  ['nativeeventfilter_2',['nativeEventFilter',['../d0/de3/classMediaKeysManager.html#aec6bc9ddb1247c168575c3fc515c0ecb',1,'MediaKeysManager']]],
+  ['needsmigration_3',['needsMigration',['../d1/dea/classSettingsManager.html#a5a058b3b20dac6ad648f70fb32615b16',1,'SettingsManager']]],
+  ['networkdiscoverymanager_4',['NetworkDiscoveryManager',['../d5/df7/classNetworkDiscoveryManager.html#a81bb8908e687b131437a5e757a5790ff',1,'NetworkDiscoveryManager']]],
+  ['networkerror_5',['networkerror',['../d8/dfd/classMediaError.html#a791aafdd47633e0286ca4e60daf06e44',1,'MediaError::networkError()'],['../d5/df7/classNetworkDiscoveryManager.html#a39f283afd4020c03f39ad4c5db796301',1,'NetworkDiscoveryManager::networkError()']]],
+  ['networkshare_6',['NetworkShare',['../d4/dc0/structStreamingManager_1_1NetworkShare.html#ad066aa24c48d45cdf2b58fa3a8531a1a',1,'StreamingManager::NetworkShare']]],
+  ['networksharemounted_7',['networkShareMounted',['../dd/d55/classNetworkStreamManager.html#a530aee9beca530e559750cb89bb0e037',1,'NetworkStreamManager']]],
+  ['networkshareunmounted_8',['networkShareUnmounted',['../dd/d55/classNetworkStreamManager.html#a43885514eef0c8dc15476563849ddc31',1,'NetworkStreamManager']]],
+  ['networkstats_9',['NetworkStats',['../d5/d13/structStreamingManager_1_1NetworkStats.html#ab1bbdc0745296e2dee5bd9ab1faf30ee',1,'StreamingManager::NetworkStats']]],
+  ['networkstatsupdated_10',['networkStatsUpdated',['../d9/d32/classStreamingManager.html#a2a9d77e44238b1b5511b60948e480f36',1,'StreamingManager']]],
+  ['networkstreammanager_11',['NetworkStreamManager',['../dd/d55/classNetworkStreamManager.html#adf9fb015315c9c12146a345160b12b85',1,'NetworkStreamManager']]],
+  ['nextitem_12',['nextItem',['../d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a79a531d6114708e5550f558700f4f416',1,'EonPlay::Data::Playlist']]],
+  ['nextpressed_13',['nextPressed',['../d0/de3/classMediaKeysManager.html#a168b2a84a27dbda491dd6e367f0e08e9',1,'MediaKeysManager']]],
+  ['nextrequested_14',['nextRequested',['../d6/dfb/classSystemTrayManager.html#af09966b2a63a11ee400ddb3d3ebb3530',1,'SystemTrayManager']]],
+  ['noiseprofileanalyzed_15',['noiseProfileAnalyzed',['../d9/d29/classAdvancedAudioProcessor.html#acd02165391f52a69d2c463a205e6a502',1,'AdvancedAudioProcessor']]],
+  ['noisereductionchanged_16',['noiseReductionChanged',['../d5/db2/classAudioProcessor.html#a344d2d2ca558e7a18da7ad2d6526b8eb',1,'AudioProcessor']]],
+  ['noisereductionsettings_17',['NoiseReductionSettings',['../de/d5d/structAdvancedAudioProcessor_1_1NoiseReductionSettings.html#a7487a32d94b1248bfb8f9a5973e4ce0d',1,'AdvancedAudioProcessor::NoiseReductionSettings']]],
+  ['notificationclicked_18',['notificationClicked',['../d3/d46/classNotificationManager.html#aa602f8acd94cbdbe521a73242aacdb0d',1,'NotificationManager']]],
+  ['notificationdata_19',['notificationdata',['../d9/d61/structNotificationData.html#a4f93a2b820148980ed6ff148766e16a9',1,'NotificationData::NotificationData()=default'],['../d9/d61/structNotificationData.html#a76e6796f6b466cbe3728cb313ff5ca98',1,'NotificationData::NotificationData(const QString &amp;t, const QString &amp;m, int d=3000)']]],
+  ['notificationmanager_20',['NotificationManager',['../d3/d46/classNotificationManager.html#a04c08e4092647a1f37b973b41a82c6e0',1,'NotificationManager']]],
+  ['notificationposition_21',['notificationPosition',['../d3/d46/classNotificationManager.html#af7e60db6f59828e51178a13c3e08821b',1,'NotificationManager']]],
+  ['notificationwidget_22',['NotificationWidget',['../d3/d35/classNotificationWidget.html#a570474dac034fc7af73840c2611652ed',1,'NotificationWidget']]],
+  ['notify_23',['notify',['../d2/d38/classEonPlayApplication.html#a3b1bf5ebfde1d1cf1ffed087044e2764',1,'EonPlayApplication::notify()'],['../d2/dd7/classMediaPlayerApplication.html#a0d0dbe6421602e9e259b22ef55075cf9',1,'MediaPlayerApplication::notify()']]]
+];

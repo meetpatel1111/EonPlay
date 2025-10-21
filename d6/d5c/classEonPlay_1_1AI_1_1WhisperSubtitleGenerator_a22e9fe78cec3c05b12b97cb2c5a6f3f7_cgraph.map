@@ -1,0 +1,9 @@
+<map id="EonPlay::AI::WhisperSubtitleGenerator::generateSubtitles" name="EonPlay::AI::WhisperSubtitleGenerator::generateSubtitles">
+<area shape="rect" id="Node000001" title="Generate subtitles from media file." alt="" coords="5,69,216,109"/>
+<area shape="rect" id="Node000002" href="$db/dc1/classEonPlay_1_1AI_1_1IAISubtitleGenerator.html#a162d8103fbcf586b32b7cc3261660ec8" title="Emitted when generation is completed." alt="" coords="264,5,500,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,67,283,46,284,51,197,72"/>
+<area shape="rect" id="Node000003" href="$db/dc1/classEonPlay_1_1AI_1_1IAISubtitleGenerator.html#a6a84cb031a2beb4794035e679cfacd69" title="Emitted when generation fails." alt="" coords="281,69,483,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,87,267,87,267,92,216,92"/>
+<area shape="rect" id="Node000004" href="$d6/d5c/classEonPlay_1_1AI_1_1WhisperSubtitleGenerator.html#af4f81ee3cd2fcc7ea9846dc2e80fff90" title="Check if the generator is available and ready." alt="" coords="279,133,485,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="197,107,284,128,283,133,196,112"/>
+</map>

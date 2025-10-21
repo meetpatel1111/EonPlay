@@ -1,0 +1,7 @@
+<map id="PlaylistWidget::removeSelectedFiles" name="PlaylistWidget::removeSelectedFiles">
+<area shape="rect" id="Node000001" title="Remove selected files from playlist." alt="" coords="5,37,236,77"/>
+<area shape="rect" id="Node000002" href="$db/d32/classPlaylistWidget.html#a5e9c9595df8b8485250247cf4b96410c" title="Get selected media files." alt="" coords="284,5,485,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,41,270,37,270,42,237,46"/>
+<area shape="rect" id="Node000003" href="$db/d32/classPlaylistWidget.html#a9015c58228879a0d343ad9b5761070cf" title="Emitted when playlist is modified." alt="" coords="299,69,471,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,69,285,75,284,80,236,74"/>
+</map>

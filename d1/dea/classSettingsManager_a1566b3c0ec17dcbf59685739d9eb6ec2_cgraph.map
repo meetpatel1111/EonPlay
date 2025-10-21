@@ -1,0 +1,13 @@
+<map id="SettingsManager::resetToDefaults" name="SettingsManager::resetToDefaults">
+<area shape="rect" id="Node000001" title="Reset all settings to defaults." alt="" coords="5,69,192,109"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#ac33df025a767e4e09ef8c99ad5154da2" title="Emitted when preferences are changed." alt="" coords="243,5,461,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,67,258,46,260,51,179,72"/>
+<area shape="rect" id="Node000003" href="$db/d11/structUserPreferences.html#aae616f231072326f071332ab880054af" title="Reset all settings to default values." alt="" coords="260,69,444,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,87,246,87,246,92,192,92"/>
+<area shape="rect" id="Node000004" href="$d1/dea/classSettingsManager.html#ab58d13c6d172b64182706bc353b58ec7" title="Save settings immediately." alt="" coords="240,134,464,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,107,283,128,282,134,187,112"/>
+<area shape="rect" id="Node000005" href="$d1/dea/classSettingsManager.html#ab272cfaf088e474319378d94c2b55577" title="Get settings file path." alt="" coords="512,95,727,135"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="458,131,498,126,499,132,459,137"/>
+<area shape="rect" id="Node000006" href="$d1/dea/classSettingsManager.html#aef7ec0bb37318673516b2aeaa332026e" title="Emitted when settings are saved." alt="" coords="523,159,715,199"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="459,157,510,163,509,168,458,162"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="VideoWidget::setControlsVisible" name="VideoWidget::setControlsVisible">
+<area shape="rect" id="Node000001" title="Show or hide video controls overlay." alt="" coords="284,47,471,87"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a60652f63d23dc22fbd0a6c2923b38541" title="Handle mouse move events." alt="" coords="5,5,236,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,49,187,33,188,28,271,44"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#a2ad2fa38f5cf82938f50eaba9ddc6173" title="Handle mouse press events." alt="" coords="6,55,235,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,70,235,70,235,65,270,65"/>
+<area shape="rect" id="Node000004" href="$df/dbc/classVideoWidget.html#a93f45c3612a00acf8e914d22600d3ccc" title="Toggle controls visibility." alt="" coords="17,104,225,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="271,90,188,107,187,101,270,85"/>
+</map>

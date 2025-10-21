@@ -1,0 +1,15 @@
+<map id="EonPlayApplication::EonPlayApplication" name="EonPlayApplication::EonPlayApplication">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,160,109"/>
+<area shape="rect" id="Node000002" href="$da/d51/classComponentManager.html#a14d464e5826e2f56ebb9656a45bab9b5" title="Emitted when all components are initialized." alt="" coords="208,5,468,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,67,207,55,242,46,243,51,209,60,161,72"/>
+<area shape="rect" id="Node000003" href="$da/d51/classComponentManager.html#a29c3007a5e33c40d35ff281bb0f1205e" title="Emitted when a component fails to initialize." alt="" coords="221,69,455,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,87,207,87,207,92,160,92"/>
+<area shape="rect" id="Node000004" href="$d2/d38/classEonPlayApplication.html#a384a6adbdeb2583a1712a525348bf939" title="Gracefully shutdown EonPlay." alt="" coords="265,133,411,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,106,209,119,252,130,251,135,207,124,159,112"/>
+<area shape="rect" id="Node000005" href="$d2/d38/classEonPlayApplication.html#ab7042fdb2e8a993af3716156ba5038c3" title="Emitted when EonPlay shutdown begins." alt="" coords="516,76,709,116"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="411,136,503,116,504,121,412,141"/>
+<area shape="rect" id="Node000006" href="$d3/d4f/classEventBus.html#ab628daa9a218728977fc71ddf09389dc" title="Clear all subscriptions." alt="" coords="551,141,674,166"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="412,151,538,151,538,156,412,156"/>
+<area shape="rect" id="Node000007" href="$d3/d4f/classEventBus.html#a54f74b6e60e93f5d6bcaaf184318fa14" title=" " alt="" coords="539,190,686,215"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="412,164,528,185,527,190,411,169"/>
+</map>

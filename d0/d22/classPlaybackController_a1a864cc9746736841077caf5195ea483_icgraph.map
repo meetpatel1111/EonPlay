@@ -1,0 +1,18 @@
+<map id="PlaybackController::hasMedia" name="PlaybackController::hasMedia">
+<area shape="rect" id="Node000001" title="Check if media is currently loaded." alt="" coords="436,184,581,224"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a03781f3b7a83b6bb90ccd2e47d30e147" title="Generate thumbnail for seek preview." alt="" coords="199,5,388,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="485,174,443,120,416,91,386,66,354,48,356,43,390,62,420,87,447,116,489,171"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#a188796e3061d606b9f1ee44fca8fdf8d" title="Load media file or URL." alt="" coords="5,92,151,132"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="479,176,438,139,414,123,387,111,327,96,264,91,204,94,151,100,151,95,204,88,264,86,328,91,389,105,416,118,442,135,483,172"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#a8cb2e6930e89b963867d2b6eca398020" title="Save current playback position for resume." alt="" coords="210,120,377,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="427,182,360,163,362,157,428,177"/>
+<area shape="rect" id="Node000005" href="$d0/d22/classPlaybackController.html#a2863b36c274bd466f71380a93426b92a" title="Start fast forward with specified speed." alt="" coords="221,184,366,224"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="423,207,366,207,366,201,423,201"/>
+<area shape="rect" id="Node000006" href="$d0/d22/classPlaybackController.html#a67f8769f236304a0060542a3dc226a56" title="Start rewind with specified speed." alt="" coords="221,248,366,288"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="428,231,362,251,360,245,427,226"/>
+<area shape="rect" id="Node000007" href="$d0/d22/classPlaybackController.html#abbf5ea8a1b47b768ef5883cdbcfe97b8" title="Step backward one frame (video only)" alt="" coords="221,312,366,352"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="479,235,438,270,389,302,364,314,362,309,387,298,435,265,475,231"/>
+<area shape="rect" id="Node000008" href="$d0/d22/classPlaybackController.html#adaa7ccd1a7ef9bb7d4bdec07ae8525f4" title="Step forward one frame (video only)" alt="" coords="221,376,366,416"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="493,238,452,303,423,337,390,366,368,379,365,374,386,362,419,333,447,299,489,235"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="196,130,151,124,151,119,197,125"/>
+</map>

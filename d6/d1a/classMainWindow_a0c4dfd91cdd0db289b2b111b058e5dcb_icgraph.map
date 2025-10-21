@@ -1,0 +1,7 @@
+<map id="MainWindow::themeChanged" name="MainWindow::themeChanged">
+<area shape="rect" id="Node000001" title="Emitted when theme changes." alt="" coords="479,5,691,31"/>
+<area shape="rect" id="Node000002" href="$d6/d1a/classMainWindow.html#a8a1b3b94d60822e8f62c252d291c0455" title="Set the current theme (dark/light mode)" alt="" coords="252,5,431,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="465,21,431,21,431,15,465,15"/>
+<area shape="rect" id="Node000003" href="$d6/d1a/classMainWindow.html#a180b2c5df2bdbad50b98c850f5f41116" title="Toggle between dark and light themes." alt="" coords="5,5,204,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,21,204,21,204,15,238,15"/>
+</map>

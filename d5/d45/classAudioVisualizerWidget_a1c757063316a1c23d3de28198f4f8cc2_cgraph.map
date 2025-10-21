@@ -1,0 +1,13 @@
+<map id="AudioVisualizerWidget::mousePressEvent" name="AudioVisualizerWidget::mousePressEvent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,63,175,103"/>
+<area shape="rect" id="Node000002" href="$db/d2a/classAudioVisualizer.html#a2d3e974282ca8944ffa4d5c79d084f31" title="Get all available visualization modes." alt="" coords="253,5,465,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,62,251,46,252,51,175,67"/>
+<area shape="rect" id="Node000003" href="$db/d2a/classAudioVisualizer.html#a14d224b9fdf41790369cf0206c83794b" title="Get current visualization mode." alt="" coords="223,70,495,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,80,209,80,209,85,175,85"/>
+<area shape="rect" id="Node000004" href="$db/d2a/classAudioVisualizer.html#ad5e1c45ea45d7d63a828201c683a8b57" title="Set visualization mode." alt="" coords="223,119,494,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,96,276,114,275,119,174,101"/>
+<area shape="rect" id="Node000005" href="$db/d2a/classAudioVisualizer.html#a7e87edd871f1c5da58761f7b085b8f4c" title="Get visualization mode name." alt="" coords="543,90,769,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="487,117,528,113,529,118,488,122"/>
+<area shape="rect" id="Node000006" href="$db/d2a/classAudioVisualizer.html#a84a80f07b34cdd3e0df06eac20a9e768" title="Emitted when visualization mode changes." alt="" coords="549,140,763,180"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="494,142,535,146,535,151,493,147"/>
+</map>

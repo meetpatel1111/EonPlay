@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['package_5fappimage_0',['PACKAGE_APPIMAGE',['../d8/d4d/classLinuxPlatform.html#a7f84c2d4778d5fafd5ec126cb1a18961a420108a62ec88b0d03b9b9ddec0651f8',1,'LinuxPlatform']]],
+  ['package_5fdeb_1',['PACKAGE_DEB',['../d8/d4d/classLinuxPlatform.html#a7f84c2d4778d5fafd5ec126cb1a18961aec6ed266b83d098859d52e44503dc0a1',1,'LinuxPlatform']]],
+  ['package_5fflatpak_2',['PACKAGE_FLATPAK',['../d8/d4d/classLinuxPlatform.html#a7f84c2d4778d5fafd5ec126cb1a18961a992a318fbb20b9306bba566ae1c164cc',1,'LinuxPlatform']]],
+  ['package_5frpm_3',['PACKAGE_RPM',['../d8/d4d/classLinuxPlatform.html#a7f84c2d4778d5fafd5ec126cb1a18961a2bf1b1b40c327de2241c7188ab969012',1,'LinuxPlatform']]],
+  ['package_5fsnap_4',['PACKAGE_SNAP',['../d8/d4d/classLinuxPlatform.html#a7f84c2d4778d5fafd5ec126cb1a18961a5804d4626f5aa1c66c9f1e67d8ce64f1',1,'LinuxPlatform']]],
+  ['pause_5',['Pause',['../de/d2b/classVideoCastingManager.html#a9e126edaf3fee01c194509be7449214fabd09670cf26a73586c1d4a38e035b5c7',1,'VideoCastingManager']]],
+  ['paused_6',['Paused',['../d2/db0/IMediaEngine_8h.html#ae777c4083532155b0f63774284124497ae99180abf47a8b3a856e0bcb2656990a',1,'IMediaEngine.h']]],
+  ['play_7',['Play',['../de/d2b/classVideoCastingManager.html#a9e126edaf3fee01c194509be7449214fac3208c96ece52055b86b011ce3695a5f',1,'VideoCastingManager']]],
+  ['playcount_8',['PlayCount',['../d9/de3/classLibraryWidget.html#acdc3501ef3147bba72f227a6da9f6011a9a52df7b34d0db7d5ee331ec22b1cbdb',1,'LibraryWidget']]],
+  ['playing_9',['Playing',['../d2/db0/IMediaEngine_8h.html#ae777c4083532155b0f63774284124497ac9dbb2b7c84159b632d71e512eba8428',1,'IMediaEngine.h']]],
+  ['playlist_10',['Playlist',['../d9/de3/classLibraryWidget.html#a3e277891cd58fb2dba61e79e3abcc3ffab5608d6f734e8160e0ed6fce866f66c2',1,'LibraryWidget']]],
+  ['png_11',['PNG',['../d2/d07/classVideoExporter.html#aa45575eebdc410a124037f9af1f2bbeaa97159bc3c9f7501e7983381e6b8bc708',1,'VideoExporter']]],
+  ['podcast_12',['Podcast',['../d2/d56/classInternetStreamingManager.html#a698f7f4fddbb0dcba30e4e23beb58ecaaa8939a0c4f32bcc5154527176bdadae6',1,'InternetStreamingManager']]],
+  ['podcast_5fservice_13',['PODCAST_SERVICE',['../df/dba/classInternetStreamingService.html#ad33103a0f2970595e6ec6694718ac13cac2c622dbba561583e78af0c2b779276d',1,'InternetStreamingService']]],
+  ['polish_14',['polish',['../d7/d93/classEonPlay_1_1AI_1_1SubtitleLanguageDetector.html#a72994367511065726d963bfb9ff59774a0b9692fb23e34fac18023aa79102cd45',1,'EonPlay::AI::SubtitleLanguageDetector::Polish'],['../d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#a12e7787fca98b622c979907e982feeffaeaf623fa27a347459b1db74f22b07aff',1,'EonPlay::AI::SubtitleTranslator::Polish']]],
+  ['pop_15',['Pop',['../d1/db9/classAudioEqualizer.html#a9d2a0966557df1513aca42a2682bab1ead52d2f028f4f8da9fb9c2fa48a6fbb71',1,'AudioEqualizer']]],
+  ['portuguese_16',['portuguese',['../d2/d2c/classEonPlay_1_1AI_1_1AISubtitleGenerator.html#aa3b59ecc5ab16462f994d97e9290d99babb088f594304eeb8a38374eec38a9d66',1,'EonPlay::AI::AISubtitleGenerator::Portuguese'],['../d7/d93/classEonPlay_1_1AI_1_1SubtitleLanguageDetector.html#a72994367511065726d963bfb9ff59774ac8200e010ac484a54ba6dc3557baa469',1,'EonPlay::AI::SubtitleLanguageDetector::Portuguese'],['../d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#a12e7787fca98b622c979907e982feeffa1caf909a931b4bdda2520b01cd853aa2',1,'EonPlay::AI::SubtitleTranslator::Portuguese']]],
+  ['previous_17',['Previous',['../de/d2b/classVideoCastingManager.html#a9e126edaf3fee01c194509be7449214fa667039e3736994662470c400ec5f9583',1,'VideoCastingManager']]]
+];

@@ -1,0 +1,7 @@
+<map id="VideoWidget::setAspectRatio" name="VideoWidget::setAspectRatio">
+<area shape="rect" id="Node000001" title="Set video aspect ratio mode." alt="" coords="5,35,216,60"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#ad407baa354b1f0fb077b8bd19ee2fe39" title="Get current aspect ratio." alt="" coords="264,5,455,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,32,250,28,250,34,217,38"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#ac2684fee16735c784839629fe81baada" title="Emitted when aspect ratio changes." alt="" coords="264,55,455,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,57,250,60,250,66,216,62"/>
+</map>

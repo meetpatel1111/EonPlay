@@ -1,0 +1,16 @@
+<map id="SubtitleManager::activeTrackChanged" name="SubtitleManager::activeTrackChanged">
+<area shape="rect" id="Node000001" title="Emitted when active track changes." alt="" coords="808,63,1019,103"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a179b440ce4fad771a799a57fdac66e73" title="Clear all loaded subtitle tracks." alt="" coords="533,13,760,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="806,62,706,41,707,35,807,57"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#af2da2cbc2883cf667f623f09ebf9ba86" title="Set active subtitle track." alt="" coords="547,63,746,103"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="794,85,746,85,746,80,794,80"/>
+<area shape="rect" id="Node000007" href="$d9/dff/classSubtitleControlWidget.html#a6dbdfc2ebce1598ac0d4bc6411c85717" title="Set subtitle manager." alt="" coords="283,120,449,160"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="814,108,760,117,594,134,449,141,449,135,594,128,760,112,814,103"/>
+<area shape="rect" id="Node000004" href="$dd/d8b/classSubtitleManager.html#a608442cfbbc105168de564e34f98d13c" title="Load subtitle from content." alt="" coords="259,5,473,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="534,62,464,48,465,43,535,57"/>
+<area shape="rect" id="Node000005" href="$dd/d8b/classSubtitleManager.html#a8b6d9ea90c799260111c17b60b4d4e2c" title="Load subtitle file." alt="" coords="247,70,485,95"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="534,85,485,85,485,80,534,80"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="536,108,449,126,448,121,534,103"/>
+<area shape="rect" id="Node000006" href="$dd/d8b/classSubtitleManager.html#a09a785b7bd91cada546078cbe9337eda" title="Handle media loaded." alt="" coords="5,63,199,103"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="233,85,199,85,199,80,233,80"/>
+</map>

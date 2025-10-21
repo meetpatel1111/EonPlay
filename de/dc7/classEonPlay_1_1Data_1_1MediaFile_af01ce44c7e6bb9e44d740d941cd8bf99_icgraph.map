@@ -1,0 +1,15 @@
+<map id="EonPlay::Data::MediaFile::supportedAudioExtensions" name="EonPlay::Data::MediaFile::supportedAudioExtensions">
+<area shape="rect" id="Node000001" title=" " alt="" coords="697,69,900,109"/>
+<area shape="rect" id="Node000002" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#aa2835d4c6868eb05bccd39cecff0170d" title=" " alt="" coords="467,37,649,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="683,77,649,72,650,67,684,71"/>
+<area shape="rect" id="Node000006" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ac59d48049a831acd9460f3e6c9b46d06" title=" " alt="" coords="467,101,649,141"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="684,107,650,112,649,107,683,102"/>
+<area shape="rect" id="Node000003" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a61298ee02ef1e24d6144c6ba913c06df" title=" " alt="" coords="236,37,419,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="453,60,419,60,419,55,453,55"/>
+<area shape="rect" id="Node000004" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a553ef035684ff4548bdc39a32a468dfd" title=" " alt="" coords="5,5,188,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,45,188,41,189,35,223,40"/>
+<area shape="rect" id="Node000005" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a43250572e75b710d627c6125c7d4058e" title=" " alt="" coords="5,69,188,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="223,74,189,79,188,74,222,69"/>
+<area shape="rect" id="Node000007" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ada0f3e0494310c7827fdfeb9f89a8fa6" title=" " alt="" coords="236,101,419,141"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="453,124,419,124,419,119,453,119"/>
+</map>

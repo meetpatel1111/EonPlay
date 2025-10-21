@@ -1,0 +1,5 @@
+<map id="AdvancedAudioProcessor::shutdown" name="AdvancedAudioProcessor::shutdown">
+<area shape="rect" id="Node000001" title="Shutdown the processor." alt="" coords="5,5,192,45"/>
+<area shape="rect" id="Node000002" href="$d9/d29/classAdvancedAudioProcessor.html#a5d54e27bc05af0c0a84f1f2b9b747222" title="Cancel ongoing conversion." alt="" coords="240,5,427,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,23,226,23,226,28,192,28"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="AudioOutputManager::setDelayCompensation" name="AudioOutputManager::setDelayCompensation">
+<area shape="rect" id="Node000001" title="Set delay compensation settings." alt="" coords="5,5,188,45"/>
+<area shape="rect" id="Node000002" href="$d7/d0f/classAudioOutputManager.html#a29e28571ff90145c41341a7edfa2a92b" title="Emitted when delay compensation changes." alt="" coords="236,5,453,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,23,222,23,222,28,188,28"/>
+</map>

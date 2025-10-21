@@ -1,0 +1,21 @@
+<map id="include/media/PlaybackController.h" name="include/media/PlaybackController.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="209,5,461,31"/>
+<area shape="rect" id="Node000002" href="$d2/db0/IMediaEngine_8h.html" title=" " alt="" coords="73,79,196,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="303,33,181,76,180,71,302,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,80,177"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="228,33,129,52,89,65,63,81,54,93,48,108,44,139,39,138,43,106,49,91,60,77,87,60,128,47,227,28"/>
+<area shape="rect" id="Node000006" href="$df/d56/IComponent_8h.html" title=" " alt="" coords="221,79,334,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="327,33,297,70,293,66,323,29"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="358,79,429,104"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="346,29,377,67,373,70,342,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="453,79,518,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="360,28,449,70,447,75,358,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="543,79,620,104"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="375,28,530,73,529,78,374,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="122,106,70,146,67,141,118,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="213,152,283,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="154,102,220,142,217,147,151,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="109,152,160,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="137,104,137,138,132,138,132,104"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="275,105,260,140,256,138,270,103"/>
+</map>

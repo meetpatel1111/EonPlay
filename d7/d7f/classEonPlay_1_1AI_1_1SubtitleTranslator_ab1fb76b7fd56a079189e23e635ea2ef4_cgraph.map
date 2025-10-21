@@ -1,0 +1,14 @@
+<map id="EonPlay::AI::SubtitleTranslator::translateMultipleFiles" name="EonPlay::AI::SubtitleTranslator::translateMultipleFiles">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,40,221,80"/>
+<area shape="rect" id="Node000002" href="$d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#ae6544a134fd22bd9936e948347b4bdc1" title=" " alt="" coords="269,69,485,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,69,256,73,256,78,221,75"/>
+<area shape="rect" id="Node000004" href="$d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#a41e7020f8ae5c9e0d685a1b4b7346bae" title=" " alt="" coords="533,5,749,45"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="221,50,519,31,520,36,222,56"/>
+<area shape="rect" id="Node000003" href="$d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#a8604744c095b4d29bbcd381c1a7aeb72" title=" " alt="" coords="533,69,749,109"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="485,87,520,87,520,92,485,92"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="460,67,545,46,546,51,461,72"/>
+<area shape="rect" id="Node000005" href="$d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#a78946b11a801dad44e47d26463a57701" title=" " alt="" coords="533,133,749,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="461,107,546,128,545,133,460,112"/>
+<area shape="rect" id="Node000006" href="$d7/d7f/classEonPlay_1_1AI_1_1SubtitleTranslator.html#a1d7685f7e7f82d3d1c3c3eda69ff7d8f" title=" " alt="" coords="533,197,749,237"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="407,107,465,145,534,183,552,190,550,195,532,188,462,150,404,112"/>
+</map>

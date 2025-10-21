@@ -1,0 +1,5 @@
+<map id="PlaybackController::gaplessPlaybackChanged" name="PlaybackController::gaplessPlaybackChanged">
+<area shape="rect" id="Node000001" title="Emitted when gapless playback setting changes." alt="" coords="215,5,411,45"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a721873725da78b0db3efb1c2cfb10ed1" title="Enable or disable gapless playback." alt="" coords="5,5,167,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,28,167,28,167,23,201,23"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="HotkeyManager::checkConflict" name="HotkeyManager::checkConflict">
+<area shape="rect" id="Node000001" title="Check if key sequence conflicts with existing hotkeys." alt="" coords="561,31,781,56"/>
+<area shape="rect" id="Node000002" href="$d2/d66/classHotkeyManager.html#a370e812ad2887b649fe7861717e6facd" title="Set hotkey for an action." alt="" coords="315,5,513,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="548,34,513,30,514,25,548,29"/>
+<area shape="rect" id="Node000003" href="$d2/d66/classHotkeyManager.html#aaeacc013d47b8d38c9444b4bf6e302ea" title="Show hotkey customization dialog." alt="" coords="5,23,267,63"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="547,46,267,46,267,41,547,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,31,267,34,267,29,301,26"/>
+</map>

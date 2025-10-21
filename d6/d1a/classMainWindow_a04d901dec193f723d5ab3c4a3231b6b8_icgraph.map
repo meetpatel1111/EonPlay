@@ -1,0 +1,7 @@
+<map id="MainWindow::showWindow" name="MainWindow::showWindow">
+<area shape="rect" id="Node000001" title="Show the main window and restore state." alt="" coords="216,42,415,67"/>
+<area shape="rect" id="Node000002" href="$d6/dfb/classSystemTrayManager.html#ab3a961a708c5c1b82e9f300b9afc4c13" title="Initialize system tray with main window reference." alt="" coords="5,5,168,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,43,168,38,169,33,203,38"/>
+<area shape="rect" id="Node000003" href="$df/d0a/main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main application entry point." alt="" coords="59,70,114,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,71,115,82,114,77,202,66"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="MediaInfoWidget::autoUpdate" name="MediaInfoWidget::autoUpdate">
+<area shape="rect" id="Node000001" title="Check if auto&#45;update is enabled." alt="" coords="244,13,461,38"/>
+<area shape="rect" id="Node000002" href="$dd/d6b/classMediaInfoWidget.html#acb41337016aea35ace27581872e7315e" title="Set whether to auto&#45;update when media changes." alt="" coords="5,5,196,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,28,196,28,196,23,230,23"/>
+</map>

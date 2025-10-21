@@ -1,0 +1,9 @@
+<map id="HardwareAcceleration::setPreferredAcceleration" name="HardwareAcceleration::setPreferredAcceleration">
+<area shape="rect" id="Node000001" title="Set the preferred acceleration method." alt="" coords="5,69,196,109"/>
+<area shape="rect" id="Node000002" href="$de/dd0/classHardwareAcceleration.html#a5bf84a3466dfdd5fa1cbbcf181a23b95" title="Get platform&#45;specific acceleration type name." alt="" coords="257,5,459,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,67,263,46,265,51,183,72"/>
+<area shape="rect" id="Node000003" href="$de/dd0/classHardwareAcceleration.html#ada9203f6a7cb7be08624e31a0531b0ba" title="Check if a specific acceleration type is available." alt="" coords="267,69,449,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,87,253,87,253,92,196,92"/>
+<area shape="rect" id="Node000004" href="$de/dd0/classHardwareAcceleration.html#a03bda10e90110848bac518c56eb5aa40" title="Emitted when preferred acceleration method changes." alt="" coords="244,133,472,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,107,265,127,263,133,181,112"/>
+</map>

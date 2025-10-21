@@ -1,0 +1,11 @@
+<map id="BaseSubtitleParser::validateFile" name="BaseSubtitleParser::validateFile">
+<area shape="rect" id="Node000001" title="Validate subtitle file for security issues." alt="" coords="5,69,149,109"/>
+<area shape="rect" id="Node000002" href="$d0/dcf/classBaseSubtitleParser.html#ada1817afe5f75918a5dbbb33b4046243" title="Read file content with encoding detection." alt="" coords="220,5,364,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,67,210,47,212,52,146,72"/>
+<area shape="rect" id="Node000004" href="$d3/dc3/classISubtitleParser.html#a16b65bcc13bbabef68819861e611b5f9" title="Get supported file extensions." alt="" coords="197,69,387,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="150,87,184,87,184,92,150,92"/>
+<area shape="rect" id="Node000005" href="$d0/dcf/classBaseSubtitleParser.html#a62679a3e71c2e13e63515fccb82f25e2" title="Validate subtitle content for security issues." alt="" coords="220,133,364,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="146,107,212,127,210,132,144,112"/>
+<area shape="rect" id="Node000003" href="$d0/dcf/classBaseSubtitleParser.html#a4495a629d13d37b8357c620faeb992fd" title="Detect text encoding of subtitle file." alt="" coords="435,5,579,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,23,421,23,421,28,365,28"/>
+</map>

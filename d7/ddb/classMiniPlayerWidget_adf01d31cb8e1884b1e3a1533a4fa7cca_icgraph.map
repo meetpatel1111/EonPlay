@@ -1,0 +1,5 @@
+<map id="MiniPlayerWidget::hideMiniPlayer" name="MiniPlayerWidget::hideMiniPlayer">
+<area shape="rect" id="Node000001" title="Hide mini player." alt="" coords="240,5,441,45"/>
+<area shape="rect" id="Node000002" href="$d7/ddb/classMiniPlayerWidget.html#adc43063358414c9c47e1d3afe2eb47f4" title="Toggle mini player visibility." alt="" coords="5,5,192,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,28,192,28,192,23,226,23"/>
+</map>

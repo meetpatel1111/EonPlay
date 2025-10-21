@@ -1,0 +1,9 @@
+<map id="SubtitleRenderer::hideSubtitles" name="SubtitleRenderer::hideSubtitles">
+<area shape="rect" id="Node000001" title="Hide subtitles with animation." alt="" coords="281,55,505,80"/>
+<area shape="rect" id="Node000002" href="$de/d8e/classSubtitleRenderer.html#a0fa5fe9c1797b04283ff62c837f3b94c" title="Clear all displayed subtitles." alt="" coords="5,5,233,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,55,190,33,191,28,309,50"/>
+<area shape="rect" id="Node000003" href="$de/d8e/classSubtitleRenderer.html#a579b0967b3abd3a9f07f81a784dad449" title="Enable or disable subtitle rendering." alt="" coords="14,55,225,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="268,70,225,70,225,65,268,65"/>
+<area shape="rect" id="Node000004" href="$de/d8e/classSubtitleRenderer.html#a2072b5310b14f339bcca07ab24758516" title="Set subtitle entries to display." alt="" coords="15,105,224,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="319,85,216,107,215,102,318,80"/>
+</map>

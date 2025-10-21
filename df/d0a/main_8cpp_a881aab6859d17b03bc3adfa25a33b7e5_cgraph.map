@@ -1,0 +1,7 @@
+<map id="printApplicationInfo" name="printApplicationInfo">
+<area shape="rect" id="Node000001" title="Print application information." alt="" coords="5,45,156,70"/>
+<area shape="rect" id="Node000002" href="$d2/d38/classEonPlayApplication.html#a81d254272626353bc0fa2750d54d4f7c" title="Get the EonPlay application name." alt="" coords="204,5,351,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,42,190,37,191,42,157,48"/>
+<area shape="rect" id="Node000003" href="$d2/d38/classEonPlayApplication.html#ac045d3b80ef93609f2dab738dd177026" title="Get the EonPlay version." alt="" coords="204,69,351,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,67,191,73,190,78,156,72"/>
+</map>

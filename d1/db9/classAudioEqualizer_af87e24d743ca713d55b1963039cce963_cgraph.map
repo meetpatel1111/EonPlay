@@ -1,0 +1,5 @@
+<map id="AudioEqualizer::setEnabled" name="AudioEqualizer::setEnabled">
+<area shape="rect" id="Node000001" title="Enable or disable the equalizer." alt="" coords="5,5,204,31"/>
+<area shape="rect" id="Node000002" href="$d1/db9/classAudioEqualizer.html#aeff0ac8afdf5f92d8d4ff8bbca20d75a" title="Emitted when equalizer is enabled/disabled." alt="" coords="252,5,488,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,15,238,15,238,21,204,21"/>
+</map>

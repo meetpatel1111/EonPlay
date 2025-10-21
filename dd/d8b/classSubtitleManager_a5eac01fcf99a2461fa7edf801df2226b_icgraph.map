@@ -1,0 +1,8 @@
+<map id="SubtitleManager::timingOffsetChanged" name="SubtitleManager::timingOffsetChanged">
+<area shape="rect" id="Node000001" title="Emitted when subtitle timing offset changes." alt="" coords="469,5,688,45"/>
+<area shape="rect" id="Node000002" href="$d9/dff/classSubtitleControlWidget.html#a6dbdfc2ebce1598ac0d4bc6411c85717" title="Set subtitle manager." alt="" coords="5,5,171,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="455,25,421,24,219,24,171,25,171,20,219,19,421,19,456,19"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#ad63084e066a1d502b65df16d198dcdf3" title="Set subtitle timing offset." alt="" coords="219,33,421,73"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="456,41,422,45,421,40,455,36"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="205,42,170,38,171,33,205,37"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="PlaybackControls::updateDuration" name="PlaybackControls::updateDuration">
+<area shape="rect" id="Node000001" title="Update duration display." alt="" coords="5,5,193,45"/>
+<area shape="rect" id="Node000002" href="$d6/d3c/classPlaybackControls.html#a8f9e96c0eaa2d0cf863bf0586ad7a591" title="Get current duration." alt="" coords="508,13,705,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,23,494,23,494,28,194,28"/>
+<area shape="rect" id="Node000003" href="$d6/d3c/classPlaybackControls.html#a7fd8df16a2f1ef5e97317c392d2cdae5" title="Set the media duration." alt="" coords="241,38,460,63"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,32,228,36,227,41,193,37"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="460,37,494,34,495,39,460,43"/>
+</map>

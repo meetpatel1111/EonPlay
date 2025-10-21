@@ -1,0 +1,9 @@
+<map id="PlaybackController::togglePlayPause" name="PlaybackController::togglePlayPause">
+<area shape="rect" id="Node000001" title="Toggle between play and pause." alt="" coords="5,37,151,77"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#a1cbd834c290e563d4860a58436f70687" title="Pause playback." alt="" coords="199,5,344,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,43,184,37,185,42,151,48"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#aa73d55c20b71a8c6c18c3ac914154636" title="Start or resume playback." alt="" coords="199,69,344,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,67,185,72,184,78,150,72"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#aeb617eb0c421fcbb5d449a1b99b24a93" title="Emitted when an error occurs." alt="" coords="392,69,537,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="344,87,378,87,378,92,344,92"/>
+</map>

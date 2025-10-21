@@ -1,0 +1,11 @@
+<map id="FileUrlSupport::dragDropProcessed" name="FileUrlSupport::dragDropProcessed">
+<area shape="rect" id="Node000001" title="Emitted when drag and drop operation is processed." alt="" coords="600,37,783,77"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a778c1c9fa26afa5d85905bcd813a9dd8" title="Process dropped files and URLs." alt="" coords="325,5,552,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="586,47,552,42,553,37,587,41"/>
+<area shape="rect" id="Node000003" href="$dd/d2d/classDragDropWidget.html#a689eb9ec57ec6b221b47bc46a4f28930" title="Set the file URL support component." alt="" coords="339,69,539,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="587,73,539,79,539,74,586,68"/>
+<area shape="rect" id="Node000004" href="$d6/d1a/classMainWindow.html#ae0e54160db525152d6583cd9f9b9efe4" title="Initialize the main window with component manager." alt="" coords="108,77,277,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="325,92,278,92,278,87,325,87"/>
+<area shape="rect" id="Node000005" href="$df/d0a/main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main application entry point." alt="" coords="5,77,60,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,92,60,92,60,87,94,87"/>
+</map>

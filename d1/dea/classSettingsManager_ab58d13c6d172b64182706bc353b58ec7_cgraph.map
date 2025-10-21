@@ -1,0 +1,7 @@
+<map id="SettingsManager::saveSettings" name="SettingsManager::saveSettings">
+<area shape="rect" id="Node000001" title="Save settings immediately." alt="" coords="5,45,229,70"/>
+<area shape="rect" id="Node000002" href="$d1/dea/classSettingsManager.html#ab272cfaf088e474319378d94c2b55577" title="Get settings file path." alt="" coords="277,5,492,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,42,264,37,264,42,224,47"/>
+<area shape="rect" id="Node000003" href="$d1/dea/classSettingsManager.html#aef7ec0bb37318673516b2aeaa332026e" title="Emitted when settings are saved." alt="" coords="289,69,481,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,67,275,74,275,79,223,73"/>
+</map>

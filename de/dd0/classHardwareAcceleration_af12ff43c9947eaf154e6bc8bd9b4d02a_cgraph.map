@@ -1,0 +1,5 @@
+<map id="HardwareAcceleration::setHardwareAccelerationEnabled" name="HardwareAcceleration::setHardwareAccelerationEnabled">
+<area shape="rect" id="Node000001" title="Enable or disable hardware acceleration." alt="" coords="5,5,252,45"/>
+<area shape="rect" id="Node000002" href="$de/dd0/classHardwareAcceleration.html#ac510e56d93a78aa8eac6ff317d7277ab" title="Emitted when hardware acceleration is enabled/disabled." alt="" coords="300,5,519,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,23,286,23,286,28,252,28"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="SubtitleTrack::title" name="SubtitleTrack::title">
+<area shape="rect" id="Node000001" title=" " alt="" coords="744,38,884,63"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a8b6d9ea90c799260111c17b60b4d4e2c" title="Load subtitle file." alt="" coords="247,13,485,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="730,49,485,35,486,29,730,43"/>
+<area shape="rect" id="Node000004" href="$d1/de3/classSubtitleTrack.html#ae75b560fd9d03ac98f727af466a939c1" title=" " alt="" coords="533,63,696,89"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="731,64,697,68,696,63,730,59"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#a09a785b7bd91cada546078cbe9337eda" title="Handle media loaded." alt="" coords="5,5,199,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="233,28,199,28,199,23,233,23"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="538,63,428,41,430,35,539,58"/>
+<area shape="rect" id="Node000005" href="$dd/d8b/classSubtitleManager.html#a608442cfbbc105168de564e34f98d13c" title="Load subtitle from content." alt="" coords="259,63,473,103"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="520,81,473,82,473,77,519,76"/>
+</map>

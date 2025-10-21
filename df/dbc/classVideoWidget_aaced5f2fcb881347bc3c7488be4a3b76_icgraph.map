@@ -1,0 +1,7 @@
+<map id="VideoWidget::rotation" name="VideoWidget::rotation">
+<area shape="rect" id="Node000001" title="Get current rotation." alt="" coords="555,5,719,31"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#a7b10951fb7f77a5fb7ad7a46e240f359" title="Set video rotation (0, 90, 180, 270 degrees)" alt="" coords="319,5,507,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="541,21,507,21,507,15,541,15"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#a1464faf11fefac7fae77e7aaec07b7ce" title="Reset all video adjustments to default." alt="" coords="5,5,271,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,21,271,21,271,15,305,15"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="EonPlay::Data::MediaFile::playCount" name="EonPlay::Data::MediaFile::playCount">
+<area shape="rect" id="Node000001" title=" " alt="" coords="507,37,689,77"/>
+<area shape="rect" id="Node000002" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#a7c9047c6c1caee7256864423d589fc95" title=" " alt="" coords="276,37,459,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="493,60,459,60,459,55,493,55"/>
+<area shape="rect" id="Node000003" href="$d9/d0d/classEonPlay_1_1Data_1_1LibraryManager.html#a64b072d603eb70a9547959da10ac84f3" title=" " alt="" coords="5,5,228,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="262,47,228,42,228,37,263,41"/>
+<area shape="rect" id="Node000004" href="$d9/d0d/classEonPlay_1_1Data_1_1LibraryManager.html#aa3785df685057ef0113a17276b11abf6" title=" " alt="" coords="5,69,228,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="263,73,228,78,228,72,262,68"/>
+</map>

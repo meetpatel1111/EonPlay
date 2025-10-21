@@ -1,0 +1,16 @@
+<map id="EonPlay::Data::MediaFile::fileExists" name="EonPlay::Data::MediaFile::fileExists">
+<area shape="rect" id="Node000001" title=" " alt="" coords="783,69,965,109"/>
+<area shape="rect" id="Node000002" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a1740740e9bae79eeed815eb5c639720f" title=" " alt="" coords="559,21,727,61"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="769,70,727,61,728,56,770,65"/>
+<area shape="rect" id="Node000004" href="$de/dc7/classEonPlay_1_1Data_1_1MediaFile.html#ac58b462f918e2599c573f99938b2f926" title=" " alt="" coords="552,101,735,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="770,106,735,111,734,106,769,101"/>
+<area shape="rect" id="Node000003" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a30de69a7439311748453d1ac723484f9" title=" " alt="" coords="279,5,504,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="546,38,504,35,504,30,546,33"/>
+<area shape="rect" id="Node000005" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a70606c1ae01535bd64fc16d99ef2b66c" title=" " alt="" coords="279,69,504,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="538,111,504,106,505,101,539,105"/>
+<area shape="rect" id="Node000006" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#aec45bb274b5d3933fb90e40cd3fb6c23" title=" " alt="" coords="279,133,504,173"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="539,137,505,142,504,136,538,132"/>
+<area shape="rect" id="Node000007" href="$dd/d67/classEonPlay_1_1Data_1_1PlaylistManager.html#a686c0e80e2604d2410ee5a3f64a63a30" title=" " alt="" coords="5,163,231,203"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="599,150,554,172,505,188,434,199,363,203,231,199,231,194,363,198,434,194,503,183,552,167,596,146"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="265,170,231,173,230,168,265,164"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="SubtitleTrack::totalDuration" name="SubtitleTrack::totalDuration">
+<area shape="rect" id="Node000001" title="Get total duration of subtitle track." alt="" coords="533,42,733,67"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a608442cfbbc105168de564e34f98d13c" title="Load subtitle from content." alt="" coords="259,5,473,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="519,45,473,40,474,34,520,40"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#a8b6d9ea90c799260111c17b60b4d4e2c" title="Load subtitle file." alt="" coords="247,70,485,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="520,69,486,73,485,68,520,64"/>
+<area shape="rect" id="Node000004" href="$dd/d8b/classSubtitleManager.html#a09a785b7bd91cada546078cbe9337eda" title="Handle media loaded." alt="" coords="5,63,199,103"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="233,85,199,85,199,80,233,80"/>
+</map>

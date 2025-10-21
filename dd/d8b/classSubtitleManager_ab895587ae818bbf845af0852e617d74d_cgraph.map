@@ -1,0 +1,5 @@
+<map id="SubtitleManager::getActiveSubtitles" name="SubtitleManager::getActiveSubtitles">
+<area shape="rect" id="Node000001" title="Get active subtitle entries at current time." alt="" coords="5,5,204,45"/>
+<area shape="rect" id="Node000002" href="$d1/de3/classSubtitleTrack.html#abddc35798ef24393b10e0859eef65c90" title="Get active subtitle entries at given time." alt="" coords="252,5,428,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,23,238,23,238,28,204,28"/>
+</map>

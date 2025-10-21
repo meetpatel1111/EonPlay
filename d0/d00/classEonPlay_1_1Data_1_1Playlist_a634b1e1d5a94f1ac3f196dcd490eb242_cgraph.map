@@ -1,0 +1,9 @@
+<map id="EonPlay::Data::Playlist::addItem" name="EonPlay::Data::Playlist::addItem">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,173,77"/>
+<area shape="rect" id="Node000002" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a842c9a92e0bcf7f4ce38497354779d89" title=" " alt="" coords="221,37,389,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,55,208,55,208,60,174,60"/>
+<area shape="rect" id="Node000003" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#a89bd9188e885377b8bb33ef95aa04647" title=" " alt="" coords="437,5,605,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,42,423,37,424,42,390,48"/>
+<area shape="rect" id="Node000004" href="$d0/d00/classEonPlay_1_1Data_1_1Playlist.html#ae6327fcd3e160fada15ea4522393bb60" title=" " alt="" coords="437,69,605,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="390,67,424,72,423,78,389,72"/>
+</map>

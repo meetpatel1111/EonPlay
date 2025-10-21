@@ -1,0 +1,9 @@
+<map id="VideoWidget::mouseDoubleClickEvent" name="VideoWidget::mouseDoubleClickEvent">
+<area shape="rect" id="Node000001" title="Handle mouse double&#45;click events." alt="" coords="5,5,208,45"/>
+<area shape="rect" id="Node000002" href="$df/dbc/classVideoWidget.html#addf7f275d3651648118da94dc1f6b711" title="Toggle fullscreen mode." alt="" coords="256,13,476,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,23,243,23,243,28,208,28"/>
+<area shape="rect" id="Node000003" href="$df/dbc/classVideoWidget.html#a6952570486065662b9d65e146e85b466" title="Enter or exit fullscreen mode." alt="" coords="524,13,723,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="476,23,510,23,510,28,476,28"/>
+<area shape="rect" id="Node000004" href="$df/dbc/classVideoWidget.html#aef75034146d02688079238c07885e975" title="Emitted when fullscreen mode changes." alt="" coords="771,13,1005,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="723,23,757,23,757,28,723,28"/>
+</map>

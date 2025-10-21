@@ -1,0 +1,7 @@
+<map id="SubtitleManager::clearSubtitles" name="SubtitleManager::clearSubtitles">
+<area shape="rect" id="Node000001" title="Clear all loaded subtitle tracks." alt="" coords="5,45,232,70"/>
+<area shape="rect" id="Node000002" href="$dd/d8b/classSubtitleManager.html#a4da4d64818831616c79df498283f26b4" title="Emitted when active subtitles change." alt="" coords="280,5,515,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,42,266,38,267,43,230,47"/>
+<area shape="rect" id="Node000003" href="$dd/d8b/classSubtitleManager.html#afa69f195a45d8c296995aed92c02759d" title="Emitted when active track changes." alt="" coords="292,69,503,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,67,278,73,278,78,229,73"/>
+</map>

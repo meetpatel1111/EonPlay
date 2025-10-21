@@ -1,0 +1,7 @@
+<map id="VideoCastingManager::discoveryStarted" name="VideoCastingManager::discoveryStarted">
+<area shape="rect" id="Node000001" title="Emitted when device discovery starts." alt="" coords="437,5,603,45"/>
+<area shape="rect" id="Node000002" href="$de/d2b/classVideoCastingManager.html#af1265c782ec26cc8886cdd0601a0d1bf" title="Start device discovery." alt="" coords="219,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,28,389,28,389,23,423,23"/>
+<area shape="rect" id="Node000003" href="$de/d2b/classVideoCastingManager.html#a332b025ee1adfe2bf19d61a3bfeaa3ef" title="Refresh device list." alt="" coords="5,5,171,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="205,28,171,28,171,23,205,23"/>
+</map>

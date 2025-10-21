@@ -1,0 +1,11 @@
+<map id="PlaybackController::seekToPercentage" name="PlaybackController::seekToPercentage">
+<area shape="rect" id="Node000001" title="Seek to percentage of total duration." alt="" coords="5,49,153,89"/>
+<area shape="rect" id="Node000002" href="$d0/d22/classPlaybackController.html#ab04e1d486535808826072f0a2a31f6ed" title="Get media duration." alt="" coords="395,5,540,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,47,201,35,294,25,381,22,381,27,294,30,202,40,146,52"/>
+<area shape="rect" id="Node000003" href="$d0/d22/classPlaybackController.html#aae1e4a03d5e4873bd67700ad0eecb827" title="Get current playback position." alt="" coords="395,81,540,121"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,87,202,99,294,105,381,104,381,110,294,110,201,104,143,92"/>
+<area shape="rect" id="Node000004" href="$d0/d22/classPlaybackController.html#a6ef737643d936bc69833b090f9ff4416" title="Seek to specific position." alt="" coords="201,49,347,89"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,67,187,67,187,72,154,72"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="346,50,380,42,381,48,347,55"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="347,79,381,84,380,90,346,84"/>
+</map>

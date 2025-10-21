@@ -1,0 +1,9 @@
+<map id="include/ui/VideoWidget.h" name="include/ui/VideoWidget.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="259,5,443,31"/>
+<area shape="rect" id="Node000002" href="$d9/d11/MiniPlayerWidget_8cpp.html" title=" " alt="" coords="5,79,208,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,37,147,81,145,76,298,32"/>
+<area shape="rect" id="Node000003" href="$d6/d23/PictureInPictureWidget_8cpp.html" title=" " alt="" coords="233,79,469,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="353,44,353,79,348,79,348,44"/>
+<area shape="rect" id="Node000004" href="$df/db1/VideoWidget_8cpp.html" title=" " alt="" coords="493,79,664,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="401,32,543,76,541,81,400,37"/>
+</map>

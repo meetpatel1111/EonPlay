@@ -1,0 +1,7 @@
+<map id="AudioVisualizer::getVisualizationMode" name="AudioVisualizer::getVisualizationMode">
+<area shape="rect" id="Node000001" title="Get current visualization mode." alt="" coords="223,45,495,70"/>
+<area shape="rect" id="Node000002" href="$d5/d45/classAudioVisualizerWidget.html#a1c757063316a1c23d3de28198f4f8cc2" title=" " alt="" coords="5,5,175,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,46,175,38,175,33,239,40"/>
+<area shape="rect" id="Node000003" href="$d5/d45/classAudioVisualizerWidget.html#aa90ec7449bbbf1db85d66a868165d636" title=" " alt="" coords="5,69,175,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="239,74,175,82,175,77,238,69"/>
+</map>

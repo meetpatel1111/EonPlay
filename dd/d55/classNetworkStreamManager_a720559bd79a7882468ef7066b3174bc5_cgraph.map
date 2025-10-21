@@ -1,0 +1,18 @@
+<map id="NetworkStreamManager::openStream" name="NetworkStreamManager::openStream">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,188,187,228"/>
+<area shape="rect" id="Node000002" href="$dd/d55/classNetworkStreamManager.html#a04d53350368ca173ace7e0431fe8ab81" title=" " alt="" coords="235,72,416,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,185,233,130,264,115,266,120,236,134,133,190"/>
+<area shape="rect" id="Node000005" href="$dd/d55/classNetworkStreamManager.html#a879f118c02501c27462064f78a83586b" title=" " alt="" coords="472,133,653,173"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="173,185,234,173,350,160,458,154,459,159,350,166,235,179,174,191"/>
+<area shape="rect" id="Node000006" href="$dd/d55/classNetworkStreamManager.html#a224202685330df15dd9e2f535f991548" title=" " alt="" coords="235,188,416,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="187,205,221,205,221,211,187,211"/>
+<area shape="rect" id="Node000007" href="$dd/d55/classNetworkStreamManager.html#a52feef8fc076ebc4c13aa221a2f55175" title=" " alt="" coords="235,252,416,292"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="169,226,241,246,240,251,168,231"/>
+<area shape="rect" id="Node000008" href="$dd/d55/classNetworkStreamManager.html#a3fbc79194e5f5281a7e3908c1c5dd870" title=" " alt="" coords="235,316,416,356"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="123,226,174,264,236,302,250,308,247,313,233,306,171,268,120,230"/>
+<area shape="rect" id="Node000003" href="$dd/d55/classNetworkStreamManager.html#ad00590fceb04ded19a1bec8917bde165" title=" " alt="" coords="464,5,661,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,69,477,47,478,52,398,75"/>
+<area shape="rect" id="Node000004" href="$dd/d55/classNetworkStreamManager.html#a675b6344d7c54d54bcaa2def77c064d2" title=" " alt="" coords="472,69,653,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="416,88,458,88,458,93,416,94"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="404,110,472,127,471,132,403,115"/>
+</map>

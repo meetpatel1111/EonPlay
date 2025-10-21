@@ -1,0 +1,31 @@
+<map id="FileUrlSupport::loadMediaUrl" name="FileUrlSupport::loadMediaUrl">
+<area shape="rect" id="Node000001" title="Load media from URL or stream." alt="" coords="5,253,215,278"/>
+<area shape="rect" id="Node000002" href="$d8/d04/classFileUrlSupport.html#a3df7473233455bcf79dac20b4f1d28c9" title="Check if URL is a local file." alt="" coords="273,125,483,150"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,250,181,205,220,180,262,159,282,151,284,156,264,164,223,185,185,210,127,255"/>
+<area shape="rect" id="Node000003" href="$d8/d04/classFileUrlSupport.html#adfa2738cd27f0ad1beecdaae4b8cf4b8" title="Validate URL for streaming." alt="" coords="263,174,493,199"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,250,262,208,295,200,296,205,263,213,144,255"/>
+<area shape="rect" id="Node000004" href="$d8/d04/classFileUrlSupport.html#a37b71fc93757ef83b9d21774b6253675" title="Load media file with validation and auto subtitle detection." alt="" coords="271,223,485,249"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="214,251,257,247,258,252,215,257"/>
+<area shape="rect" id="Node000013" href="$d8/d04/classFileUrlSupport.html#a72c170b7e22a7be130a1e4f7c55015dc" title="Emitted when media URL is successfully loaded." alt="" coords="287,273,469,313"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="215,274,273,280,273,285,214,279"/>
+<area shape="rect" id="Node000014" href="$db/d09/structMediaInfo.html#a1d32d9c830bba685aa4c62e2017e065d" title="Get formatted string representation." alt="" coords="305,338,451,363"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="141,276,197,299,263,323,299,332,297,337,262,328,195,304,139,281"/>
+<area shape="rect" id="Node000015" href="$d8/d04/classFileUrlSupport.html#aa0b5ff5500ed4fc180fa19facf4cac91" title="Emitted when URL validation fails." alt="" coords="276,388,480,428"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="127,276,185,323,223,349,264,372,283,381,281,386,261,377,220,354,182,327,124,280"/>
+<area shape="rect" id="Node000005" href="$d8/d04/classFileUrlSupport.html#ac91a76d40860e8f1616a0f108c158368" title="Auto&#45;detect and load subtitle files for media." alt="" coords="561,5,755,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="473,221,492,209,506,191,513,173,515,134,517,95,524,75,539,55,548,49,551,53,543,59,529,77,522,96,520,135,518,174,511,194,495,213,476,225"/>
+<area shape="rect" id="Node000006" href="$d8/d04/classFileUrlSupport.html#a7273912ab01714993422b33594c560e1" title="Extract detailed media information." alt="" coords="541,70,775,95"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="471,221,492,209,503,197,509,185,515,159,520,132,527,119,540,106,549,100,552,104,543,110,532,122,525,134,520,160,514,187,507,200,495,213,474,225"/>
+<area shape="rect" id="Node000007" href="$d8/d04/classFileUrlSupport.html#af7ab89ece6edc9a56fb22a70b8b3a860" title="Emitted when file validation fails." alt="" coords="555,120,761,160"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="458,221,492,208,506,199,516,190,525,180,540,170,556,162,558,167,543,174,529,184,519,193,510,203,495,213,460,226"/>
+<area shape="rect" id="Node000008" href="$d8/d04/classFileUrlSupport.html#a65e03800e733f1147529109a2e1cc61b" title="Get detailed validation error message." alt="" coords="554,184,762,224"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="485,221,540,215,541,220,485,226"/>
+<area shape="rect" id="Node000009" href="$d8/d04/classFileUrlSupport.html#ad7738c4718eeaa38962f9602ddc8dd2d" title="Emitted when media file is successfully loaded." alt="" coords="565,248,751,288"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="485,246,551,253,551,258,485,251"/>
+<area shape="rect" id="Node000010" href="$d8/d04/classFileUrlSupport.html#acfbeabc31481ea545f51901ac09ba91f" title="Emitted when media information is extracted." alt="" coords="564,312,752,352"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="460,246,495,259,510,269,519,279,529,288,543,298,558,305,556,310,540,302,525,292,516,282,506,273,492,264,458,251"/>
+<area shape="rect" id="Node000011" href="$d8/d04/classFileUrlSupport.html#a980075a524997ae18169a318a803577b" title="Emitted when subtitles are auto&#45;detected." alt="" coords="569,376,747,416"/>
+<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="474,247,495,259,507,272,515,285,520,312,526,338,532,350,543,362,558,372,555,376,540,366,528,353,521,340,515,313,510,287,503,275,492,263,471,251"/>
+<area shape="rect" id="Node000012" href="$d8/d04/classFileUrlSupport.html#a5b172a8b83c71af482d59c49abbb6508" title="Validate media file format and accessibility." alt="" coords="571,440,745,480"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="477,247,495,259,512,280,519,302,521,344,521,386,528,406,543,426,560,439,557,443,539,430,523,409,516,387,515,344,514,303,507,283,492,263,474,251"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="NotificationManager::clearAllNotifications" name="NotificationManager::clearAllNotifications">
+<area shape="rect" id="Node000001" title="Clear all pending notifications." alt="" coords="5,37,167,77"/>
+<area shape="rect" id="Node000002" href="$d3/d35/classNotificationWidget.html#ae2716adf71cc3cb11b4cb6fae6dd708e" title="Hide notification with animation." alt="" coords="223,5,366,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,42,209,36,210,41,167,48"/>
+<area shape="rect" id="Node000003" href="$d3/d35/classNotificationWidget.html#a4eccce2b0d895fe10777f3686d6de95b" title="Check if notification is currently visible." alt="" coords="215,69,375,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,67,202,72,201,78,167,72"/>
+</map>

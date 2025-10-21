@@ -1,0 +1,5 @@
+<map id="DragDropWidget" name="DragDropWidget">
+<area shape="rect" id="Node000001" title="Widget that handles drag and drop operations for media files and URLs." alt="" coords="5,119,219,404"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="77,5,147,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,84,115,119,109,119,109,84"/>
+</map>
