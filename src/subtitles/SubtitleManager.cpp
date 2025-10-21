@@ -499,7 +499,7 @@ QString SubtitleManager::sanitizeContent(const QString& content) const
     // Remove control characters except common ones
     for (int i = 0; i < sanitized.length(); ++i) {
         QChar ch = sanitized.at(i);
-        if (ch.isControl() && ch != '\n' && ch != '\r' && ch != '\t') {
+        if (ch.category() == QChar::Other_Control && ch != '\n' && ch != '\r' && ch != '\t') {
             sanitized[i] = ' ';
         }
     }
