@@ -299,6 +299,8 @@ add_executable(EonPlay
     ${SECURITY_SOURCES}
     ${STABILITY_SOURCES}
     ${PLATFORM_SOURCES}
+    ${MOC_SOURCES}
+    ${MOC_CPP_SOURCES}
 )
 
 # Set target include directories
@@ -310,8 +312,10 @@ target_include_directories(EonPlay PRIVATE
 
 # Set target properties for MOC processing
 set_target_properties(EonPlay PROPERTIES
+    AUTOMOC ON
     AUTOMOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE"
     AUTOMOC_MOC_OPTIONS "-I${CMAKE_SOURCE_DIR}/include"
+    AUTOMOC_COMPILER_PREDEFINES ON
 )
 
 # Link libraries
@@ -396,6 +400,16 @@ endif()
 # Additional MOC configuration
 set(CMAKE_AUTOMOC_MOC_OPTIONS "-I${CMAKE_SOURCE_DIR}/include")
 set(CMAKE_AUTOMOC_PATH_PREFIX ON)
+
+# Force MOC to process all Qt headers
+file(GLOB_RECURSE QT_HEADERS "include/*.h")
+qt6_wrap_cpp(MOC_SOURCES ${QT_HEADERS})
+
+# Also process source files with Q_OBJECT (like MediaKeysManager.cpp)
+set(MOC_CPP_FILES
+    src/ui/MediaKeysManager.cpp
+)
+qt6_wrap_cpp(MOC_CPP_SOURCES ${MOC_CPP_FILES})
 
 # Resources (optional)
 set(RESOURCE_FILES
