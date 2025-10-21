@@ -93,12 +93,7 @@ else()
     pkg_check_modules(LIBVLC REQUIRED libvlc>=3.0.0)
 endif()
 
-# Include directories
-include_directories(
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/src
-    ${LIBVLC_INCLUDE_DIR}
-)
+# Note: Include directories are now set per target using target_include_directories
 
 # Source files
 set(CORE_SOURCES
@@ -190,6 +185,11 @@ set(AI_SOURCES
     # src/ai/AIRecommendations.cpp     # Task 9.2
 )
 
+set(SUBTITLE_SOURCES
+    src/subtitles/SubtitleManager.cpp
+    src/subtitles/SubtitleRenderer.cpp
+)
+
 set(SECURITY_SOURCES
     src/security/SecurityManager.cpp      # Task 12.1 - IMPLEMENTED
     src/security/ParentalControlManager.cpp # Task 12.2 - IMPLEMENTED
@@ -214,6 +214,7 @@ endif()
 
 # Header files for moc processing
 set(HEADER_FILES
+    include/media/IMediaEngine.h
     include/media/VLCBackend.h
     include/ui/MainWindow.h
     include/ui/PlaybackControls.h
@@ -255,6 +256,8 @@ set(HEADER_FILES
     include/ai/SubtitleLanguageDetector.h
     include/ai/SubtitleTranslator.h
     include/ai/AISubtitleManager.h
+    include/subtitles/SubtitleManager.h
+    include/subtitles/SubtitleRenderer.h
     include/security/SecurityManager.h
     include/security/ParentalControlManager.h
     include/stability/CrashReporter.h
@@ -283,11 +286,21 @@ add_executable(EonPlay
     ${DATA_SOURCES}
     ${NETWORK_SOURCES}
     ${AI_SOURCES}
+    ${SUBTITLE_SOURCES}
     ${SECURITY_SOURCES}
     ${STABILITY_SOURCES}
     ${PLATFORM_SOURCES}
-    ${HEADER_FILES}
 )
+
+# Set target include directories
+target_include_directories(EonPlay PRIVATE
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/src
+    ${LIBVLC_INCLUDE_DIRS}
+)
+
+# Set target sources to include headers for MOC processing
+target_sources(EonPlay PRIVATE ${HEADER_FILES})
 
 # Link libraries
 target_link_libraries(EonPlay
@@ -372,6 +385,13 @@ endif()
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
+
+# Ensure MOC finds all header files
+set(CMAKE_AUTOMOC_MOC_OPTIONS "-I${CMAKE_SOURCE_DIR}/include")
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# Set MOC path hints
+set(CMAKE_AUTOMOC_PATH_PREFIX ON)
 
 # Resources (optional)
 set(RESOURCE_FILES
