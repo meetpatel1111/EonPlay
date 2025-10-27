@@ -181,7 +181,7 @@ jobs:
         done > docs/doc-coverage.txt
 
     - name: Upload documentation artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: documentation
         path: |
