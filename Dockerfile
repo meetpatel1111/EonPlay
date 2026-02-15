@@ -1,5 +1,5 @@
 # Multi-stage build for Cross-Platform Media Player
-FROM ubuntu:22.04 as builder
+FROM ubuntu:24.04 as builder
 
 # Avoid interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -50,7 +50,7 @@ RUN cd build && ctest --output-on-failure --parallel
 RUN cmake --install build
 
 # Runtime stage
-FROM ubuntu:22.04 as runtime
+FROM ubuntu:24.04 as runtime
 
 # Install runtime dependencies
 RUN apt-get update && apt-get install -y \
